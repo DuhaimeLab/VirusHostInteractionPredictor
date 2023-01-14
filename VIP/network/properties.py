@@ -50,7 +50,6 @@ class AdjacencyMatrix:
         # sort matrix if it has not been done
         if self.sorted == False:
             self.sort()
-            self.sorted = True
 
         N_row = 0
         N_col = 0
