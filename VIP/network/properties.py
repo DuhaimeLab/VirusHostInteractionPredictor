@@ -75,7 +75,6 @@ class AdjacencyMatrix:
         self.NODF = (N_row + N_col) / 2
         
         
-
     def pairs(self, axis=0):
         lst = []
         for i in range(0, self.shape[axis]):
@@ -103,16 +102,6 @@ class AdjacencyMatrix:
 
 
 
-unsorted= np.array([[1,1,1,1,1], 
-                     [1,1,1,1,1],
-                     [1,1,1,1,1]])
-
-test = AdjacencyMatrix(unsorted)
-test.nestedness()
-print(test.NODF)
-
-
-
 
 
 unsorted = np.array([[0,0,0,1,1], 
@@ -120,6 +109,14 @@ unsorted = np.array([[0,0,0,1,1],
                      [0,0,0,1,1], 
                      [0,0,1,1,1],
                      [1,1,1,0,1]])
+
+
+test = AdjacencyMatrix(unsorted)
+test.nestedness()
+print(test.NODF)
+
+
+
 
 
 
