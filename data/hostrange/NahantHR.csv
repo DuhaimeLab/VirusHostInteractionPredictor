@@ -1,0 +1,5457 @@
+uniqPhages,uniqSpecies,Infectivity
+1.003.O.,Aliivibrio fischeri,NoInf
+1.003.O.,Enterovibrio norvegicus,Inf
+1.003.O.,Shewanella sp. 10N.6,NoInf
+1.003.O.,Shewanella sp. 10N.7,NoInf
+1.003.O.,Vibrio alginolyticus,NoInf
+1.003.O.,Vibrio anguillarum,NoInf
+1.003.O.,Vibrio breoganii,NoInf
+1.003.O.,Vibrio cyclitrophicus,NoInf
+1.003.O.,Vibrio jasicida,NoInf
+1.003.O.,Vibrio kanaloae,NoInf
+1.003.O.,Vibrio lentus,Inf
+1.003.O.,Vibrio parahaemolyticus,NoInf
+1.003.O.,Vibrio sp. 10N.1,NoInf
+1.003.O.,Vibrio sp. 10N.2,NoInf
+1.003.O.,Vibrio sp. 10N.3,NoInf
+1.003.O.,Vibrio sp. 10N.4,NoInf
+1.003.O.,Vibrio sp. 10N.5,NoInf
+1.003.O.,Vibrio sp. F12,NoInf
+1.003.O.,Vibrio sp. F13,NoInf
+1.003.O.,Vibrio splendidus,NoInf
+1.003.O.,Vibrio tasmaniensis,NoInf
+1.003.O.,Vibrio vulnificus,NoInf
+1.004.O.,Aliivibrio fischeri,NoInf
+1.004.O.,Enterovibrio norvegicus,NoInf
+1.004.O.,Shewanella sp. 10N.6,NoInf
+1.004.O.,Shewanella sp. 10N.7,NoInf
+1.004.O.,Vibrio alginolyticus,NoInf
+1.004.O.,Vibrio anguillarum,NoInf
+1.004.O.,Vibrio breoganii,NoInf
+1.004.O.,Vibrio cyclitrophicus,NoInf
+1.004.O.,Vibrio jasicida,NoInf
+1.004.O.,Vibrio kanaloae,NoInf
+1.004.O.,Vibrio lentus,Inf
+1.004.O.,Vibrio parahaemolyticus,NoInf
+1.004.O.,Vibrio sp. 10N.1,NoInf
+1.004.O.,Vibrio sp. 10N.2,NoInf
+1.004.O.,Vibrio sp. 10N.3,NoInf
+1.004.O.,Vibrio sp. 10N.4,NoInf
+1.004.O.,Vibrio sp. 10N.5,NoInf
+1.004.O.,Vibrio sp. F12,NoInf
+1.004.O.,Vibrio sp. F13,NoInf
+1.004.O.,Vibrio splendidus,NoInf
+1.004.O.,Vibrio tasmaniensis,NoInf
+1.004.O.,Vibrio vulnificus,NoInf
+1.005.O.,Aliivibrio fischeri,NoInf
+1.005.O.,Enterovibrio norvegicus,NoInf
+1.005.O.,Shewanella sp. 10N.6,NoInf
+1.005.O.,Shewanella sp. 10N.7,NoInf
+1.005.O.,Vibrio alginolyticus,NoInf
+1.005.O.,Vibrio anguillarum,NoInf
+1.005.O.,Vibrio breoganii,NoInf
+1.005.O.,Vibrio cyclitrophicus,NoInf
+1.005.O.,Vibrio jasicida,NoInf
+1.005.O.,Vibrio kanaloae,NoInf
+1.005.O.,Vibrio lentus,NoInf
+1.005.O.,Vibrio parahaemolyticus,NoInf
+1.005.O.,Vibrio sp. 10N.1,NoInf
+1.005.O.,Vibrio sp. 10N.2,NoInf
+1.005.O.,Vibrio sp. 10N.3,NoInf
+1.005.O.,Vibrio sp. 10N.4,NoInf
+1.005.O.,Vibrio sp. 10N.5,NoInf
+1.005.O.,Vibrio sp. F12,NoInf
+1.005.O.,Vibrio sp. F13,NoInf
+1.005.O.,Vibrio splendidus,Inf
+1.005.O.,Vibrio tasmaniensis,NoInf
+1.005.O.,Vibrio vulnificus,NoInf
+1.007.O.,Aliivibrio fischeri,NoInf
+1.007.O.,Enterovibrio norvegicus,NoInf
+1.007.O.,Shewanella sp. 10N.6,NoInf
+1.007.O.,Shewanella sp. 10N.7,NoInf
+1.007.O.,Vibrio alginolyticus,NoInf
+1.007.O.,Vibrio anguillarum,NoInf
+1.007.O.,Vibrio breoganii,NoInf
+1.007.O.,Vibrio cyclitrophicus,Inf
+1.007.O.,Vibrio jasicida,NoInf
+1.007.O.,Vibrio kanaloae,NoInf
+1.007.O.,Vibrio lentus,NoInf
+1.007.O.,Vibrio parahaemolyticus,NoInf
+1.007.O.,Vibrio sp. 10N.1,NoInf
+1.007.O.,Vibrio sp. 10N.2,NoInf
+1.007.O.,Vibrio sp. 10N.3,NoInf
+1.007.O.,Vibrio sp. 10N.4,NoInf
+1.007.O.,Vibrio sp. 10N.5,NoInf
+1.007.O.,Vibrio sp. F12,NoInf
+1.007.O.,Vibrio sp. F13,NoInf
+1.007.O.,Vibrio splendidus,NoInf
+1.007.O.,Vibrio tasmaniensis,NoInf
+1.007.O.,Vibrio vulnificus,NoInf
+1.008.O.,Aliivibrio fischeri,NoInf
+1.008.O.,Enterovibrio norvegicus,Inf
+1.008.O.,Shewanella sp. 10N.6,NoInf
+1.008.O.,Shewanella sp. 10N.7,NoInf
+1.008.O.,Vibrio alginolyticus,NoInf
+1.008.O.,Vibrio anguillarum,NoInf
+1.008.O.,Vibrio breoganii,Inf
+1.008.O.,Vibrio cyclitrophicus,Inf
+1.008.O.,Vibrio jasicida,NoInf
+1.008.O.,Vibrio kanaloae,NoInf
+1.008.O.,Vibrio lentus,Inf
+1.008.O.,Vibrio parahaemolyticus,NoInf
+1.008.O.,Vibrio sp. 10N.1,NoInf
+1.008.O.,Vibrio sp. 10N.2,NoInf
+1.008.O.,Vibrio sp. 10N.3,NoInf
+1.008.O.,Vibrio sp. 10N.4,NoInf
+1.008.O.,Vibrio sp. 10N.5,NoInf
+1.008.O.,Vibrio sp. F12,Inf
+1.008.O.,Vibrio sp. F13,NoInf
+1.008.O.,Vibrio splendidus,Inf
+1.008.O.,Vibrio tasmaniensis,NoInf
+1.008.O.,Vibrio vulnificus,NoInf
+1.009.O.,Aliivibrio fischeri,NoInf
+1.009.O.,Enterovibrio norvegicus,NoInf
+1.009.O.,Shewanella sp. 10N.6,NoInf
+1.009.O.,Shewanella sp. 10N.7,NoInf
+1.009.O.,Vibrio alginolyticus,NoInf
+1.009.O.,Vibrio anguillarum,NoInf
+1.009.O.,Vibrio breoganii,NoInf
+1.009.O.,Vibrio cyclitrophicus,NoInf
+1.009.O.,Vibrio jasicida,NoInf
+1.009.O.,Vibrio kanaloae,NoInf
+1.009.O.,Vibrio lentus,Inf
+1.009.O.,Vibrio parahaemolyticus,NoInf
+1.009.O.,Vibrio sp. 10N.1,NoInf
+1.009.O.,Vibrio sp. 10N.2,NoInf
+1.009.O.,Vibrio sp. 10N.3,NoInf
+1.009.O.,Vibrio sp. 10N.4,NoInf
+1.009.O.,Vibrio sp. 10N.5,NoInf
+1.009.O.,Vibrio sp. F12,NoInf
+1.009.O.,Vibrio sp. F13,NoInf
+1.009.O.,Vibrio splendidus,NoInf
+1.009.O.,Vibrio tasmaniensis,NoInf
+1.009.O.,Vibrio vulnificus,NoInf
+1.011.O.,Aliivibrio fischeri,NoInf
+1.011.O.,Enterovibrio norvegicus,Inf
+1.011.O.,Shewanella sp. 10N.6,NoInf
+1.011.O.,Shewanella sp. 10N.7,NoInf
+1.011.O.,Vibrio alginolyticus,NoInf
+1.011.O.,Vibrio anguillarum,NoInf
+1.011.O.,Vibrio breoganii,Inf
+1.011.O.,Vibrio cyclitrophicus,Inf
+1.011.O.,Vibrio jasicida,NoInf
+1.011.O.,Vibrio kanaloae,NoInf
+1.011.O.,Vibrio lentus,Inf
+1.011.O.,Vibrio parahaemolyticus,NoInf
+1.011.O.,Vibrio sp. 10N.1,NoInf
+1.011.O.,Vibrio sp. 10N.2,NoInf
+1.011.O.,Vibrio sp. 10N.3,NoInf
+1.011.O.,Vibrio sp. 10N.4,NoInf
+1.011.O.,Vibrio sp. 10N.5,NoInf
+1.011.O.,Vibrio sp. F12,Inf
+1.011.O.,Vibrio sp. F13,NoInf
+1.011.O.,Vibrio splendidus,Inf
+1.011.O.,Vibrio tasmaniensis,NoInf
+1.011.O.,Vibrio vulnificus,NoInf
+1.012.O.,Aliivibrio fischeri,NoInf
+1.012.O.,Enterovibrio norvegicus,NoInf
+1.012.O.,Shewanella sp. 10N.6,NoInf
+1.012.O.,Shewanella sp. 10N.7,NoInf
+1.012.O.,Vibrio alginolyticus,NoInf
+1.012.O.,Vibrio anguillarum,NoInf
+1.012.O.,Vibrio breoganii,Inf
+1.012.O.,Vibrio cyclitrophicus,NoInf
+1.012.O.,Vibrio jasicida,NoInf
+1.012.O.,Vibrio kanaloae,NoInf
+1.012.O.,Vibrio lentus,Inf
+1.012.O.,Vibrio parahaemolyticus,NoInf
+1.012.O.,Vibrio sp. 10N.1,NoInf
+1.012.O.,Vibrio sp. 10N.2,NoInf
+1.012.O.,Vibrio sp. 10N.3,NoInf
+1.012.O.,Vibrio sp. 10N.4,NoInf
+1.012.O.,Vibrio sp. 10N.5,NoInf
+1.012.O.,Vibrio sp. F12,NoInf
+1.012.O.,Vibrio sp. F13,NoInf
+1.012.O.,Vibrio splendidus,NoInf
+1.012.O.,Vibrio tasmaniensis,NoInf
+1.012.O.,Vibrio vulnificus,NoInf
+1.013.O.,Aliivibrio fischeri,NoInf
+1.013.O.,Enterovibrio norvegicus,NoInf
+1.013.O.,Shewanella sp. 10N.6,NoInf
+1.013.O.,Shewanella sp. 10N.7,NoInf
+1.013.O.,Vibrio alginolyticus,NoInf
+1.013.O.,Vibrio anguillarum,NoInf
+1.013.O.,Vibrio breoganii,NoInf
+1.013.O.,Vibrio cyclitrophicus,Inf
+1.013.O.,Vibrio jasicida,NoInf
+1.013.O.,Vibrio kanaloae,NoInf
+1.013.O.,Vibrio lentus,NoInf
+1.013.O.,Vibrio parahaemolyticus,NoInf
+1.013.O.,Vibrio sp. 10N.1,NoInf
+1.013.O.,Vibrio sp. 10N.2,NoInf
+1.013.O.,Vibrio sp. 10N.3,NoInf
+1.013.O.,Vibrio sp. 10N.4,NoInf
+1.013.O.,Vibrio sp. 10N.5,NoInf
+1.013.O.,Vibrio sp. F12,NoInf
+1.013.O.,Vibrio sp. F13,NoInf
+1.013.O.,Vibrio splendidus,NoInf
+1.013.O.,Vibrio tasmaniensis,NoInf
+1.013.O.,Vibrio vulnificus,NoInf
+1.015.O.,Aliivibrio fischeri,NoInf
+1.015.O.,Enterovibrio norvegicus,NoInf
+1.015.O.,Shewanella sp. 10N.6,NoInf
+1.015.O.,Shewanella sp. 10N.7,NoInf
+1.015.O.,Vibrio alginolyticus,NoInf
+1.015.O.,Vibrio anguillarum,NoInf
+1.015.O.,Vibrio breoganii,Inf
+1.015.O.,Vibrio cyclitrophicus,NoInf
+1.015.O.,Vibrio jasicida,NoInf
+1.015.O.,Vibrio kanaloae,NoInf
+1.015.O.,Vibrio lentus,NoInf
+1.015.O.,Vibrio parahaemolyticus,NoInf
+1.015.O.,Vibrio sp. 10N.1,NoInf
+1.015.O.,Vibrio sp. 10N.2,NoInf
+1.015.O.,Vibrio sp. 10N.3,NoInf
+1.015.O.,Vibrio sp. 10N.4,NoInf
+1.015.O.,Vibrio sp. 10N.5,NoInf
+1.015.O.,Vibrio sp. F12,NoInf
+1.015.O.,Vibrio sp. F13,NoInf
+1.015.O.,Vibrio splendidus,NoInf
+1.015.O.,Vibrio tasmaniensis,NoInf
+1.015.O.,Vibrio vulnificus,NoInf
+1.016.O.,Aliivibrio fischeri,NoInf
+1.016.O.,Enterovibrio norvegicus,NoInf
+1.016.O.,Shewanella sp. 10N.6,NoInf
+1.016.O.,Shewanella sp. 10N.7,NoInf
+1.016.O.,Vibrio alginolyticus,NoInf
+1.016.O.,Vibrio anguillarum,NoInf
+1.016.O.,Vibrio breoganii,NoInf
+1.016.O.,Vibrio cyclitrophicus,NoInf
+1.016.O.,Vibrio jasicida,NoInf
+1.016.O.,Vibrio kanaloae,NoInf
+1.016.O.,Vibrio lentus,Inf
+1.016.O.,Vibrio parahaemolyticus,NoInf
+1.016.O.,Vibrio sp. 10N.1,NoInf
+1.016.O.,Vibrio sp. 10N.2,NoInf
+1.016.O.,Vibrio sp. 10N.3,NoInf
+1.016.O.,Vibrio sp. 10N.4,NoInf
+1.016.O.,Vibrio sp. 10N.5,NoInf
+1.016.O.,Vibrio sp. F12,NoInf
+1.016.O.,Vibrio sp. F13,NoInf
+1.016.O.,Vibrio splendidus,NoInf
+1.016.O.,Vibrio tasmaniensis,NoInf
+1.016.O.,Vibrio vulnificus,NoInf
+1.017.O.,Aliivibrio fischeri,NoInf
+1.017.O.,Enterovibrio norvegicus,NoInf
+1.017.O.,Shewanella sp. 10N.6,NoInf
+1.017.O.,Shewanella sp. 10N.7,NoInf
+1.017.O.,Vibrio alginolyticus,NoInf
+1.017.O.,Vibrio anguillarum,NoInf
+1.017.O.,Vibrio breoganii,NoInf
+1.017.O.,Vibrio cyclitrophicus,NoInf
+1.017.O.,Vibrio jasicida,NoInf
+1.017.O.,Vibrio kanaloae,NoInf
+1.017.O.,Vibrio lentus,NoInf
+1.017.O.,Vibrio parahaemolyticus,NoInf
+1.017.O.,Vibrio sp. 10N.1,NoInf
+1.017.O.,Vibrio sp. 10N.2,NoInf
+1.017.O.,Vibrio sp. 10N.3,NoInf
+1.017.O.,Vibrio sp. 10N.4,NoInf
+1.017.O.,Vibrio sp. 10N.5,NoInf
+1.017.O.,Vibrio sp. F12,Inf
+1.017.O.,Vibrio sp. F13,NoInf
+1.017.O.,Vibrio splendidus,Inf
+1.017.O.,Vibrio tasmaniensis,NoInf
+1.017.O.,Vibrio vulnificus,NoInf
+1.020.O.,Aliivibrio fischeri,NoInf
+1.020.O.,Enterovibrio norvegicus,NoInf
+1.020.O.,Shewanella sp. 10N.6,NoInf
+1.020.O.,Shewanella sp. 10N.7,NoInf
+1.020.O.,Vibrio alginolyticus,NoInf
+1.020.O.,Vibrio anguillarum,NoInf
+1.020.O.,Vibrio breoganii,NoInf
+1.020.O.,Vibrio cyclitrophicus,NoInf
+1.020.O.,Vibrio jasicida,NoInf
+1.020.O.,Vibrio kanaloae,NoInf
+1.020.O.,Vibrio lentus,Inf
+1.020.O.,Vibrio parahaemolyticus,NoInf
+1.020.O.,Vibrio sp. 10N.1,NoInf
+1.020.O.,Vibrio sp. 10N.2,NoInf
+1.020.O.,Vibrio sp. 10N.3,NoInf
+1.020.O.,Vibrio sp. 10N.4,NoInf
+1.020.O.,Vibrio sp. 10N.5,NoInf
+1.020.O.,Vibrio sp. F12,NoInf
+1.020.O.,Vibrio sp. F13,NoInf
+1.020.O.,Vibrio splendidus,NoInf
+1.020.O.,Vibrio tasmaniensis,Inf
+1.020.O.,Vibrio vulnificus,NoInf
+1.021.A.,Aliivibrio fischeri,NoInf
+1.021.A.,Enterovibrio norvegicus,NoInf
+1.021.A.,Shewanella sp. 10N.6,NoInf
+1.021.A.,Shewanella sp. 10N.7,NoInf
+1.021.A.,Vibrio alginolyticus,NoInf
+1.021.A.,Vibrio anguillarum,NoInf
+1.021.A.,Vibrio breoganii,NoInf
+1.021.A.,Vibrio cyclitrophicus,NoInf
+1.021.A.,Vibrio jasicida,NoInf
+1.021.A.,Vibrio kanaloae,NoInf
+1.021.A.,Vibrio lentus,NoInf
+1.021.A.,Vibrio parahaemolyticus,NoInf
+1.021.A.,Vibrio sp. 10N.1,NoInf
+1.021.A.,Vibrio sp. 10N.2,NoInf
+1.021.A.,Vibrio sp. 10N.3,NoInf
+1.021.A.,Vibrio sp. 10N.4,NoInf
+1.021.A.,Vibrio sp. 10N.5,NoInf
+1.021.A.,Vibrio sp. F12,NoInf
+1.021.A.,Vibrio sp. F13,NoInf
+1.021.A.,Vibrio splendidus,Inf
+1.021.A.,Vibrio tasmaniensis,NoInf
+1.021.A.,Vibrio vulnificus,NoInf
+1.022.O.,Aliivibrio fischeri,NoInf
+1.022.O.,Enterovibrio norvegicus,NoInf
+1.022.O.,Shewanella sp. 10N.6,NoInf
+1.022.O.,Shewanella sp. 10N.7,NoInf
+1.022.O.,Vibrio alginolyticus,NoInf
+1.022.O.,Vibrio anguillarum,NoInf
+1.022.O.,Vibrio breoganii,NoInf
+1.022.O.,Vibrio cyclitrophicus,NoInf
+1.022.O.,Vibrio jasicida,NoInf
+1.022.O.,Vibrio kanaloae,NoInf
+1.022.O.,Vibrio lentus,NoInf
+1.022.O.,Vibrio parahaemolyticus,NoInf
+1.022.O.,Vibrio sp. 10N.1,NoInf
+1.022.O.,Vibrio sp. 10N.2,NoInf
+1.022.O.,Vibrio sp. 10N.3,NoInf
+1.022.O.,Vibrio sp. 10N.4,NoInf
+1.022.O.,Vibrio sp. 10N.5,NoInf
+1.022.O.,Vibrio sp. F12,NoInf
+1.022.O.,Vibrio sp. F13,NoInf
+1.022.O.,Vibrio splendidus,Inf
+1.022.O.,Vibrio tasmaniensis,NoInf
+1.022.O.,Vibrio vulnificus,NoInf
+1.023.O.,Aliivibrio fischeri,NoInf
+1.023.O.,Enterovibrio norvegicus,NoInf
+1.023.O.,Shewanella sp. 10N.6,NoInf
+1.023.O.,Shewanella sp. 10N.7,NoInf
+1.023.O.,Vibrio alginolyticus,NoInf
+1.023.O.,Vibrio anguillarum,NoInf
+1.023.O.,Vibrio breoganii,NoInf
+1.023.O.,Vibrio cyclitrophicus,NoInf
+1.023.O.,Vibrio jasicida,NoInf
+1.023.O.,Vibrio kanaloae,NoInf
+1.023.O.,Vibrio lentus,NoInf
+1.023.O.,Vibrio parahaemolyticus,NoInf
+1.023.O.,Vibrio sp. 10N.1,NoInf
+1.023.O.,Vibrio sp. 10N.2,NoInf
+1.023.O.,Vibrio sp. 10N.3,NoInf
+1.023.O.,Vibrio sp. 10N.4,NoInf
+1.023.O.,Vibrio sp. 10N.5,NoInf
+1.023.O.,Vibrio sp. F12,NoInf
+1.023.O.,Vibrio sp. F13,NoInf
+1.023.O.,Vibrio splendidus,Inf
+1.023.O.,Vibrio tasmaniensis,NoInf
+1.023.O.,Vibrio vulnificus,NoInf
+1.024.O.,Aliivibrio fischeri,NoInf
+1.024.O.,Enterovibrio norvegicus,NoInf
+1.024.O.,Shewanella sp. 10N.6,NoInf
+1.024.O.,Shewanella sp. 10N.7,NoInf
+1.024.O.,Vibrio alginolyticus,NoInf
+1.024.O.,Vibrio anguillarum,NoInf
+1.024.O.,Vibrio breoganii,NoInf
+1.024.O.,Vibrio cyclitrophicus,NoInf
+1.024.O.,Vibrio jasicida,NoInf
+1.024.O.,Vibrio kanaloae,NoInf
+1.024.O.,Vibrio lentus,Inf
+1.024.O.,Vibrio parahaemolyticus,NoInf
+1.024.O.,Vibrio sp. 10N.1,NoInf
+1.024.O.,Vibrio sp. 10N.2,NoInf
+1.024.O.,Vibrio sp. 10N.3,NoInf
+1.024.O.,Vibrio sp. 10N.4,NoInf
+1.024.O.,Vibrio sp. 10N.5,NoInf
+1.024.O.,Vibrio sp. F12,NoInf
+1.024.O.,Vibrio sp. F13,NoInf
+1.024.O.,Vibrio splendidus,NoInf
+1.024.O.,Vibrio tasmaniensis,NoInf
+1.024.O.,Vibrio vulnificus,NoInf
+1.025.O.,Aliivibrio fischeri,NoInf
+1.025.O.,Enterovibrio norvegicus,NoInf
+1.025.O.,Shewanella sp. 10N.6,NoInf
+1.025.O.,Shewanella sp. 10N.7,NoInf
+1.025.O.,Vibrio alginolyticus,NoInf
+1.025.O.,Vibrio anguillarum,NoInf
+1.025.O.,Vibrio breoganii,NoInf
+1.025.O.,Vibrio cyclitrophicus,NoInf
+1.025.O.,Vibrio jasicida,NoInf
+1.025.O.,Vibrio kanaloae,NoInf
+1.025.O.,Vibrio lentus,NoInf
+1.025.O.,Vibrio parahaemolyticus,NoInf
+1.025.O.,Vibrio sp. 10N.1,NoInf
+1.025.O.,Vibrio sp. 10N.2,NoInf
+1.025.O.,Vibrio sp. 10N.3,NoInf
+1.025.O.,Vibrio sp. 10N.4,NoInf
+1.025.O.,Vibrio sp. 10N.5,NoInf
+1.025.O.,Vibrio sp. F12,NoInf
+1.025.O.,Vibrio sp. F13,NoInf
+1.025.O.,Vibrio splendidus,Inf
+1.025.O.,Vibrio tasmaniensis,NoInf
+1.025.O.,Vibrio vulnificus,NoInf
+1.026.O.,Aliivibrio fischeri,NoInf
+1.026.O.,Enterovibrio norvegicus,NoInf
+1.026.O.,Shewanella sp. 10N.6,NoInf
+1.026.O.,Shewanella sp. 10N.7,NoInf
+1.026.O.,Vibrio alginolyticus,NoInf
+1.026.O.,Vibrio anguillarum,NoInf
+1.026.O.,Vibrio breoganii,NoInf
+1.026.O.,Vibrio cyclitrophicus,NoInf
+1.026.O.,Vibrio jasicida,NoInf
+1.026.O.,Vibrio kanaloae,NoInf
+1.026.O.,Vibrio lentus,NoInf
+1.026.O.,Vibrio parahaemolyticus,NoInf
+1.026.O.,Vibrio sp. 10N.1,NoInf
+1.026.O.,Vibrio sp. 10N.2,NoInf
+1.026.O.,Vibrio sp. 10N.3,NoInf
+1.026.O.,Vibrio sp. 10N.4,NoInf
+1.026.O.,Vibrio sp. 10N.5,NoInf
+1.026.O.,Vibrio sp. F12,NoInf
+1.026.O.,Vibrio sp. F13,NoInf
+1.026.O.,Vibrio splendidus,Inf
+1.026.O.,Vibrio tasmaniensis,NoInf
+1.026.O.,Vibrio vulnificus,NoInf
+1.027.O.,Aliivibrio fischeri,NoInf
+1.027.O.,Enterovibrio norvegicus,NoInf
+1.027.O.,Shewanella sp. 10N.6,NoInf
+1.027.O.,Shewanella sp. 10N.7,NoInf
+1.027.O.,Vibrio alginolyticus,NoInf
+1.027.O.,Vibrio anguillarum,NoInf
+1.027.O.,Vibrio breoganii,NoInf
+1.027.O.,Vibrio cyclitrophicus,NoInf
+1.027.O.,Vibrio jasicida,NoInf
+1.027.O.,Vibrio kanaloae,NoInf
+1.027.O.,Vibrio lentus,Inf
+1.027.O.,Vibrio parahaemolyticus,NoInf
+1.027.O.,Vibrio sp. 10N.1,NoInf
+1.027.O.,Vibrio sp. 10N.2,NoInf
+1.027.O.,Vibrio sp. 10N.3,NoInf
+1.027.O.,Vibrio sp. 10N.4,NoInf
+1.027.O.,Vibrio sp. 10N.5,NoInf
+1.027.O.,Vibrio sp. F12,NoInf
+1.027.O.,Vibrio sp. F13,NoInf
+1.027.O.,Vibrio splendidus,NoInf
+1.027.O.,Vibrio tasmaniensis,NoInf
+1.027.O.,Vibrio vulnificus,NoInf
+1.028.O.,Aliivibrio fischeri,NoInf
+1.028.O.,Enterovibrio norvegicus,NoInf
+1.028.O.,Shewanella sp. 10N.6,NoInf
+1.028.O.,Shewanella sp. 10N.7,NoInf
+1.028.O.,Vibrio alginolyticus,NoInf
+1.028.O.,Vibrio anguillarum,NoInf
+1.028.O.,Vibrio breoganii,NoInf
+1.028.O.,Vibrio cyclitrophicus,NoInf
+1.028.O.,Vibrio jasicida,NoInf
+1.028.O.,Vibrio kanaloae,NoInf
+1.028.O.,Vibrio lentus,NoInf
+1.028.O.,Vibrio parahaemolyticus,NoInf
+1.028.O.,Vibrio sp. 10N.1,Inf
+1.028.O.,Vibrio sp. 10N.2,NoInf
+1.028.O.,Vibrio sp. 10N.3,NoInf
+1.028.O.,Vibrio sp. 10N.4,NoInf
+1.028.O.,Vibrio sp. 10N.5,NoInf
+1.028.O.,Vibrio sp. F12,NoInf
+1.028.O.,Vibrio sp. F13,NoInf
+1.028.O.,Vibrio splendidus,NoInf
+1.028.O.,Vibrio tasmaniensis,NoInf
+1.028.O.,Vibrio vulnificus,NoInf
+1.029.O.,Aliivibrio fischeri,NoInf
+1.029.O.,Enterovibrio norvegicus,NoInf
+1.029.O.,Shewanella sp. 10N.6,NoInf
+1.029.O.,Shewanella sp. 10N.7,NoInf
+1.029.O.,Vibrio alginolyticus,NoInf
+1.029.O.,Vibrio anguillarum,NoInf
+1.029.O.,Vibrio breoganii,NoInf
+1.029.O.,Vibrio cyclitrophicus,NoInf
+1.029.O.,Vibrio jasicida,NoInf
+1.029.O.,Vibrio kanaloae,NoInf
+1.029.O.,Vibrio lentus,NoInf
+1.029.O.,Vibrio parahaemolyticus,NoInf
+1.029.O.,Vibrio sp. 10N.1,NoInf
+1.029.O.,Vibrio sp. 10N.2,NoInf
+1.029.O.,Vibrio sp. 10N.3,NoInf
+1.029.O.,Vibrio sp. 10N.4,Inf
+1.029.O.,Vibrio sp. 10N.5,NoInf
+1.029.O.,Vibrio sp. F12,NoInf
+1.029.O.,Vibrio sp. F13,NoInf
+1.029.O.,Vibrio splendidus,NoInf
+1.029.O.,Vibrio tasmaniensis,NoInf
+1.029.O.,Vibrio vulnificus,NoInf
+1.030.O.,Aliivibrio fischeri,NoInf
+1.030.O.,Enterovibrio norvegicus,NoInf
+1.030.O.,Shewanella sp. 10N.6,NoInf
+1.030.O.,Shewanella sp. 10N.7,NoInf
+1.030.O.,Vibrio alginolyticus,NoInf
+1.030.O.,Vibrio anguillarum,NoInf
+1.030.O.,Vibrio breoganii,NoInf
+1.030.O.,Vibrio cyclitrophicus,NoInf
+1.030.O.,Vibrio jasicida,NoInf
+1.030.O.,Vibrio kanaloae,NoInf
+1.030.O.,Vibrio lentus,NoInf
+1.030.O.,Vibrio parahaemolyticus,NoInf
+1.030.O.,Vibrio sp. 10N.1,NoInf
+1.030.O.,Vibrio sp. 10N.2,NoInf
+1.030.O.,Vibrio sp. 10N.3,NoInf
+1.030.O.,Vibrio sp. 10N.4,NoInf
+1.030.O.,Vibrio sp. 10N.5,NoInf
+1.030.O.,Vibrio sp. F12,NoInf
+1.030.O.,Vibrio sp. F13,Inf
+1.030.O.,Vibrio splendidus,NoInf
+1.030.O.,Vibrio tasmaniensis,NoInf
+1.030.O.,Vibrio vulnificus,NoInf
+1.031.O.,Aliivibrio fischeri,NoInf
+1.031.O.,Enterovibrio norvegicus,NoInf
+1.031.O.,Shewanella sp. 10N.6,NoInf
+1.031.O.,Shewanella sp. 10N.7,NoInf
+1.031.O.,Vibrio alginolyticus,NoInf
+1.031.O.,Vibrio anguillarum,NoInf
+1.031.O.,Vibrio breoganii,NoInf
+1.031.O.,Vibrio cyclitrophicus,NoInf
+1.031.O.,Vibrio jasicida,NoInf
+1.031.O.,Vibrio kanaloae,NoInf
+1.031.O.,Vibrio lentus,Inf
+1.031.O.,Vibrio parahaemolyticus,NoInf
+1.031.O.,Vibrio sp. 10N.1,NoInf
+1.031.O.,Vibrio sp. 10N.2,NoInf
+1.031.O.,Vibrio sp. 10N.3,NoInf
+1.031.O.,Vibrio sp. 10N.4,NoInf
+1.031.O.,Vibrio sp. 10N.5,NoInf
+1.031.O.,Vibrio sp. F12,NoInf
+1.031.O.,Vibrio sp. F13,NoInf
+1.031.O.,Vibrio splendidus,NoInf
+1.031.O.,Vibrio tasmaniensis,NoInf
+1.031.O.,Vibrio vulnificus,NoInf
+1.032.O.,Aliivibrio fischeri,NoInf
+1.032.O.,Enterovibrio norvegicus,NoInf
+1.032.O.,Shewanella sp. 10N.6,NoInf
+1.032.O.,Shewanella sp. 10N.7,NoInf
+1.032.O.,Vibrio alginolyticus,NoInf
+1.032.O.,Vibrio anguillarum,NoInf
+1.032.O.,Vibrio breoganii,NoInf
+1.032.O.,Vibrio cyclitrophicus,NoInf
+1.032.O.,Vibrio jasicida,NoInf
+1.032.O.,Vibrio kanaloae,NoInf
+1.032.O.,Vibrio lentus,NoInf
+1.032.O.,Vibrio parahaemolyticus,NoInf
+1.032.O.,Vibrio sp. 10N.1,NoInf
+1.032.O.,Vibrio sp. 10N.2,NoInf
+1.032.O.,Vibrio sp. 10N.3,NoInf
+1.032.O.,Vibrio sp. 10N.4,NoInf
+1.032.O.,Vibrio sp. 10N.5,NoInf
+1.032.O.,Vibrio sp. F12,NoInf
+1.032.O.,Vibrio sp. F13,NoInf
+1.032.O.,Vibrio splendidus,Inf
+1.032.O.,Vibrio tasmaniensis,NoInf
+1.032.O.,Vibrio vulnificus,NoInf
+1.033.O.,Aliivibrio fischeri,NoInf
+1.033.O.,Enterovibrio norvegicus,NoInf
+1.033.O.,Shewanella sp. 10N.6,NoInf
+1.033.O.,Shewanella sp. 10N.7,NoInf
+1.033.O.,Vibrio alginolyticus,NoInf
+1.033.O.,Vibrio anguillarum,NoInf
+1.033.O.,Vibrio breoganii,NoInf
+1.033.O.,Vibrio cyclitrophicus,NoInf
+1.033.O.,Vibrio jasicida,NoInf
+1.033.O.,Vibrio kanaloae,NoInf
+1.033.O.,Vibrio lentus,Inf
+1.033.O.,Vibrio parahaemolyticus,NoInf
+1.033.O.,Vibrio sp. 10N.1,NoInf
+1.033.O.,Vibrio sp. 10N.2,NoInf
+1.033.O.,Vibrio sp. 10N.3,NoInf
+1.033.O.,Vibrio sp. 10N.4,NoInf
+1.033.O.,Vibrio sp. 10N.5,NoInf
+1.033.O.,Vibrio sp. F12,NoInf
+1.033.O.,Vibrio sp. F13,NoInf
+1.033.O.,Vibrio splendidus,NoInf
+1.033.O.,Vibrio tasmaniensis,NoInf
+1.033.O.,Vibrio vulnificus,NoInf
+1.034.O.,Aliivibrio fischeri,NoInf
+1.034.O.,Enterovibrio norvegicus,NoInf
+1.034.O.,Shewanella sp. 10N.6,NoInf
+1.034.O.,Shewanella sp. 10N.7,NoInf
+1.034.O.,Vibrio alginolyticus,NoInf
+1.034.O.,Vibrio anguillarum,NoInf
+1.034.O.,Vibrio breoganii,Inf
+1.034.O.,Vibrio cyclitrophicus,NoInf
+1.034.O.,Vibrio jasicida,NoInf
+1.034.O.,Vibrio kanaloae,NoInf
+1.034.O.,Vibrio lentus,NoInf
+1.034.O.,Vibrio parahaemolyticus,NoInf
+1.034.O.,Vibrio sp. 10N.1,NoInf
+1.034.O.,Vibrio sp. 10N.2,NoInf
+1.034.O.,Vibrio sp. 10N.3,NoInf
+1.034.O.,Vibrio sp. 10N.4,NoInf
+1.034.O.,Vibrio sp. 10N.5,NoInf
+1.034.O.,Vibrio sp. F12,NoInf
+1.034.O.,Vibrio sp. F13,NoInf
+1.034.O.,Vibrio splendidus,NoInf
+1.034.O.,Vibrio tasmaniensis,NoInf
+1.034.O.,Vibrio vulnificus,NoInf
+1.036.O.,Aliivibrio fischeri,NoInf
+1.036.O.,Enterovibrio norvegicus,NoInf
+1.036.O.,Shewanella sp. 10N.6,NoInf
+1.036.O.,Shewanella sp. 10N.7,NoInf
+1.036.O.,Vibrio alginolyticus,NoInf
+1.036.O.,Vibrio anguillarum,NoInf
+1.036.O.,Vibrio breoganii,NoInf
+1.036.O.,Vibrio cyclitrophicus,NoInf
+1.036.O.,Vibrio jasicida,NoInf
+1.036.O.,Vibrio kanaloae,NoInf
+1.036.O.,Vibrio lentus,Inf
+1.036.O.,Vibrio parahaemolyticus,NoInf
+1.036.O.,Vibrio sp. 10N.1,NoInf
+1.036.O.,Vibrio sp. 10N.2,NoInf
+1.036.O.,Vibrio sp. 10N.3,NoInf
+1.036.O.,Vibrio sp. 10N.4,NoInf
+1.036.O.,Vibrio sp. 10N.5,NoInf
+1.036.O.,Vibrio sp. F12,NoInf
+1.036.O.,Vibrio sp. F13,NoInf
+1.036.O.,Vibrio splendidus,NoInf
+1.036.O.,Vibrio tasmaniensis,NoInf
+1.036.O.,Vibrio vulnificus,NoInf
+1.037.O.,Aliivibrio fischeri,NoInf
+1.037.O.,Enterovibrio norvegicus,NoInf
+1.037.O.,Shewanella sp. 10N.6,NoInf
+1.037.O.,Shewanella sp. 10N.7,NoInf
+1.037.O.,Vibrio alginolyticus,NoInf
+1.037.O.,Vibrio anguillarum,NoInf
+1.037.O.,Vibrio breoganii,NoInf
+1.037.O.,Vibrio cyclitrophicus,NoInf
+1.037.O.,Vibrio jasicida,NoInf
+1.037.O.,Vibrio kanaloae,NoInf
+1.037.O.,Vibrio lentus,Inf
+1.037.O.,Vibrio parahaemolyticus,NoInf
+1.037.O.,Vibrio sp. 10N.1,NoInf
+1.037.O.,Vibrio sp. 10N.2,NoInf
+1.037.O.,Vibrio sp. 10N.3,NoInf
+1.037.O.,Vibrio sp. 10N.4,NoInf
+1.037.O.,Vibrio sp. 10N.5,NoInf
+1.037.O.,Vibrio sp. F12,NoInf
+1.037.O.,Vibrio sp. F13,NoInf
+1.037.O.,Vibrio splendidus,NoInf
+1.037.O.,Vibrio tasmaniensis,NoInf
+1.037.O.,Vibrio vulnificus,NoInf
+1.038.O.,Aliivibrio fischeri,NoInf
+1.038.O.,Enterovibrio norvegicus,NoInf
+1.038.O.,Shewanella sp. 10N.6,NoInf
+1.038.O.,Shewanella sp. 10N.7,NoInf
+1.038.O.,Vibrio alginolyticus,NoInf
+1.038.O.,Vibrio anguillarum,NoInf
+1.038.O.,Vibrio breoganii,NoInf
+1.038.O.,Vibrio cyclitrophicus,NoInf
+1.038.O.,Vibrio jasicida,NoInf
+1.038.O.,Vibrio kanaloae,NoInf
+1.038.O.,Vibrio lentus,Inf
+1.038.O.,Vibrio parahaemolyticus,NoInf
+1.038.O.,Vibrio sp. 10N.1,NoInf
+1.038.O.,Vibrio sp. 10N.2,NoInf
+1.038.O.,Vibrio sp. 10N.3,NoInf
+1.038.O.,Vibrio sp. 10N.4,NoInf
+1.038.O.,Vibrio sp. 10N.5,NoInf
+1.038.O.,Vibrio sp. F12,NoInf
+1.038.O.,Vibrio sp. F13,NoInf
+1.038.O.,Vibrio splendidus,NoInf
+1.038.O.,Vibrio tasmaniensis,NoInf
+1.038.O.,Vibrio vulnificus,NoInf
+1.039.O.,Aliivibrio fischeri,NoInf
+1.039.O.,Enterovibrio norvegicus,NoInf
+1.039.O.,Shewanella sp. 10N.6,NoInf
+1.039.O.,Shewanella sp. 10N.7,NoInf
+1.039.O.,Vibrio alginolyticus,NoInf
+1.039.O.,Vibrio anguillarum,NoInf
+1.039.O.,Vibrio breoganii,NoInf
+1.039.O.,Vibrio cyclitrophicus,NoInf
+1.039.O.,Vibrio jasicida,NoInf
+1.039.O.,Vibrio kanaloae,NoInf
+1.039.O.,Vibrio lentus,Inf
+1.039.O.,Vibrio parahaemolyticus,NoInf
+1.039.O.,Vibrio sp. 10N.1,NoInf
+1.039.O.,Vibrio sp. 10N.2,NoInf
+1.039.O.,Vibrio sp. 10N.3,NoInf
+1.039.O.,Vibrio sp. 10N.4,NoInf
+1.039.O.,Vibrio sp. 10N.5,NoInf
+1.039.O.,Vibrio sp. F12,NoInf
+1.039.O.,Vibrio sp. F13,NoInf
+1.039.O.,Vibrio splendidus,NoInf
+1.039.O.,Vibrio tasmaniensis,NoInf
+1.039.O.,Vibrio vulnificus,NoInf
+1.040.O.,Aliivibrio fischeri,NoInf
+1.040.O.,Enterovibrio norvegicus,NoInf
+1.040.O.,Shewanella sp. 10N.6,NoInf
+1.040.O.,Shewanella sp. 10N.7,NoInf
+1.040.O.,Vibrio alginolyticus,NoInf
+1.040.O.,Vibrio anguillarum,NoInf
+1.040.O.,Vibrio breoganii,NoInf
+1.040.O.,Vibrio cyclitrophicus,Inf
+1.040.O.,Vibrio jasicida,NoInf
+1.040.O.,Vibrio kanaloae,NoInf
+1.040.O.,Vibrio lentus,Inf
+1.040.O.,Vibrio parahaemolyticus,NoInf
+1.040.O.,Vibrio sp. 10N.1,NoInf
+1.040.O.,Vibrio sp. 10N.2,NoInf
+1.040.O.,Vibrio sp. 10N.3,NoInf
+1.040.O.,Vibrio sp. 10N.4,NoInf
+1.040.O.,Vibrio sp. 10N.5,NoInf
+1.040.O.,Vibrio sp. F12,Inf
+1.040.O.,Vibrio sp. F13,NoInf
+1.040.O.,Vibrio splendidus,Inf
+1.040.O.,Vibrio tasmaniensis,NoInf
+1.040.O.,Vibrio vulnificus,NoInf
+1.042.O.,Aliivibrio fischeri,NoInf
+1.042.O.,Enterovibrio norvegicus,NoInf
+1.042.O.,Shewanella sp. 10N.6,NoInf
+1.042.O.,Shewanella sp. 10N.7,NoInf
+1.042.O.,Vibrio alginolyticus,NoInf
+1.042.O.,Vibrio anguillarum,NoInf
+1.042.O.,Vibrio breoganii,NoInf
+1.042.O.,Vibrio cyclitrophicus,NoInf
+1.042.O.,Vibrio jasicida,NoInf
+1.042.O.,Vibrio kanaloae,NoInf
+1.042.O.,Vibrio lentus,Inf
+1.042.O.,Vibrio parahaemolyticus,NoInf
+1.042.O.,Vibrio sp. 10N.1,NoInf
+1.042.O.,Vibrio sp. 10N.2,NoInf
+1.042.O.,Vibrio sp. 10N.3,NoInf
+1.042.O.,Vibrio sp. 10N.4,NoInf
+1.042.O.,Vibrio sp. 10N.5,NoInf
+1.042.O.,Vibrio sp. F12,NoInf
+1.042.O.,Vibrio sp. F13,NoInf
+1.042.O.,Vibrio splendidus,NoInf
+1.042.O.,Vibrio tasmaniensis,NoInf
+1.042.O.,Vibrio vulnificus,NoInf
+1.043.O.,Aliivibrio fischeri,NoInf
+1.043.O.,Enterovibrio norvegicus,NoInf
+1.043.O.,Shewanella sp. 10N.6,NoInf
+1.043.O.,Shewanella sp. 10N.7,NoInf
+1.043.O.,Vibrio alginolyticus,NoInf
+1.043.O.,Vibrio anguillarum,NoInf
+1.043.O.,Vibrio breoganii,NoInf
+1.043.O.,Vibrio cyclitrophicus,Inf
+1.043.O.,Vibrio jasicida,NoInf
+1.043.O.,Vibrio kanaloae,NoInf
+1.043.O.,Vibrio lentus,Inf
+1.043.O.,Vibrio parahaemolyticus,NoInf
+1.043.O.,Vibrio sp. 10N.1,NoInf
+1.043.O.,Vibrio sp. 10N.2,NoInf
+1.043.O.,Vibrio sp. 10N.3,NoInf
+1.043.O.,Vibrio sp. 10N.4,NoInf
+1.043.O.,Vibrio sp. 10N.5,NoInf
+1.043.O.,Vibrio sp. F12,Inf
+1.043.O.,Vibrio sp. F13,NoInf
+1.043.O.,Vibrio splendidus,Inf
+1.043.O.,Vibrio tasmaniensis,NoInf
+1.043.O.,Vibrio vulnificus,NoInf
+1.044.O.,Aliivibrio fischeri,NoInf
+1.044.O.,Enterovibrio norvegicus,NoInf
+1.044.O.,Shewanella sp. 10N.6,NoInf
+1.044.O.,Shewanella sp. 10N.7,NoInf
+1.044.O.,Vibrio alginolyticus,NoInf
+1.044.O.,Vibrio anguillarum,NoInf
+1.044.O.,Vibrio breoganii,NoInf
+1.044.O.,Vibrio cyclitrophicus,Inf
+1.044.O.,Vibrio jasicida,NoInf
+1.044.O.,Vibrio kanaloae,NoInf
+1.044.O.,Vibrio lentus,Inf
+1.044.O.,Vibrio parahaemolyticus,NoInf
+1.044.O.,Vibrio sp. 10N.1,NoInf
+1.044.O.,Vibrio sp. 10N.2,NoInf
+1.044.O.,Vibrio sp. 10N.3,NoInf
+1.044.O.,Vibrio sp. 10N.4,NoInf
+1.044.O.,Vibrio sp. 10N.5,NoInf
+1.044.O.,Vibrio sp. F12,Inf
+1.044.O.,Vibrio sp. F13,NoInf
+1.044.O.,Vibrio splendidus,Inf
+1.044.O.,Vibrio tasmaniensis,NoInf
+1.044.O.,Vibrio vulnificus,NoInf
+1.046.O.,Aliivibrio fischeri,NoInf
+1.046.O.,Enterovibrio norvegicus,NoInf
+1.046.O.,Shewanella sp. 10N.6,NoInf
+1.046.O.,Shewanella sp. 10N.7,NoInf
+1.046.O.,Vibrio alginolyticus,NoInf
+1.046.O.,Vibrio anguillarum,NoInf
+1.046.O.,Vibrio breoganii,NoInf
+1.046.O.,Vibrio cyclitrophicus,NoInf
+1.046.O.,Vibrio jasicida,NoInf
+1.046.O.,Vibrio kanaloae,NoInf
+1.046.O.,Vibrio lentus,NoInf
+1.046.O.,Vibrio parahaemolyticus,NoInf
+1.046.O.,Vibrio sp. 10N.1,NoInf
+1.046.O.,Vibrio sp. 10N.2,NoInf
+1.046.O.,Vibrio sp. 10N.3,NoInf
+1.046.O.,Vibrio sp. 10N.4,NoInf
+1.046.O.,Vibrio sp. 10N.5,NoInf
+1.046.O.,Vibrio sp. F12,NoInf
+1.046.O.,Vibrio sp. F13,NoInf
+1.046.O.,Vibrio splendidus,Inf
+1.046.O.,Vibrio tasmaniensis,NoInf
+1.046.O.,Vibrio vulnificus,NoInf
+1.047.O.,Aliivibrio fischeri,NoInf
+1.047.O.,Enterovibrio norvegicus,NoInf
+1.047.O.,Shewanella sp. 10N.6,NoInf
+1.047.O.,Shewanella sp. 10N.7,NoInf
+1.047.O.,Vibrio alginolyticus,NoInf
+1.047.O.,Vibrio anguillarum,NoInf
+1.047.O.,Vibrio breoganii,NoInf
+1.047.O.,Vibrio cyclitrophicus,NoInf
+1.047.O.,Vibrio jasicida,NoInf
+1.047.O.,Vibrio kanaloae,NoInf
+1.047.O.,Vibrio lentus,NoInf
+1.047.O.,Vibrio parahaemolyticus,NoInf
+1.047.O.,Vibrio sp. 10N.1,NoInf
+1.047.O.,Vibrio sp. 10N.2,NoInf
+1.047.O.,Vibrio sp. 10N.3,NoInf
+1.047.O.,Vibrio sp. 10N.4,NoInf
+1.047.O.,Vibrio sp. 10N.5,NoInf
+1.047.O.,Vibrio sp. F12,NoInf
+1.047.O.,Vibrio sp. F13,NoInf
+1.047.O.,Vibrio splendidus,NoInf
+1.047.O.,Vibrio tasmaniensis,NoInf
+1.047.O.,Vibrio vulnificus,NoInf
+1.048.O.,Aliivibrio fischeri,NoInf
+1.048.O.,Enterovibrio norvegicus,NoInf
+1.048.O.,Shewanella sp. 10N.6,NoInf
+1.048.O.,Shewanella sp. 10N.7,NoInf
+1.048.O.,Vibrio alginolyticus,NoInf
+1.048.O.,Vibrio anguillarum,NoInf
+1.048.O.,Vibrio breoganii,NoInf
+1.048.O.,Vibrio cyclitrophicus,Inf
+1.048.O.,Vibrio jasicida,NoInf
+1.048.O.,Vibrio kanaloae,NoInf
+1.048.O.,Vibrio lentus,Inf
+1.048.O.,Vibrio parahaemolyticus,NoInf
+1.048.O.,Vibrio sp. 10N.1,NoInf
+1.048.O.,Vibrio sp. 10N.2,NoInf
+1.048.O.,Vibrio sp. 10N.3,NoInf
+1.048.O.,Vibrio sp. 10N.4,NoInf
+1.048.O.,Vibrio sp. 10N.5,NoInf
+1.048.O.,Vibrio sp. F12,Inf
+1.048.O.,Vibrio sp. F13,NoInf
+1.048.O.,Vibrio splendidus,Inf
+1.048.O.,Vibrio tasmaniensis,NoInf
+1.048.O.,Vibrio vulnificus,NoInf
+1.049.O.,Aliivibrio fischeri,NoInf
+1.049.O.,Enterovibrio norvegicus,NoInf
+1.049.O.,Shewanella sp. 10N.6,Inf
+1.049.O.,Shewanella sp. 10N.7,NoInf
+1.049.O.,Vibrio alginolyticus,NoInf
+1.049.O.,Vibrio anguillarum,NoInf
+1.049.O.,Vibrio breoganii,NoInf
+1.049.O.,Vibrio cyclitrophicus,NoInf
+1.049.O.,Vibrio jasicida,NoInf
+1.049.O.,Vibrio kanaloae,NoInf
+1.049.O.,Vibrio lentus,NoInf
+1.049.O.,Vibrio parahaemolyticus,NoInf
+1.049.O.,Vibrio sp. 10N.1,NoInf
+1.049.O.,Vibrio sp. 10N.2,NoInf
+1.049.O.,Vibrio sp. 10N.3,NoInf
+1.049.O.,Vibrio sp. 10N.4,NoInf
+1.049.O.,Vibrio sp. 10N.5,NoInf
+1.049.O.,Vibrio sp. F12,NoInf
+1.049.O.,Vibrio sp. F13,NoInf
+1.049.O.,Vibrio splendidus,NoInf
+1.049.O.,Vibrio tasmaniensis,NoInf
+1.049.O.,Vibrio vulnificus,NoInf
+1.050.O.,Aliivibrio fischeri,NoInf
+1.050.O.,Enterovibrio norvegicus,NoInf
+1.050.O.,Shewanella sp. 10N.6,Inf
+1.050.O.,Shewanella sp. 10N.7,NoInf
+1.050.O.,Vibrio alginolyticus,NoInf
+1.050.O.,Vibrio anguillarum,NoInf
+1.050.O.,Vibrio breoganii,NoInf
+1.050.O.,Vibrio cyclitrophicus,NoInf
+1.050.O.,Vibrio jasicida,NoInf
+1.050.O.,Vibrio kanaloae,NoInf
+1.050.O.,Vibrio lentus,NoInf
+1.050.O.,Vibrio parahaemolyticus,NoInf
+1.050.O.,Vibrio sp. 10N.1,NoInf
+1.050.O.,Vibrio sp. 10N.2,NoInf
+1.050.O.,Vibrio sp. 10N.3,NoInf
+1.050.O.,Vibrio sp. 10N.4,NoInf
+1.050.O.,Vibrio sp. 10N.5,NoInf
+1.050.O.,Vibrio sp. F12,NoInf
+1.050.O.,Vibrio sp. F13,NoInf
+1.050.O.,Vibrio splendidus,NoInf
+1.050.O.,Vibrio tasmaniensis,NoInf
+1.050.O.,Vibrio vulnificus,NoInf
+1.052.A.,Aliivibrio fischeri,NoInf
+1.052.A.,Enterovibrio norvegicus,Inf
+1.052.A.,Shewanella sp. 10N.6,NoInf
+1.052.A.,Shewanella sp. 10N.7,NoInf
+1.052.A.,Vibrio alginolyticus,NoInf
+1.052.A.,Vibrio anguillarum,NoInf
+1.052.A.,Vibrio breoganii,NoInf
+1.052.A.,Vibrio cyclitrophicus,NoInf
+1.052.A.,Vibrio jasicida,NoInf
+1.052.A.,Vibrio kanaloae,NoInf
+1.052.A.,Vibrio lentus,NoInf
+1.052.A.,Vibrio parahaemolyticus,NoInf
+1.052.A.,Vibrio sp. 10N.1,NoInf
+1.052.A.,Vibrio sp. 10N.2,NoInf
+1.052.A.,Vibrio sp. 10N.3,NoInf
+1.052.A.,Vibrio sp. 10N.4,NoInf
+1.052.A.,Vibrio sp. 10N.5,NoInf
+1.052.A.,Vibrio sp. F12,NoInf
+1.052.A.,Vibrio sp. F13,NoInf
+1.052.A.,Vibrio splendidus,NoInf
+1.052.A.,Vibrio tasmaniensis,NoInf
+1.052.A.,Vibrio vulnificus,NoInf
+1.054.O.,Aliivibrio fischeri,NoInf
+1.054.O.,Enterovibrio norvegicus,NoInf
+1.054.O.,Shewanella sp. 10N.6,NoInf
+1.054.O.,Shewanella sp. 10N.7,NoInf
+1.054.O.,Vibrio alginolyticus,NoInf
+1.054.O.,Vibrio anguillarum,NoInf
+1.054.O.,Vibrio breoganii,NoInf
+1.054.O.,Vibrio cyclitrophicus,NoInf
+1.054.O.,Vibrio jasicida,NoInf
+1.054.O.,Vibrio kanaloae,NoInf
+1.054.O.,Vibrio lentus,NoInf
+1.054.O.,Vibrio parahaemolyticus,NoInf
+1.054.O.,Vibrio sp. 10N.1,NoInf
+1.054.O.,Vibrio sp. 10N.2,NoInf
+1.054.O.,Vibrio sp. 10N.3,Inf
+1.054.O.,Vibrio sp. 10N.4,NoInf
+1.054.O.,Vibrio sp. 10N.5,NoInf
+1.054.O.,Vibrio sp. F12,NoInf
+1.054.O.,Vibrio sp. F13,NoInf
+1.054.O.,Vibrio splendidus,NoInf
+1.054.O.,Vibrio tasmaniensis,NoInf
+1.054.O.,Vibrio vulnificus,NoInf
+1.055.O.,Aliivibrio fischeri,NoInf
+1.055.O.,Enterovibrio norvegicus,NoInf
+1.055.O.,Shewanella sp. 10N.6,Inf
+1.055.O.,Shewanella sp. 10N.7,NoInf
+1.055.O.,Vibrio alginolyticus,NoInf
+1.055.O.,Vibrio anguillarum,NoInf
+1.055.O.,Vibrio breoganii,NoInf
+1.055.O.,Vibrio cyclitrophicus,NoInf
+1.055.O.,Vibrio jasicida,NoInf
+1.055.O.,Vibrio kanaloae,NoInf
+1.055.O.,Vibrio lentus,NoInf
+1.055.O.,Vibrio parahaemolyticus,NoInf
+1.055.O.,Vibrio sp. 10N.1,NoInf
+1.055.O.,Vibrio sp. 10N.2,NoInf
+1.055.O.,Vibrio sp. 10N.3,NoInf
+1.055.O.,Vibrio sp. 10N.4,NoInf
+1.055.O.,Vibrio sp. 10N.5,NoInf
+1.055.O.,Vibrio sp. F12,NoInf
+1.055.O.,Vibrio sp. F13,NoInf
+1.055.O.,Vibrio splendidus,NoInf
+1.055.O.,Vibrio tasmaniensis,NoInf
+1.055.O.,Vibrio vulnificus,NoInf
+1.056.O.,Aliivibrio fischeri,NoInf
+1.056.O.,Enterovibrio norvegicus,NoInf
+1.056.O.,Shewanella sp. 10N.6,NoInf
+1.056.O.,Shewanella sp. 10N.7,NoInf
+1.056.O.,Vibrio alginolyticus,NoInf
+1.056.O.,Vibrio anguillarum,NoInf
+1.056.O.,Vibrio breoganii,NoInf
+1.056.O.,Vibrio cyclitrophicus,NoInf
+1.056.O.,Vibrio jasicida,NoInf
+1.056.O.,Vibrio kanaloae,NoInf
+1.056.O.,Vibrio lentus,Inf
+1.056.O.,Vibrio parahaemolyticus,NoInf
+1.056.O.,Vibrio sp. 10N.1,NoInf
+1.056.O.,Vibrio sp. 10N.2,NoInf
+1.056.O.,Vibrio sp. 10N.3,NoInf
+1.056.O.,Vibrio sp. 10N.4,NoInf
+1.056.O.,Vibrio sp. 10N.5,NoInf
+1.056.O.,Vibrio sp. F12,NoInf
+1.056.O.,Vibrio sp. F13,NoInf
+1.056.O.,Vibrio splendidus,NoInf
+1.056.O.,Vibrio tasmaniensis,NoInf
+1.056.O.,Vibrio vulnificus,NoInf
+1.057.O.,Aliivibrio fischeri,NoInf
+1.057.O.,Enterovibrio norvegicus,NoInf
+1.057.O.,Shewanella sp. 10N.6,NoInf
+1.057.O.,Shewanella sp. 10N.7,NoInf
+1.057.O.,Vibrio alginolyticus,NoInf
+1.057.O.,Vibrio anguillarum,NoInf
+1.057.O.,Vibrio breoganii,NoInf
+1.057.O.,Vibrio cyclitrophicus,Inf
+1.057.O.,Vibrio jasicida,NoInf
+1.057.O.,Vibrio kanaloae,NoInf
+1.057.O.,Vibrio lentus,Inf
+1.057.O.,Vibrio parahaemolyticus,NoInf
+1.057.O.,Vibrio sp. 10N.1,NoInf
+1.057.O.,Vibrio sp. 10N.2,NoInf
+1.057.O.,Vibrio sp. 10N.3,NoInf
+1.057.O.,Vibrio sp. 10N.4,NoInf
+1.057.O.,Vibrio sp. 10N.5,NoInf
+1.057.O.,Vibrio sp. F12,Inf
+1.057.O.,Vibrio sp. F13,NoInf
+1.057.O.,Vibrio splendidus,Inf
+1.057.O.,Vibrio tasmaniensis,NoInf
+1.057.O.,Vibrio vulnificus,NoInf
+1.060.A.,Aliivibrio fischeri,NoInf
+1.060.A.,Enterovibrio norvegicus,NoInf
+1.060.A.,Shewanella sp. 10N.6,NoInf
+1.060.A.,Shewanella sp. 10N.7,NoInf
+1.060.A.,Vibrio alginolyticus,NoInf
+1.060.A.,Vibrio anguillarum,NoInf
+1.060.A.,Vibrio breoganii,NoInf
+1.060.A.,Vibrio cyclitrophicus,NoInf
+1.060.A.,Vibrio jasicida,NoInf
+1.060.A.,Vibrio kanaloae,NoInf
+1.060.A.,Vibrio lentus,Inf
+1.060.A.,Vibrio parahaemolyticus,NoInf
+1.060.A.,Vibrio sp. 10N.1,NoInf
+1.060.A.,Vibrio sp. 10N.2,NoInf
+1.060.A.,Vibrio sp. 10N.3,NoInf
+1.060.A.,Vibrio sp. 10N.4,NoInf
+1.060.A.,Vibrio sp. 10N.5,NoInf
+1.060.A.,Vibrio sp. F12,NoInf
+1.060.A.,Vibrio sp. F13,NoInf
+1.060.A.,Vibrio splendidus,Inf
+1.060.A.,Vibrio tasmaniensis,NoInf
+1.060.A.,Vibrio vulnificus,NoInf
+1.061.O.,Aliivibrio fischeri,NoInf
+1.061.O.,Enterovibrio norvegicus,NoInf
+1.061.O.,Shewanella sp. 10N.6,NoInf
+1.061.O.,Shewanella sp. 10N.7,NoInf
+1.061.O.,Vibrio alginolyticus,NoInf
+1.061.O.,Vibrio anguillarum,NoInf
+1.061.O.,Vibrio breoganii,NoInf
+1.061.O.,Vibrio cyclitrophicus,NoInf
+1.061.O.,Vibrio jasicida,NoInf
+1.061.O.,Vibrio kanaloae,NoInf
+1.061.O.,Vibrio lentus,Inf
+1.061.O.,Vibrio parahaemolyticus,NoInf
+1.061.O.,Vibrio sp. 10N.1,NoInf
+1.061.O.,Vibrio sp. 10N.2,NoInf
+1.061.O.,Vibrio sp. 10N.3,NoInf
+1.061.O.,Vibrio sp. 10N.4,NoInf
+1.061.O.,Vibrio sp. 10N.5,NoInf
+1.061.O.,Vibrio sp. F12,NoInf
+1.061.O.,Vibrio sp. F13,NoInf
+1.061.O.,Vibrio splendidus,NoInf
+1.061.O.,Vibrio tasmaniensis,NoInf
+1.061.O.,Vibrio vulnificus,NoInf
+1.062.O.,Aliivibrio fischeri,NoInf
+1.062.O.,Enterovibrio norvegicus,NoInf
+1.062.O.,Shewanella sp. 10N.6,NoInf
+1.062.O.,Shewanella sp. 10N.7,NoInf
+1.062.O.,Vibrio alginolyticus,NoInf
+1.062.O.,Vibrio anguillarum,NoInf
+1.062.O.,Vibrio breoganii,NoInf
+1.062.O.,Vibrio cyclitrophicus,Inf
+1.062.O.,Vibrio jasicida,NoInf
+1.062.O.,Vibrio kanaloae,NoInf
+1.062.O.,Vibrio lentus,Inf
+1.062.O.,Vibrio parahaemolyticus,NoInf
+1.062.O.,Vibrio sp. 10N.1,NoInf
+1.062.O.,Vibrio sp. 10N.2,NoInf
+1.062.O.,Vibrio sp. 10N.3,NoInf
+1.062.O.,Vibrio sp. 10N.4,NoInf
+1.062.O.,Vibrio sp. 10N.5,NoInf
+1.062.O.,Vibrio sp. F12,Inf
+1.062.O.,Vibrio sp. F13,NoInf
+1.062.O.,Vibrio splendidus,Inf
+1.062.O.,Vibrio tasmaniensis,NoInf
+1.062.O.,Vibrio vulnificus,NoInf
+1.063.O.,Aliivibrio fischeri,NoInf
+1.063.O.,Enterovibrio norvegicus,NoInf
+1.063.O.,Shewanella sp. 10N.6,NoInf
+1.063.O.,Shewanella sp. 10N.7,NoInf
+1.063.O.,Vibrio alginolyticus,NoInf
+1.063.O.,Vibrio anguillarum,NoInf
+1.063.O.,Vibrio breoganii,NoInf
+1.063.O.,Vibrio cyclitrophicus,NoInf
+1.063.O.,Vibrio jasicida,NoInf
+1.063.O.,Vibrio kanaloae,NoInf
+1.063.O.,Vibrio lentus,Inf
+1.063.O.,Vibrio parahaemolyticus,NoInf
+1.063.O.,Vibrio sp. 10N.1,NoInf
+1.063.O.,Vibrio sp. 10N.2,NoInf
+1.063.O.,Vibrio sp. 10N.3,NoInf
+1.063.O.,Vibrio sp. 10N.4,NoInf
+1.063.O.,Vibrio sp. 10N.5,NoInf
+1.063.O.,Vibrio sp. F12,NoInf
+1.063.O.,Vibrio sp. F13,NoInf
+1.063.O.,Vibrio splendidus,NoInf
+1.063.O.,Vibrio tasmaniensis,NoInf
+1.063.O.,Vibrio vulnificus,NoInf
+1.064.O.,Aliivibrio fischeri,NoInf
+1.064.O.,Enterovibrio norvegicus,NoInf
+1.064.O.,Shewanella sp. 10N.6,NoInf
+1.064.O.,Shewanella sp. 10N.7,NoInf
+1.064.O.,Vibrio alginolyticus,NoInf
+1.064.O.,Vibrio anguillarum,NoInf
+1.064.O.,Vibrio breoganii,Inf
+1.064.O.,Vibrio cyclitrophicus,NoInf
+1.064.O.,Vibrio jasicida,NoInf
+1.064.O.,Vibrio kanaloae,NoInf
+1.064.O.,Vibrio lentus,NoInf
+1.064.O.,Vibrio parahaemolyticus,NoInf
+1.064.O.,Vibrio sp. 10N.1,NoInf
+1.064.O.,Vibrio sp. 10N.2,NoInf
+1.064.O.,Vibrio sp. 10N.3,NoInf
+1.064.O.,Vibrio sp. 10N.4,NoInf
+1.064.O.,Vibrio sp. 10N.5,NoInf
+1.064.O.,Vibrio sp. F12,NoInf
+1.064.O.,Vibrio sp. F13,NoInf
+1.064.O.,Vibrio splendidus,NoInf
+1.064.O.,Vibrio tasmaniensis,NoInf
+1.064.O.,Vibrio vulnificus,NoInf
+1.066.O.,Aliivibrio fischeri,NoInf
+1.066.O.,Enterovibrio norvegicus,NoInf
+1.066.O.,Shewanella sp. 10N.6,NoInf
+1.066.O.,Shewanella sp. 10N.7,NoInf
+1.066.O.,Vibrio alginolyticus,NoInf
+1.066.O.,Vibrio anguillarum,NoInf
+1.066.O.,Vibrio breoganii,NoInf
+1.066.O.,Vibrio cyclitrophicus,NoInf
+1.066.O.,Vibrio jasicida,NoInf
+1.066.O.,Vibrio kanaloae,NoInf
+1.066.O.,Vibrio lentus,Inf
+1.066.O.,Vibrio parahaemolyticus,NoInf
+1.066.O.,Vibrio sp. 10N.1,NoInf
+1.066.O.,Vibrio sp. 10N.2,NoInf
+1.066.O.,Vibrio sp. 10N.3,NoInf
+1.066.O.,Vibrio sp. 10N.4,NoInf
+1.066.O.,Vibrio sp. 10N.5,NoInf
+1.066.O.,Vibrio sp. F12,NoInf
+1.066.O.,Vibrio sp. F13,NoInf
+1.066.O.,Vibrio splendidus,NoInf
+1.066.O.,Vibrio tasmaniensis,NoInf
+1.066.O.,Vibrio vulnificus,NoInf
+1.067.O.,Aliivibrio fischeri,NoInf
+1.067.O.,Enterovibrio norvegicus,NoInf
+1.067.O.,Shewanella sp. 10N.6,NoInf
+1.067.O.,Shewanella sp. 10N.7,NoInf
+1.067.O.,Vibrio alginolyticus,NoInf
+1.067.O.,Vibrio anguillarum,NoInf
+1.067.O.,Vibrio breoganii,NoInf
+1.067.O.,Vibrio cyclitrophicus,NoInf
+1.067.O.,Vibrio jasicida,NoInf
+1.067.O.,Vibrio kanaloae,NoInf
+1.067.O.,Vibrio lentus,Inf
+1.067.O.,Vibrio parahaemolyticus,NoInf
+1.067.O.,Vibrio sp. 10N.1,NoInf
+1.067.O.,Vibrio sp. 10N.2,NoInf
+1.067.O.,Vibrio sp. 10N.3,NoInf
+1.067.O.,Vibrio sp. 10N.4,NoInf
+1.067.O.,Vibrio sp. 10N.5,NoInf
+1.067.O.,Vibrio sp. F12,NoInf
+1.067.O.,Vibrio sp. F13,NoInf
+1.067.O.,Vibrio splendidus,NoInf
+1.067.O.,Vibrio tasmaniensis,NoInf
+1.067.O.,Vibrio vulnificus,NoInf
+1.068.O.,Aliivibrio fischeri,NoInf
+1.068.O.,Enterovibrio norvegicus,NoInf
+1.068.O.,Shewanella sp. 10N.6,NoInf
+1.068.O.,Shewanella sp. 10N.7,NoInf
+1.068.O.,Vibrio alginolyticus,NoInf
+1.068.O.,Vibrio anguillarum,NoInf
+1.068.O.,Vibrio breoganii,NoInf
+1.068.O.,Vibrio cyclitrophicus,NoInf
+1.068.O.,Vibrio jasicida,NoInf
+1.068.O.,Vibrio kanaloae,NoInf
+1.068.O.,Vibrio lentus,Inf
+1.068.O.,Vibrio parahaemolyticus,NoInf
+1.068.O.,Vibrio sp. 10N.1,NoInf
+1.068.O.,Vibrio sp. 10N.2,NoInf
+1.068.O.,Vibrio sp. 10N.3,NoInf
+1.068.O.,Vibrio sp. 10N.4,NoInf
+1.068.O.,Vibrio sp. 10N.5,NoInf
+1.068.O.,Vibrio sp. F12,NoInf
+1.068.O.,Vibrio sp. F13,NoInf
+1.068.O.,Vibrio splendidus,NoInf
+1.068.O.,Vibrio tasmaniensis,NoInf
+1.068.O.,Vibrio vulnificus,NoInf
+1.069.O.,Aliivibrio fischeri,NoInf
+1.069.O.,Enterovibrio norvegicus,NoInf
+1.069.O.,Shewanella sp. 10N.6,NoInf
+1.069.O.,Shewanella sp. 10N.7,NoInf
+1.069.O.,Vibrio alginolyticus,NoInf
+1.069.O.,Vibrio anguillarum,NoInf
+1.069.O.,Vibrio breoganii,NoInf
+1.069.O.,Vibrio cyclitrophicus,Inf
+1.069.O.,Vibrio jasicida,NoInf
+1.069.O.,Vibrio kanaloae,NoInf
+1.069.O.,Vibrio lentus,Inf
+1.069.O.,Vibrio parahaemolyticus,NoInf
+1.069.O.,Vibrio sp. 10N.1,NoInf
+1.069.O.,Vibrio sp. 10N.2,NoInf
+1.069.O.,Vibrio sp. 10N.3,NoInf
+1.069.O.,Vibrio sp. 10N.4,NoInf
+1.069.O.,Vibrio sp. 10N.5,NoInf
+1.069.O.,Vibrio sp. F12,Inf
+1.069.O.,Vibrio sp. F13,NoInf
+1.069.O.,Vibrio splendidus,Inf
+1.069.O.,Vibrio tasmaniensis,NoInf
+1.069.O.,Vibrio vulnificus,NoInf
+1.070.O.,Aliivibrio fischeri,NoInf
+1.070.O.,Enterovibrio norvegicus,Inf
+1.070.O.,Shewanella sp. 10N.6,NoInf
+1.070.O.,Shewanella sp. 10N.7,NoInf
+1.070.O.,Vibrio alginolyticus,NoInf
+1.070.O.,Vibrio anguillarum,NoInf
+1.070.O.,Vibrio breoganii,NoInf
+1.070.O.,Vibrio cyclitrophicus,NoInf
+1.070.O.,Vibrio jasicida,NoInf
+1.070.O.,Vibrio kanaloae,NoInf
+1.070.O.,Vibrio lentus,NoInf
+1.070.O.,Vibrio parahaemolyticus,NoInf
+1.070.O.,Vibrio sp. 10N.1,NoInf
+1.070.O.,Vibrio sp. 10N.2,NoInf
+1.070.O.,Vibrio sp. 10N.3,NoInf
+1.070.O.,Vibrio sp. 10N.4,NoInf
+1.070.O.,Vibrio sp. 10N.5,NoInf
+1.070.O.,Vibrio sp. F12,NoInf
+1.070.O.,Vibrio sp. F13,NoInf
+1.070.O.,Vibrio splendidus,NoInf
+1.070.O.,Vibrio tasmaniensis,NoInf
+1.070.O.,Vibrio vulnificus,NoInf
+1.071.A.,Aliivibrio fischeri,NoInf
+1.071.A.,Enterovibrio norvegicus,NoInf
+1.071.A.,Shewanella sp. 10N.6,NoInf
+1.071.A.,Shewanella sp. 10N.7,NoInf
+1.071.A.,Vibrio alginolyticus,NoInf
+1.071.A.,Vibrio anguillarum,NoInf
+1.071.A.,Vibrio breoganii,NoInf
+1.071.A.,Vibrio cyclitrophicus,NoInf
+1.071.A.,Vibrio jasicida,NoInf
+1.071.A.,Vibrio kanaloae,NoInf
+1.071.A.,Vibrio lentus,Inf
+1.071.A.,Vibrio parahaemolyticus,NoInf
+1.071.A.,Vibrio sp. 10N.1,NoInf
+1.071.A.,Vibrio sp. 10N.2,NoInf
+1.071.A.,Vibrio sp. 10N.3,NoInf
+1.071.A.,Vibrio sp. 10N.4,NoInf
+1.071.A.,Vibrio sp. 10N.5,NoInf
+1.071.A.,Vibrio sp. F12,NoInf
+1.071.A.,Vibrio sp. F13,NoInf
+1.071.A.,Vibrio splendidus,NoInf
+1.071.A.,Vibrio tasmaniensis,NoInf
+1.071.A.,Vibrio vulnificus,NoInf
+1.072.O.,Aliivibrio fischeri,NoInf
+1.072.O.,Enterovibrio norvegicus,NoInf
+1.072.O.,Shewanella sp. 10N.6,NoInf
+1.072.O.,Shewanella sp. 10N.7,NoInf
+1.072.O.,Vibrio alginolyticus,NoInf
+1.072.O.,Vibrio anguillarum,NoInf
+1.072.O.,Vibrio breoganii,NoInf
+1.072.O.,Vibrio cyclitrophicus,NoInf
+1.072.O.,Vibrio jasicida,NoInf
+1.072.O.,Vibrio kanaloae,NoInf
+1.072.O.,Vibrio lentus,Inf
+1.072.O.,Vibrio parahaemolyticus,NoInf
+1.072.O.,Vibrio sp. 10N.1,NoInf
+1.072.O.,Vibrio sp. 10N.2,NoInf
+1.072.O.,Vibrio sp. 10N.3,NoInf
+1.072.O.,Vibrio sp. 10N.4,NoInf
+1.072.O.,Vibrio sp. 10N.5,NoInf
+1.072.O.,Vibrio sp. F12,NoInf
+1.072.O.,Vibrio sp. F13,NoInf
+1.072.O.,Vibrio splendidus,NoInf
+1.072.O.,Vibrio tasmaniensis,NoInf
+1.072.O.,Vibrio vulnificus,NoInf
+1.074.O.,Aliivibrio fischeri,NoInf
+1.074.O.,Enterovibrio norvegicus,NoInf
+1.074.O.,Shewanella sp. 10N.6,NoInf
+1.074.O.,Shewanella sp. 10N.7,NoInf
+1.074.O.,Vibrio alginolyticus,NoInf
+1.074.O.,Vibrio anguillarum,NoInf
+1.074.O.,Vibrio breoganii,Inf
+1.074.O.,Vibrio cyclitrophicus,NoInf
+1.074.O.,Vibrio jasicida,NoInf
+1.074.O.,Vibrio kanaloae,NoInf
+1.074.O.,Vibrio lentus,NoInf
+1.074.O.,Vibrio parahaemolyticus,NoInf
+1.074.O.,Vibrio sp. 10N.1,NoInf
+1.074.O.,Vibrio sp. 10N.2,NoInf
+1.074.O.,Vibrio sp. 10N.3,NoInf
+1.074.O.,Vibrio sp. 10N.4,NoInf
+1.074.O.,Vibrio sp. 10N.5,NoInf
+1.074.O.,Vibrio sp. F12,NoInf
+1.074.O.,Vibrio sp. F13,NoInf
+1.074.O.,Vibrio splendidus,NoInf
+1.074.O.,Vibrio tasmaniensis,NoInf
+1.074.O.,Vibrio vulnificus,NoInf
+1.075.O.,Aliivibrio fischeri,NoInf
+1.075.O.,Enterovibrio norvegicus,NoInf
+1.075.O.,Shewanella sp. 10N.6,NoInf
+1.075.O.,Shewanella sp. 10N.7,NoInf
+1.075.O.,Vibrio alginolyticus,NoInf
+1.075.O.,Vibrio anguillarum,NoInf
+1.075.O.,Vibrio breoganii,NoInf
+1.075.O.,Vibrio cyclitrophicus,NoInf
+1.075.O.,Vibrio jasicida,NoInf
+1.075.O.,Vibrio kanaloae,NoInf
+1.075.O.,Vibrio lentus,NoInf
+1.075.O.,Vibrio parahaemolyticus,NoInf
+1.075.O.,Vibrio sp. 10N.1,NoInf
+1.075.O.,Vibrio sp. 10N.2,NoInf
+1.075.O.,Vibrio sp. 10N.3,NoInf
+1.075.O.,Vibrio sp. 10N.4,NoInf
+1.075.O.,Vibrio sp. 10N.5,NoInf
+1.075.O.,Vibrio sp. F12,Inf
+1.075.O.,Vibrio sp. F13,NoInf
+1.075.O.,Vibrio splendidus,NoInf
+1.075.O.,Vibrio tasmaniensis,NoInf
+1.075.O.,Vibrio vulnificus,NoInf
+1.076.O.,Aliivibrio fischeri,NoInf
+1.076.O.,Enterovibrio norvegicus,NoInf
+1.076.O.,Shewanella sp. 10N.6,NoInf
+1.076.O.,Shewanella sp. 10N.7,Inf
+1.076.O.,Vibrio alginolyticus,NoInf
+1.076.O.,Vibrio anguillarum,NoInf
+1.076.O.,Vibrio breoganii,NoInf
+1.076.O.,Vibrio cyclitrophicus,NoInf
+1.076.O.,Vibrio jasicida,NoInf
+1.076.O.,Vibrio kanaloae,NoInf
+1.076.O.,Vibrio lentus,NoInf
+1.076.O.,Vibrio parahaemolyticus,NoInf
+1.076.O.,Vibrio sp. 10N.1,NoInf
+1.076.O.,Vibrio sp. 10N.2,NoInf
+1.076.O.,Vibrio sp. 10N.3,NoInf
+1.076.O.,Vibrio sp. 10N.4,NoInf
+1.076.O.,Vibrio sp. 10N.5,NoInf
+1.076.O.,Vibrio sp. F12,NoInf
+1.076.O.,Vibrio sp. F13,NoInf
+1.076.O.,Vibrio splendidus,NoInf
+1.076.O.,Vibrio tasmaniensis,NoInf
+1.076.O.,Vibrio vulnificus,NoInf
+1.077.O.,Aliivibrio fischeri,NoInf
+1.077.O.,Enterovibrio norvegicus,Inf
+1.077.O.,Shewanella sp. 10N.6,NoInf
+1.077.O.,Shewanella sp. 10N.7,NoInf
+1.077.O.,Vibrio alginolyticus,NoInf
+1.077.O.,Vibrio anguillarum,NoInf
+1.077.O.,Vibrio breoganii,NoInf
+1.077.O.,Vibrio cyclitrophicus,NoInf
+1.077.O.,Vibrio jasicida,NoInf
+1.077.O.,Vibrio kanaloae,NoInf
+1.077.O.,Vibrio lentus,NoInf
+1.077.O.,Vibrio parahaemolyticus,NoInf
+1.077.O.,Vibrio sp. 10N.1,NoInf
+1.077.O.,Vibrio sp. 10N.2,NoInf
+1.077.O.,Vibrio sp. 10N.3,NoInf
+1.077.O.,Vibrio sp. 10N.4,NoInf
+1.077.O.,Vibrio sp. 10N.5,NoInf
+1.077.O.,Vibrio sp. F12,NoInf
+1.077.O.,Vibrio sp. F13,NoInf
+1.077.O.,Vibrio splendidus,NoInf
+1.077.O.,Vibrio tasmaniensis,NoInf
+1.077.O.,Vibrio vulnificus,NoInf
+1.079.O.,Aliivibrio fischeri,NoInf
+1.079.O.,Enterovibrio norvegicus,NoInf
+1.079.O.,Shewanella sp. 10N.6,NoInf
+1.079.O.,Shewanella sp. 10N.7,NoInf
+1.079.O.,Vibrio alginolyticus,NoInf
+1.079.O.,Vibrio anguillarum,NoInf
+1.079.O.,Vibrio breoganii,NoInf
+1.079.O.,Vibrio cyclitrophicus,NoInf
+1.079.O.,Vibrio jasicida,NoInf
+1.079.O.,Vibrio kanaloae,NoInf
+1.079.O.,Vibrio lentus,Inf
+1.079.O.,Vibrio parahaemolyticus,NoInf
+1.079.O.,Vibrio sp. 10N.1,NoInf
+1.079.O.,Vibrio sp. 10N.2,NoInf
+1.079.O.,Vibrio sp. 10N.3,NoInf
+1.079.O.,Vibrio sp. 10N.4,NoInf
+1.079.O.,Vibrio sp. 10N.5,NoInf
+1.079.O.,Vibrio sp. F12,NoInf
+1.079.O.,Vibrio sp. F13,NoInf
+1.079.O.,Vibrio splendidus,NoInf
+1.079.O.,Vibrio tasmaniensis,NoInf
+1.079.O.,Vibrio vulnificus,NoInf
+1.080.O.,Aliivibrio fischeri,NoInf
+1.080.O.,Enterovibrio norvegicus,NoInf
+1.080.O.,Shewanella sp. 10N.6,NoInf
+1.080.O.,Shewanella sp. 10N.7,NoInf
+1.080.O.,Vibrio alginolyticus,NoInf
+1.080.O.,Vibrio anguillarum,NoInf
+1.080.O.,Vibrio breoganii,NoInf
+1.080.O.,Vibrio cyclitrophicus,Inf
+1.080.O.,Vibrio jasicida,NoInf
+1.080.O.,Vibrio kanaloae,Inf
+1.080.O.,Vibrio lentus,Inf
+1.080.O.,Vibrio parahaemolyticus,NoInf
+1.080.O.,Vibrio sp. 10N.1,NoInf
+1.080.O.,Vibrio sp. 10N.2,NoInf
+1.080.O.,Vibrio sp. 10N.3,NoInf
+1.080.O.,Vibrio sp. 10N.4,NoInf
+1.080.O.,Vibrio sp. 10N.5,NoInf
+1.080.O.,Vibrio sp. F12,Inf
+1.080.O.,Vibrio sp. F13,NoInf
+1.080.O.,Vibrio splendidus,Inf
+1.080.O.,Vibrio tasmaniensis,NoInf
+1.080.O.,Vibrio vulnificus,NoInf
+1.081.O.,Aliivibrio fischeri,NoInf
+1.081.O.,Enterovibrio norvegicus,NoInf
+1.081.O.,Shewanella sp. 10N.6,Inf
+1.081.O.,Shewanella sp. 10N.7,NoInf
+1.081.O.,Vibrio alginolyticus,NoInf
+1.081.O.,Vibrio anguillarum,NoInf
+1.081.O.,Vibrio breoganii,NoInf
+1.081.O.,Vibrio cyclitrophicus,NoInf
+1.081.O.,Vibrio jasicida,NoInf
+1.081.O.,Vibrio kanaloae,NoInf
+1.081.O.,Vibrio lentus,NoInf
+1.081.O.,Vibrio parahaemolyticus,NoInf
+1.081.O.,Vibrio sp. 10N.1,NoInf
+1.081.O.,Vibrio sp. 10N.2,NoInf
+1.081.O.,Vibrio sp. 10N.3,NoInf
+1.081.O.,Vibrio sp. 10N.4,NoInf
+1.081.O.,Vibrio sp. 10N.5,NoInf
+1.081.O.,Vibrio sp. F12,NoInf
+1.081.O.,Vibrio sp. F13,NoInf
+1.081.O.,Vibrio splendidus,NoInf
+1.081.O.,Vibrio tasmaniensis,NoInf
+1.081.O.,Vibrio vulnificus,NoInf
+1.082.O.,Aliivibrio fischeri,NoInf
+1.082.O.,Enterovibrio norvegicus,NoInf
+1.082.O.,Shewanella sp. 10N.6,NoInf
+1.082.O.,Shewanella sp. 10N.7,NoInf
+1.082.O.,Vibrio alginolyticus,NoInf
+1.082.O.,Vibrio anguillarum,NoInf
+1.082.O.,Vibrio breoganii,Inf
+1.082.O.,Vibrio cyclitrophicus,NoInf
+1.082.O.,Vibrio jasicida,NoInf
+1.082.O.,Vibrio kanaloae,NoInf
+1.082.O.,Vibrio lentus,NoInf
+1.082.O.,Vibrio parahaemolyticus,NoInf
+1.082.O.,Vibrio sp. 10N.1,NoInf
+1.082.O.,Vibrio sp. 10N.2,NoInf
+1.082.O.,Vibrio sp. 10N.3,NoInf
+1.082.O.,Vibrio sp. 10N.4,NoInf
+1.082.O.,Vibrio sp. 10N.5,NoInf
+1.082.O.,Vibrio sp. F12,NoInf
+1.082.O.,Vibrio sp. F13,NoInf
+1.082.O.,Vibrio splendidus,NoInf
+1.082.O.,Vibrio tasmaniensis,NoInf
+1.082.O.,Vibrio vulnificus,NoInf
+1.083.O.,Aliivibrio fischeri,NoInf
+1.083.O.,Enterovibrio norvegicus,NoInf
+1.083.O.,Shewanella sp. 10N.6,Inf
+1.083.O.,Shewanella sp. 10N.7,NoInf
+1.083.O.,Vibrio alginolyticus,NoInf
+1.083.O.,Vibrio anguillarum,NoInf
+1.083.O.,Vibrio breoganii,Inf
+1.083.O.,Vibrio cyclitrophicus,NoInf
+1.083.O.,Vibrio jasicida,NoInf
+1.083.O.,Vibrio kanaloae,NoInf
+1.083.O.,Vibrio lentus,NoInf
+1.083.O.,Vibrio parahaemolyticus,NoInf
+1.083.O.,Vibrio sp. 10N.1,NoInf
+1.083.O.,Vibrio sp. 10N.2,NoInf
+1.083.O.,Vibrio sp. 10N.3,NoInf
+1.083.O.,Vibrio sp. 10N.4,NoInf
+1.083.O.,Vibrio sp. 10N.5,NoInf
+1.083.O.,Vibrio sp. F12,NoInf
+1.083.O.,Vibrio sp. F13,NoInf
+1.083.O.,Vibrio splendidus,NoInf
+1.083.O.,Vibrio tasmaniensis,NoInf
+1.083.O.,Vibrio vulnificus,NoInf
+1.084.O.,Aliivibrio fischeri,NoInf
+1.084.O.,Enterovibrio norvegicus,Inf
+1.084.O.,Shewanella sp. 10N.6,NoInf
+1.084.O.,Shewanella sp. 10N.7,NoInf
+1.084.O.,Vibrio alginolyticus,NoInf
+1.084.O.,Vibrio anguillarum,NoInf
+1.084.O.,Vibrio breoganii,NoInf
+1.084.O.,Vibrio cyclitrophicus,NoInf
+1.084.O.,Vibrio jasicida,NoInf
+1.084.O.,Vibrio kanaloae,NoInf
+1.084.O.,Vibrio lentus,NoInf
+1.084.O.,Vibrio parahaemolyticus,NoInf
+1.084.O.,Vibrio sp. 10N.1,NoInf
+1.084.O.,Vibrio sp. 10N.2,NoInf
+1.084.O.,Vibrio sp. 10N.3,NoInf
+1.084.O.,Vibrio sp. 10N.4,NoInf
+1.084.O.,Vibrio sp. 10N.5,NoInf
+1.084.O.,Vibrio sp. F12,NoInf
+1.084.O.,Vibrio sp. F13,NoInf
+1.084.O.,Vibrio splendidus,NoInf
+1.084.O.,Vibrio tasmaniensis,NoInf
+1.084.O.,Vibrio vulnificus,NoInf
+1.085.O.,Aliivibrio fischeri,NoInf
+1.085.O.,Enterovibrio norvegicus,NoInf
+1.085.O.,Shewanella sp. 10N.6,NoInf
+1.085.O.,Shewanella sp. 10N.7,NoInf
+1.085.O.,Vibrio alginolyticus,NoInf
+1.085.O.,Vibrio anguillarum,NoInf
+1.085.O.,Vibrio breoganii,Inf
+1.085.O.,Vibrio cyclitrophicus,NoInf
+1.085.O.,Vibrio jasicida,NoInf
+1.085.O.,Vibrio kanaloae,NoInf
+1.085.O.,Vibrio lentus,Inf
+1.085.O.,Vibrio parahaemolyticus,NoInf
+1.085.O.,Vibrio sp. 10N.1,NoInf
+1.085.O.,Vibrio sp. 10N.2,NoInf
+1.085.O.,Vibrio sp. 10N.3,NoInf
+1.085.O.,Vibrio sp. 10N.4,NoInf
+1.085.O.,Vibrio sp. 10N.5,NoInf
+1.085.O.,Vibrio sp. F12,NoInf
+1.085.O.,Vibrio sp. F13,NoInf
+1.085.O.,Vibrio splendidus,NoInf
+1.085.O.,Vibrio tasmaniensis,NoInf
+1.085.O.,Vibrio vulnificus,NoInf
+1.086.O.,Aliivibrio fischeri,NoInf
+1.086.O.,Enterovibrio norvegicus,NoInf
+1.086.O.,Shewanella sp. 10N.6,NoInf
+1.086.O.,Shewanella sp. 10N.7,NoInf
+1.086.O.,Vibrio alginolyticus,NoInf
+1.086.O.,Vibrio anguillarum,NoInf
+1.086.O.,Vibrio breoganii,NoInf
+1.086.O.,Vibrio cyclitrophicus,NoInf
+1.086.O.,Vibrio jasicida,NoInf
+1.086.O.,Vibrio kanaloae,NoInf
+1.086.O.,Vibrio lentus,NoInf
+1.086.O.,Vibrio parahaemolyticus,NoInf
+1.086.O.,Vibrio sp. 10N.1,NoInf
+1.086.O.,Vibrio sp. 10N.2,NoInf
+1.086.O.,Vibrio sp. 10N.3,NoInf
+1.086.O.,Vibrio sp. 10N.4,NoInf
+1.086.O.,Vibrio sp. 10N.5,NoInf
+1.086.O.,Vibrio sp. F12,NoInf
+1.086.O.,Vibrio sp. F13,NoInf
+1.086.O.,Vibrio splendidus,Inf
+1.086.O.,Vibrio tasmaniensis,NoInf
+1.086.O.,Vibrio vulnificus,NoInf
+1.087.A.,Aliivibrio fischeri,NoInf
+1.087.A.,Enterovibrio norvegicus,NoInf
+1.087.A.,Shewanella sp. 10N.6,NoInf
+1.087.A.,Shewanella sp. 10N.7,NoInf
+1.087.A.,Vibrio alginolyticus,NoInf
+1.087.A.,Vibrio anguillarum,NoInf
+1.087.A.,Vibrio breoganii,NoInf
+1.087.A.,Vibrio cyclitrophicus,NoInf
+1.087.A.,Vibrio jasicida,NoInf
+1.087.A.,Vibrio kanaloae,NoInf
+1.087.A.,Vibrio lentus,Inf
+1.087.A.,Vibrio parahaemolyticus,NoInf
+1.087.A.,Vibrio sp. 10N.1,NoInf
+1.087.A.,Vibrio sp. 10N.2,NoInf
+1.087.A.,Vibrio sp. 10N.3,NoInf
+1.087.A.,Vibrio sp. 10N.4,NoInf
+1.087.A.,Vibrio sp. 10N.5,NoInf
+1.087.A.,Vibrio sp. F12,NoInf
+1.087.A.,Vibrio sp. F13,NoInf
+1.087.A.,Vibrio splendidus,NoInf
+1.087.A.,Vibrio tasmaniensis,NoInf
+1.087.A.,Vibrio vulnificus,NoInf
+1.088.O.,Aliivibrio fischeri,NoInf
+1.088.O.,Enterovibrio norvegicus,NoInf
+1.088.O.,Shewanella sp. 10N.6,NoInf
+1.088.O.,Shewanella sp. 10N.7,NoInf
+1.088.O.,Vibrio alginolyticus,NoInf
+1.088.O.,Vibrio anguillarum,NoInf
+1.088.O.,Vibrio breoganii,NoInf
+1.088.O.,Vibrio cyclitrophicus,NoInf
+1.088.O.,Vibrio jasicida,NoInf
+1.088.O.,Vibrio kanaloae,NoInf
+1.088.O.,Vibrio lentus,Inf
+1.088.O.,Vibrio parahaemolyticus,NoInf
+1.088.O.,Vibrio sp. 10N.1,NoInf
+1.088.O.,Vibrio sp. 10N.2,NoInf
+1.088.O.,Vibrio sp. 10N.3,NoInf
+1.088.O.,Vibrio sp. 10N.4,NoInf
+1.088.O.,Vibrio sp. 10N.5,NoInf
+1.088.O.,Vibrio sp. F12,NoInf
+1.088.O.,Vibrio sp. F13,NoInf
+1.088.O.,Vibrio splendidus,NoInf
+1.088.O.,Vibrio tasmaniensis,NoInf
+1.088.O.,Vibrio vulnificus,NoInf
+1.089.O.,Aliivibrio fischeri,NoInf
+1.089.O.,Enterovibrio norvegicus,NoInf
+1.089.O.,Shewanella sp. 10N.6,NoInf
+1.089.O.,Shewanella sp. 10N.7,NoInf
+1.089.O.,Vibrio alginolyticus,NoInf
+1.089.O.,Vibrio anguillarum,NoInf
+1.089.O.,Vibrio breoganii,NoInf
+1.089.O.,Vibrio cyclitrophicus,NoInf
+1.089.O.,Vibrio jasicida,NoInf
+1.089.O.,Vibrio kanaloae,NoInf
+1.089.O.,Vibrio lentus,Inf
+1.089.O.,Vibrio parahaemolyticus,NoInf
+1.089.O.,Vibrio sp. 10N.1,NoInf
+1.089.O.,Vibrio sp. 10N.2,NoInf
+1.089.O.,Vibrio sp. 10N.3,NoInf
+1.089.O.,Vibrio sp. 10N.4,NoInf
+1.089.O.,Vibrio sp. 10N.5,NoInf
+1.089.O.,Vibrio sp. F12,NoInf
+1.089.O.,Vibrio sp. F13,NoInf
+1.089.O.,Vibrio splendidus,NoInf
+1.089.O.,Vibrio tasmaniensis,NoInf
+1.089.O.,Vibrio vulnificus,NoInf
+1.090.B.,Aliivibrio fischeri,NoInf
+1.090.B.,Enterovibrio norvegicus,NoInf
+1.090.B.,Shewanella sp. 10N.6,NoInf
+1.090.B.,Shewanella sp. 10N.7,NoInf
+1.090.B.,Vibrio alginolyticus,NoInf
+1.090.B.,Vibrio anguillarum,NoInf
+1.090.B.,Vibrio breoganii,NoInf
+1.090.B.,Vibrio cyclitrophicus,NoInf
+1.090.B.,Vibrio jasicida,NoInf
+1.090.B.,Vibrio kanaloae,NoInf
+1.090.B.,Vibrio lentus,NoInf
+1.090.B.,Vibrio parahaemolyticus,NoInf
+1.090.B.,Vibrio sp. 10N.1,NoInf
+1.090.B.,Vibrio sp. 10N.2,NoInf
+1.090.B.,Vibrio sp. 10N.3,NoInf
+1.090.B.,Vibrio sp. 10N.4,NoInf
+1.090.B.,Vibrio sp. 10N.5,NoInf
+1.090.B.,Vibrio sp. F12,NoInf
+1.090.B.,Vibrio sp. F13,NoInf
+1.090.B.,Vibrio splendidus,NoInf
+1.090.B.,Vibrio tasmaniensis,NoInf
+1.090.B.,Vibrio vulnificus,NoInf
+1.091.O.,Aliivibrio fischeri,NoInf
+1.091.O.,Enterovibrio norvegicus,NoInf
+1.091.O.,Shewanella sp. 10N.6,NoInf
+1.091.O.,Shewanella sp. 10N.7,NoInf
+1.091.O.,Vibrio alginolyticus,NoInf
+1.091.O.,Vibrio anguillarum,NoInf
+1.091.O.,Vibrio breoganii,NoInf
+1.091.O.,Vibrio cyclitrophicus,NoInf
+1.091.O.,Vibrio jasicida,NoInf
+1.091.O.,Vibrio kanaloae,NoInf
+1.091.O.,Vibrio lentus,Inf
+1.091.O.,Vibrio parahaemolyticus,NoInf
+1.091.O.,Vibrio sp. 10N.1,NoInf
+1.091.O.,Vibrio sp. 10N.2,NoInf
+1.091.O.,Vibrio sp. 10N.3,NoInf
+1.091.O.,Vibrio sp. 10N.4,NoInf
+1.091.O.,Vibrio sp. 10N.5,NoInf
+1.091.O.,Vibrio sp. F12,NoInf
+1.091.O.,Vibrio sp. F13,NoInf
+1.091.O.,Vibrio splendidus,NoInf
+1.091.O.,Vibrio tasmaniensis,NoInf
+1.091.O.,Vibrio vulnificus,NoInf
+1.093.O.,Aliivibrio fischeri,NoInf
+1.093.O.,Enterovibrio norvegicus,NoInf
+1.093.O.,Shewanella sp. 10N.6,NoInf
+1.093.O.,Shewanella sp. 10N.7,NoInf
+1.093.O.,Vibrio alginolyticus,NoInf
+1.093.O.,Vibrio anguillarum,NoInf
+1.093.O.,Vibrio breoganii,NoInf
+1.093.O.,Vibrio cyclitrophicus,NoInf
+1.093.O.,Vibrio jasicida,NoInf
+1.093.O.,Vibrio kanaloae,NoInf
+1.093.O.,Vibrio lentus,NoInf
+1.093.O.,Vibrio parahaemolyticus,NoInf
+1.093.O.,Vibrio sp. 10N.1,NoInf
+1.093.O.,Vibrio sp. 10N.2,NoInf
+1.093.O.,Vibrio sp. 10N.3,NoInf
+1.093.O.,Vibrio sp. 10N.4,NoInf
+1.093.O.,Vibrio sp. 10N.5,NoInf
+1.093.O.,Vibrio sp. F12,Inf
+1.093.O.,Vibrio sp. F13,NoInf
+1.093.O.,Vibrio splendidus,NoInf
+1.093.O.,Vibrio tasmaniensis,NoInf
+1.093.O.,Vibrio vulnificus,NoInf
+1.094.O.,Aliivibrio fischeri,NoInf
+1.094.O.,Enterovibrio norvegicus,NoInf
+1.094.O.,Shewanella sp. 10N.6,NoInf
+1.094.O.,Shewanella sp. 10N.7,NoInf
+1.094.O.,Vibrio alginolyticus,NoInf
+1.094.O.,Vibrio anguillarum,NoInf
+1.094.O.,Vibrio breoganii,NoInf
+1.094.O.,Vibrio cyclitrophicus,NoInf
+1.094.O.,Vibrio jasicida,NoInf
+1.094.O.,Vibrio kanaloae,NoInf
+1.094.O.,Vibrio lentus,NoInf
+1.094.O.,Vibrio parahaemolyticus,NoInf
+1.094.O.,Vibrio sp. 10N.1,NoInf
+1.094.O.,Vibrio sp. 10N.2,NoInf
+1.094.O.,Vibrio sp. 10N.3,NoInf
+1.094.O.,Vibrio sp. 10N.4,NoInf
+1.094.O.,Vibrio sp. 10N.5,NoInf
+1.094.O.,Vibrio sp. F12,Inf
+1.094.O.,Vibrio sp. F13,NoInf
+1.094.O.,Vibrio splendidus,NoInf
+1.094.O.,Vibrio tasmaniensis,NoInf
+1.094.O.,Vibrio vulnificus,NoInf
+1.095.O.,Aliivibrio fischeri,NoInf
+1.095.O.,Enterovibrio norvegicus,NoInf
+1.095.O.,Shewanella sp. 10N.6,NoInf
+1.095.O.,Shewanella sp. 10N.7,NoInf
+1.095.O.,Vibrio alginolyticus,NoInf
+1.095.O.,Vibrio anguillarum,NoInf
+1.095.O.,Vibrio breoganii,NoInf
+1.095.O.,Vibrio cyclitrophicus,Inf
+1.095.O.,Vibrio jasicida,NoInf
+1.095.O.,Vibrio kanaloae,NoInf
+1.095.O.,Vibrio lentus,Inf
+1.095.O.,Vibrio parahaemolyticus,NoInf
+1.095.O.,Vibrio sp. 10N.1,NoInf
+1.095.O.,Vibrio sp. 10N.2,NoInf
+1.095.O.,Vibrio sp. 10N.3,NoInf
+1.095.O.,Vibrio sp. 10N.4,NoInf
+1.095.O.,Vibrio sp. 10N.5,NoInf
+1.095.O.,Vibrio sp. F12,Inf
+1.095.O.,Vibrio sp. F13,NoInf
+1.095.O.,Vibrio splendidus,Inf
+1.095.O.,Vibrio tasmaniensis,NoInf
+1.095.O.,Vibrio vulnificus,NoInf
+1.097.O.,Aliivibrio fischeri,NoInf
+1.097.O.,Enterovibrio norvegicus,NoInf
+1.097.O.,Shewanella sp. 10N.6,NoInf
+1.097.O.,Shewanella sp. 10N.7,NoInf
+1.097.O.,Vibrio alginolyticus,NoInf
+1.097.O.,Vibrio anguillarum,NoInf
+1.097.O.,Vibrio breoganii,NoInf
+1.097.O.,Vibrio cyclitrophicus,NoInf
+1.097.O.,Vibrio jasicida,NoInf
+1.097.O.,Vibrio kanaloae,NoInf
+1.097.O.,Vibrio lentus,NoInf
+1.097.O.,Vibrio parahaemolyticus,NoInf
+1.097.O.,Vibrio sp. 10N.1,NoInf
+1.097.O.,Vibrio sp. 10N.2,NoInf
+1.097.O.,Vibrio sp. 10N.3,NoInf
+1.097.O.,Vibrio sp. 10N.4,NoInf
+1.097.O.,Vibrio sp. 10N.5,Inf
+1.097.O.,Vibrio sp. F12,NoInf
+1.097.O.,Vibrio sp. F13,NoInf
+1.097.O.,Vibrio splendidus,NoInf
+1.097.O.,Vibrio tasmaniensis,NoInf
+1.097.O.,Vibrio vulnificus,NoInf
+1.098.O.,Aliivibrio fischeri,NoInf
+1.098.O.,Enterovibrio norvegicus,NoInf
+1.098.O.,Shewanella sp. 10N.6,NoInf
+1.098.O.,Shewanella sp. 10N.7,NoInf
+1.098.O.,Vibrio alginolyticus,NoInf
+1.098.O.,Vibrio anguillarum,NoInf
+1.098.O.,Vibrio breoganii,NoInf
+1.098.O.,Vibrio cyclitrophicus,NoInf
+1.098.O.,Vibrio jasicida,NoInf
+1.098.O.,Vibrio kanaloae,NoInf
+1.098.O.,Vibrio lentus,Inf
+1.098.O.,Vibrio parahaemolyticus,NoInf
+1.098.O.,Vibrio sp. 10N.1,NoInf
+1.098.O.,Vibrio sp. 10N.2,NoInf
+1.098.O.,Vibrio sp. 10N.3,NoInf
+1.098.O.,Vibrio sp. 10N.4,NoInf
+1.098.O.,Vibrio sp. 10N.5,NoInf
+1.098.O.,Vibrio sp. F12,NoInf
+1.098.O.,Vibrio sp. F13,NoInf
+1.098.O.,Vibrio splendidus,NoInf
+1.098.O.,Vibrio tasmaniensis,NoInf
+1.098.O.,Vibrio vulnificus,NoInf
+1.100.O.,Aliivibrio fischeri,NoInf
+1.100.O.,Enterovibrio norvegicus,NoInf
+1.100.O.,Shewanella sp. 10N.6,NoInf
+1.100.O.,Shewanella sp. 10N.7,NoInf
+1.100.O.,Vibrio alginolyticus,NoInf
+1.100.O.,Vibrio anguillarum,NoInf
+1.100.O.,Vibrio breoganii,NoInf
+1.100.O.,Vibrio cyclitrophicus,NoInf
+1.100.O.,Vibrio jasicida,NoInf
+1.100.O.,Vibrio kanaloae,NoInf
+1.100.O.,Vibrio lentus,Inf
+1.100.O.,Vibrio parahaemolyticus,NoInf
+1.100.O.,Vibrio sp. 10N.1,NoInf
+1.100.O.,Vibrio sp. 10N.2,NoInf
+1.100.O.,Vibrio sp. 10N.3,NoInf
+1.100.O.,Vibrio sp. 10N.4,NoInf
+1.100.O.,Vibrio sp. 10N.5,NoInf
+1.100.O.,Vibrio sp. F12,NoInf
+1.100.O.,Vibrio sp. F13,NoInf
+1.100.O.,Vibrio splendidus,NoInf
+1.100.O.,Vibrio tasmaniensis,NoInf
+1.100.O.,Vibrio vulnificus,NoInf
+1.101.O.,Aliivibrio fischeri,NoInf
+1.101.O.,Enterovibrio norvegicus,Inf
+1.101.O.,Shewanella sp. 10N.6,NoInf
+1.101.O.,Shewanella sp. 10N.7,NoInf
+1.101.O.,Vibrio alginolyticus,NoInf
+1.101.O.,Vibrio anguillarum,NoInf
+1.101.O.,Vibrio breoganii,NoInf
+1.101.O.,Vibrio cyclitrophicus,NoInf
+1.101.O.,Vibrio jasicida,NoInf
+1.101.O.,Vibrio kanaloae,NoInf
+1.101.O.,Vibrio lentus,NoInf
+1.101.O.,Vibrio parahaemolyticus,NoInf
+1.101.O.,Vibrio sp. 10N.1,NoInf
+1.101.O.,Vibrio sp. 10N.2,NoInf
+1.101.O.,Vibrio sp. 10N.3,NoInf
+1.101.O.,Vibrio sp. 10N.4,NoInf
+1.101.O.,Vibrio sp. 10N.5,NoInf
+1.101.O.,Vibrio sp. F12,NoInf
+1.101.O.,Vibrio sp. F13,NoInf
+1.101.O.,Vibrio splendidus,NoInf
+1.101.O.,Vibrio tasmaniensis,NoInf
+1.101.O.,Vibrio vulnificus,NoInf
+1.102.O.,Aliivibrio fischeri,NoInf
+1.102.O.,Enterovibrio norvegicus,NoInf
+1.102.O.,Shewanella sp. 10N.6,NoInf
+1.102.O.,Shewanella sp. 10N.7,NoInf
+1.102.O.,Vibrio alginolyticus,NoInf
+1.102.O.,Vibrio anguillarum,NoInf
+1.102.O.,Vibrio breoganii,NoInf
+1.102.O.,Vibrio cyclitrophicus,Inf
+1.102.O.,Vibrio jasicida,NoInf
+1.102.O.,Vibrio kanaloae,NoInf
+1.102.O.,Vibrio lentus,Inf
+1.102.O.,Vibrio parahaemolyticus,NoInf
+1.102.O.,Vibrio sp. 10N.1,NoInf
+1.102.O.,Vibrio sp. 10N.2,NoInf
+1.102.O.,Vibrio sp. 10N.3,NoInf
+1.102.O.,Vibrio sp. 10N.4,NoInf
+1.102.O.,Vibrio sp. 10N.5,NoInf
+1.102.O.,Vibrio sp. F12,Inf
+1.102.O.,Vibrio sp. F13,NoInf
+1.102.O.,Vibrio splendidus,Inf
+1.102.O.,Vibrio tasmaniensis,NoInf
+1.102.O.,Vibrio vulnificus,NoInf
+1.103.O.,Aliivibrio fischeri,NoInf
+1.103.O.,Enterovibrio norvegicus,NoInf
+1.103.O.,Shewanella sp. 10N.6,NoInf
+1.103.O.,Shewanella sp. 10N.7,NoInf
+1.103.O.,Vibrio alginolyticus,NoInf
+1.103.O.,Vibrio anguillarum,NoInf
+1.103.O.,Vibrio breoganii,NoInf
+1.103.O.,Vibrio cyclitrophicus,NoInf
+1.103.O.,Vibrio jasicida,NoInf
+1.103.O.,Vibrio kanaloae,NoInf
+1.103.O.,Vibrio lentus,NoInf
+1.103.O.,Vibrio parahaemolyticus,NoInf
+1.103.O.,Vibrio sp. 10N.1,NoInf
+1.103.O.,Vibrio sp. 10N.2,NoInf
+1.103.O.,Vibrio sp. 10N.3,NoInf
+1.103.O.,Vibrio sp. 10N.4,NoInf
+1.103.O.,Vibrio sp. 10N.5,NoInf
+1.103.O.,Vibrio sp. F12,NoInf
+1.103.O.,Vibrio sp. F13,NoInf
+1.103.O.,Vibrio splendidus,Inf
+1.103.O.,Vibrio tasmaniensis,NoInf
+1.103.O.,Vibrio vulnificus,NoInf
+1.104.O.,Aliivibrio fischeri,NoInf
+1.104.O.,Enterovibrio norvegicus,NoInf
+1.104.O.,Shewanella sp. 10N.6,NoInf
+1.104.O.,Shewanella sp. 10N.7,NoInf
+1.104.O.,Vibrio alginolyticus,NoInf
+1.104.O.,Vibrio anguillarum,NoInf
+1.104.O.,Vibrio breoganii,NoInf
+1.104.O.,Vibrio cyclitrophicus,NoInf
+1.104.O.,Vibrio jasicida,NoInf
+1.104.O.,Vibrio kanaloae,NoInf
+1.104.O.,Vibrio lentus,Inf
+1.104.O.,Vibrio parahaemolyticus,NoInf
+1.104.O.,Vibrio sp. 10N.1,NoInf
+1.104.O.,Vibrio sp. 10N.2,NoInf
+1.104.O.,Vibrio sp. 10N.3,NoInf
+1.104.O.,Vibrio sp. 10N.4,NoInf
+1.104.O.,Vibrio sp. 10N.5,NoInf
+1.104.O.,Vibrio sp. F12,NoInf
+1.104.O.,Vibrio sp. F13,NoInf
+1.104.O.,Vibrio splendidus,NoInf
+1.104.O.,Vibrio tasmaniensis,NoInf
+1.104.O.,Vibrio vulnificus,NoInf
+1.105.O.,Aliivibrio fischeri,NoInf
+1.105.O.,Enterovibrio norvegicus,NoInf
+1.105.O.,Shewanella sp. 10N.6,NoInf
+1.105.O.,Shewanella sp. 10N.7,NoInf
+1.105.O.,Vibrio alginolyticus,NoInf
+1.105.O.,Vibrio anguillarum,NoInf
+1.105.O.,Vibrio breoganii,NoInf
+1.105.O.,Vibrio cyclitrophicus,NoInf
+1.105.O.,Vibrio jasicida,NoInf
+1.105.O.,Vibrio kanaloae,NoInf
+1.105.O.,Vibrio lentus,NoInf
+1.105.O.,Vibrio parahaemolyticus,NoInf
+1.105.O.,Vibrio sp. 10N.1,NoInf
+1.105.O.,Vibrio sp. 10N.2,NoInf
+1.105.O.,Vibrio sp. 10N.3,NoInf
+1.105.O.,Vibrio sp. 10N.4,NoInf
+1.105.O.,Vibrio sp. 10N.5,NoInf
+1.105.O.,Vibrio sp. F12,NoInf
+1.105.O.,Vibrio sp. F13,NoInf
+1.105.O.,Vibrio splendidus,NoInf
+1.105.O.,Vibrio tasmaniensis,NoInf
+1.105.O.,Vibrio vulnificus,NoInf
+1.106.O.,Aliivibrio fischeri,NoInf
+1.106.O.,Enterovibrio norvegicus,NoInf
+1.106.O.,Shewanella sp. 10N.6,NoInf
+1.106.O.,Shewanella sp. 10N.7,NoInf
+1.106.O.,Vibrio alginolyticus,NoInf
+1.106.O.,Vibrio anguillarum,NoInf
+1.106.O.,Vibrio breoganii,NoInf
+1.106.O.,Vibrio cyclitrophicus,NoInf
+1.106.O.,Vibrio jasicida,NoInf
+1.106.O.,Vibrio kanaloae,NoInf
+1.106.O.,Vibrio lentus,NoInf
+1.106.O.,Vibrio parahaemolyticus,NoInf
+1.106.O.,Vibrio sp. 10N.1,NoInf
+1.106.O.,Vibrio sp. 10N.2,NoInf
+1.106.O.,Vibrio sp. 10N.3,NoInf
+1.106.O.,Vibrio sp. 10N.4,NoInf
+1.106.O.,Vibrio sp. 10N.5,NoInf
+1.106.O.,Vibrio sp. F12,NoInf
+1.106.O.,Vibrio sp. F13,NoInf
+1.106.O.,Vibrio splendidus,NoInf
+1.106.O.,Vibrio tasmaniensis,NoInf
+1.106.O.,Vibrio vulnificus,NoInf
+1.107.B.,Aliivibrio fischeri,NoInf
+1.107.B.,Enterovibrio norvegicus,NoInf
+1.107.B.,Shewanella sp. 10N.6,NoInf
+1.107.B.,Shewanella sp. 10N.7,NoInf
+1.107.B.,Vibrio alginolyticus,NoInf
+1.107.B.,Vibrio anguillarum,NoInf
+1.107.B.,Vibrio breoganii,NoInf
+1.107.B.,Vibrio cyclitrophicus,Inf
+1.107.B.,Vibrio jasicida,NoInf
+1.107.B.,Vibrio kanaloae,NoInf
+1.107.B.,Vibrio lentus,Inf
+1.107.B.,Vibrio parahaemolyticus,NoInf
+1.107.B.,Vibrio sp. 10N.1,NoInf
+1.107.B.,Vibrio sp. 10N.2,NoInf
+1.107.B.,Vibrio sp. 10N.3,NoInf
+1.107.B.,Vibrio sp. 10N.4,NoInf
+1.107.B.,Vibrio sp. 10N.5,NoInf
+1.107.B.,Vibrio sp. F12,Inf
+1.107.B.,Vibrio sp. F13,NoInf
+1.107.B.,Vibrio splendidus,Inf
+1.107.B.,Vibrio tasmaniensis,NoInf
+1.107.B.,Vibrio vulnificus,NoInf
+1.108.O.,Aliivibrio fischeri,NoInf
+1.108.O.,Enterovibrio norvegicus,NoInf
+1.108.O.,Shewanella sp. 10N.6,NoInf
+1.108.O.,Shewanella sp. 10N.7,NoInf
+1.108.O.,Vibrio alginolyticus,NoInf
+1.108.O.,Vibrio anguillarum,NoInf
+1.108.O.,Vibrio breoganii,Inf
+1.108.O.,Vibrio cyclitrophicus,NoInf
+1.108.O.,Vibrio jasicida,NoInf
+1.108.O.,Vibrio kanaloae,NoInf
+1.108.O.,Vibrio lentus,NoInf
+1.108.O.,Vibrio parahaemolyticus,NoInf
+1.108.O.,Vibrio sp. 10N.1,NoInf
+1.108.O.,Vibrio sp. 10N.2,NoInf
+1.108.O.,Vibrio sp. 10N.3,NoInf
+1.108.O.,Vibrio sp. 10N.4,NoInf
+1.108.O.,Vibrio sp. 10N.5,NoInf
+1.108.O.,Vibrio sp. F12,NoInf
+1.108.O.,Vibrio sp. F13,NoInf
+1.108.O.,Vibrio splendidus,NoInf
+1.108.O.,Vibrio tasmaniensis,NoInf
+1.108.O.,Vibrio vulnificus,NoInf
+1.110.O.,Aliivibrio fischeri,NoInf
+1.110.O.,Enterovibrio norvegicus,NoInf
+1.110.O.,Shewanella sp. 10N.6,NoInf
+1.110.O.,Shewanella sp. 10N.7,NoInf
+1.110.O.,Vibrio alginolyticus,NoInf
+1.110.O.,Vibrio anguillarum,NoInf
+1.110.O.,Vibrio breoganii,Inf
+1.110.O.,Vibrio cyclitrophicus,NoInf
+1.110.O.,Vibrio jasicida,NoInf
+1.110.O.,Vibrio kanaloae,NoInf
+1.110.O.,Vibrio lentus,NoInf
+1.110.O.,Vibrio parahaemolyticus,NoInf
+1.110.O.,Vibrio sp. 10N.1,NoInf
+1.110.O.,Vibrio sp. 10N.2,NoInf
+1.110.O.,Vibrio sp. 10N.3,NoInf
+1.110.O.,Vibrio sp. 10N.4,NoInf
+1.110.O.,Vibrio sp. 10N.5,NoInf
+1.110.O.,Vibrio sp. F12,NoInf
+1.110.O.,Vibrio sp. F13,NoInf
+1.110.O.,Vibrio splendidus,NoInf
+1.110.O.,Vibrio tasmaniensis,NoInf
+1.110.O.,Vibrio vulnificus,NoInf
+1.111.A.,Aliivibrio fischeri,NoInf
+1.111.A.,Enterovibrio norvegicus,NoInf
+1.111.A.,Shewanella sp. 10N.6,NoInf
+1.111.A.,Shewanella sp. 10N.7,NoInf
+1.111.A.,Vibrio alginolyticus,NoInf
+1.111.A.,Vibrio anguillarum,NoInf
+1.111.A.,Vibrio breoganii,NoInf
+1.111.A.,Vibrio cyclitrophicus,NoInf
+1.111.A.,Vibrio jasicida,NoInf
+1.111.A.,Vibrio kanaloae,NoInf
+1.111.A.,Vibrio lentus,Inf
+1.111.A.,Vibrio parahaemolyticus,NoInf
+1.111.A.,Vibrio sp. 10N.1,NoInf
+1.111.A.,Vibrio sp. 10N.2,NoInf
+1.111.A.,Vibrio sp. 10N.3,NoInf
+1.111.A.,Vibrio sp. 10N.4,NoInf
+1.111.A.,Vibrio sp. 10N.5,NoInf
+1.111.A.,Vibrio sp. F12,NoInf
+1.111.A.,Vibrio sp. F13,NoInf
+1.111.A.,Vibrio splendidus,NoInf
+1.111.A.,Vibrio tasmaniensis,NoInf
+1.111.A.,Vibrio vulnificus,NoInf
+1.112.O.,Aliivibrio fischeri,NoInf
+1.112.O.,Enterovibrio norvegicus,NoInf
+1.112.O.,Shewanella sp. 10N.6,NoInf
+1.112.O.,Shewanella sp. 10N.7,NoInf
+1.112.O.,Vibrio alginolyticus,NoInf
+1.112.O.,Vibrio anguillarum,NoInf
+1.112.O.,Vibrio breoganii,NoInf
+1.112.O.,Vibrio cyclitrophicus,NoInf
+1.112.O.,Vibrio jasicida,NoInf
+1.112.O.,Vibrio kanaloae,NoInf
+1.112.O.,Vibrio lentus,Inf
+1.112.O.,Vibrio parahaemolyticus,NoInf
+1.112.O.,Vibrio sp. 10N.1,NoInf
+1.112.O.,Vibrio sp. 10N.2,NoInf
+1.112.O.,Vibrio sp. 10N.3,NoInf
+1.112.O.,Vibrio sp. 10N.4,NoInf
+1.112.O.,Vibrio sp. 10N.5,NoInf
+1.112.O.,Vibrio sp. F12,NoInf
+1.112.O.,Vibrio sp. F13,NoInf
+1.112.O.,Vibrio splendidus,NoInf
+1.112.O.,Vibrio tasmaniensis,NoInf
+1.112.O.,Vibrio vulnificus,NoInf
+1.113.A.,Aliivibrio fischeri,NoInf
+1.113.A.,Enterovibrio norvegicus,NoInf
+1.113.A.,Shewanella sp. 10N.6,NoInf
+1.113.A.,Shewanella sp. 10N.7,NoInf
+1.113.A.,Vibrio alginolyticus,NoInf
+1.113.A.,Vibrio anguillarum,NoInf
+1.113.A.,Vibrio breoganii,NoInf
+1.113.A.,Vibrio cyclitrophicus,NoInf
+1.113.A.,Vibrio jasicida,NoInf
+1.113.A.,Vibrio kanaloae,NoInf
+1.113.A.,Vibrio lentus,NoInf
+1.113.A.,Vibrio parahaemolyticus,NoInf
+1.113.A.,Vibrio sp. 10N.1,NoInf
+1.113.A.,Vibrio sp. 10N.2,NoInf
+1.113.A.,Vibrio sp. 10N.3,NoInf
+1.113.A.,Vibrio sp. 10N.4,NoInf
+1.113.A.,Vibrio sp. 10N.5,NoInf
+1.113.A.,Vibrio sp. F12,NoInf
+1.113.A.,Vibrio sp. F13,NoInf
+1.113.A.,Vibrio splendidus,NoInf
+1.113.A.,Vibrio tasmaniensis,NoInf
+1.113.A.,Vibrio vulnificus,NoInf
+1.115.A.,Aliivibrio fischeri,NoInf
+1.115.A.,Enterovibrio norvegicus,NoInf
+1.115.A.,Shewanella sp. 10N.6,NoInf
+1.115.A.,Shewanella sp. 10N.7,NoInf
+1.115.A.,Vibrio alginolyticus,NoInf
+1.115.A.,Vibrio anguillarum,NoInf
+1.115.A.,Vibrio breoganii,Inf
+1.115.A.,Vibrio cyclitrophicus,NoInf
+1.115.A.,Vibrio jasicida,NoInf
+1.115.A.,Vibrio kanaloae,NoInf
+1.115.A.,Vibrio lentus,NoInf
+1.115.A.,Vibrio parahaemolyticus,NoInf
+1.115.A.,Vibrio sp. 10N.1,NoInf
+1.115.A.,Vibrio sp. 10N.2,NoInf
+1.115.A.,Vibrio sp. 10N.3,NoInf
+1.115.A.,Vibrio sp. 10N.4,NoInf
+1.115.A.,Vibrio sp. 10N.5,NoInf
+1.115.A.,Vibrio sp. F12,NoInf
+1.115.A.,Vibrio sp. F13,NoInf
+1.115.A.,Vibrio splendidus,NoInf
+1.115.A.,Vibrio tasmaniensis,NoInf
+1.115.A.,Vibrio vulnificus,NoInf
+1.116.O.,Aliivibrio fischeri,NoInf
+1.116.O.,Enterovibrio norvegicus,NoInf
+1.116.O.,Shewanella sp. 10N.6,NoInf
+1.116.O.,Shewanella sp. 10N.7,NoInf
+1.116.O.,Vibrio alginolyticus,NoInf
+1.116.O.,Vibrio anguillarum,NoInf
+1.116.O.,Vibrio breoganii,Inf
+1.116.O.,Vibrio cyclitrophicus,NoInf
+1.116.O.,Vibrio jasicida,NoInf
+1.116.O.,Vibrio kanaloae,NoInf
+1.116.O.,Vibrio lentus,NoInf
+1.116.O.,Vibrio parahaemolyticus,NoInf
+1.116.O.,Vibrio sp. 10N.1,NoInf
+1.116.O.,Vibrio sp. 10N.2,NoInf
+1.116.O.,Vibrio sp. 10N.3,NoInf
+1.116.O.,Vibrio sp. 10N.4,NoInf
+1.116.O.,Vibrio sp. 10N.5,NoInf
+1.116.O.,Vibrio sp. F12,NoInf
+1.116.O.,Vibrio sp. F13,NoInf
+1.116.O.,Vibrio splendidus,NoInf
+1.116.O.,Vibrio tasmaniensis,NoInf
+1.116.O.,Vibrio vulnificus,NoInf
+1.118.A.,Aliivibrio fischeri,NoInf
+1.118.A.,Enterovibrio norvegicus,NoInf
+1.118.A.,Shewanella sp. 10N.6,NoInf
+1.118.A.,Shewanella sp. 10N.7,NoInf
+1.118.A.,Vibrio alginolyticus,NoInf
+1.118.A.,Vibrio anguillarum,NoInf
+1.118.A.,Vibrio breoganii,NoInf
+1.118.A.,Vibrio cyclitrophicus,NoInf
+1.118.A.,Vibrio jasicida,NoInf
+1.118.A.,Vibrio kanaloae,NoInf
+1.118.A.,Vibrio lentus,Inf
+1.118.A.,Vibrio parahaemolyticus,NoInf
+1.118.A.,Vibrio sp. 10N.1,NoInf
+1.118.A.,Vibrio sp. 10N.2,NoInf
+1.118.A.,Vibrio sp. 10N.3,NoInf
+1.118.A.,Vibrio sp. 10N.4,NoInf
+1.118.A.,Vibrio sp. 10N.5,NoInf
+1.118.A.,Vibrio sp. F12,NoInf
+1.118.A.,Vibrio sp. F13,NoInf
+1.118.A.,Vibrio splendidus,NoInf
+1.118.A.,Vibrio tasmaniensis,NoInf
+1.118.A.,Vibrio vulnificus,NoInf
+1.119.O.,Aliivibrio fischeri,NoInf
+1.119.O.,Enterovibrio norvegicus,NoInf
+1.119.O.,Shewanella sp. 10N.6,NoInf
+1.119.O.,Shewanella sp. 10N.7,NoInf
+1.119.O.,Vibrio alginolyticus,NoInf
+1.119.O.,Vibrio anguillarum,NoInf
+1.119.O.,Vibrio breoganii,NoInf
+1.119.O.,Vibrio cyclitrophicus,NoInf
+1.119.O.,Vibrio jasicida,NoInf
+1.119.O.,Vibrio kanaloae,NoInf
+1.119.O.,Vibrio lentus,Inf
+1.119.O.,Vibrio parahaemolyticus,NoInf
+1.119.O.,Vibrio sp. 10N.1,NoInf
+1.119.O.,Vibrio sp. 10N.2,NoInf
+1.119.O.,Vibrio sp. 10N.3,NoInf
+1.119.O.,Vibrio sp. 10N.4,NoInf
+1.119.O.,Vibrio sp. 10N.5,NoInf
+1.119.O.,Vibrio sp. F12,NoInf
+1.119.O.,Vibrio sp. F13,NoInf
+1.119.O.,Vibrio splendidus,NoInf
+1.119.O.,Vibrio tasmaniensis,NoInf
+1.119.O.,Vibrio vulnificus,NoInf
+1.121.O.,Aliivibrio fischeri,NoInf
+1.121.O.,Enterovibrio norvegicus,Inf
+1.121.O.,Shewanella sp. 10N.6,NoInf
+1.121.O.,Shewanella sp. 10N.7,NoInf
+1.121.O.,Vibrio alginolyticus,NoInf
+1.121.O.,Vibrio anguillarum,NoInf
+1.121.O.,Vibrio breoganii,NoInf
+1.121.O.,Vibrio cyclitrophicus,NoInf
+1.121.O.,Vibrio jasicida,NoInf
+1.121.O.,Vibrio kanaloae,NoInf
+1.121.O.,Vibrio lentus,NoInf
+1.121.O.,Vibrio parahaemolyticus,NoInf
+1.121.O.,Vibrio sp. 10N.1,NoInf
+1.121.O.,Vibrio sp. 10N.2,NoInf
+1.121.O.,Vibrio sp. 10N.3,NoInf
+1.121.O.,Vibrio sp. 10N.4,NoInf
+1.121.O.,Vibrio sp. 10N.5,NoInf
+1.121.O.,Vibrio sp. F12,NoInf
+1.121.O.,Vibrio sp. F13,NoInf
+1.121.O.,Vibrio splendidus,Inf
+1.121.O.,Vibrio tasmaniensis,NoInf
+1.121.O.,Vibrio vulnificus,NoInf
+1.122.A.,Aliivibrio fischeri,NoInf
+1.122.A.,Enterovibrio norvegicus,NoInf
+1.122.A.,Shewanella sp. 10N.6,NoInf
+1.122.A.,Shewanella sp. 10N.7,NoInf
+1.122.A.,Vibrio alginolyticus,NoInf
+1.122.A.,Vibrio anguillarum,NoInf
+1.122.A.,Vibrio breoganii,NoInf
+1.122.A.,Vibrio cyclitrophicus,Inf
+1.122.A.,Vibrio jasicida,NoInf
+1.122.A.,Vibrio kanaloae,NoInf
+1.122.A.,Vibrio lentus,NoInf
+1.122.A.,Vibrio parahaemolyticus,NoInf
+1.122.A.,Vibrio sp. 10N.1,NoInf
+1.122.A.,Vibrio sp. 10N.2,NoInf
+1.122.A.,Vibrio sp. 10N.3,NoInf
+1.122.A.,Vibrio sp. 10N.4,NoInf
+1.122.A.,Vibrio sp. 10N.5,NoInf
+1.122.A.,Vibrio sp. F12,NoInf
+1.122.A.,Vibrio sp. F13,NoInf
+1.122.A.,Vibrio splendidus,NoInf
+1.122.A.,Vibrio tasmaniensis,NoInf
+1.122.A.,Vibrio vulnificus,NoInf
+1.123.O.,Aliivibrio fischeri,NoInf
+1.123.O.,Enterovibrio norvegicus,Inf
+1.123.O.,Shewanella sp. 10N.6,NoInf
+1.123.O.,Shewanella sp. 10N.7,NoInf
+1.123.O.,Vibrio alginolyticus,NoInf
+1.123.O.,Vibrio anguillarum,NoInf
+1.123.O.,Vibrio breoganii,NoInf
+1.123.O.,Vibrio cyclitrophicus,NoInf
+1.123.O.,Vibrio jasicida,NoInf
+1.123.O.,Vibrio kanaloae,NoInf
+1.123.O.,Vibrio lentus,NoInf
+1.123.O.,Vibrio parahaemolyticus,NoInf
+1.123.O.,Vibrio sp. 10N.1,NoInf
+1.123.O.,Vibrio sp. 10N.2,NoInf
+1.123.O.,Vibrio sp. 10N.3,NoInf
+1.123.O.,Vibrio sp. 10N.4,NoInf
+1.123.O.,Vibrio sp. 10N.5,NoInf
+1.123.O.,Vibrio sp. F12,NoInf
+1.123.O.,Vibrio sp. F13,NoInf
+1.123.O.,Vibrio splendidus,NoInf
+1.123.O.,Vibrio tasmaniensis,NoInf
+1.123.O.,Vibrio vulnificus,NoInf
+1.124.O.,Aliivibrio fischeri,NoInf
+1.124.O.,Enterovibrio norvegicus,NoInf
+1.124.O.,Shewanella sp. 10N.6,NoInf
+1.124.O.,Shewanella sp. 10N.7,NoInf
+1.124.O.,Vibrio alginolyticus,NoInf
+1.124.O.,Vibrio anguillarum,NoInf
+1.124.O.,Vibrio breoganii,NoInf
+1.124.O.,Vibrio cyclitrophicus,NoInf
+1.124.O.,Vibrio jasicida,NoInf
+1.124.O.,Vibrio kanaloae,NoInf
+1.124.O.,Vibrio lentus,NoInf
+1.124.O.,Vibrio parahaemolyticus,NoInf
+1.124.O.,Vibrio sp. 10N.1,NoInf
+1.124.O.,Vibrio sp. 10N.2,Inf
+1.124.O.,Vibrio sp. 10N.3,NoInf
+1.124.O.,Vibrio sp. 10N.4,NoInf
+1.124.O.,Vibrio sp. 10N.5,NoInf
+1.124.O.,Vibrio sp. F12,NoInf
+1.124.O.,Vibrio sp. F13,NoInf
+1.124.O.,Vibrio splendidus,NoInf
+1.124.O.,Vibrio tasmaniensis,NoInf
+1.124.O.,Vibrio vulnificus,NoInf
+1.125.O.,Aliivibrio fischeri,NoInf
+1.125.O.,Enterovibrio norvegicus,NoInf
+1.125.O.,Shewanella sp. 10N.6,NoInf
+1.125.O.,Shewanella sp. 10N.7,NoInf
+1.125.O.,Vibrio alginolyticus,NoInf
+1.125.O.,Vibrio anguillarum,NoInf
+1.125.O.,Vibrio breoganii,NoInf
+1.125.O.,Vibrio cyclitrophicus,Inf
+1.125.O.,Vibrio jasicida,NoInf
+1.125.O.,Vibrio kanaloae,NoInf
+1.125.O.,Vibrio lentus,Inf
+1.125.O.,Vibrio parahaemolyticus,NoInf
+1.125.O.,Vibrio sp. 10N.1,NoInf
+1.125.O.,Vibrio sp. 10N.2,NoInf
+1.125.O.,Vibrio sp. 10N.3,NoInf
+1.125.O.,Vibrio sp. 10N.4,NoInf
+1.125.O.,Vibrio sp. 10N.5,NoInf
+1.125.O.,Vibrio sp. F12,Inf
+1.125.O.,Vibrio sp. F13,NoInf
+1.125.O.,Vibrio splendidus,Inf
+1.125.O.,Vibrio tasmaniensis,NoInf
+1.125.O.,Vibrio vulnificus,NoInf
+1.127.O.,Aliivibrio fischeri,NoInf
+1.127.O.,Enterovibrio norvegicus,NoInf
+1.127.O.,Shewanella sp. 10N.6,NoInf
+1.127.O.,Shewanella sp. 10N.7,NoInf
+1.127.O.,Vibrio alginolyticus,NoInf
+1.127.O.,Vibrio anguillarum,NoInf
+1.127.O.,Vibrio breoganii,NoInf
+1.127.O.,Vibrio cyclitrophicus,NoInf
+1.127.O.,Vibrio jasicida,NoInf
+1.127.O.,Vibrio kanaloae,NoInf
+1.127.O.,Vibrio lentus,Inf
+1.127.O.,Vibrio parahaemolyticus,NoInf
+1.127.O.,Vibrio sp. 10N.1,NoInf
+1.127.O.,Vibrio sp. 10N.2,NoInf
+1.127.O.,Vibrio sp. 10N.3,NoInf
+1.127.O.,Vibrio sp. 10N.4,NoInf
+1.127.O.,Vibrio sp. 10N.5,NoInf
+1.127.O.,Vibrio sp. F12,NoInf
+1.127.O.,Vibrio sp. F13,NoInf
+1.127.O.,Vibrio splendidus,NoInf
+1.127.O.,Vibrio tasmaniensis,NoInf
+1.127.O.,Vibrio vulnificus,NoInf
+1.131.O.,Aliivibrio fischeri,NoInf
+1.131.O.,Enterovibrio norvegicus,NoInf
+1.131.O.,Shewanella sp. 10N.6,NoInf
+1.131.O.,Shewanella sp. 10N.7,NoInf
+1.131.O.,Vibrio alginolyticus,NoInf
+1.131.O.,Vibrio anguillarum,NoInf
+1.131.O.,Vibrio breoganii,Inf
+1.131.O.,Vibrio cyclitrophicus,NoInf
+1.131.O.,Vibrio jasicida,NoInf
+1.131.O.,Vibrio kanaloae,NoInf
+1.131.O.,Vibrio lentus,NoInf
+1.131.O.,Vibrio parahaemolyticus,NoInf
+1.131.O.,Vibrio sp. 10N.1,NoInf
+1.131.O.,Vibrio sp. 10N.2,NoInf
+1.131.O.,Vibrio sp. 10N.3,NoInf
+1.131.O.,Vibrio sp. 10N.4,NoInf
+1.131.O.,Vibrio sp. 10N.5,NoInf
+1.131.O.,Vibrio sp. F12,NoInf
+1.131.O.,Vibrio sp. F13,NoInf
+1.131.O.,Vibrio splendidus,NoInf
+1.131.O.,Vibrio tasmaniensis,NoInf
+1.131.O.,Vibrio vulnificus,NoInf
+1.132.O.,Aliivibrio fischeri,NoInf
+1.132.O.,Enterovibrio norvegicus,NoInf
+1.132.O.,Shewanella sp. 10N.6,NoInf
+1.132.O.,Shewanella sp. 10N.7,NoInf
+1.132.O.,Vibrio alginolyticus,NoInf
+1.132.O.,Vibrio anguillarum,NoInf
+1.132.O.,Vibrio breoganii,Inf
+1.132.O.,Vibrio cyclitrophicus,NoInf
+1.132.O.,Vibrio jasicida,NoInf
+1.132.O.,Vibrio kanaloae,NoInf
+1.132.O.,Vibrio lentus,NoInf
+1.132.O.,Vibrio parahaemolyticus,NoInf
+1.132.O.,Vibrio sp. 10N.1,NoInf
+1.132.O.,Vibrio sp. 10N.2,NoInf
+1.132.O.,Vibrio sp. 10N.3,NoInf
+1.132.O.,Vibrio sp. 10N.4,NoInf
+1.132.O.,Vibrio sp. 10N.5,NoInf
+1.132.O.,Vibrio sp. F12,NoInf
+1.132.O.,Vibrio sp. F13,NoInf
+1.132.O.,Vibrio splendidus,NoInf
+1.132.O.,Vibrio tasmaniensis,NoInf
+1.132.O.,Vibrio vulnificus,NoInf
+1.133.O.,Aliivibrio fischeri,NoInf
+1.133.O.,Enterovibrio norvegicus,NoInf
+1.133.O.,Shewanella sp. 10N.6,NoInf
+1.133.O.,Shewanella sp. 10N.7,NoInf
+1.133.O.,Vibrio alginolyticus,NoInf
+1.133.O.,Vibrio anguillarum,NoInf
+1.133.O.,Vibrio breoganii,Inf
+1.133.O.,Vibrio cyclitrophicus,NoInf
+1.133.O.,Vibrio jasicida,NoInf
+1.133.O.,Vibrio kanaloae,NoInf
+1.133.O.,Vibrio lentus,NoInf
+1.133.O.,Vibrio parahaemolyticus,NoInf
+1.133.O.,Vibrio sp. 10N.1,NoInf
+1.133.O.,Vibrio sp. 10N.2,NoInf
+1.133.O.,Vibrio sp. 10N.3,NoInf
+1.133.O.,Vibrio sp. 10N.4,NoInf
+1.133.O.,Vibrio sp. 10N.5,NoInf
+1.133.O.,Vibrio sp. F12,NoInf
+1.133.O.,Vibrio sp. F13,NoInf
+1.133.O.,Vibrio splendidus,NoInf
+1.133.O.,Vibrio tasmaniensis,NoInf
+1.133.O.,Vibrio vulnificus,NoInf
+1.134.O.,Aliivibrio fischeri,NoInf
+1.134.O.,Enterovibrio norvegicus,NoInf
+1.134.O.,Shewanella sp. 10N.6,NoInf
+1.134.O.,Shewanella sp. 10N.7,NoInf
+1.134.O.,Vibrio alginolyticus,NoInf
+1.134.O.,Vibrio anguillarum,NoInf
+1.134.O.,Vibrio breoganii,Inf
+1.134.O.,Vibrio cyclitrophicus,NoInf
+1.134.O.,Vibrio jasicida,NoInf
+1.134.O.,Vibrio kanaloae,NoInf
+1.134.O.,Vibrio lentus,NoInf
+1.134.O.,Vibrio parahaemolyticus,NoInf
+1.134.O.,Vibrio sp. 10N.1,NoInf
+1.134.O.,Vibrio sp. 10N.2,NoInf
+1.134.O.,Vibrio sp. 10N.3,NoInf
+1.134.O.,Vibrio sp. 10N.4,NoInf
+1.134.O.,Vibrio sp. 10N.5,NoInf
+1.134.O.,Vibrio sp. F12,NoInf
+1.134.O.,Vibrio sp. F13,NoInf
+1.134.O.,Vibrio splendidus,NoInf
+1.134.O.,Vibrio tasmaniensis,NoInf
+1.134.O.,Vibrio vulnificus,NoInf
+1.135.O.,Aliivibrio fischeri,NoInf
+1.135.O.,Enterovibrio norvegicus,NoInf
+1.135.O.,Shewanella sp. 10N.6,NoInf
+1.135.O.,Shewanella sp. 10N.7,NoInf
+1.135.O.,Vibrio alginolyticus,NoInf
+1.135.O.,Vibrio anguillarum,NoInf
+1.135.O.,Vibrio breoganii,NoInf
+1.135.O.,Vibrio cyclitrophicus,NoInf
+1.135.O.,Vibrio jasicida,NoInf
+1.135.O.,Vibrio kanaloae,NoInf
+1.135.O.,Vibrio lentus,NoInf
+1.135.O.,Vibrio parahaemolyticus,NoInf
+1.135.O.,Vibrio sp. 10N.1,NoInf
+1.135.O.,Vibrio sp. 10N.2,NoInf
+1.135.O.,Vibrio sp. 10N.3,NoInf
+1.135.O.,Vibrio sp. 10N.4,NoInf
+1.135.O.,Vibrio sp. 10N.5,NoInf
+1.135.O.,Vibrio sp. F12,NoInf
+1.135.O.,Vibrio sp. F13,Inf
+1.135.O.,Vibrio splendidus,NoInf
+1.135.O.,Vibrio tasmaniensis,NoInf
+1.135.O.,Vibrio vulnificus,NoInf
+1.136.O.,Aliivibrio fischeri,NoInf
+1.136.O.,Enterovibrio norvegicus,NoInf
+1.136.O.,Shewanella sp. 10N.6,NoInf
+1.136.O.,Shewanella sp. 10N.7,NoInf
+1.136.O.,Vibrio alginolyticus,NoInf
+1.136.O.,Vibrio anguillarum,NoInf
+1.136.O.,Vibrio breoganii,NoInf
+1.136.O.,Vibrio cyclitrophicus,NoInf
+1.136.O.,Vibrio jasicida,NoInf
+1.136.O.,Vibrio kanaloae,NoInf
+1.136.O.,Vibrio lentus,NoInf
+1.136.O.,Vibrio parahaemolyticus,NoInf
+1.136.O.,Vibrio sp. 10N.1,Inf
+1.136.O.,Vibrio sp. 10N.2,NoInf
+1.136.O.,Vibrio sp. 10N.3,NoInf
+1.136.O.,Vibrio sp. 10N.4,NoInf
+1.136.O.,Vibrio sp. 10N.5,NoInf
+1.136.O.,Vibrio sp. F12,NoInf
+1.136.O.,Vibrio sp. F13,NoInf
+1.136.O.,Vibrio splendidus,NoInf
+1.136.O.,Vibrio tasmaniensis,NoInf
+1.136.O.,Vibrio vulnificus,NoInf
+1.137.O.,Aliivibrio fischeri,NoInf
+1.137.O.,Enterovibrio norvegicus,NoInf
+1.137.O.,Shewanella sp. 10N.6,NoInf
+1.137.O.,Shewanella sp. 10N.7,NoInf
+1.137.O.,Vibrio alginolyticus,NoInf
+1.137.O.,Vibrio anguillarum,NoInf
+1.137.O.,Vibrio breoganii,NoInf
+1.137.O.,Vibrio cyclitrophicus,NoInf
+1.137.O.,Vibrio jasicida,NoInf
+1.137.O.,Vibrio kanaloae,NoInf
+1.137.O.,Vibrio lentus,Inf
+1.137.O.,Vibrio parahaemolyticus,NoInf
+1.137.O.,Vibrio sp. 10N.1,NoInf
+1.137.O.,Vibrio sp. 10N.2,NoInf
+1.137.O.,Vibrio sp. 10N.3,NoInf
+1.137.O.,Vibrio sp. 10N.4,NoInf
+1.137.O.,Vibrio sp. 10N.5,NoInf
+1.137.O.,Vibrio sp. F12,NoInf
+1.137.O.,Vibrio sp. F13,NoInf
+1.137.O.,Vibrio splendidus,NoInf
+1.137.O.,Vibrio tasmaniensis,NoInf
+1.137.O.,Vibrio vulnificus,NoInf
+1.138.O.,Aliivibrio fischeri,NoInf
+1.138.O.,Enterovibrio norvegicus,NoInf
+1.138.O.,Shewanella sp. 10N.6,NoInf
+1.138.O.,Shewanella sp. 10N.7,NoInf
+1.138.O.,Vibrio alginolyticus,NoInf
+1.138.O.,Vibrio anguillarum,NoInf
+1.138.O.,Vibrio breoganii,NoInf
+1.138.O.,Vibrio cyclitrophicus,NoInf
+1.138.O.,Vibrio jasicida,NoInf
+1.138.O.,Vibrio kanaloae,NoInf
+1.138.O.,Vibrio lentus,Inf
+1.138.O.,Vibrio parahaemolyticus,NoInf
+1.138.O.,Vibrio sp. 10N.1,NoInf
+1.138.O.,Vibrio sp. 10N.2,NoInf
+1.138.O.,Vibrio sp. 10N.3,NoInf
+1.138.O.,Vibrio sp. 10N.4,NoInf
+1.138.O.,Vibrio sp. 10N.5,NoInf
+1.138.O.,Vibrio sp. F12,NoInf
+1.138.O.,Vibrio sp. F13,NoInf
+1.138.O.,Vibrio splendidus,NoInf
+1.138.O.,Vibrio tasmaniensis,NoInf
+1.138.O.,Vibrio vulnificus,NoInf
+1.139.B.,Aliivibrio fischeri,NoInf
+1.139.B.,Enterovibrio norvegicus,Inf
+1.139.B.,Shewanella sp. 10N.6,NoInf
+1.139.B.,Shewanella sp. 10N.7,NoInf
+1.139.B.,Vibrio alginolyticus,NoInf
+1.139.B.,Vibrio anguillarum,NoInf
+1.139.B.,Vibrio breoganii,Inf
+1.139.B.,Vibrio cyclitrophicus,NoInf
+1.139.B.,Vibrio jasicida,NoInf
+1.139.B.,Vibrio kanaloae,NoInf
+1.139.B.,Vibrio lentus,NoInf
+1.139.B.,Vibrio parahaemolyticus,NoInf
+1.139.B.,Vibrio sp. 10N.1,NoInf
+1.139.B.,Vibrio sp. 10N.2,NoInf
+1.139.B.,Vibrio sp. 10N.3,NoInf
+1.139.B.,Vibrio sp. 10N.4,NoInf
+1.139.B.,Vibrio sp. 10N.5,NoInf
+1.139.B.,Vibrio sp. F12,NoInf
+1.139.B.,Vibrio sp. F13,NoInf
+1.139.B.,Vibrio splendidus,NoInf
+1.139.B.,Vibrio tasmaniensis,NoInf
+1.139.B.,Vibrio vulnificus,NoInf
+1.141.A.,Aliivibrio fischeri,NoInf
+1.141.A.,Enterovibrio norvegicus,NoInf
+1.141.A.,Shewanella sp. 10N.6,NoInf
+1.141.A.,Shewanella sp. 10N.7,NoInf
+1.141.A.,Vibrio alginolyticus,NoInf
+1.141.A.,Vibrio anguillarum,NoInf
+1.141.A.,Vibrio breoganii,NoInf
+1.141.A.,Vibrio cyclitrophicus,Inf
+1.141.A.,Vibrio jasicida,NoInf
+1.141.A.,Vibrio kanaloae,Inf
+1.141.A.,Vibrio lentus,Inf
+1.141.A.,Vibrio parahaemolyticus,NoInf
+1.141.A.,Vibrio sp. 10N.1,NoInf
+1.141.A.,Vibrio sp. 10N.2,NoInf
+1.141.A.,Vibrio sp. 10N.3,NoInf
+1.141.A.,Vibrio sp. 10N.4,NoInf
+1.141.A.,Vibrio sp. 10N.5,NoInf
+1.141.A.,Vibrio sp. F12,Inf
+1.141.A.,Vibrio sp. F13,NoInf
+1.141.A.,Vibrio splendidus,Inf
+1.141.A.,Vibrio tasmaniensis,NoInf
+1.141.A.,Vibrio vulnificus,NoInf
+1.142.O.,Aliivibrio fischeri,NoInf
+1.142.O.,Enterovibrio norvegicus,NoInf
+1.142.O.,Shewanella sp. 10N.6,NoInf
+1.142.O.,Shewanella sp. 10N.7,NoInf
+1.142.O.,Vibrio alginolyticus,NoInf
+1.142.O.,Vibrio anguillarum,NoInf
+1.142.O.,Vibrio breoganii,NoInf
+1.142.O.,Vibrio cyclitrophicus,NoInf
+1.142.O.,Vibrio jasicida,NoInf
+1.142.O.,Vibrio kanaloae,NoInf
+1.142.O.,Vibrio lentus,NoInf
+1.142.O.,Vibrio parahaemolyticus,NoInf
+1.142.O.,Vibrio sp. 10N.1,Inf
+1.142.O.,Vibrio sp. 10N.2,NoInf
+1.142.O.,Vibrio sp. 10N.3,NoInf
+1.142.O.,Vibrio sp. 10N.4,NoInf
+1.142.O.,Vibrio sp. 10N.5,NoInf
+1.142.O.,Vibrio sp. F12,NoInf
+1.142.O.,Vibrio sp. F13,NoInf
+1.142.O.,Vibrio splendidus,NoInf
+1.142.O.,Vibrio tasmaniensis,NoInf
+1.142.O.,Vibrio vulnificus,NoInf
+1.143.O.,Aliivibrio fischeri,NoInf
+1.143.O.,Enterovibrio norvegicus,NoInf
+1.143.O.,Shewanella sp. 10N.6,NoInf
+1.143.O.,Shewanella sp. 10N.7,NoInf
+1.143.O.,Vibrio alginolyticus,NoInf
+1.143.O.,Vibrio anguillarum,NoInf
+1.143.O.,Vibrio breoganii,NoInf
+1.143.O.,Vibrio cyclitrophicus,NoInf
+1.143.O.,Vibrio jasicida,NoInf
+1.143.O.,Vibrio kanaloae,NoInf
+1.143.O.,Vibrio lentus,Inf
+1.143.O.,Vibrio parahaemolyticus,NoInf
+1.143.O.,Vibrio sp. 10N.1,NoInf
+1.143.O.,Vibrio sp. 10N.2,NoInf
+1.143.O.,Vibrio sp. 10N.3,NoInf
+1.143.O.,Vibrio sp. 10N.4,NoInf
+1.143.O.,Vibrio sp. 10N.5,NoInf
+1.143.O.,Vibrio sp. F12,NoInf
+1.143.O.,Vibrio sp. F13,NoInf
+1.143.O.,Vibrio splendidus,NoInf
+1.143.O.,Vibrio tasmaniensis,NoInf
+1.143.O.,Vibrio vulnificus,NoInf
+1.144.O.,Aliivibrio fischeri,NoInf
+1.144.O.,Enterovibrio norvegicus,NoInf
+1.144.O.,Shewanella sp. 10N.6,NoInf
+1.144.O.,Shewanella sp. 10N.7,NoInf
+1.144.O.,Vibrio alginolyticus,NoInf
+1.144.O.,Vibrio anguillarum,NoInf
+1.144.O.,Vibrio breoganii,NoInf
+1.144.O.,Vibrio cyclitrophicus,NoInf
+1.144.O.,Vibrio jasicida,NoInf
+1.144.O.,Vibrio kanaloae,NoInf
+1.144.O.,Vibrio lentus,NoInf
+1.144.O.,Vibrio parahaemolyticus,NoInf
+1.144.O.,Vibrio sp. 10N.1,NoInf
+1.144.O.,Vibrio sp. 10N.2,NoInf
+1.144.O.,Vibrio sp. 10N.3,NoInf
+1.144.O.,Vibrio sp. 10N.4,NoInf
+1.144.O.,Vibrio sp. 10N.5,NoInf
+1.144.O.,Vibrio sp. F12,NoInf
+1.144.O.,Vibrio sp. F13,NoInf
+1.144.O.,Vibrio splendidus,Inf
+1.144.O.,Vibrio tasmaniensis,NoInf
+1.144.O.,Vibrio vulnificus,NoInf
+1.147.O.,Aliivibrio fischeri,NoInf
+1.147.O.,Enterovibrio norvegicus,NoInf
+1.147.O.,Shewanella sp. 10N.6,NoInf
+1.147.O.,Shewanella sp. 10N.7,NoInf
+1.147.O.,Vibrio alginolyticus,NoInf
+1.147.O.,Vibrio anguillarum,NoInf
+1.147.O.,Vibrio breoganii,Inf
+1.147.O.,Vibrio cyclitrophicus,NoInf
+1.147.O.,Vibrio jasicida,NoInf
+1.147.O.,Vibrio kanaloae,NoInf
+1.147.O.,Vibrio lentus,NoInf
+1.147.O.,Vibrio parahaemolyticus,NoInf
+1.147.O.,Vibrio sp. 10N.1,NoInf
+1.147.O.,Vibrio sp. 10N.2,NoInf
+1.147.O.,Vibrio sp. 10N.3,NoInf
+1.147.O.,Vibrio sp. 10N.4,NoInf
+1.147.O.,Vibrio sp. 10N.5,NoInf
+1.147.O.,Vibrio sp. F12,NoInf
+1.147.O.,Vibrio sp. F13,NoInf
+1.147.O.,Vibrio splendidus,NoInf
+1.147.O.,Vibrio tasmaniensis,NoInf
+1.147.O.,Vibrio vulnificus,NoInf
+1.148.O.,Aliivibrio fischeri,NoInf
+1.148.O.,Enterovibrio norvegicus,NoInf
+1.148.O.,Shewanella sp. 10N.6,NoInf
+1.148.O.,Shewanella sp. 10N.7,NoInf
+1.148.O.,Vibrio alginolyticus,NoInf
+1.148.O.,Vibrio anguillarum,NoInf
+1.148.O.,Vibrio breoganii,Inf
+1.148.O.,Vibrio cyclitrophicus,NoInf
+1.148.O.,Vibrio jasicida,NoInf
+1.148.O.,Vibrio kanaloae,NoInf
+1.148.O.,Vibrio lentus,NoInf
+1.148.O.,Vibrio parahaemolyticus,NoInf
+1.148.O.,Vibrio sp. 10N.1,NoInf
+1.148.O.,Vibrio sp. 10N.2,NoInf
+1.148.O.,Vibrio sp. 10N.3,NoInf
+1.148.O.,Vibrio sp. 10N.4,NoInf
+1.148.O.,Vibrio sp. 10N.5,NoInf
+1.148.O.,Vibrio sp. F12,NoInf
+1.148.O.,Vibrio sp. F13,NoInf
+1.148.O.,Vibrio splendidus,NoInf
+1.148.O.,Vibrio tasmaniensis,NoInf
+1.148.O.,Vibrio vulnificus,NoInf
+1.149.O.,Aliivibrio fischeri,NoInf
+1.149.O.,Enterovibrio norvegicus,NoInf
+1.149.O.,Shewanella sp. 10N.6,NoInf
+1.149.O.,Shewanella sp. 10N.7,NoInf
+1.149.O.,Vibrio alginolyticus,NoInf
+1.149.O.,Vibrio anguillarum,NoInf
+1.149.O.,Vibrio breoganii,NoInf
+1.149.O.,Vibrio cyclitrophicus,Inf
+1.149.O.,Vibrio jasicida,NoInf
+1.149.O.,Vibrio kanaloae,NoInf
+1.149.O.,Vibrio lentus,NoInf
+1.149.O.,Vibrio parahaemolyticus,NoInf
+1.149.O.,Vibrio sp. 10N.1,NoInf
+1.149.O.,Vibrio sp. 10N.2,NoInf
+1.149.O.,Vibrio sp. 10N.3,NoInf
+1.149.O.,Vibrio sp. 10N.4,NoInf
+1.149.O.,Vibrio sp. 10N.5,NoInf
+1.149.O.,Vibrio sp. F12,NoInf
+1.149.O.,Vibrio sp. F13,NoInf
+1.149.O.,Vibrio splendidus,NoInf
+1.149.O.,Vibrio tasmaniensis,NoInf
+1.149.O.,Vibrio vulnificus,NoInf
+1.150.O.,Aliivibrio fischeri,NoInf
+1.150.O.,Enterovibrio norvegicus,NoInf
+1.150.O.,Shewanella sp. 10N.6,NoInf
+1.150.O.,Shewanella sp. 10N.7,NoInf
+1.150.O.,Vibrio alginolyticus,NoInf
+1.150.O.,Vibrio anguillarum,NoInf
+1.150.O.,Vibrio breoganii,NoInf
+1.150.O.,Vibrio cyclitrophicus,NoInf
+1.150.O.,Vibrio jasicida,NoInf
+1.150.O.,Vibrio kanaloae,NoInf
+1.150.O.,Vibrio lentus,NoInf
+1.150.O.,Vibrio parahaemolyticus,NoInf
+1.150.O.,Vibrio sp. 10N.1,NoInf
+1.150.O.,Vibrio sp. 10N.2,NoInf
+1.150.O.,Vibrio sp. 10N.3,NoInf
+1.150.O.,Vibrio sp. 10N.4,NoInf
+1.150.O.,Vibrio sp. 10N.5,NoInf
+1.150.O.,Vibrio sp. F12,NoInf
+1.150.O.,Vibrio sp. F13,NoInf
+1.150.O.,Vibrio splendidus,Inf
+1.150.O.,Vibrio tasmaniensis,NoInf
+1.150.O.,Vibrio vulnificus,NoInf
+1.151.O.,Aliivibrio fischeri,NoInf
+1.151.O.,Enterovibrio norvegicus,NoInf
+1.151.O.,Shewanella sp. 10N.6,NoInf
+1.151.O.,Shewanella sp. 10N.7,NoInf
+1.151.O.,Vibrio alginolyticus,NoInf
+1.151.O.,Vibrio anguillarum,NoInf
+1.151.O.,Vibrio breoganii,NoInf
+1.151.O.,Vibrio cyclitrophicus,NoInf
+1.151.O.,Vibrio jasicida,NoInf
+1.151.O.,Vibrio kanaloae,NoInf
+1.151.O.,Vibrio lentus,NoInf
+1.151.O.,Vibrio parahaemolyticus,NoInf
+1.151.O.,Vibrio sp. 10N.1,NoInf
+1.151.O.,Vibrio sp. 10N.2,NoInf
+1.151.O.,Vibrio sp. 10N.3,NoInf
+1.151.O.,Vibrio sp. 10N.4,NoInf
+1.151.O.,Vibrio sp. 10N.5,NoInf
+1.151.O.,Vibrio sp. F12,NoInf
+1.151.O.,Vibrio sp. F13,NoInf
+1.151.O.,Vibrio splendidus,Inf
+1.151.O.,Vibrio tasmaniensis,NoInf
+1.151.O.,Vibrio vulnificus,NoInf
+1.152.O.,Aliivibrio fischeri,NoInf
+1.152.O.,Enterovibrio norvegicus,NoInf
+1.152.O.,Shewanella sp. 10N.6,NoInf
+1.152.O.,Shewanella sp. 10N.7,NoInf
+1.152.O.,Vibrio alginolyticus,NoInf
+1.152.O.,Vibrio anguillarum,NoInf
+1.152.O.,Vibrio breoganii,NoInf
+1.152.O.,Vibrio cyclitrophicus,NoInf
+1.152.O.,Vibrio jasicida,NoInf
+1.152.O.,Vibrio kanaloae,NoInf
+1.152.O.,Vibrio lentus,NoInf
+1.152.O.,Vibrio parahaemolyticus,NoInf
+1.152.O.,Vibrio sp. 10N.1,NoInf
+1.152.O.,Vibrio sp. 10N.2,NoInf
+1.152.O.,Vibrio sp. 10N.3,NoInf
+1.152.O.,Vibrio sp. 10N.4,NoInf
+1.152.O.,Vibrio sp. 10N.5,NoInf
+1.152.O.,Vibrio sp. F12,NoInf
+1.152.O.,Vibrio sp. F13,NoInf
+1.152.O.,Vibrio splendidus,Inf
+1.152.O.,Vibrio tasmaniensis,NoInf
+1.152.O.,Vibrio vulnificus,NoInf
+1.154.O.,Aliivibrio fischeri,NoInf
+1.154.O.,Enterovibrio norvegicus,NoInf
+1.154.O.,Shewanella sp. 10N.6,NoInf
+1.154.O.,Shewanella sp. 10N.7,NoInf
+1.154.O.,Vibrio alginolyticus,NoInf
+1.154.O.,Vibrio anguillarum,NoInf
+1.154.O.,Vibrio breoganii,NoInf
+1.154.O.,Vibrio cyclitrophicus,NoInf
+1.154.O.,Vibrio jasicida,Inf
+1.154.O.,Vibrio kanaloae,NoInf
+1.154.O.,Vibrio lentus,NoInf
+1.154.O.,Vibrio parahaemolyticus,NoInf
+1.154.O.,Vibrio sp. 10N.1,NoInf
+1.154.O.,Vibrio sp. 10N.2,NoInf
+1.154.O.,Vibrio sp. 10N.3,NoInf
+1.154.O.,Vibrio sp. 10N.4,NoInf
+1.154.O.,Vibrio sp. 10N.5,NoInf
+1.154.O.,Vibrio sp. F12,NoInf
+1.154.O.,Vibrio sp. F13,NoInf
+1.154.O.,Vibrio splendidus,NoInf
+1.154.O.,Vibrio tasmaniensis,NoInf
+1.154.O.,Vibrio vulnificus,NoInf
+1.155.O.,Aliivibrio fischeri,NoInf
+1.155.O.,Enterovibrio norvegicus,NoInf
+1.155.O.,Shewanella sp. 10N.6,NoInf
+1.155.O.,Shewanella sp. 10N.7,NoInf
+1.155.O.,Vibrio alginolyticus,NoInf
+1.155.O.,Vibrio anguillarum,NoInf
+1.155.O.,Vibrio breoganii,NoInf
+1.155.O.,Vibrio cyclitrophicus,NoInf
+1.155.O.,Vibrio jasicida,NoInf
+1.155.O.,Vibrio kanaloae,NoInf
+1.155.O.,Vibrio lentus,NoInf
+1.155.O.,Vibrio parahaemolyticus,NoInf
+1.155.O.,Vibrio sp. 10N.1,NoInf
+1.155.O.,Vibrio sp. 10N.2,NoInf
+1.155.O.,Vibrio sp. 10N.3,NoInf
+1.155.O.,Vibrio sp. 10N.4,NoInf
+1.155.O.,Vibrio sp. 10N.5,NoInf
+1.155.O.,Vibrio sp. F12,NoInf
+1.155.O.,Vibrio sp. F13,Inf
+1.155.O.,Vibrio splendidus,NoInf
+1.155.O.,Vibrio tasmaniensis,NoInf
+1.155.O.,Vibrio vulnificus,NoInf
+1.156.O.,Aliivibrio fischeri,NoInf
+1.156.O.,Enterovibrio norvegicus,NoInf
+1.156.O.,Shewanella sp. 10N.6,NoInf
+1.156.O.,Shewanella sp. 10N.7,NoInf
+1.156.O.,Vibrio alginolyticus,NoInf
+1.156.O.,Vibrio anguillarum,NoInf
+1.156.O.,Vibrio breoganii,NoInf
+1.156.O.,Vibrio cyclitrophicus,NoInf
+1.156.O.,Vibrio jasicida,NoInf
+1.156.O.,Vibrio kanaloae,NoInf
+1.156.O.,Vibrio lentus,NoInf
+1.156.O.,Vibrio parahaemolyticus,NoInf
+1.156.O.,Vibrio sp. 10N.1,Inf
+1.156.O.,Vibrio sp. 10N.2,NoInf
+1.156.O.,Vibrio sp. 10N.3,NoInf
+1.156.O.,Vibrio sp. 10N.4,NoInf
+1.156.O.,Vibrio sp. 10N.5,NoInf
+1.156.O.,Vibrio sp. F12,NoInf
+1.156.O.,Vibrio sp. F13,NoInf
+1.156.O.,Vibrio splendidus,NoInf
+1.156.O.,Vibrio tasmaniensis,NoInf
+1.156.O.,Vibrio vulnificus,NoInf
+1.157.O.,Aliivibrio fischeri,NoInf
+1.157.O.,Enterovibrio norvegicus,NoInf
+1.157.O.,Shewanella sp. 10N.6,NoInf
+1.157.O.,Shewanella sp. 10N.7,NoInf
+1.157.O.,Vibrio alginolyticus,NoInf
+1.157.O.,Vibrio anguillarum,NoInf
+1.157.O.,Vibrio breoganii,Inf
+1.157.O.,Vibrio cyclitrophicus,NoInf
+1.157.O.,Vibrio jasicida,NoInf
+1.157.O.,Vibrio kanaloae,NoInf
+1.157.O.,Vibrio lentus,NoInf
+1.157.O.,Vibrio parahaemolyticus,NoInf
+1.157.O.,Vibrio sp. 10N.1,NoInf
+1.157.O.,Vibrio sp. 10N.2,NoInf
+1.157.O.,Vibrio sp. 10N.3,NoInf
+1.157.O.,Vibrio sp. 10N.4,NoInf
+1.157.O.,Vibrio sp. 10N.5,NoInf
+1.157.O.,Vibrio sp. F12,NoInf
+1.157.O.,Vibrio sp. F13,NoInf
+1.157.O.,Vibrio splendidus,NoInf
+1.157.O.,Vibrio tasmaniensis,NoInf
+1.157.O.,Vibrio vulnificus,NoInf
+1.158.O.,Aliivibrio fischeri,NoInf
+1.158.O.,Enterovibrio norvegicus,NoInf
+1.158.O.,Shewanella sp. 10N.6,NoInf
+1.158.O.,Shewanella sp. 10N.7,NoInf
+1.158.O.,Vibrio alginolyticus,NoInf
+1.158.O.,Vibrio anguillarum,NoInf
+1.158.O.,Vibrio breoganii,NoInf
+1.158.O.,Vibrio cyclitrophicus,NoInf
+1.158.O.,Vibrio jasicida,NoInf
+1.158.O.,Vibrio kanaloae,NoInf
+1.158.O.,Vibrio lentus,Inf
+1.158.O.,Vibrio parahaemolyticus,NoInf
+1.158.O.,Vibrio sp. 10N.1,NoInf
+1.158.O.,Vibrio sp. 10N.2,NoInf
+1.158.O.,Vibrio sp. 10N.3,NoInf
+1.158.O.,Vibrio sp. 10N.4,NoInf
+1.158.O.,Vibrio sp. 10N.5,NoInf
+1.158.O.,Vibrio sp. F12,NoInf
+1.158.O.,Vibrio sp. F13,NoInf
+1.158.O.,Vibrio splendidus,NoInf
+1.158.O.,Vibrio tasmaniensis,NoInf
+1.158.O.,Vibrio vulnificus,NoInf
+1.159.O.,Aliivibrio fischeri,NoInf
+1.159.O.,Enterovibrio norvegicus,NoInf
+1.159.O.,Shewanella sp. 10N.6,NoInf
+1.159.O.,Shewanella sp. 10N.7,NoInf
+1.159.O.,Vibrio alginolyticus,NoInf
+1.159.O.,Vibrio anguillarum,NoInf
+1.159.O.,Vibrio breoganii,NoInf
+1.159.O.,Vibrio cyclitrophicus,NoInf
+1.159.O.,Vibrio jasicida,NoInf
+1.159.O.,Vibrio kanaloae,NoInf
+1.159.O.,Vibrio lentus,NoInf
+1.159.O.,Vibrio parahaemolyticus,NoInf
+1.159.O.,Vibrio sp. 10N.1,Inf
+1.159.O.,Vibrio sp. 10N.2,NoInf
+1.159.O.,Vibrio sp. 10N.3,NoInf
+1.159.O.,Vibrio sp. 10N.4,NoInf
+1.159.O.,Vibrio sp. 10N.5,NoInf
+1.159.O.,Vibrio sp. F12,NoInf
+1.159.O.,Vibrio sp. F13,NoInf
+1.159.O.,Vibrio splendidus,NoInf
+1.159.O.,Vibrio tasmaniensis,NoInf
+1.159.O.,Vibrio vulnificus,NoInf
+1.160.O.,Aliivibrio fischeri,NoInf
+1.160.O.,Enterovibrio norvegicus,NoInf
+1.160.O.,Shewanella sp. 10N.6,NoInf
+1.160.O.,Shewanella sp. 10N.7,NoInf
+1.160.O.,Vibrio alginolyticus,NoInf
+1.160.O.,Vibrio anguillarum,NoInf
+1.160.O.,Vibrio breoganii,NoInf
+1.160.O.,Vibrio cyclitrophicus,NoInf
+1.160.O.,Vibrio jasicida,NoInf
+1.160.O.,Vibrio kanaloae,NoInf
+1.160.O.,Vibrio lentus,Inf
+1.160.O.,Vibrio parahaemolyticus,NoInf
+1.160.O.,Vibrio sp. 10N.1,NoInf
+1.160.O.,Vibrio sp. 10N.2,NoInf
+1.160.O.,Vibrio sp. 10N.3,NoInf
+1.160.O.,Vibrio sp. 10N.4,NoInf
+1.160.O.,Vibrio sp. 10N.5,NoInf
+1.160.O.,Vibrio sp. F12,NoInf
+1.160.O.,Vibrio sp. F13,NoInf
+1.160.O.,Vibrio splendidus,NoInf
+1.160.O.,Vibrio tasmaniensis,NoInf
+1.160.O.,Vibrio vulnificus,NoInf
+1.161.O.,Aliivibrio fischeri,NoInf
+1.161.O.,Enterovibrio norvegicus,NoInf
+1.161.O.,Shewanella sp. 10N.6,NoInf
+1.161.O.,Shewanella sp. 10N.7,NoInf
+1.161.O.,Vibrio alginolyticus,NoInf
+1.161.O.,Vibrio anguillarum,NoInf
+1.161.O.,Vibrio breoganii,NoInf
+1.161.O.,Vibrio cyclitrophicus,NoInf
+1.161.O.,Vibrio jasicida,NoInf
+1.161.O.,Vibrio kanaloae,NoInf
+1.161.O.,Vibrio lentus,Inf
+1.161.O.,Vibrio parahaemolyticus,NoInf
+1.161.O.,Vibrio sp. 10N.1,NoInf
+1.161.O.,Vibrio sp. 10N.2,NoInf
+1.161.O.,Vibrio sp. 10N.3,NoInf
+1.161.O.,Vibrio sp. 10N.4,NoInf
+1.161.O.,Vibrio sp. 10N.5,NoInf
+1.161.O.,Vibrio sp. F12,NoInf
+1.161.O.,Vibrio sp. F13,NoInf
+1.161.O.,Vibrio splendidus,NoInf
+1.161.O.,Vibrio tasmaniensis,NoInf
+1.161.O.,Vibrio vulnificus,NoInf
+1.162.O.,Aliivibrio fischeri,NoInf
+1.162.O.,Enterovibrio norvegicus,NoInf
+1.162.O.,Shewanella sp. 10N.6,NoInf
+1.162.O.,Shewanella sp. 10N.7,NoInf
+1.162.O.,Vibrio alginolyticus,NoInf
+1.162.O.,Vibrio anguillarum,NoInf
+1.162.O.,Vibrio breoganii,Inf
+1.162.O.,Vibrio cyclitrophicus,NoInf
+1.162.O.,Vibrio jasicida,NoInf
+1.162.O.,Vibrio kanaloae,NoInf
+1.162.O.,Vibrio lentus,NoInf
+1.162.O.,Vibrio parahaemolyticus,NoInf
+1.162.O.,Vibrio sp. 10N.1,NoInf
+1.162.O.,Vibrio sp. 10N.2,NoInf
+1.162.O.,Vibrio sp. 10N.3,NoInf
+1.162.O.,Vibrio sp. 10N.4,NoInf
+1.162.O.,Vibrio sp. 10N.5,NoInf
+1.162.O.,Vibrio sp. F12,NoInf
+1.162.O.,Vibrio sp. F13,NoInf
+1.162.O.,Vibrio splendidus,NoInf
+1.162.O.,Vibrio tasmaniensis,NoInf
+1.162.O.,Vibrio vulnificus,NoInf
+1.164.O.,Aliivibrio fischeri,NoInf
+1.164.O.,Enterovibrio norvegicus,NoInf
+1.164.O.,Shewanella sp. 10N.6,NoInf
+1.164.O.,Shewanella sp. 10N.7,NoInf
+1.164.O.,Vibrio alginolyticus,NoInf
+1.164.O.,Vibrio anguillarum,NoInf
+1.164.O.,Vibrio breoganii,NoInf
+1.164.O.,Vibrio cyclitrophicus,NoInf
+1.164.O.,Vibrio jasicida,NoInf
+1.164.O.,Vibrio kanaloae,NoInf
+1.164.O.,Vibrio lentus,NoInf
+1.164.O.,Vibrio parahaemolyticus,NoInf
+1.164.O.,Vibrio sp. 10N.1,NoInf
+1.164.O.,Vibrio sp. 10N.2,NoInf
+1.164.O.,Vibrio sp. 10N.3,NoInf
+1.164.O.,Vibrio sp. 10N.4,NoInf
+1.164.O.,Vibrio sp. 10N.5,NoInf
+1.164.O.,Vibrio sp. F12,NoInf
+1.164.O.,Vibrio sp. F13,Inf
+1.164.O.,Vibrio splendidus,NoInf
+1.164.O.,Vibrio tasmaniensis,NoInf
+1.164.O.,Vibrio vulnificus,NoInf
+1.165.O.,Aliivibrio fischeri,NoInf
+1.165.O.,Enterovibrio norvegicus,NoInf
+1.165.O.,Shewanella sp. 10N.6,NoInf
+1.165.O.,Shewanella sp. 10N.7,NoInf
+1.165.O.,Vibrio alginolyticus,NoInf
+1.165.O.,Vibrio anguillarum,NoInf
+1.165.O.,Vibrio breoganii,Inf
+1.165.O.,Vibrio cyclitrophicus,NoInf
+1.165.O.,Vibrio jasicida,NoInf
+1.165.O.,Vibrio kanaloae,NoInf
+1.165.O.,Vibrio lentus,NoInf
+1.165.O.,Vibrio parahaemolyticus,NoInf
+1.165.O.,Vibrio sp. 10N.1,NoInf
+1.165.O.,Vibrio sp. 10N.2,NoInf
+1.165.O.,Vibrio sp. 10N.3,NoInf
+1.165.O.,Vibrio sp. 10N.4,NoInf
+1.165.O.,Vibrio sp. 10N.5,NoInf
+1.165.O.,Vibrio sp. F12,NoInf
+1.165.O.,Vibrio sp. F13,NoInf
+1.165.O.,Vibrio splendidus,NoInf
+1.165.O.,Vibrio tasmaniensis,NoInf
+1.165.O.,Vibrio vulnificus,NoInf
+1.166.O.,Aliivibrio fischeri,NoInf
+1.166.O.,Enterovibrio norvegicus,NoInf
+1.166.O.,Shewanella sp. 10N.6,NoInf
+1.166.O.,Shewanella sp. 10N.7,NoInf
+1.166.O.,Vibrio alginolyticus,NoInf
+1.166.O.,Vibrio anguillarum,NoInf
+1.166.O.,Vibrio breoganii,NoInf
+1.166.O.,Vibrio cyclitrophicus,NoInf
+1.166.O.,Vibrio jasicida,NoInf
+1.166.O.,Vibrio kanaloae,NoInf
+1.166.O.,Vibrio lentus,Inf
+1.166.O.,Vibrio parahaemolyticus,NoInf
+1.166.O.,Vibrio sp. 10N.1,NoInf
+1.166.O.,Vibrio sp. 10N.2,NoInf
+1.166.O.,Vibrio sp. 10N.3,NoInf
+1.166.O.,Vibrio sp. 10N.4,NoInf
+1.166.O.,Vibrio sp. 10N.5,NoInf
+1.166.O.,Vibrio sp. F12,NoInf
+1.166.O.,Vibrio sp. F13,NoInf
+1.166.O.,Vibrio splendidus,NoInf
+1.166.O.,Vibrio tasmaniensis,NoInf
+1.166.O.,Vibrio vulnificus,NoInf
+1.167.O.,Aliivibrio fischeri,NoInf
+1.167.O.,Enterovibrio norvegicus,NoInf
+1.167.O.,Shewanella sp. 10N.6,NoInf
+1.167.O.,Shewanella sp. 10N.7,NoInf
+1.167.O.,Vibrio alginolyticus,NoInf
+1.167.O.,Vibrio anguillarum,NoInf
+1.167.O.,Vibrio breoganii,Inf
+1.167.O.,Vibrio cyclitrophicus,NoInf
+1.167.O.,Vibrio jasicida,NoInf
+1.167.O.,Vibrio kanaloae,NoInf
+1.167.O.,Vibrio lentus,NoInf
+1.167.O.,Vibrio parahaemolyticus,NoInf
+1.167.O.,Vibrio sp. 10N.1,NoInf
+1.167.O.,Vibrio sp. 10N.2,NoInf
+1.167.O.,Vibrio sp. 10N.3,NoInf
+1.167.O.,Vibrio sp. 10N.4,NoInf
+1.167.O.,Vibrio sp. 10N.5,NoInf
+1.167.O.,Vibrio sp. F12,NoInf
+1.167.O.,Vibrio sp. F13,NoInf
+1.167.O.,Vibrio splendidus,NoInf
+1.167.O.,Vibrio tasmaniensis,NoInf
+1.167.O.,Vibrio vulnificus,NoInf
+1.168.O.,Aliivibrio fischeri,NoInf
+1.168.O.,Enterovibrio norvegicus,NoInf
+1.168.O.,Shewanella sp. 10N.6,NoInf
+1.168.O.,Shewanella sp. 10N.7,NoInf
+1.168.O.,Vibrio alginolyticus,NoInf
+1.168.O.,Vibrio anguillarum,NoInf
+1.168.O.,Vibrio breoganii,Inf
+1.168.O.,Vibrio cyclitrophicus,NoInf
+1.168.O.,Vibrio jasicida,NoInf
+1.168.O.,Vibrio kanaloae,NoInf
+1.168.O.,Vibrio lentus,NoInf
+1.168.O.,Vibrio parahaemolyticus,NoInf
+1.168.O.,Vibrio sp. 10N.1,NoInf
+1.168.O.,Vibrio sp. 10N.2,NoInf
+1.168.O.,Vibrio sp. 10N.3,NoInf
+1.168.O.,Vibrio sp. 10N.4,NoInf
+1.168.O.,Vibrio sp. 10N.5,NoInf
+1.168.O.,Vibrio sp. F12,NoInf
+1.168.O.,Vibrio sp. F13,NoInf
+1.168.O.,Vibrio splendidus,NoInf
+1.168.O.,Vibrio tasmaniensis,NoInf
+1.168.O.,Vibrio vulnificus,NoInf
+1.169.O.,Aliivibrio fischeri,NoInf
+1.169.O.,Enterovibrio norvegicus,NoInf
+1.169.O.,Shewanella sp. 10N.6,NoInf
+1.169.O.,Shewanella sp. 10N.7,NoInf
+1.169.O.,Vibrio alginolyticus,NoInf
+1.169.O.,Vibrio anguillarum,NoInf
+1.169.O.,Vibrio breoganii,Inf
+1.169.O.,Vibrio cyclitrophicus,NoInf
+1.169.O.,Vibrio jasicida,NoInf
+1.169.O.,Vibrio kanaloae,NoInf
+1.169.O.,Vibrio lentus,NoInf
+1.169.O.,Vibrio parahaemolyticus,NoInf
+1.169.O.,Vibrio sp. 10N.1,NoInf
+1.169.O.,Vibrio sp. 10N.2,NoInf
+1.169.O.,Vibrio sp. 10N.3,NoInf
+1.169.O.,Vibrio sp. 10N.4,NoInf
+1.169.O.,Vibrio sp. 10N.5,NoInf
+1.169.O.,Vibrio sp. F12,NoInf
+1.169.O.,Vibrio sp. F13,NoInf
+1.169.O.,Vibrio splendidus,NoInf
+1.169.O.,Vibrio tasmaniensis,NoInf
+1.169.O.,Vibrio vulnificus,NoInf
+1.170.O.,Aliivibrio fischeri,NoInf
+1.170.O.,Enterovibrio norvegicus,NoInf
+1.170.O.,Shewanella sp. 10N.6,NoInf
+1.170.O.,Shewanella sp. 10N.7,NoInf
+1.170.O.,Vibrio alginolyticus,NoInf
+1.170.O.,Vibrio anguillarum,NoInf
+1.170.O.,Vibrio breoganii,NoInf
+1.170.O.,Vibrio cyclitrophicus,NoInf
+1.170.O.,Vibrio jasicida,NoInf
+1.170.O.,Vibrio kanaloae,NoInf
+1.170.O.,Vibrio lentus,NoInf
+1.170.O.,Vibrio parahaemolyticus,NoInf
+1.170.O.,Vibrio sp. 10N.1,NoInf
+1.170.O.,Vibrio sp. 10N.2,NoInf
+1.170.O.,Vibrio sp. 10N.3,NoInf
+1.170.O.,Vibrio sp. 10N.4,NoInf
+1.170.O.,Vibrio sp. 10N.5,NoInf
+1.170.O.,Vibrio sp. F12,NoInf
+1.170.O.,Vibrio sp. F13,NoInf
+1.170.O.,Vibrio splendidus,NoInf
+1.170.O.,Vibrio tasmaniensis,NoInf
+1.170.O.,Vibrio vulnificus,NoInf
+1.171.O.,Aliivibrio fischeri,NoInf
+1.171.O.,Enterovibrio norvegicus,NoInf
+1.171.O.,Shewanella sp. 10N.6,NoInf
+1.171.O.,Shewanella sp. 10N.7,NoInf
+1.171.O.,Vibrio alginolyticus,NoInf
+1.171.O.,Vibrio anguillarum,NoInf
+1.171.O.,Vibrio breoganii,NoInf
+1.171.O.,Vibrio cyclitrophicus,NoInf
+1.171.O.,Vibrio jasicida,NoInf
+1.171.O.,Vibrio kanaloae,NoInf
+1.171.O.,Vibrio lentus,Inf
+1.171.O.,Vibrio parahaemolyticus,NoInf
+1.171.O.,Vibrio sp. 10N.1,NoInf
+1.171.O.,Vibrio sp. 10N.2,NoInf
+1.171.O.,Vibrio sp. 10N.3,NoInf
+1.171.O.,Vibrio sp. 10N.4,NoInf
+1.171.O.,Vibrio sp. 10N.5,NoInf
+1.171.O.,Vibrio sp. F12,NoInf
+1.171.O.,Vibrio sp. F13,NoInf
+1.171.O.,Vibrio splendidus,NoInf
+1.171.O.,Vibrio tasmaniensis,NoInf
+1.171.O.,Vibrio vulnificus,NoInf
+1.172.O.,Aliivibrio fischeri,NoInf
+1.172.O.,Enterovibrio norvegicus,NoInf
+1.172.O.,Shewanella sp. 10N.6,NoInf
+1.172.O.,Shewanella sp. 10N.7,NoInf
+1.172.O.,Vibrio alginolyticus,NoInf
+1.172.O.,Vibrio anguillarum,NoInf
+1.172.O.,Vibrio breoganii,Inf
+1.172.O.,Vibrio cyclitrophicus,NoInf
+1.172.O.,Vibrio jasicida,NoInf
+1.172.O.,Vibrio kanaloae,NoInf
+1.172.O.,Vibrio lentus,NoInf
+1.172.O.,Vibrio parahaemolyticus,NoInf
+1.172.O.,Vibrio sp. 10N.1,NoInf
+1.172.O.,Vibrio sp. 10N.2,NoInf
+1.172.O.,Vibrio sp. 10N.3,NoInf
+1.172.O.,Vibrio sp. 10N.4,NoInf
+1.172.O.,Vibrio sp. 10N.5,NoInf
+1.172.O.,Vibrio sp. F12,NoInf
+1.172.O.,Vibrio sp. F13,NoInf
+1.172.O.,Vibrio splendidus,NoInf
+1.172.O.,Vibrio tasmaniensis,NoInf
+1.172.O.,Vibrio vulnificus,NoInf
+1.173.O.,Aliivibrio fischeri,NoInf
+1.173.O.,Enterovibrio norvegicus,NoInf
+1.173.O.,Shewanella sp. 10N.6,NoInf
+1.173.O.,Shewanella sp. 10N.7,NoInf
+1.173.O.,Vibrio alginolyticus,NoInf
+1.173.O.,Vibrio anguillarum,NoInf
+1.173.O.,Vibrio breoganii,NoInf
+1.173.O.,Vibrio cyclitrophicus,Inf
+1.173.O.,Vibrio jasicida,NoInf
+1.173.O.,Vibrio kanaloae,NoInf
+1.173.O.,Vibrio lentus,NoInf
+1.173.O.,Vibrio parahaemolyticus,NoInf
+1.173.O.,Vibrio sp. 10N.1,NoInf
+1.173.O.,Vibrio sp. 10N.2,NoInf
+1.173.O.,Vibrio sp. 10N.3,NoInf
+1.173.O.,Vibrio sp. 10N.4,NoInf
+1.173.O.,Vibrio sp. 10N.5,NoInf
+1.173.O.,Vibrio sp. F12,NoInf
+1.173.O.,Vibrio sp. F13,NoInf
+1.173.O.,Vibrio splendidus,NoInf
+1.173.O.,Vibrio tasmaniensis,NoInf
+1.173.O.,Vibrio vulnificus,NoInf
+1.174.O.,Aliivibrio fischeri,NoInf
+1.174.O.,Enterovibrio norvegicus,NoInf
+1.174.O.,Shewanella sp. 10N.6,NoInf
+1.174.O.,Shewanella sp. 10N.7,NoInf
+1.174.O.,Vibrio alginolyticus,NoInf
+1.174.O.,Vibrio anguillarum,NoInf
+1.174.O.,Vibrio breoganii,NoInf
+1.174.O.,Vibrio cyclitrophicus,NoInf
+1.174.O.,Vibrio jasicida,NoInf
+1.174.O.,Vibrio kanaloae,NoInf
+1.174.O.,Vibrio lentus,Inf
+1.174.O.,Vibrio parahaemolyticus,NoInf
+1.174.O.,Vibrio sp. 10N.1,NoInf
+1.174.O.,Vibrio sp. 10N.2,NoInf
+1.174.O.,Vibrio sp. 10N.3,NoInf
+1.174.O.,Vibrio sp. 10N.4,Inf
+1.174.O.,Vibrio sp. 10N.5,NoInf
+1.174.O.,Vibrio sp. F12,NoInf
+1.174.O.,Vibrio sp. F13,NoInf
+1.174.O.,Vibrio splendidus,NoInf
+1.174.O.,Vibrio tasmaniensis,NoInf
+1.174.O.,Vibrio vulnificus,NoInf
+1.175.O.,Aliivibrio fischeri,NoInf
+1.175.O.,Enterovibrio norvegicus,NoInf
+1.175.O.,Shewanella sp. 10N.6,NoInf
+1.175.O.,Shewanella sp. 10N.7,NoInf
+1.175.O.,Vibrio alginolyticus,NoInf
+1.175.O.,Vibrio anguillarum,NoInf
+1.175.O.,Vibrio breoganii,NoInf
+1.175.O.,Vibrio cyclitrophicus,NoInf
+1.175.O.,Vibrio jasicida,NoInf
+1.175.O.,Vibrio kanaloae,NoInf
+1.175.O.,Vibrio lentus,Inf
+1.175.O.,Vibrio parahaemolyticus,NoInf
+1.175.O.,Vibrio sp. 10N.1,NoInf
+1.175.O.,Vibrio sp. 10N.2,NoInf
+1.175.O.,Vibrio sp. 10N.3,NoInf
+1.175.O.,Vibrio sp. 10N.4,NoInf
+1.175.O.,Vibrio sp. 10N.5,NoInf
+1.175.O.,Vibrio sp. F12,NoInf
+1.175.O.,Vibrio sp. F13,NoInf
+1.175.O.,Vibrio splendidus,NoInf
+1.175.O.,Vibrio tasmaniensis,NoInf
+1.175.O.,Vibrio vulnificus,NoInf
+1.176.O.,Aliivibrio fischeri,NoInf
+1.176.O.,Enterovibrio norvegicus,NoInf
+1.176.O.,Shewanella sp. 10N.6,NoInf
+1.176.O.,Shewanella sp. 10N.7,NoInf
+1.176.O.,Vibrio alginolyticus,NoInf
+1.176.O.,Vibrio anguillarum,NoInf
+1.176.O.,Vibrio breoganii,Inf
+1.176.O.,Vibrio cyclitrophicus,NoInf
+1.176.O.,Vibrio jasicida,NoInf
+1.176.O.,Vibrio kanaloae,NoInf
+1.176.O.,Vibrio lentus,NoInf
+1.176.O.,Vibrio parahaemolyticus,NoInf
+1.176.O.,Vibrio sp. 10N.1,NoInf
+1.176.O.,Vibrio sp. 10N.2,NoInf
+1.176.O.,Vibrio sp. 10N.3,NoInf
+1.176.O.,Vibrio sp. 10N.4,NoInf
+1.176.O.,Vibrio sp. 10N.5,NoInf
+1.176.O.,Vibrio sp. F12,NoInf
+1.176.O.,Vibrio sp. F13,NoInf
+1.176.O.,Vibrio splendidus,NoInf
+1.176.O.,Vibrio tasmaniensis,NoInf
+1.176.O.,Vibrio vulnificus,NoInf
+1.177.O.,Aliivibrio fischeri,NoInf
+1.177.O.,Enterovibrio norvegicus,NoInf
+1.177.O.,Shewanella sp. 10N.6,NoInf
+1.177.O.,Shewanella sp. 10N.7,NoInf
+1.177.O.,Vibrio alginolyticus,NoInf
+1.177.O.,Vibrio anguillarum,NoInf
+1.177.O.,Vibrio breoganii,NoInf
+1.177.O.,Vibrio cyclitrophicus,NoInf
+1.177.O.,Vibrio jasicida,NoInf
+1.177.O.,Vibrio kanaloae,NoInf
+1.177.O.,Vibrio lentus,NoInf
+1.177.O.,Vibrio parahaemolyticus,NoInf
+1.177.O.,Vibrio sp. 10N.1,NoInf
+1.177.O.,Vibrio sp. 10N.2,NoInf
+1.177.O.,Vibrio sp. 10N.3,NoInf
+1.177.O.,Vibrio sp. 10N.4,NoInf
+1.177.O.,Vibrio sp. 10N.5,NoInf
+1.177.O.,Vibrio sp. F12,Inf
+1.177.O.,Vibrio sp. F13,NoInf
+1.177.O.,Vibrio splendidus,NoInf
+1.177.O.,Vibrio tasmaniensis,NoInf
+1.177.O.,Vibrio vulnificus,NoInf
+1.178.O.,Aliivibrio fischeri,NoInf
+1.178.O.,Enterovibrio norvegicus,NoInf
+1.178.O.,Shewanella sp. 10N.6,NoInf
+1.178.O.,Shewanella sp. 10N.7,NoInf
+1.178.O.,Vibrio alginolyticus,NoInf
+1.178.O.,Vibrio anguillarum,NoInf
+1.178.O.,Vibrio breoganii,NoInf
+1.178.O.,Vibrio cyclitrophicus,NoInf
+1.178.O.,Vibrio jasicida,NoInf
+1.178.O.,Vibrio kanaloae,NoInf
+1.178.O.,Vibrio lentus,NoInf
+1.178.O.,Vibrio parahaemolyticus,NoInf
+1.178.O.,Vibrio sp. 10N.1,NoInf
+1.178.O.,Vibrio sp. 10N.2,NoInf
+1.178.O.,Vibrio sp. 10N.3,NoInf
+1.178.O.,Vibrio sp. 10N.4,NoInf
+1.178.O.,Vibrio sp. 10N.5,NoInf
+1.178.O.,Vibrio sp. F12,NoInf
+1.178.O.,Vibrio sp. F13,NoInf
+1.178.O.,Vibrio splendidus,NoInf
+1.178.O.,Vibrio tasmaniensis,NoInf
+1.178.O.,Vibrio vulnificus,NoInf
+1.179.O.,Aliivibrio fischeri,NoInf
+1.179.O.,Enterovibrio norvegicus,NoInf
+1.179.O.,Shewanella sp. 10N.6,NoInf
+1.179.O.,Shewanella sp. 10N.7,NoInf
+1.179.O.,Vibrio alginolyticus,NoInf
+1.179.O.,Vibrio anguillarum,NoInf
+1.179.O.,Vibrio breoganii,NoInf
+1.179.O.,Vibrio cyclitrophicus,NoInf
+1.179.O.,Vibrio jasicida,NoInf
+1.179.O.,Vibrio kanaloae,NoInf
+1.179.O.,Vibrio lentus,NoInf
+1.179.O.,Vibrio parahaemolyticus,NoInf
+1.179.O.,Vibrio sp. 10N.1,NoInf
+1.179.O.,Vibrio sp. 10N.2,NoInf
+1.179.O.,Vibrio sp. 10N.3,NoInf
+1.179.O.,Vibrio sp. 10N.4,NoInf
+1.179.O.,Vibrio sp. 10N.5,NoInf
+1.179.O.,Vibrio sp. F12,NoInf
+1.179.O.,Vibrio sp. F13,NoInf
+1.179.O.,Vibrio splendidus,Inf
+1.179.O.,Vibrio tasmaniensis,NoInf
+1.179.O.,Vibrio vulnificus,NoInf
+1.181.O.,Aliivibrio fischeri,NoInf
+1.181.O.,Enterovibrio norvegicus,NoInf
+1.181.O.,Shewanella sp. 10N.6,NoInf
+1.181.O.,Shewanella sp. 10N.7,NoInf
+1.181.O.,Vibrio alginolyticus,NoInf
+1.181.O.,Vibrio anguillarum,NoInf
+1.181.O.,Vibrio breoganii,NoInf
+1.181.O.,Vibrio cyclitrophicus,NoInf
+1.181.O.,Vibrio jasicida,NoInf
+1.181.O.,Vibrio kanaloae,NoInf
+1.181.O.,Vibrio lentus,NoInf
+1.181.O.,Vibrio parahaemolyticus,NoInf
+1.181.O.,Vibrio sp. 10N.1,NoInf
+1.181.O.,Vibrio sp. 10N.2,NoInf
+1.181.O.,Vibrio sp. 10N.3,NoInf
+1.181.O.,Vibrio sp. 10N.4,NoInf
+1.181.O.,Vibrio sp. 10N.5,NoInf
+1.181.O.,Vibrio sp. F12,NoInf
+1.181.O.,Vibrio sp. F13,NoInf
+1.181.O.,Vibrio splendidus,Inf
+1.181.O.,Vibrio tasmaniensis,NoInf
+1.181.O.,Vibrio vulnificus,NoInf
+1.182.O.,Aliivibrio fischeri,NoInf
+1.182.O.,Enterovibrio norvegicus,NoInf
+1.182.O.,Shewanella sp. 10N.6,NoInf
+1.182.O.,Shewanella sp. 10N.7,NoInf
+1.182.O.,Vibrio alginolyticus,NoInf
+1.182.O.,Vibrio anguillarum,NoInf
+1.182.O.,Vibrio breoganii,Inf
+1.182.O.,Vibrio cyclitrophicus,NoInf
+1.182.O.,Vibrio jasicida,NoInf
+1.182.O.,Vibrio kanaloae,NoInf
+1.182.O.,Vibrio lentus,NoInf
+1.182.O.,Vibrio parahaemolyticus,NoInf
+1.182.O.,Vibrio sp. 10N.1,NoInf
+1.182.O.,Vibrio sp. 10N.2,NoInf
+1.182.O.,Vibrio sp. 10N.3,NoInf
+1.182.O.,Vibrio sp. 10N.4,NoInf
+1.182.O.,Vibrio sp. 10N.5,NoInf
+1.182.O.,Vibrio sp. F12,NoInf
+1.182.O.,Vibrio sp. F13,NoInf
+1.182.O.,Vibrio splendidus,NoInf
+1.182.O.,Vibrio tasmaniensis,NoInf
+1.182.O.,Vibrio vulnificus,NoInf
+1.183.O.,Aliivibrio fischeri,NoInf
+1.183.O.,Enterovibrio norvegicus,NoInf
+1.183.O.,Shewanella sp. 10N.6,NoInf
+1.183.O.,Shewanella sp. 10N.7,NoInf
+1.183.O.,Vibrio alginolyticus,NoInf
+1.183.O.,Vibrio anguillarum,NoInf
+1.183.O.,Vibrio breoganii,NoInf
+1.183.O.,Vibrio cyclitrophicus,NoInf
+1.183.O.,Vibrio jasicida,NoInf
+1.183.O.,Vibrio kanaloae,NoInf
+1.183.O.,Vibrio lentus,NoInf
+1.183.O.,Vibrio parahaemolyticus,NoInf
+1.183.O.,Vibrio sp. 10N.1,NoInf
+1.183.O.,Vibrio sp. 10N.2,Inf
+1.183.O.,Vibrio sp. 10N.3,NoInf
+1.183.O.,Vibrio sp. 10N.4,NoInf
+1.183.O.,Vibrio sp. 10N.5,NoInf
+1.183.O.,Vibrio sp. F12,NoInf
+1.183.O.,Vibrio sp. F13,NoInf
+1.183.O.,Vibrio splendidus,NoInf
+1.183.O.,Vibrio tasmaniensis,NoInf
+1.183.O.,Vibrio vulnificus,NoInf
+1.184.A.,Aliivibrio fischeri,NoInf
+1.184.A.,Enterovibrio norvegicus,NoInf
+1.184.A.,Shewanella sp. 10N.6,NoInf
+1.184.A.,Shewanella sp. 10N.7,NoInf
+1.184.A.,Vibrio alginolyticus,NoInf
+1.184.A.,Vibrio anguillarum,NoInf
+1.184.A.,Vibrio breoganii,NoInf
+1.184.A.,Vibrio cyclitrophicus,Inf
+1.184.A.,Vibrio jasicida,NoInf
+1.184.A.,Vibrio kanaloae,NoInf
+1.184.A.,Vibrio lentus,NoInf
+1.184.A.,Vibrio parahaemolyticus,NoInf
+1.184.A.,Vibrio sp. 10N.1,NoInf
+1.184.A.,Vibrio sp. 10N.2,NoInf
+1.184.A.,Vibrio sp. 10N.3,NoInf
+1.184.A.,Vibrio sp. 10N.4,NoInf
+1.184.A.,Vibrio sp. 10N.5,NoInf
+1.184.A.,Vibrio sp. F12,NoInf
+1.184.A.,Vibrio sp. F13,NoInf
+1.184.A.,Vibrio splendidus,NoInf
+1.184.A.,Vibrio tasmaniensis,NoInf
+1.184.A.,Vibrio vulnificus,NoInf
+1.185.O.,Aliivibrio fischeri,NoInf
+1.185.O.,Enterovibrio norvegicus,NoInf
+1.185.O.,Shewanella sp. 10N.6,NoInf
+1.185.O.,Shewanella sp. 10N.7,NoInf
+1.185.O.,Vibrio alginolyticus,NoInf
+1.185.O.,Vibrio anguillarum,NoInf
+1.185.O.,Vibrio breoganii,NoInf
+1.185.O.,Vibrio cyclitrophicus,NoInf
+1.185.O.,Vibrio jasicida,NoInf
+1.185.O.,Vibrio kanaloae,NoInf
+1.185.O.,Vibrio lentus,NoInf
+1.185.O.,Vibrio parahaemolyticus,NoInf
+1.185.O.,Vibrio sp. 10N.1,NoInf
+1.185.O.,Vibrio sp. 10N.2,Inf
+1.185.O.,Vibrio sp. 10N.3,NoInf
+1.185.O.,Vibrio sp. 10N.4,NoInf
+1.185.O.,Vibrio sp. 10N.5,NoInf
+1.185.O.,Vibrio sp. F12,NoInf
+1.185.O.,Vibrio sp. F13,NoInf
+1.185.O.,Vibrio splendidus,NoInf
+1.185.O.,Vibrio tasmaniensis,NoInf
+1.185.O.,Vibrio vulnificus,NoInf
+1.186.O.,Aliivibrio fischeri,NoInf
+1.186.O.,Enterovibrio norvegicus,NoInf
+1.186.O.,Shewanella sp. 10N.6,NoInf
+1.186.O.,Shewanella sp. 10N.7,NoInf
+1.186.O.,Vibrio alginolyticus,NoInf
+1.186.O.,Vibrio anguillarum,NoInf
+1.186.O.,Vibrio breoganii,NoInf
+1.186.O.,Vibrio cyclitrophicus,Inf
+1.186.O.,Vibrio jasicida,NoInf
+1.186.O.,Vibrio kanaloae,NoInf
+1.186.O.,Vibrio lentus,NoInf
+1.186.O.,Vibrio parahaemolyticus,NoInf
+1.186.O.,Vibrio sp. 10N.1,NoInf
+1.186.O.,Vibrio sp. 10N.2,NoInf
+1.186.O.,Vibrio sp. 10N.3,NoInf
+1.186.O.,Vibrio sp. 10N.4,NoInf
+1.186.O.,Vibrio sp. 10N.5,NoInf
+1.186.O.,Vibrio sp. F12,NoInf
+1.186.O.,Vibrio sp. F13,NoInf
+1.186.O.,Vibrio splendidus,NoInf
+1.186.O.,Vibrio tasmaniensis,NoInf
+1.186.O.,Vibrio vulnificus,NoInf
+1.187.O.,Aliivibrio fischeri,NoInf
+1.187.O.,Enterovibrio norvegicus,NoInf
+1.187.O.,Shewanella sp. 10N.6,NoInf
+1.187.O.,Shewanella sp. 10N.7,NoInf
+1.187.O.,Vibrio alginolyticus,NoInf
+1.187.O.,Vibrio anguillarum,NoInf
+1.187.O.,Vibrio breoganii,NoInf
+1.187.O.,Vibrio cyclitrophicus,NoInf
+1.187.O.,Vibrio jasicida,NoInf
+1.187.O.,Vibrio kanaloae,NoInf
+1.187.O.,Vibrio lentus,NoInf
+1.187.O.,Vibrio parahaemolyticus,NoInf
+1.187.O.,Vibrio sp. 10N.1,NoInf
+1.187.O.,Vibrio sp. 10N.2,NoInf
+1.187.O.,Vibrio sp. 10N.3,NoInf
+1.187.O.,Vibrio sp. 10N.4,NoInf
+1.187.O.,Vibrio sp. 10N.5,NoInf
+1.187.O.,Vibrio sp. F12,NoInf
+1.187.O.,Vibrio sp. F13,NoInf
+1.187.O.,Vibrio splendidus,Inf
+1.187.O.,Vibrio tasmaniensis,NoInf
+1.187.O.,Vibrio vulnificus,NoInf
+1.188.A.,Aliivibrio fischeri,NoInf
+1.188.A.,Enterovibrio norvegicus,NoInf
+1.188.A.,Shewanella sp. 10N.6,NoInf
+1.188.A.,Shewanella sp. 10N.7,NoInf
+1.188.A.,Vibrio alginolyticus,NoInf
+1.188.A.,Vibrio anguillarum,NoInf
+1.188.A.,Vibrio breoganii,Inf
+1.188.A.,Vibrio cyclitrophicus,NoInf
+1.188.A.,Vibrio jasicida,NoInf
+1.188.A.,Vibrio kanaloae,NoInf
+1.188.A.,Vibrio lentus,NoInf
+1.188.A.,Vibrio parahaemolyticus,NoInf
+1.188.A.,Vibrio sp. 10N.1,NoInf
+1.188.A.,Vibrio sp. 10N.2,NoInf
+1.188.A.,Vibrio sp. 10N.3,NoInf
+1.188.A.,Vibrio sp. 10N.4,NoInf
+1.188.A.,Vibrio sp. 10N.5,NoInf
+1.188.A.,Vibrio sp. F12,NoInf
+1.188.A.,Vibrio sp. F13,NoInf
+1.188.A.,Vibrio splendidus,NoInf
+1.188.A.,Vibrio tasmaniensis,NoInf
+1.188.A.,Vibrio vulnificus,NoInf
+1.189.O.,Aliivibrio fischeri,NoInf
+1.189.O.,Enterovibrio norvegicus,NoInf
+1.189.O.,Shewanella sp. 10N.6,NoInf
+1.189.O.,Shewanella sp. 10N.7,NoInf
+1.189.O.,Vibrio alginolyticus,NoInf
+1.189.O.,Vibrio anguillarum,NoInf
+1.189.O.,Vibrio breoganii,Inf
+1.189.O.,Vibrio cyclitrophicus,NoInf
+1.189.O.,Vibrio jasicida,NoInf
+1.189.O.,Vibrio kanaloae,NoInf
+1.189.O.,Vibrio lentus,NoInf
+1.189.O.,Vibrio parahaemolyticus,NoInf
+1.189.O.,Vibrio sp. 10N.1,NoInf
+1.189.O.,Vibrio sp. 10N.2,NoInf
+1.189.O.,Vibrio sp. 10N.3,NoInf
+1.189.O.,Vibrio sp. 10N.4,NoInf
+1.189.O.,Vibrio sp. 10N.5,NoInf
+1.189.O.,Vibrio sp. F12,NoInf
+1.189.O.,Vibrio sp. F13,NoInf
+1.189.O.,Vibrio splendidus,NoInf
+1.189.O.,Vibrio tasmaniensis,NoInf
+1.189.O.,Vibrio vulnificus,NoInf
+1.190.O.,Aliivibrio fischeri,NoInf
+1.190.O.,Enterovibrio norvegicus,NoInf
+1.190.O.,Shewanella sp. 10N.6,NoInf
+1.190.O.,Shewanella sp. 10N.7,NoInf
+1.190.O.,Vibrio alginolyticus,NoInf
+1.190.O.,Vibrio anguillarum,NoInf
+1.190.O.,Vibrio breoganii,NoInf
+1.190.O.,Vibrio cyclitrophicus,NoInf
+1.190.O.,Vibrio jasicida,NoInf
+1.190.O.,Vibrio kanaloae,NoInf
+1.190.O.,Vibrio lentus,Inf
+1.190.O.,Vibrio parahaemolyticus,NoInf
+1.190.O.,Vibrio sp. 10N.1,NoInf
+1.190.O.,Vibrio sp. 10N.2,NoInf
+1.190.O.,Vibrio sp. 10N.3,NoInf
+1.190.O.,Vibrio sp. 10N.4,NoInf
+1.190.O.,Vibrio sp. 10N.5,NoInf
+1.190.O.,Vibrio sp. F12,NoInf
+1.190.O.,Vibrio sp. F13,NoInf
+1.190.O.,Vibrio splendidus,NoInf
+1.190.O.,Vibrio tasmaniensis,NoInf
+1.190.O.,Vibrio vulnificus,NoInf
+1.191.O.,Aliivibrio fischeri,NoInf
+1.191.O.,Enterovibrio norvegicus,NoInf
+1.191.O.,Shewanella sp. 10N.6,NoInf
+1.191.O.,Shewanella sp. 10N.7,NoInf
+1.191.O.,Vibrio alginolyticus,NoInf
+1.191.O.,Vibrio anguillarum,NoInf
+1.191.O.,Vibrio breoganii,NoInf
+1.191.O.,Vibrio cyclitrophicus,NoInf
+1.191.O.,Vibrio jasicida,NoInf
+1.191.O.,Vibrio kanaloae,NoInf
+1.191.O.,Vibrio lentus,NoInf
+1.191.O.,Vibrio parahaemolyticus,NoInf
+1.191.O.,Vibrio sp. 10N.1,NoInf
+1.191.O.,Vibrio sp. 10N.2,NoInf
+1.191.O.,Vibrio sp. 10N.3,NoInf
+1.191.O.,Vibrio sp. 10N.4,NoInf
+1.191.O.,Vibrio sp. 10N.5,NoInf
+1.191.O.,Vibrio sp. F12,NoInf
+1.191.O.,Vibrio sp. F13,NoInf
+1.191.O.,Vibrio splendidus,Inf
+1.191.O.,Vibrio tasmaniensis,NoInf
+1.191.O.,Vibrio vulnificus,NoInf
+1.193.O.,Aliivibrio fischeri,NoInf
+1.193.O.,Enterovibrio norvegicus,NoInf
+1.193.O.,Shewanella sp. 10N.6,NoInf
+1.193.O.,Shewanella sp. 10N.7,NoInf
+1.193.O.,Vibrio alginolyticus,NoInf
+1.193.O.,Vibrio anguillarum,NoInf
+1.193.O.,Vibrio breoganii,NoInf
+1.193.O.,Vibrio cyclitrophicus,NoInf
+1.193.O.,Vibrio jasicida,NoInf
+1.193.O.,Vibrio kanaloae,NoInf
+1.193.O.,Vibrio lentus,NoInf
+1.193.O.,Vibrio parahaemolyticus,NoInf
+1.193.O.,Vibrio sp. 10N.1,NoInf
+1.193.O.,Vibrio sp. 10N.2,NoInf
+1.193.O.,Vibrio sp. 10N.3,NoInf
+1.193.O.,Vibrio sp. 10N.4,NoInf
+1.193.O.,Vibrio sp. 10N.5,NoInf
+1.193.O.,Vibrio sp. F12,NoInf
+1.193.O.,Vibrio sp. F13,NoInf
+1.193.O.,Vibrio splendidus,Inf
+1.193.O.,Vibrio tasmaniensis,NoInf
+1.193.O.,Vibrio vulnificus,NoInf
+1.194.O.,Aliivibrio fischeri,NoInf
+1.194.O.,Enterovibrio norvegicus,NoInf
+1.194.O.,Shewanella sp. 10N.6,NoInf
+1.194.O.,Shewanella sp. 10N.7,NoInf
+1.194.O.,Vibrio alginolyticus,NoInf
+1.194.O.,Vibrio anguillarum,NoInf
+1.194.O.,Vibrio breoganii,NoInf
+1.194.O.,Vibrio cyclitrophicus,NoInf
+1.194.O.,Vibrio jasicida,NoInf
+1.194.O.,Vibrio kanaloae,NoInf
+1.194.O.,Vibrio lentus,Inf
+1.194.O.,Vibrio parahaemolyticus,NoInf
+1.194.O.,Vibrio sp. 10N.1,NoInf
+1.194.O.,Vibrio sp. 10N.2,NoInf
+1.194.O.,Vibrio sp. 10N.3,NoInf
+1.194.O.,Vibrio sp. 10N.4,NoInf
+1.194.O.,Vibrio sp. 10N.5,NoInf
+1.194.O.,Vibrio sp. F12,NoInf
+1.194.O.,Vibrio sp. F13,NoInf
+1.194.O.,Vibrio splendidus,NoInf
+1.194.O.,Vibrio tasmaniensis,NoInf
+1.194.O.,Vibrio vulnificus,NoInf
+1.195.O.,Aliivibrio fischeri,NoInf
+1.195.O.,Enterovibrio norvegicus,NoInf
+1.195.O.,Shewanella sp. 10N.6,NoInf
+1.195.O.,Shewanella sp. 10N.7,NoInf
+1.195.O.,Vibrio alginolyticus,NoInf
+1.195.O.,Vibrio anguillarum,NoInf
+1.195.O.,Vibrio breoganii,NoInf
+1.195.O.,Vibrio cyclitrophicus,NoInf
+1.195.O.,Vibrio jasicida,NoInf
+1.195.O.,Vibrio kanaloae,NoInf
+1.195.O.,Vibrio lentus,Inf
+1.195.O.,Vibrio parahaemolyticus,NoInf
+1.195.O.,Vibrio sp. 10N.1,NoInf
+1.195.O.,Vibrio sp. 10N.2,NoInf
+1.195.O.,Vibrio sp. 10N.3,NoInf
+1.195.O.,Vibrio sp. 10N.4,NoInf
+1.195.O.,Vibrio sp. 10N.5,NoInf
+1.195.O.,Vibrio sp. F12,NoInf
+1.195.O.,Vibrio sp. F13,NoInf
+1.195.O.,Vibrio splendidus,NoInf
+1.195.O.,Vibrio tasmaniensis,NoInf
+1.195.O.,Vibrio vulnificus,NoInf
+1.196.O.,Aliivibrio fischeri,NoInf
+1.196.O.,Enterovibrio norvegicus,NoInf
+1.196.O.,Shewanella sp. 10N.6,NoInf
+1.196.O.,Shewanella sp. 10N.7,NoInf
+1.196.O.,Vibrio alginolyticus,NoInf
+1.196.O.,Vibrio anguillarum,NoInf
+1.196.O.,Vibrio breoganii,NoInf
+1.196.O.,Vibrio cyclitrophicus,NoInf
+1.196.O.,Vibrio jasicida,NoInf
+1.196.O.,Vibrio kanaloae,NoInf
+1.196.O.,Vibrio lentus,Inf
+1.196.O.,Vibrio parahaemolyticus,NoInf
+1.196.O.,Vibrio sp. 10N.1,NoInf
+1.196.O.,Vibrio sp. 10N.2,NoInf
+1.196.O.,Vibrio sp. 10N.3,NoInf
+1.196.O.,Vibrio sp. 10N.4,NoInf
+1.196.O.,Vibrio sp. 10N.5,NoInf
+1.196.O.,Vibrio sp. F12,NoInf
+1.196.O.,Vibrio sp. F13,NoInf
+1.196.O.,Vibrio splendidus,NoInf
+1.196.O.,Vibrio tasmaniensis,NoInf
+1.196.O.,Vibrio vulnificus,NoInf
+1.197.A.,Aliivibrio fischeri,NoInf
+1.197.A.,Enterovibrio norvegicus,NoInf
+1.197.A.,Shewanella sp. 10N.6,NoInf
+1.197.A.,Shewanella sp. 10N.7,NoInf
+1.197.A.,Vibrio alginolyticus,NoInf
+1.197.A.,Vibrio anguillarum,NoInf
+1.197.A.,Vibrio breoganii,NoInf
+1.197.A.,Vibrio cyclitrophicus,Inf
+1.197.A.,Vibrio jasicida,NoInf
+1.197.A.,Vibrio kanaloae,NoInf
+1.197.A.,Vibrio lentus,NoInf
+1.197.A.,Vibrio parahaemolyticus,NoInf
+1.197.A.,Vibrio sp. 10N.1,NoInf
+1.197.A.,Vibrio sp. 10N.2,NoInf
+1.197.A.,Vibrio sp. 10N.3,NoInf
+1.197.A.,Vibrio sp. 10N.4,NoInf
+1.197.A.,Vibrio sp. 10N.5,NoInf
+1.197.A.,Vibrio sp. F12,NoInf
+1.197.A.,Vibrio sp. F13,NoInf
+1.197.A.,Vibrio splendidus,NoInf
+1.197.A.,Vibrio tasmaniensis,NoInf
+1.197.A.,Vibrio vulnificus,NoInf
+1.198.A.,Aliivibrio fischeri,NoInf
+1.198.A.,Enterovibrio norvegicus,NoInf
+1.198.A.,Shewanella sp. 10N.6,NoInf
+1.198.A.,Shewanella sp. 10N.7,NoInf
+1.198.A.,Vibrio alginolyticus,NoInf
+1.198.A.,Vibrio anguillarum,NoInf
+1.198.A.,Vibrio breoganii,NoInf
+1.198.A.,Vibrio cyclitrophicus,Inf
+1.198.A.,Vibrio jasicida,NoInf
+1.198.A.,Vibrio kanaloae,NoInf
+1.198.A.,Vibrio lentus,NoInf
+1.198.A.,Vibrio parahaemolyticus,NoInf
+1.198.A.,Vibrio sp. 10N.1,NoInf
+1.198.A.,Vibrio sp. 10N.2,NoInf
+1.198.A.,Vibrio sp. 10N.3,NoInf
+1.198.A.,Vibrio sp. 10N.4,NoInf
+1.198.A.,Vibrio sp. 10N.5,NoInf
+1.198.A.,Vibrio sp. F12,NoInf
+1.198.A.,Vibrio sp. F13,NoInf
+1.198.A.,Vibrio splendidus,NoInf
+1.198.A.,Vibrio tasmaniensis,NoInf
+1.198.A.,Vibrio vulnificus,NoInf
+1.199.A.,Aliivibrio fischeri,NoInf
+1.199.A.,Enterovibrio norvegicus,NoInf
+1.199.A.,Shewanella sp. 10N.6,NoInf
+1.199.A.,Shewanella sp. 10N.7,NoInf
+1.199.A.,Vibrio alginolyticus,NoInf
+1.199.A.,Vibrio anguillarum,NoInf
+1.199.A.,Vibrio breoganii,NoInf
+1.199.A.,Vibrio cyclitrophicus,Inf
+1.199.A.,Vibrio jasicida,NoInf
+1.199.A.,Vibrio kanaloae,NoInf
+1.199.A.,Vibrio lentus,NoInf
+1.199.A.,Vibrio parahaemolyticus,NoInf
+1.199.A.,Vibrio sp. 10N.1,NoInf
+1.199.A.,Vibrio sp. 10N.2,NoInf
+1.199.A.,Vibrio sp. 10N.3,NoInf
+1.199.A.,Vibrio sp. 10N.4,NoInf
+1.199.A.,Vibrio sp. 10N.5,NoInf
+1.199.A.,Vibrio sp. F12,NoInf
+1.199.A.,Vibrio sp. F13,NoInf
+1.199.A.,Vibrio splendidus,NoInf
+1.199.A.,Vibrio tasmaniensis,NoInf
+1.199.A.,Vibrio vulnificus,NoInf
+1.200.O.,Aliivibrio fischeri,NoInf
+1.200.O.,Enterovibrio norvegicus,NoInf
+1.200.O.,Shewanella sp. 10N.6,NoInf
+1.200.O.,Shewanella sp. 10N.7,NoInf
+1.200.O.,Vibrio alginolyticus,NoInf
+1.200.O.,Vibrio anguillarum,NoInf
+1.200.O.,Vibrio breoganii,NoInf
+1.200.O.,Vibrio cyclitrophicus,NoInf
+1.200.O.,Vibrio jasicida,NoInf
+1.200.O.,Vibrio kanaloae,NoInf
+1.200.O.,Vibrio lentus,Inf
+1.200.O.,Vibrio parahaemolyticus,NoInf
+1.200.O.,Vibrio sp. 10N.1,NoInf
+1.200.O.,Vibrio sp. 10N.2,NoInf
+1.200.O.,Vibrio sp. 10N.3,NoInf
+1.200.O.,Vibrio sp. 10N.4,NoInf
+1.200.O.,Vibrio sp. 10N.5,NoInf
+1.200.O.,Vibrio sp. F12,NoInf
+1.200.O.,Vibrio sp. F13,NoInf
+1.200.O.,Vibrio splendidus,NoInf
+1.200.O.,Vibrio tasmaniensis,NoInf
+1.200.O.,Vibrio vulnificus,NoInf
+1.201.B.,Aliivibrio fischeri,NoInf
+1.201.B.,Enterovibrio norvegicus,NoInf
+1.201.B.,Shewanella sp. 10N.6,NoInf
+1.201.B.,Shewanella sp. 10N.7,NoInf
+1.201.B.,Vibrio alginolyticus,NoInf
+1.201.B.,Vibrio anguillarum,NoInf
+1.201.B.,Vibrio breoganii,NoInf
+1.201.B.,Vibrio cyclitrophicus,Inf
+1.201.B.,Vibrio jasicida,NoInf
+1.201.B.,Vibrio kanaloae,NoInf
+1.201.B.,Vibrio lentus,NoInf
+1.201.B.,Vibrio parahaemolyticus,NoInf
+1.201.B.,Vibrio sp. 10N.1,NoInf
+1.201.B.,Vibrio sp. 10N.2,NoInf
+1.201.B.,Vibrio sp. 10N.3,NoInf
+1.201.B.,Vibrio sp. 10N.4,NoInf
+1.201.B.,Vibrio sp. 10N.5,NoInf
+1.201.B.,Vibrio sp. F12,NoInf
+1.201.B.,Vibrio sp. F13,NoInf
+1.201.B.,Vibrio splendidus,NoInf
+1.201.B.,Vibrio tasmaniensis,NoInf
+1.201.B.,Vibrio vulnificus,NoInf
+1.202.O.,Aliivibrio fischeri,NoInf
+1.202.O.,Enterovibrio norvegicus,NoInf
+1.202.O.,Shewanella sp. 10N.6,NoInf
+1.202.O.,Shewanella sp. 10N.7,NoInf
+1.202.O.,Vibrio alginolyticus,NoInf
+1.202.O.,Vibrio anguillarum,NoInf
+1.202.O.,Vibrio breoganii,NoInf
+1.202.O.,Vibrio cyclitrophicus,Inf
+1.202.O.,Vibrio jasicida,NoInf
+1.202.O.,Vibrio kanaloae,NoInf
+1.202.O.,Vibrio lentus,NoInf
+1.202.O.,Vibrio parahaemolyticus,NoInf
+1.202.O.,Vibrio sp. 10N.1,NoInf
+1.202.O.,Vibrio sp. 10N.2,NoInf
+1.202.O.,Vibrio sp. 10N.3,NoInf
+1.202.O.,Vibrio sp. 10N.4,NoInf
+1.202.O.,Vibrio sp. 10N.5,NoInf
+1.202.O.,Vibrio sp. F12,NoInf
+1.202.O.,Vibrio sp. F13,NoInf
+1.202.O.,Vibrio splendidus,NoInf
+1.202.O.,Vibrio tasmaniensis,NoInf
+1.202.O.,Vibrio vulnificus,NoInf
+1.204.O.,Aliivibrio fischeri,NoInf
+1.204.O.,Enterovibrio norvegicus,NoInf
+1.204.O.,Shewanella sp. 10N.6,NoInf
+1.204.O.,Shewanella sp. 10N.7,NoInf
+1.204.O.,Vibrio alginolyticus,NoInf
+1.204.O.,Vibrio anguillarum,NoInf
+1.204.O.,Vibrio breoganii,NoInf
+1.204.O.,Vibrio cyclitrophicus,Inf
+1.204.O.,Vibrio jasicida,NoInf
+1.204.O.,Vibrio kanaloae,NoInf
+1.204.O.,Vibrio lentus,NoInf
+1.204.O.,Vibrio parahaemolyticus,NoInf
+1.204.O.,Vibrio sp. 10N.1,NoInf
+1.204.O.,Vibrio sp. 10N.2,NoInf
+1.204.O.,Vibrio sp. 10N.3,NoInf
+1.204.O.,Vibrio sp. 10N.4,NoInf
+1.204.O.,Vibrio sp. 10N.5,NoInf
+1.204.O.,Vibrio sp. F12,NoInf
+1.204.O.,Vibrio sp. F13,NoInf
+1.204.O.,Vibrio splendidus,NoInf
+1.204.O.,Vibrio tasmaniensis,NoInf
+1.204.O.,Vibrio vulnificus,NoInf
+1.205.O.,Aliivibrio fischeri,NoInf
+1.205.O.,Enterovibrio norvegicus,NoInf
+1.205.O.,Shewanella sp. 10N.6,NoInf
+1.205.O.,Shewanella sp. 10N.7,NoInf
+1.205.O.,Vibrio alginolyticus,NoInf
+1.205.O.,Vibrio anguillarum,NoInf
+1.205.O.,Vibrio breoganii,NoInf
+1.205.O.,Vibrio cyclitrophicus,NoInf
+1.205.O.,Vibrio jasicida,NoInf
+1.205.O.,Vibrio kanaloae,NoInf
+1.205.O.,Vibrio lentus,NoInf
+1.205.O.,Vibrio parahaemolyticus,NoInf
+1.205.O.,Vibrio sp. 10N.1,NoInf
+1.205.O.,Vibrio sp. 10N.2,NoInf
+1.205.O.,Vibrio sp. 10N.3,NoInf
+1.205.O.,Vibrio sp. 10N.4,NoInf
+1.205.O.,Vibrio sp. 10N.5,NoInf
+1.205.O.,Vibrio sp. F12,NoInf
+1.205.O.,Vibrio sp. F13,NoInf
+1.205.O.,Vibrio splendidus,NoInf
+1.205.O.,Vibrio tasmaniensis,Inf
+1.205.O.,Vibrio vulnificus,NoInf
+1.206.O.,Aliivibrio fischeri,NoInf
+1.206.O.,Enterovibrio norvegicus,NoInf
+1.206.O.,Shewanella sp. 10N.6,NoInf
+1.206.O.,Shewanella sp. 10N.7,NoInf
+1.206.O.,Vibrio alginolyticus,NoInf
+1.206.O.,Vibrio anguillarum,NoInf
+1.206.O.,Vibrio breoganii,Inf
+1.206.O.,Vibrio cyclitrophicus,NoInf
+1.206.O.,Vibrio jasicida,NoInf
+1.206.O.,Vibrio kanaloae,NoInf
+1.206.O.,Vibrio lentus,NoInf
+1.206.O.,Vibrio parahaemolyticus,NoInf
+1.206.O.,Vibrio sp. 10N.1,NoInf
+1.206.O.,Vibrio sp. 10N.2,NoInf
+1.206.O.,Vibrio sp. 10N.3,NoInf
+1.206.O.,Vibrio sp. 10N.4,NoInf
+1.206.O.,Vibrio sp. 10N.5,NoInf
+1.206.O.,Vibrio sp. F12,NoInf
+1.206.O.,Vibrio sp. F13,NoInf
+1.206.O.,Vibrio splendidus,NoInf
+1.206.O.,Vibrio tasmaniensis,NoInf
+1.206.O.,Vibrio vulnificus,NoInf
+1.207.B.,Aliivibrio fischeri,NoInf
+1.207.B.,Enterovibrio norvegicus,NoInf
+1.207.B.,Shewanella sp. 10N.6,NoInf
+1.207.B.,Shewanella sp. 10N.7,NoInf
+1.207.B.,Vibrio alginolyticus,NoInf
+1.207.B.,Vibrio anguillarum,NoInf
+1.207.B.,Vibrio breoganii,Inf
+1.207.B.,Vibrio cyclitrophicus,NoInf
+1.207.B.,Vibrio jasicida,NoInf
+1.207.B.,Vibrio kanaloae,NoInf
+1.207.B.,Vibrio lentus,NoInf
+1.207.B.,Vibrio parahaemolyticus,NoInf
+1.207.B.,Vibrio sp. 10N.1,NoInf
+1.207.B.,Vibrio sp. 10N.2,NoInf
+1.207.B.,Vibrio sp. 10N.3,NoInf
+1.207.B.,Vibrio sp. 10N.4,NoInf
+1.207.B.,Vibrio sp. 10N.5,NoInf
+1.207.B.,Vibrio sp. F12,NoInf
+1.207.B.,Vibrio sp. F13,NoInf
+1.207.B.,Vibrio splendidus,NoInf
+1.207.B.,Vibrio tasmaniensis,NoInf
+1.207.B.,Vibrio vulnificus,NoInf
+1.208.B.,Aliivibrio fischeri,NoInf
+1.208.B.,Enterovibrio norvegicus,NoInf
+1.208.B.,Shewanella sp. 10N.6,NoInf
+1.208.B.,Shewanella sp. 10N.7,NoInf
+1.208.B.,Vibrio alginolyticus,NoInf
+1.208.B.,Vibrio anguillarum,NoInf
+1.208.B.,Vibrio breoganii,NoInf
+1.208.B.,Vibrio cyclitrophicus,NoInf
+1.208.B.,Vibrio jasicida,NoInf
+1.208.B.,Vibrio kanaloae,NoInf
+1.208.B.,Vibrio lentus,NoInf
+1.208.B.,Vibrio parahaemolyticus,NoInf
+1.208.B.,Vibrio sp. 10N.1,NoInf
+1.208.B.,Vibrio sp. 10N.2,NoInf
+1.208.B.,Vibrio sp. 10N.3,NoInf
+1.208.B.,Vibrio sp. 10N.4,NoInf
+1.208.B.,Vibrio sp. 10N.5,NoInf
+1.208.B.,Vibrio sp. F12,NoInf
+1.208.B.,Vibrio sp. F13,NoInf
+1.208.B.,Vibrio splendidus,Inf
+1.208.B.,Vibrio tasmaniensis,NoInf
+1.208.B.,Vibrio vulnificus,NoInf
+1.209.O.,Aliivibrio fischeri,NoInf
+1.209.O.,Enterovibrio norvegicus,NoInf
+1.209.O.,Shewanella sp. 10N.6,NoInf
+1.209.O.,Shewanella sp. 10N.7,NoInf
+1.209.O.,Vibrio alginolyticus,NoInf
+1.209.O.,Vibrio anguillarum,NoInf
+1.209.O.,Vibrio breoganii,Inf
+1.209.O.,Vibrio cyclitrophicus,NoInf
+1.209.O.,Vibrio jasicida,NoInf
+1.209.O.,Vibrio kanaloae,NoInf
+1.209.O.,Vibrio lentus,NoInf
+1.209.O.,Vibrio parahaemolyticus,NoInf
+1.209.O.,Vibrio sp. 10N.1,NoInf
+1.209.O.,Vibrio sp. 10N.2,NoInf
+1.209.O.,Vibrio sp. 10N.3,NoInf
+1.209.O.,Vibrio sp. 10N.4,NoInf
+1.209.O.,Vibrio sp. 10N.5,NoInf
+1.209.O.,Vibrio sp. F12,NoInf
+1.209.O.,Vibrio sp. F13,NoInf
+1.209.O.,Vibrio splendidus,NoInf
+1.209.O.,Vibrio tasmaniensis,NoInf
+1.209.O.,Vibrio vulnificus,NoInf
+1.210.O.,Aliivibrio fischeri,NoInf
+1.210.O.,Enterovibrio norvegicus,NoInf
+1.210.O.,Shewanella sp. 10N.6,NoInf
+1.210.O.,Shewanella sp. 10N.7,Inf
+1.210.O.,Vibrio alginolyticus,NoInf
+1.210.O.,Vibrio anguillarum,NoInf
+1.210.O.,Vibrio breoganii,NoInf
+1.210.O.,Vibrio cyclitrophicus,NoInf
+1.210.O.,Vibrio jasicida,NoInf
+1.210.O.,Vibrio kanaloae,NoInf
+1.210.O.,Vibrio lentus,NoInf
+1.210.O.,Vibrio parahaemolyticus,NoInf
+1.210.O.,Vibrio sp. 10N.1,NoInf
+1.210.O.,Vibrio sp. 10N.2,NoInf
+1.210.O.,Vibrio sp. 10N.3,NoInf
+1.210.O.,Vibrio sp. 10N.4,NoInf
+1.210.O.,Vibrio sp. 10N.5,NoInf
+1.210.O.,Vibrio sp. F12,NoInf
+1.210.O.,Vibrio sp. F13,NoInf
+1.210.O.,Vibrio splendidus,NoInf
+1.210.O.,Vibrio tasmaniensis,NoInf
+1.210.O.,Vibrio vulnificus,NoInf
+1.211.A.,Aliivibrio fischeri,NoInf
+1.211.A.,Enterovibrio norvegicus,NoInf
+1.211.A.,Shewanella sp. 10N.6,NoInf
+1.211.A.,Shewanella sp. 10N.7,NoInf
+1.211.A.,Vibrio alginolyticus,NoInf
+1.211.A.,Vibrio anguillarum,NoInf
+1.211.A.,Vibrio breoganii,NoInf
+1.211.A.,Vibrio cyclitrophicus,NoInf
+1.211.A.,Vibrio jasicida,NoInf
+1.211.A.,Vibrio kanaloae,NoInf
+1.211.A.,Vibrio lentus,NoInf
+1.211.A.,Vibrio parahaemolyticus,NoInf
+1.211.A.,Vibrio sp. 10N.1,NoInf
+1.211.A.,Vibrio sp. 10N.2,NoInf
+1.211.A.,Vibrio sp. 10N.3,NoInf
+1.211.A.,Vibrio sp. 10N.4,NoInf
+1.211.A.,Vibrio sp. 10N.5,NoInf
+1.211.A.,Vibrio sp. F12,NoInf
+1.211.A.,Vibrio sp. F13,NoInf
+1.211.A.,Vibrio splendidus,NoInf
+1.211.A.,Vibrio tasmaniensis,NoInf
+1.211.A.,Vibrio vulnificus,NoInf
+1.213.O.,Aliivibrio fischeri,NoInf
+1.213.O.,Enterovibrio norvegicus,NoInf
+1.213.O.,Shewanella sp. 10N.6,NoInf
+1.213.O.,Shewanella sp. 10N.7,NoInf
+1.213.O.,Vibrio alginolyticus,NoInf
+1.213.O.,Vibrio anguillarum,NoInf
+1.213.O.,Vibrio breoganii,NoInf
+1.213.O.,Vibrio cyclitrophicus,NoInf
+1.213.O.,Vibrio jasicida,NoInf
+1.213.O.,Vibrio kanaloae,NoInf
+1.213.O.,Vibrio lentus,NoInf
+1.213.O.,Vibrio parahaemolyticus,NoInf
+1.213.O.,Vibrio sp. 10N.1,NoInf
+1.213.O.,Vibrio sp. 10N.2,NoInf
+1.213.O.,Vibrio sp. 10N.3,NoInf
+1.213.O.,Vibrio sp. 10N.4,NoInf
+1.213.O.,Vibrio sp. 10N.5,NoInf
+1.213.O.,Vibrio sp. F12,NoInf
+1.213.O.,Vibrio sp. F13,Inf
+1.213.O.,Vibrio splendidus,NoInf
+1.213.O.,Vibrio tasmaniensis,NoInf
+1.213.O.,Vibrio vulnificus,NoInf
+1.214.O.,Aliivibrio fischeri,NoInf
+1.214.O.,Enterovibrio norvegicus,NoInf
+1.214.O.,Shewanella sp. 10N.6,NoInf
+1.214.O.,Shewanella sp. 10N.7,NoInf
+1.214.O.,Vibrio alginolyticus,NoInf
+1.214.O.,Vibrio anguillarum,NoInf
+1.214.O.,Vibrio breoganii,NoInf
+1.214.O.,Vibrio cyclitrophicus,Inf
+1.214.O.,Vibrio jasicida,NoInf
+1.214.O.,Vibrio kanaloae,NoInf
+1.214.O.,Vibrio lentus,NoInf
+1.214.O.,Vibrio parahaemolyticus,NoInf
+1.214.O.,Vibrio sp. 10N.1,NoInf
+1.214.O.,Vibrio sp. 10N.2,NoInf
+1.214.O.,Vibrio sp. 10N.3,NoInf
+1.214.O.,Vibrio sp. 10N.4,NoInf
+1.214.O.,Vibrio sp. 10N.5,NoInf
+1.214.O.,Vibrio sp. F12,NoInf
+1.214.O.,Vibrio sp. F13,NoInf
+1.214.O.,Vibrio splendidus,NoInf
+1.214.O.,Vibrio tasmaniensis,NoInf
+1.214.O.,Vibrio vulnificus,NoInf
+1.215.A.,Aliivibrio fischeri,NoInf
+1.215.A.,Enterovibrio norvegicus,NoInf
+1.215.A.,Shewanella sp. 10N.6,Inf
+1.215.A.,Shewanella sp. 10N.7,NoInf
+1.215.A.,Vibrio alginolyticus,NoInf
+1.215.A.,Vibrio anguillarum,NoInf
+1.215.A.,Vibrio breoganii,Inf
+1.215.A.,Vibrio cyclitrophicus,Inf
+1.215.A.,Vibrio jasicida,NoInf
+1.215.A.,Vibrio kanaloae,NoInf
+1.215.A.,Vibrio lentus,Inf
+1.215.A.,Vibrio parahaemolyticus,NoInf
+1.215.A.,Vibrio sp. 10N.1,NoInf
+1.215.A.,Vibrio sp. 10N.2,NoInf
+1.215.A.,Vibrio sp. 10N.3,NoInf
+1.215.A.,Vibrio sp. 10N.4,NoInf
+1.215.A.,Vibrio sp. 10N.5,NoInf
+1.215.A.,Vibrio sp. F12,NoInf
+1.215.A.,Vibrio sp. F13,Inf
+1.215.A.,Vibrio splendidus,Inf
+1.215.A.,Vibrio tasmaniensis,NoInf
+1.215.A.,Vibrio vulnificus,NoInf
+1.216.O.,Aliivibrio fischeri,NoInf
+1.216.O.,Enterovibrio norvegicus,NoInf
+1.216.O.,Shewanella sp. 10N.6,NoInf
+1.216.O.,Shewanella sp. 10N.7,NoInf
+1.216.O.,Vibrio alginolyticus,NoInf
+1.216.O.,Vibrio anguillarum,NoInf
+1.216.O.,Vibrio breoganii,NoInf
+1.216.O.,Vibrio cyclitrophicus,NoInf
+1.216.O.,Vibrio jasicida,NoInf
+1.216.O.,Vibrio kanaloae,NoInf
+1.216.O.,Vibrio lentus,NoInf
+1.216.O.,Vibrio parahaemolyticus,NoInf
+1.216.O.,Vibrio sp. 10N.1,NoInf
+1.216.O.,Vibrio sp. 10N.2,NoInf
+1.216.O.,Vibrio sp. 10N.3,NoInf
+1.216.O.,Vibrio sp. 10N.4,NoInf
+1.216.O.,Vibrio sp. 10N.5,NoInf
+1.216.O.,Vibrio sp. F12,NoInf
+1.216.O.,Vibrio sp. F13,Inf
+1.216.O.,Vibrio splendidus,NoInf
+1.216.O.,Vibrio tasmaniensis,NoInf
+1.216.O.,Vibrio vulnificus,NoInf
+1.217.O.,Aliivibrio fischeri,NoInf
+1.217.O.,Enterovibrio norvegicus,NoInf
+1.217.O.,Shewanella sp. 10N.6,NoInf
+1.217.O.,Shewanella sp. 10N.7,NoInf
+1.217.O.,Vibrio alginolyticus,NoInf
+1.217.O.,Vibrio anguillarum,NoInf
+1.217.O.,Vibrio breoganii,NoInf
+1.217.O.,Vibrio cyclitrophicus,NoInf
+1.217.O.,Vibrio jasicida,NoInf
+1.217.O.,Vibrio kanaloae,NoInf
+1.217.O.,Vibrio lentus,Inf
+1.217.O.,Vibrio parahaemolyticus,NoInf
+1.217.O.,Vibrio sp. 10N.1,Inf
+1.217.O.,Vibrio sp. 10N.2,NoInf
+1.217.O.,Vibrio sp. 10N.3,NoInf
+1.217.O.,Vibrio sp. 10N.4,NoInf
+1.217.O.,Vibrio sp. 10N.5,NoInf
+1.217.O.,Vibrio sp. F12,NoInf
+1.217.O.,Vibrio sp. F13,NoInf
+1.217.O.,Vibrio splendidus,NoInf
+1.217.O.,Vibrio tasmaniensis,NoInf
+1.217.O.,Vibrio vulnificus,NoInf
+1.219.O.,Aliivibrio fischeri,NoInf
+1.219.O.,Enterovibrio norvegicus,NoInf
+1.219.O.,Shewanella sp. 10N.6,NoInf
+1.219.O.,Shewanella sp. 10N.7,NoInf
+1.219.O.,Vibrio alginolyticus,NoInf
+1.219.O.,Vibrio anguillarum,NoInf
+1.219.O.,Vibrio breoganii,NoInf
+1.219.O.,Vibrio cyclitrophicus,NoInf
+1.219.O.,Vibrio jasicida,NoInf
+1.219.O.,Vibrio kanaloae,NoInf
+1.219.O.,Vibrio lentus,NoInf
+1.219.O.,Vibrio parahaemolyticus,NoInf
+1.219.O.,Vibrio sp. 10N.1,Inf
+1.219.O.,Vibrio sp. 10N.2,NoInf
+1.219.O.,Vibrio sp. 10N.3,NoInf
+1.219.O.,Vibrio sp. 10N.4,NoInf
+1.219.O.,Vibrio sp. 10N.5,NoInf
+1.219.O.,Vibrio sp. F12,NoInf
+1.219.O.,Vibrio sp. F13,NoInf
+1.219.O.,Vibrio splendidus,NoInf
+1.219.O.,Vibrio tasmaniensis,NoInf
+1.219.O.,Vibrio vulnificus,NoInf
+1.223.O.,Aliivibrio fischeri,NoInf
+1.223.O.,Enterovibrio norvegicus,NoInf
+1.223.O.,Shewanella sp. 10N.6,NoInf
+1.223.O.,Shewanella sp. 10N.7,NoInf
+1.223.O.,Vibrio alginolyticus,NoInf
+1.223.O.,Vibrio anguillarum,NoInf
+1.223.O.,Vibrio breoganii,NoInf
+1.223.O.,Vibrio cyclitrophicus,NoInf
+1.223.O.,Vibrio jasicida,NoInf
+1.223.O.,Vibrio kanaloae,NoInf
+1.223.O.,Vibrio lentus,Inf
+1.223.O.,Vibrio parahaemolyticus,NoInf
+1.223.O.,Vibrio sp. 10N.1,NoInf
+1.223.O.,Vibrio sp. 10N.2,NoInf
+1.223.O.,Vibrio sp. 10N.3,NoInf
+1.223.O.,Vibrio sp. 10N.4,NoInf
+1.223.O.,Vibrio sp. 10N.5,NoInf
+1.223.O.,Vibrio sp. F12,NoInf
+1.223.O.,Vibrio sp. F13,NoInf
+1.223.O.,Vibrio splendidus,NoInf
+1.223.O.,Vibrio tasmaniensis,NoInf
+1.223.O.,Vibrio vulnificus,NoInf
+1.224.A.,Aliivibrio fischeri,NoInf
+1.224.A.,Enterovibrio norvegicus,NoInf
+1.224.A.,Shewanella sp. 10N.6,NoInf
+1.224.A.,Shewanella sp. 10N.7,NoInf
+1.224.A.,Vibrio alginolyticus,NoInf
+1.224.A.,Vibrio anguillarum,NoInf
+1.224.A.,Vibrio breoganii,Inf
+1.224.A.,Vibrio cyclitrophicus,NoInf
+1.224.A.,Vibrio jasicida,NoInf
+1.224.A.,Vibrio kanaloae,NoInf
+1.224.A.,Vibrio lentus,NoInf
+1.224.A.,Vibrio parahaemolyticus,NoInf
+1.224.A.,Vibrio sp. 10N.1,NoInf
+1.224.A.,Vibrio sp. 10N.2,NoInf
+1.224.A.,Vibrio sp. 10N.3,NoInf
+1.224.A.,Vibrio sp. 10N.4,NoInf
+1.224.A.,Vibrio sp. 10N.5,NoInf
+1.224.A.,Vibrio sp. F12,NoInf
+1.224.A.,Vibrio sp. F13,NoInf
+1.224.A.,Vibrio splendidus,NoInf
+1.224.A.,Vibrio tasmaniensis,NoInf
+1.224.A.,Vibrio vulnificus,NoInf
+1.225.O.,Aliivibrio fischeri,NoInf
+1.225.O.,Enterovibrio norvegicus,NoInf
+1.225.O.,Shewanella sp. 10N.6,NoInf
+1.225.O.,Shewanella sp. 10N.7,NoInf
+1.225.O.,Vibrio alginolyticus,NoInf
+1.225.O.,Vibrio anguillarum,NoInf
+1.225.O.,Vibrio breoganii,NoInf
+1.225.O.,Vibrio cyclitrophicus,NoInf
+1.225.O.,Vibrio jasicida,NoInf
+1.225.O.,Vibrio kanaloae,NoInf
+1.225.O.,Vibrio lentus,NoInf
+1.225.O.,Vibrio parahaemolyticus,NoInf
+1.225.O.,Vibrio sp. 10N.1,NoInf
+1.225.O.,Vibrio sp. 10N.2,NoInf
+1.225.O.,Vibrio sp. 10N.3,NoInf
+1.225.O.,Vibrio sp. 10N.4,NoInf
+1.225.O.,Vibrio sp. 10N.5,NoInf
+1.225.O.,Vibrio sp. F12,NoInf
+1.225.O.,Vibrio sp. F13,NoInf
+1.225.O.,Vibrio splendidus,Inf
+1.225.O.,Vibrio tasmaniensis,NoInf
+1.225.O.,Vibrio vulnificus,NoInf
+1.226.O.,Aliivibrio fischeri,NoInf
+1.226.O.,Enterovibrio norvegicus,NoInf
+1.226.O.,Shewanella sp. 10N.6,NoInf
+1.226.O.,Shewanella sp. 10N.7,NoInf
+1.226.O.,Vibrio alginolyticus,NoInf
+1.226.O.,Vibrio anguillarum,NoInf
+1.226.O.,Vibrio breoganii,Inf
+1.226.O.,Vibrio cyclitrophicus,NoInf
+1.226.O.,Vibrio jasicida,NoInf
+1.226.O.,Vibrio kanaloae,NoInf
+1.226.O.,Vibrio lentus,NoInf
+1.226.O.,Vibrio parahaemolyticus,NoInf
+1.226.O.,Vibrio sp. 10N.1,NoInf
+1.226.O.,Vibrio sp. 10N.2,NoInf
+1.226.O.,Vibrio sp. 10N.3,NoInf
+1.226.O.,Vibrio sp. 10N.4,NoInf
+1.226.O.,Vibrio sp. 10N.5,NoInf
+1.226.O.,Vibrio sp. F12,NoInf
+1.226.O.,Vibrio sp. F13,NoInf
+1.226.O.,Vibrio splendidus,NoInf
+1.226.O.,Vibrio tasmaniensis,NoInf
+1.226.O.,Vibrio vulnificus,NoInf
+1.228.O.,Aliivibrio fischeri,NoInf
+1.228.O.,Enterovibrio norvegicus,NoInf
+1.228.O.,Shewanella sp. 10N.6,NoInf
+1.228.O.,Shewanella sp. 10N.7,NoInf
+1.228.O.,Vibrio alginolyticus,NoInf
+1.228.O.,Vibrio anguillarum,NoInf
+1.228.O.,Vibrio breoganii,Inf
+1.228.O.,Vibrio cyclitrophicus,NoInf
+1.228.O.,Vibrio jasicida,NoInf
+1.228.O.,Vibrio kanaloae,NoInf
+1.228.O.,Vibrio lentus,NoInf
+1.228.O.,Vibrio parahaemolyticus,NoInf
+1.228.O.,Vibrio sp. 10N.1,NoInf
+1.228.O.,Vibrio sp. 10N.2,NoInf
+1.228.O.,Vibrio sp. 10N.3,NoInf
+1.228.O.,Vibrio sp. 10N.4,NoInf
+1.228.O.,Vibrio sp. 10N.5,NoInf
+1.228.O.,Vibrio sp. F12,NoInf
+1.228.O.,Vibrio sp. F13,NoInf
+1.228.O.,Vibrio splendidus,NoInf
+1.228.O.,Vibrio tasmaniensis,NoInf
+1.228.O.,Vibrio vulnificus,NoInf
+1.231.O.,Aliivibrio fischeri,NoInf
+1.231.O.,Enterovibrio norvegicus,NoInf
+1.231.O.,Shewanella sp. 10N.6,NoInf
+1.231.O.,Shewanella sp. 10N.7,NoInf
+1.231.O.,Vibrio alginolyticus,NoInf
+1.231.O.,Vibrio anguillarum,NoInf
+1.231.O.,Vibrio breoganii,NoInf
+1.231.O.,Vibrio cyclitrophicus,NoInf
+1.231.O.,Vibrio jasicida,NoInf
+1.231.O.,Vibrio kanaloae,NoInf
+1.231.O.,Vibrio lentus,Inf
+1.231.O.,Vibrio parahaemolyticus,NoInf
+1.231.O.,Vibrio sp. 10N.1,NoInf
+1.231.O.,Vibrio sp. 10N.2,NoInf
+1.231.O.,Vibrio sp. 10N.3,NoInf
+1.231.O.,Vibrio sp. 10N.4,NoInf
+1.231.O.,Vibrio sp. 10N.5,NoInf
+1.231.O.,Vibrio sp. F12,NoInf
+1.231.O.,Vibrio sp. F13,NoInf
+1.231.O.,Vibrio splendidus,NoInf
+1.231.O.,Vibrio tasmaniensis,NoInf
+1.231.O.,Vibrio vulnificus,NoInf
+1.232.O.,Aliivibrio fischeri,NoInf
+1.232.O.,Enterovibrio norvegicus,NoInf
+1.232.O.,Shewanella sp. 10N.6,NoInf
+1.232.O.,Shewanella sp. 10N.7,NoInf
+1.232.O.,Vibrio alginolyticus,NoInf
+1.232.O.,Vibrio anguillarum,NoInf
+1.232.O.,Vibrio breoganii,NoInf
+1.232.O.,Vibrio cyclitrophicus,NoInf
+1.232.O.,Vibrio jasicida,NoInf
+1.232.O.,Vibrio kanaloae,NoInf
+1.232.O.,Vibrio lentus,NoInf
+1.232.O.,Vibrio parahaemolyticus,NoInf
+1.232.O.,Vibrio sp. 10N.1,NoInf
+1.232.O.,Vibrio sp. 10N.2,NoInf
+1.232.O.,Vibrio sp. 10N.3,NoInf
+1.232.O.,Vibrio sp. 10N.4,NoInf
+1.232.O.,Vibrio sp. 10N.5,NoInf
+1.232.O.,Vibrio sp. F12,NoInf
+1.232.O.,Vibrio sp. F13,NoInf
+1.232.O.,Vibrio splendidus,NoInf
+1.232.O.,Vibrio tasmaniensis,Inf
+1.232.O.,Vibrio vulnificus,NoInf
+1.233.A.,Aliivibrio fischeri,NoInf
+1.233.A.,Enterovibrio norvegicus,NoInf
+1.233.A.,Shewanella sp. 10N.6,NoInf
+1.233.A.,Shewanella sp. 10N.7,NoInf
+1.233.A.,Vibrio alginolyticus,NoInf
+1.233.A.,Vibrio anguillarum,NoInf
+1.233.A.,Vibrio breoganii,Inf
+1.233.A.,Vibrio cyclitrophicus,NoInf
+1.233.A.,Vibrio jasicida,NoInf
+1.233.A.,Vibrio kanaloae,NoInf
+1.233.A.,Vibrio lentus,NoInf
+1.233.A.,Vibrio parahaemolyticus,NoInf
+1.233.A.,Vibrio sp. 10N.1,NoInf
+1.233.A.,Vibrio sp. 10N.2,NoInf
+1.233.A.,Vibrio sp. 10N.3,NoInf
+1.233.A.,Vibrio sp. 10N.4,NoInf
+1.233.A.,Vibrio sp. 10N.5,NoInf
+1.233.A.,Vibrio sp. F12,NoInf
+1.233.A.,Vibrio sp. F13,NoInf
+1.233.A.,Vibrio splendidus,NoInf
+1.233.A.,Vibrio tasmaniensis,NoInf
+1.233.A.,Vibrio vulnificus,NoInf
+1.235.O.,Aliivibrio fischeri,NoInf
+1.235.O.,Enterovibrio norvegicus,NoInf
+1.235.O.,Shewanella sp. 10N.6,NoInf
+1.235.O.,Shewanella sp. 10N.7,NoInf
+1.235.O.,Vibrio alginolyticus,NoInf
+1.235.O.,Vibrio anguillarum,NoInf
+1.235.O.,Vibrio breoganii,NoInf
+1.235.O.,Vibrio cyclitrophicus,Inf
+1.235.O.,Vibrio jasicida,NoInf
+1.235.O.,Vibrio kanaloae,NoInf
+1.235.O.,Vibrio lentus,NoInf
+1.235.O.,Vibrio parahaemolyticus,NoInf
+1.235.O.,Vibrio sp. 10N.1,NoInf
+1.235.O.,Vibrio sp. 10N.2,NoInf
+1.235.O.,Vibrio sp. 10N.3,NoInf
+1.235.O.,Vibrio sp. 10N.4,NoInf
+1.235.O.,Vibrio sp. 10N.5,NoInf
+1.235.O.,Vibrio sp. F12,NoInf
+1.235.O.,Vibrio sp. F13,NoInf
+1.235.O.,Vibrio splendidus,NoInf
+1.235.O.,Vibrio tasmaniensis,NoInf
+1.235.O.,Vibrio vulnificus,NoInf
+1.236.O.,Aliivibrio fischeri,NoInf
+1.236.O.,Enterovibrio norvegicus,NoInf
+1.236.O.,Shewanella sp. 10N.6,NoInf
+1.236.O.,Shewanella sp. 10N.7,NoInf
+1.236.O.,Vibrio alginolyticus,NoInf
+1.236.O.,Vibrio anguillarum,NoInf
+1.236.O.,Vibrio breoganii,NoInf
+1.236.O.,Vibrio cyclitrophicus,Inf
+1.236.O.,Vibrio jasicida,NoInf
+1.236.O.,Vibrio kanaloae,NoInf
+1.236.O.,Vibrio lentus,NoInf
+1.236.O.,Vibrio parahaemolyticus,NoInf
+1.236.O.,Vibrio sp. 10N.1,NoInf
+1.236.O.,Vibrio sp. 10N.2,NoInf
+1.236.O.,Vibrio sp. 10N.3,NoInf
+1.236.O.,Vibrio sp. 10N.4,NoInf
+1.236.O.,Vibrio sp. 10N.5,NoInf
+1.236.O.,Vibrio sp. F12,NoInf
+1.236.O.,Vibrio sp. F13,NoInf
+1.236.O.,Vibrio splendidus,NoInf
+1.236.O.,Vibrio tasmaniensis,NoInf
+1.236.O.,Vibrio vulnificus,NoInf
+1.237.A.,Aliivibrio fischeri,NoInf
+1.237.A.,Enterovibrio norvegicus,NoInf
+1.237.A.,Shewanella sp. 10N.6,NoInf
+1.237.A.,Shewanella sp. 10N.7,NoInf
+1.237.A.,Vibrio alginolyticus,NoInf
+1.237.A.,Vibrio anguillarum,NoInf
+1.237.A.,Vibrio breoganii,NoInf
+1.237.A.,Vibrio cyclitrophicus,NoInf
+1.237.A.,Vibrio jasicida,NoInf
+1.237.A.,Vibrio kanaloae,NoInf
+1.237.A.,Vibrio lentus,Inf
+1.237.A.,Vibrio parahaemolyticus,NoInf
+1.237.A.,Vibrio sp. 10N.1,NoInf
+1.237.A.,Vibrio sp. 10N.2,NoInf
+1.237.A.,Vibrio sp. 10N.3,NoInf
+1.237.A.,Vibrio sp. 10N.4,NoInf
+1.237.A.,Vibrio sp. 10N.5,NoInf
+1.237.A.,Vibrio sp. F12,NoInf
+1.237.A.,Vibrio sp. F13,NoInf
+1.237.A.,Vibrio splendidus,NoInf
+1.237.A.,Vibrio tasmaniensis,NoInf
+1.237.A.,Vibrio vulnificus,NoInf
+1.238.A.,Aliivibrio fischeri,NoInf
+1.238.A.,Enterovibrio norvegicus,NoInf
+1.238.A.,Shewanella sp. 10N.6,NoInf
+1.238.A.,Shewanella sp. 10N.7,NoInf
+1.238.A.,Vibrio alginolyticus,NoInf
+1.238.A.,Vibrio anguillarum,NoInf
+1.238.A.,Vibrio breoganii,Inf
+1.238.A.,Vibrio cyclitrophicus,NoInf
+1.238.A.,Vibrio jasicida,NoInf
+1.238.A.,Vibrio kanaloae,NoInf
+1.238.A.,Vibrio lentus,NoInf
+1.238.A.,Vibrio parahaemolyticus,NoInf
+1.238.A.,Vibrio sp. 10N.1,NoInf
+1.238.A.,Vibrio sp. 10N.2,NoInf
+1.238.A.,Vibrio sp. 10N.3,NoInf
+1.238.A.,Vibrio sp. 10N.4,NoInf
+1.238.A.,Vibrio sp. 10N.5,NoInf
+1.238.A.,Vibrio sp. F12,NoInf
+1.238.A.,Vibrio sp. F13,NoInf
+1.238.A.,Vibrio splendidus,NoInf
+1.238.A.,Vibrio tasmaniensis,NoInf
+1.238.A.,Vibrio vulnificus,NoInf
+1.239.O.,Aliivibrio fischeri,NoInf
+1.239.O.,Enterovibrio norvegicus,NoInf
+1.239.O.,Shewanella sp. 10N.6,NoInf
+1.239.O.,Shewanella sp. 10N.7,NoInf
+1.239.O.,Vibrio alginolyticus,NoInf
+1.239.O.,Vibrio anguillarum,NoInf
+1.239.O.,Vibrio breoganii,Inf
+1.239.O.,Vibrio cyclitrophicus,NoInf
+1.239.O.,Vibrio jasicida,NoInf
+1.239.O.,Vibrio kanaloae,NoInf
+1.239.O.,Vibrio lentus,NoInf
+1.239.O.,Vibrio parahaemolyticus,NoInf
+1.239.O.,Vibrio sp. 10N.1,NoInf
+1.239.O.,Vibrio sp. 10N.2,NoInf
+1.239.O.,Vibrio sp. 10N.3,NoInf
+1.239.O.,Vibrio sp. 10N.4,NoInf
+1.239.O.,Vibrio sp. 10N.5,NoInf
+1.239.O.,Vibrio sp. F12,NoInf
+1.239.O.,Vibrio sp. F13,NoInf
+1.239.O.,Vibrio splendidus,NoInf
+1.239.O.,Vibrio tasmaniensis,NoInf
+1.239.O.,Vibrio vulnificus,NoInf
+1.240.O.,Aliivibrio fischeri,NoInf
+1.240.O.,Enterovibrio norvegicus,NoInf
+1.240.O.,Shewanella sp. 10N.6,NoInf
+1.240.O.,Shewanella sp. 10N.7,NoInf
+1.240.O.,Vibrio alginolyticus,NoInf
+1.240.O.,Vibrio anguillarum,NoInf
+1.240.O.,Vibrio breoganii,Inf
+1.240.O.,Vibrio cyclitrophicus,NoInf
+1.240.O.,Vibrio jasicida,NoInf
+1.240.O.,Vibrio kanaloae,NoInf
+1.240.O.,Vibrio lentus,NoInf
+1.240.O.,Vibrio parahaemolyticus,NoInf
+1.240.O.,Vibrio sp. 10N.1,NoInf
+1.240.O.,Vibrio sp. 10N.2,NoInf
+1.240.O.,Vibrio sp. 10N.3,NoInf
+1.240.O.,Vibrio sp. 10N.4,NoInf
+1.240.O.,Vibrio sp. 10N.5,NoInf
+1.240.O.,Vibrio sp. F12,NoInf
+1.240.O.,Vibrio sp. F13,NoInf
+1.240.O.,Vibrio splendidus,NoInf
+1.240.O.,Vibrio tasmaniensis,NoInf
+1.240.O.,Vibrio vulnificus,NoInf
+1.242.O.,Aliivibrio fischeri,NoInf
+1.242.O.,Enterovibrio norvegicus,NoInf
+1.242.O.,Shewanella sp. 10N.6,NoInf
+1.242.O.,Shewanella sp. 10N.7,NoInf
+1.242.O.,Vibrio alginolyticus,NoInf
+1.242.O.,Vibrio anguillarum,NoInf
+1.242.O.,Vibrio breoganii,Inf
+1.242.O.,Vibrio cyclitrophicus,NoInf
+1.242.O.,Vibrio jasicida,NoInf
+1.242.O.,Vibrio kanaloae,NoInf
+1.242.O.,Vibrio lentus,NoInf
+1.242.O.,Vibrio parahaemolyticus,NoInf
+1.242.O.,Vibrio sp. 10N.1,NoInf
+1.242.O.,Vibrio sp. 10N.2,NoInf
+1.242.O.,Vibrio sp. 10N.3,NoInf
+1.242.O.,Vibrio sp. 10N.4,NoInf
+1.242.O.,Vibrio sp. 10N.5,NoInf
+1.242.O.,Vibrio sp. F12,NoInf
+1.242.O.,Vibrio sp. F13,NoInf
+1.242.O.,Vibrio splendidus,NoInf
+1.242.O.,Vibrio tasmaniensis,NoInf
+1.242.O.,Vibrio vulnificus,NoInf
+1.243.O.,Aliivibrio fischeri,NoInf
+1.243.O.,Enterovibrio norvegicus,NoInf
+1.243.O.,Shewanella sp. 10N.6,NoInf
+1.243.O.,Shewanella sp. 10N.7,NoInf
+1.243.O.,Vibrio alginolyticus,NoInf
+1.243.O.,Vibrio anguillarum,NoInf
+1.243.O.,Vibrio breoganii,NoInf
+1.243.O.,Vibrio cyclitrophicus,Inf
+1.243.O.,Vibrio jasicida,NoInf
+1.243.O.,Vibrio kanaloae,NoInf
+1.243.O.,Vibrio lentus,NoInf
+1.243.O.,Vibrio parahaemolyticus,NoInf
+1.243.O.,Vibrio sp. 10N.1,NoInf
+1.243.O.,Vibrio sp. 10N.2,NoInf
+1.243.O.,Vibrio sp. 10N.3,NoInf
+1.243.O.,Vibrio sp. 10N.4,NoInf
+1.243.O.,Vibrio sp. 10N.5,NoInf
+1.243.O.,Vibrio sp. F12,NoInf
+1.243.O.,Vibrio sp. F13,NoInf
+1.243.O.,Vibrio splendidus,NoInf
+1.243.O.,Vibrio tasmaniensis,NoInf
+1.243.O.,Vibrio vulnificus,NoInf
+1.244.A.,Aliivibrio fischeri,NoInf
+1.244.A.,Enterovibrio norvegicus,NoInf
+1.244.A.,Shewanella sp. 10N.6,NoInf
+1.244.A.,Shewanella sp. 10N.7,NoInf
+1.244.A.,Vibrio alginolyticus,NoInf
+1.244.A.,Vibrio anguillarum,NoInf
+1.244.A.,Vibrio breoganii,NoInf
+1.244.A.,Vibrio cyclitrophicus,NoInf
+1.244.A.,Vibrio jasicida,NoInf
+1.244.A.,Vibrio kanaloae,NoInf
+1.244.A.,Vibrio lentus,NoInf
+1.244.A.,Vibrio parahaemolyticus,NoInf
+1.244.A.,Vibrio sp. 10N.1,NoInf
+1.244.A.,Vibrio sp. 10N.2,NoInf
+1.244.A.,Vibrio sp. 10N.3,NoInf
+1.244.A.,Vibrio sp. 10N.4,NoInf
+1.244.A.,Vibrio sp. 10N.5,NoInf
+1.244.A.,Vibrio sp. F12,NoInf
+1.244.A.,Vibrio sp. F13,NoInf
+1.244.A.,Vibrio splendidus,Inf
+1.244.A.,Vibrio tasmaniensis,NoInf
+1.244.A.,Vibrio vulnificus,NoInf
+1.245.O.,Aliivibrio fischeri,NoInf
+1.245.O.,Enterovibrio norvegicus,NoInf
+1.245.O.,Shewanella sp. 10N.6,NoInf
+1.245.O.,Shewanella sp. 10N.7,NoInf
+1.245.O.,Vibrio alginolyticus,NoInf
+1.245.O.,Vibrio anguillarum,NoInf
+1.245.O.,Vibrio breoganii,Inf
+1.245.O.,Vibrio cyclitrophicus,NoInf
+1.245.O.,Vibrio jasicida,NoInf
+1.245.O.,Vibrio kanaloae,NoInf
+1.245.O.,Vibrio lentus,NoInf
+1.245.O.,Vibrio parahaemolyticus,NoInf
+1.245.O.,Vibrio sp. 10N.1,NoInf
+1.245.O.,Vibrio sp. 10N.2,NoInf
+1.245.O.,Vibrio sp. 10N.3,NoInf
+1.245.O.,Vibrio sp. 10N.4,NoInf
+1.245.O.,Vibrio sp. 10N.5,NoInf
+1.245.O.,Vibrio sp. F12,NoInf
+1.245.O.,Vibrio sp. F13,NoInf
+1.245.O.,Vibrio splendidus,NoInf
+1.245.O.,Vibrio tasmaniensis,NoInf
+1.245.O.,Vibrio vulnificus,NoInf
+1.246.O.,Aliivibrio fischeri,NoInf
+1.246.O.,Enterovibrio norvegicus,NoInf
+1.246.O.,Shewanella sp. 10N.6,NoInf
+1.246.O.,Shewanella sp. 10N.7,NoInf
+1.246.O.,Vibrio alginolyticus,NoInf
+1.246.O.,Vibrio anguillarum,NoInf
+1.246.O.,Vibrio breoganii,NoInf
+1.246.O.,Vibrio cyclitrophicus,NoInf
+1.246.O.,Vibrio jasicida,NoInf
+1.246.O.,Vibrio kanaloae,NoInf
+1.246.O.,Vibrio lentus,NoInf
+1.246.O.,Vibrio parahaemolyticus,NoInf
+1.246.O.,Vibrio sp. 10N.1,NoInf
+1.246.O.,Vibrio sp. 10N.2,NoInf
+1.246.O.,Vibrio sp. 10N.3,NoInf
+1.246.O.,Vibrio sp. 10N.4,NoInf
+1.246.O.,Vibrio sp. 10N.5,NoInf
+1.246.O.,Vibrio sp. F12,NoInf
+1.246.O.,Vibrio sp. F13,Inf
+1.246.O.,Vibrio splendidus,NoInf
+1.246.O.,Vibrio tasmaniensis,NoInf
+1.246.O.,Vibrio vulnificus,NoInf
+1.247.A.,Aliivibrio fischeri,NoInf
+1.247.A.,Enterovibrio norvegicus,NoInf
+1.247.A.,Shewanella sp. 10N.6,NoInf
+1.247.A.,Shewanella sp. 10N.7,NoInf
+1.247.A.,Vibrio alginolyticus,NoInf
+1.247.A.,Vibrio anguillarum,NoInf
+1.247.A.,Vibrio breoganii,Inf
+1.247.A.,Vibrio cyclitrophicus,NoInf
+1.247.A.,Vibrio jasicida,NoInf
+1.247.A.,Vibrio kanaloae,NoInf
+1.247.A.,Vibrio lentus,NoInf
+1.247.A.,Vibrio parahaemolyticus,NoInf
+1.247.A.,Vibrio sp. 10N.1,NoInf
+1.247.A.,Vibrio sp. 10N.2,NoInf
+1.247.A.,Vibrio sp. 10N.3,NoInf
+1.247.A.,Vibrio sp. 10N.4,NoInf
+1.247.A.,Vibrio sp. 10N.5,NoInf
+1.247.A.,Vibrio sp. F12,NoInf
+1.247.A.,Vibrio sp. F13,NoInf
+1.247.A.,Vibrio splendidus,Inf
+1.247.A.,Vibrio tasmaniensis,NoInf
+1.247.A.,Vibrio vulnificus,NoInf
+1.248.O.,Aliivibrio fischeri,NoInf
+1.248.O.,Enterovibrio norvegicus,NoInf
+1.248.O.,Shewanella sp. 10N.6,NoInf
+1.248.O.,Shewanella sp. 10N.7,NoInf
+1.248.O.,Vibrio alginolyticus,NoInf
+1.248.O.,Vibrio anguillarum,NoInf
+1.248.O.,Vibrio breoganii,NoInf
+1.248.O.,Vibrio cyclitrophicus,Inf
+1.248.O.,Vibrio jasicida,NoInf
+1.248.O.,Vibrio kanaloae,NoInf
+1.248.O.,Vibrio lentus,NoInf
+1.248.O.,Vibrio parahaemolyticus,NoInf
+1.248.O.,Vibrio sp. 10N.1,NoInf
+1.248.O.,Vibrio sp. 10N.2,NoInf
+1.248.O.,Vibrio sp. 10N.3,NoInf
+1.248.O.,Vibrio sp. 10N.4,NoInf
+1.248.O.,Vibrio sp. 10N.5,NoInf
+1.248.O.,Vibrio sp. F12,NoInf
+1.248.O.,Vibrio sp. F13,NoInf
+1.248.O.,Vibrio splendidus,NoInf
+1.248.O.,Vibrio tasmaniensis,NoInf
+1.248.O.,Vibrio vulnificus,NoInf
+1.249.A.,Aliivibrio fischeri,NoInf
+1.249.A.,Enterovibrio norvegicus,NoInf
+1.249.A.,Shewanella sp. 10N.6,NoInf
+1.249.A.,Shewanella sp. 10N.7,NoInf
+1.249.A.,Vibrio alginolyticus,NoInf
+1.249.A.,Vibrio anguillarum,NoInf
+1.249.A.,Vibrio breoganii,NoInf
+1.249.A.,Vibrio cyclitrophicus,Inf
+1.249.A.,Vibrio jasicida,NoInf
+1.249.A.,Vibrio kanaloae,NoInf
+1.249.A.,Vibrio lentus,NoInf
+1.249.A.,Vibrio parahaemolyticus,NoInf
+1.249.A.,Vibrio sp. 10N.1,NoInf
+1.249.A.,Vibrio sp. 10N.2,NoInf
+1.249.A.,Vibrio sp. 10N.3,NoInf
+1.249.A.,Vibrio sp. 10N.4,NoInf
+1.249.A.,Vibrio sp. 10N.5,NoInf
+1.249.A.,Vibrio sp. F12,NoInf
+1.249.A.,Vibrio sp. F13,NoInf
+1.249.A.,Vibrio splendidus,NoInf
+1.249.A.,Vibrio tasmaniensis,NoInf
+1.249.A.,Vibrio vulnificus,NoInf
+1.250.O.,Aliivibrio fischeri,NoInf
+1.250.O.,Enterovibrio norvegicus,NoInf
+1.250.O.,Shewanella sp. 10N.6,NoInf
+1.250.O.,Shewanella sp. 10N.7,NoInf
+1.250.O.,Vibrio alginolyticus,NoInf
+1.250.O.,Vibrio anguillarum,NoInf
+1.250.O.,Vibrio breoganii,NoInf
+1.250.O.,Vibrio cyclitrophicus,NoInf
+1.250.O.,Vibrio jasicida,NoInf
+1.250.O.,Vibrio kanaloae,NoInf
+1.250.O.,Vibrio lentus,NoInf
+1.250.O.,Vibrio parahaemolyticus,NoInf
+1.250.O.,Vibrio sp. 10N.1,NoInf
+1.250.O.,Vibrio sp. 10N.2,NoInf
+1.250.O.,Vibrio sp. 10N.3,NoInf
+1.250.O.,Vibrio sp. 10N.4,NoInf
+1.250.O.,Vibrio sp. 10N.5,NoInf
+1.250.O.,Vibrio sp. F12,NoInf
+1.250.O.,Vibrio sp. F13,NoInf
+1.250.O.,Vibrio splendidus,Inf
+1.250.O.,Vibrio tasmaniensis,NoInf
+1.250.O.,Vibrio vulnificus,NoInf
+1.251.O.,Aliivibrio fischeri,NoInf
+1.251.O.,Enterovibrio norvegicus,NoInf
+1.251.O.,Shewanella sp. 10N.6,NoInf
+1.251.O.,Shewanella sp. 10N.7,NoInf
+1.251.O.,Vibrio alginolyticus,NoInf
+1.251.O.,Vibrio anguillarum,NoInf
+1.251.O.,Vibrio breoganii,NoInf
+1.251.O.,Vibrio cyclitrophicus,NoInf
+1.251.O.,Vibrio jasicida,NoInf
+1.251.O.,Vibrio kanaloae,NoInf
+1.251.O.,Vibrio lentus,Inf
+1.251.O.,Vibrio parahaemolyticus,NoInf
+1.251.O.,Vibrio sp. 10N.1,NoInf
+1.251.O.,Vibrio sp. 10N.2,NoInf
+1.251.O.,Vibrio sp. 10N.3,NoInf
+1.251.O.,Vibrio sp. 10N.4,NoInf
+1.251.O.,Vibrio sp. 10N.5,NoInf
+1.251.O.,Vibrio sp. F12,NoInf
+1.251.O.,Vibrio sp. F13,NoInf
+1.251.O.,Vibrio splendidus,NoInf
+1.251.O.,Vibrio tasmaniensis,NoInf
+1.251.O.,Vibrio vulnificus,NoInf
+1.253.O.,Aliivibrio fischeri,NoInf
+1.253.O.,Enterovibrio norvegicus,NoInf
+1.253.O.,Shewanella sp. 10N.6,NoInf
+1.253.O.,Shewanella sp. 10N.7,NoInf
+1.253.O.,Vibrio alginolyticus,NoInf
+1.253.O.,Vibrio anguillarum,NoInf
+1.253.O.,Vibrio breoganii,NoInf
+1.253.O.,Vibrio cyclitrophicus,Inf
+1.253.O.,Vibrio jasicida,NoInf
+1.253.O.,Vibrio kanaloae,NoInf
+1.253.O.,Vibrio lentus,Inf
+1.253.O.,Vibrio parahaemolyticus,NoInf
+1.253.O.,Vibrio sp. 10N.1,NoInf
+1.253.O.,Vibrio sp. 10N.2,NoInf
+1.253.O.,Vibrio sp. 10N.3,NoInf
+1.253.O.,Vibrio sp. 10N.4,NoInf
+1.253.O.,Vibrio sp. 10N.5,NoInf
+1.253.O.,Vibrio sp. F12,NoInf
+1.253.O.,Vibrio sp. F13,NoInf
+1.253.O.,Vibrio splendidus,Inf
+1.253.O.,Vibrio tasmaniensis,NoInf
+1.253.O.,Vibrio vulnificus,NoInf
+1.254.O.,Aliivibrio fischeri,NoInf
+1.254.O.,Enterovibrio norvegicus,NoInf
+1.254.O.,Shewanella sp. 10N.6,NoInf
+1.254.O.,Shewanella sp. 10N.7,NoInf
+1.254.O.,Vibrio alginolyticus,NoInf
+1.254.O.,Vibrio anguillarum,NoInf
+1.254.O.,Vibrio breoganii,NoInf
+1.254.O.,Vibrio cyclitrophicus,NoInf
+1.254.O.,Vibrio jasicida,NoInf
+1.254.O.,Vibrio kanaloae,NoInf
+1.254.O.,Vibrio lentus,Inf
+1.254.O.,Vibrio parahaemolyticus,NoInf
+1.254.O.,Vibrio sp. 10N.1,NoInf
+1.254.O.,Vibrio sp. 10N.2,NoInf
+1.254.O.,Vibrio sp. 10N.3,NoInf
+1.254.O.,Vibrio sp. 10N.4,NoInf
+1.254.O.,Vibrio sp. 10N.5,NoInf
+1.254.O.,Vibrio sp. F12,NoInf
+1.254.O.,Vibrio sp. F13,NoInf
+1.254.O.,Vibrio splendidus,NoInf
+1.254.O.,Vibrio tasmaniensis,NoInf
+1.254.O.,Vibrio vulnificus,NoInf
+1.255.O.,Aliivibrio fischeri,NoInf
+1.255.O.,Enterovibrio norvegicus,NoInf
+1.255.O.,Shewanella sp. 10N.6,NoInf
+1.255.O.,Shewanella sp. 10N.7,NoInf
+1.255.O.,Vibrio alginolyticus,NoInf
+1.255.O.,Vibrio anguillarum,NoInf
+1.255.O.,Vibrio breoganii,NoInf
+1.255.O.,Vibrio cyclitrophicus,NoInf
+1.255.O.,Vibrio jasicida,NoInf
+1.255.O.,Vibrio kanaloae,NoInf
+1.255.O.,Vibrio lentus,Inf
+1.255.O.,Vibrio parahaemolyticus,NoInf
+1.255.O.,Vibrio sp. 10N.1,NoInf
+1.255.O.,Vibrio sp. 10N.2,NoInf
+1.255.O.,Vibrio sp. 10N.3,NoInf
+1.255.O.,Vibrio sp. 10N.4,NoInf
+1.255.O.,Vibrio sp. 10N.5,NoInf
+1.255.O.,Vibrio sp. F12,NoInf
+1.255.O.,Vibrio sp. F13,NoInf
+1.255.O.,Vibrio splendidus,Inf
+1.255.O.,Vibrio tasmaniensis,NoInf
+1.255.O.,Vibrio vulnificus,NoInf
+1.256.O.,Aliivibrio fischeri,NoInf
+1.256.O.,Enterovibrio norvegicus,Inf
+1.256.O.,Shewanella sp. 10N.6,NoInf
+1.256.O.,Shewanella sp. 10N.7,NoInf
+1.256.O.,Vibrio alginolyticus,NoInf
+1.256.O.,Vibrio anguillarum,NoInf
+1.256.O.,Vibrio breoganii,NoInf
+1.256.O.,Vibrio cyclitrophicus,Inf
+1.256.O.,Vibrio jasicida,NoInf
+1.256.O.,Vibrio kanaloae,NoInf
+1.256.O.,Vibrio lentus,Inf
+1.256.O.,Vibrio parahaemolyticus,NoInf
+1.256.O.,Vibrio sp. 10N.1,NoInf
+1.256.O.,Vibrio sp. 10N.2,NoInf
+1.256.O.,Vibrio sp. 10N.3,NoInf
+1.256.O.,Vibrio sp. 10N.4,NoInf
+1.256.O.,Vibrio sp. 10N.5,NoInf
+1.256.O.,Vibrio sp. F12,NoInf
+1.256.O.,Vibrio sp. F13,NoInf
+1.256.O.,Vibrio splendidus,NoInf
+1.256.O.,Vibrio tasmaniensis,NoInf
+1.256.O.,Vibrio vulnificus,NoInf
+1.257.O.,Aliivibrio fischeri,NoInf
+1.257.O.,Enterovibrio norvegicus,NoInf
+1.257.O.,Shewanella sp. 10N.6,NoInf
+1.257.O.,Shewanella sp. 10N.7,NoInf
+1.257.O.,Vibrio alginolyticus,NoInf
+1.257.O.,Vibrio anguillarum,NoInf
+1.257.O.,Vibrio breoganii,NoInf
+1.257.O.,Vibrio cyclitrophicus,NoInf
+1.257.O.,Vibrio jasicida,NoInf
+1.257.O.,Vibrio kanaloae,NoInf
+1.257.O.,Vibrio lentus,NoInf
+1.257.O.,Vibrio parahaemolyticus,NoInf
+1.257.O.,Vibrio sp. 10N.1,NoInf
+1.257.O.,Vibrio sp. 10N.2,NoInf
+1.257.O.,Vibrio sp. 10N.3,NoInf
+1.257.O.,Vibrio sp. 10N.4,NoInf
+1.257.O.,Vibrio sp. 10N.5,NoInf
+1.257.O.,Vibrio sp. F12,NoInf
+1.257.O.,Vibrio sp. F13,NoInf
+1.257.O.,Vibrio splendidus,Inf
+1.257.O.,Vibrio tasmaniensis,NoInf
+1.257.O.,Vibrio vulnificus,NoInf
+1.259.O.,Aliivibrio fischeri,NoInf
+1.259.O.,Enterovibrio norvegicus,NoInf
+1.259.O.,Shewanella sp. 10N.6,NoInf
+1.259.O.,Shewanella sp. 10N.7,NoInf
+1.259.O.,Vibrio alginolyticus,NoInf
+1.259.O.,Vibrio anguillarum,NoInf
+1.259.O.,Vibrio breoganii,NoInf
+1.259.O.,Vibrio cyclitrophicus,NoInf
+1.259.O.,Vibrio jasicida,NoInf
+1.259.O.,Vibrio kanaloae,NoInf
+1.259.O.,Vibrio lentus,NoInf
+1.259.O.,Vibrio parahaemolyticus,NoInf
+1.259.O.,Vibrio sp. 10N.1,NoInf
+1.259.O.,Vibrio sp. 10N.2,NoInf
+1.259.O.,Vibrio sp. 10N.3,NoInf
+1.259.O.,Vibrio sp. 10N.4,NoInf
+1.259.O.,Vibrio sp. 10N.5,NoInf
+1.259.O.,Vibrio sp. F12,NoInf
+1.259.O.,Vibrio sp. F13,NoInf
+1.259.O.,Vibrio splendidus,Inf
+1.259.O.,Vibrio tasmaniensis,NoInf
+1.259.O.,Vibrio vulnificus,NoInf
+1.261.O.,Aliivibrio fischeri,NoInf
+1.261.O.,Enterovibrio norvegicus,NoInf
+1.261.O.,Shewanella sp. 10N.6,NoInf
+1.261.O.,Shewanella sp. 10N.7,NoInf
+1.261.O.,Vibrio alginolyticus,NoInf
+1.261.O.,Vibrio anguillarum,NoInf
+1.261.O.,Vibrio breoganii,Inf
+1.261.O.,Vibrio cyclitrophicus,NoInf
+1.261.O.,Vibrio jasicida,NoInf
+1.261.O.,Vibrio kanaloae,NoInf
+1.261.O.,Vibrio lentus,NoInf
+1.261.O.,Vibrio parahaemolyticus,NoInf
+1.261.O.,Vibrio sp. 10N.1,NoInf
+1.261.O.,Vibrio sp. 10N.2,NoInf
+1.261.O.,Vibrio sp. 10N.3,NoInf
+1.261.O.,Vibrio sp. 10N.4,NoInf
+1.261.O.,Vibrio sp. 10N.5,NoInf
+1.261.O.,Vibrio sp. F12,NoInf
+1.261.O.,Vibrio sp. F13,NoInf
+1.261.O.,Vibrio splendidus,NoInf
+1.261.O.,Vibrio tasmaniensis,NoInf
+1.261.O.,Vibrio vulnificus,NoInf
+1.262.O.,Aliivibrio fischeri,NoInf
+1.262.O.,Enterovibrio norvegicus,NoInf
+1.262.O.,Shewanella sp. 10N.6,NoInf
+1.262.O.,Shewanella sp. 10N.7,NoInf
+1.262.O.,Vibrio alginolyticus,NoInf
+1.262.O.,Vibrio anguillarum,NoInf
+1.262.O.,Vibrio breoganii,Inf
+1.262.O.,Vibrio cyclitrophicus,NoInf
+1.262.O.,Vibrio jasicida,NoInf
+1.262.O.,Vibrio kanaloae,NoInf
+1.262.O.,Vibrio lentus,NoInf
+1.262.O.,Vibrio parahaemolyticus,NoInf
+1.262.O.,Vibrio sp. 10N.1,NoInf
+1.262.O.,Vibrio sp. 10N.2,NoInf
+1.262.O.,Vibrio sp. 10N.3,NoInf
+1.262.O.,Vibrio sp. 10N.4,NoInf
+1.262.O.,Vibrio sp. 10N.5,NoInf
+1.262.O.,Vibrio sp. F12,NoInf
+1.262.O.,Vibrio sp. F13,NoInf
+1.262.O.,Vibrio splendidus,NoInf
+1.262.O.,Vibrio tasmaniensis,NoInf
+1.262.O.,Vibrio vulnificus,NoInf
+1.263.A.,Aliivibrio fischeri,NoInf
+1.263.A.,Enterovibrio norvegicus,NoInf
+1.263.A.,Shewanella sp. 10N.6,NoInf
+1.263.A.,Shewanella sp. 10N.7,NoInf
+1.263.A.,Vibrio alginolyticus,NoInf
+1.263.A.,Vibrio anguillarum,NoInf
+1.263.A.,Vibrio breoganii,NoInf
+1.263.A.,Vibrio cyclitrophicus,Inf
+1.263.A.,Vibrio jasicida,NoInf
+1.263.A.,Vibrio kanaloae,NoInf
+1.263.A.,Vibrio lentus,NoInf
+1.263.A.,Vibrio parahaemolyticus,NoInf
+1.263.A.,Vibrio sp. 10N.1,NoInf
+1.263.A.,Vibrio sp. 10N.2,NoInf
+1.263.A.,Vibrio sp. 10N.3,NoInf
+1.263.A.,Vibrio sp. 10N.4,NoInf
+1.263.A.,Vibrio sp. 10N.5,NoInf
+1.263.A.,Vibrio sp. F12,NoInf
+1.263.A.,Vibrio sp. F13,NoInf
+1.263.A.,Vibrio splendidus,NoInf
+1.263.A.,Vibrio tasmaniensis,NoInf
+1.263.A.,Vibrio vulnificus,NoInf
+1.264.O.,Aliivibrio fischeri,NoInf
+1.264.O.,Enterovibrio norvegicus,NoInf
+1.264.O.,Shewanella sp. 10N.6,NoInf
+1.264.O.,Shewanella sp. 10N.7,NoInf
+1.264.O.,Vibrio alginolyticus,NoInf
+1.264.O.,Vibrio anguillarum,NoInf
+1.264.O.,Vibrio breoganii,NoInf
+1.264.O.,Vibrio cyclitrophicus,NoInf
+1.264.O.,Vibrio jasicida,NoInf
+1.264.O.,Vibrio kanaloae,NoInf
+1.264.O.,Vibrio lentus,NoInf
+1.264.O.,Vibrio parahaemolyticus,NoInf
+1.264.O.,Vibrio sp. 10N.1,NoInf
+1.264.O.,Vibrio sp. 10N.2,NoInf
+1.264.O.,Vibrio sp. 10N.3,NoInf
+1.264.O.,Vibrio sp. 10N.4,NoInf
+1.264.O.,Vibrio sp. 10N.5,NoInf
+1.264.O.,Vibrio sp. F12,NoInf
+1.264.O.,Vibrio sp. F13,NoInf
+1.264.O.,Vibrio splendidus,Inf
+1.264.O.,Vibrio tasmaniensis,NoInf
+1.264.O.,Vibrio vulnificus,NoInf
+1.265.O.,Aliivibrio fischeri,NoInf
+1.265.O.,Enterovibrio norvegicus,NoInf
+1.265.O.,Shewanella sp. 10N.6,NoInf
+1.265.O.,Shewanella sp. 10N.7,NoInf
+1.265.O.,Vibrio alginolyticus,NoInf
+1.265.O.,Vibrio anguillarum,NoInf
+1.265.O.,Vibrio breoganii,NoInf
+1.265.O.,Vibrio cyclitrophicus,Inf
+1.265.O.,Vibrio jasicida,NoInf
+1.265.O.,Vibrio kanaloae,NoInf
+1.265.O.,Vibrio lentus,NoInf
+1.265.O.,Vibrio parahaemolyticus,NoInf
+1.265.O.,Vibrio sp. 10N.1,NoInf
+1.265.O.,Vibrio sp. 10N.2,NoInf
+1.265.O.,Vibrio sp. 10N.3,NoInf
+1.265.O.,Vibrio sp. 10N.4,NoInf
+1.265.O.,Vibrio sp. 10N.5,NoInf
+1.265.O.,Vibrio sp. F12,NoInf
+1.265.O.,Vibrio sp. F13,NoInf
+1.265.O.,Vibrio splendidus,NoInf
+1.265.O.,Vibrio tasmaniensis,NoInf
+1.265.O.,Vibrio vulnificus,NoInf
+1.266.O.,Aliivibrio fischeri,NoInf
+1.266.O.,Enterovibrio norvegicus,NoInf
+1.266.O.,Shewanella sp. 10N.6,NoInf
+1.266.O.,Shewanella sp. 10N.7,NoInf
+1.266.O.,Vibrio alginolyticus,NoInf
+1.266.O.,Vibrio anguillarum,NoInf
+1.266.O.,Vibrio breoganii,Inf
+1.266.O.,Vibrio cyclitrophicus,NoInf
+1.266.O.,Vibrio jasicida,NoInf
+1.266.O.,Vibrio kanaloae,NoInf
+1.266.O.,Vibrio lentus,NoInf
+1.266.O.,Vibrio parahaemolyticus,NoInf
+1.266.O.,Vibrio sp. 10N.1,NoInf
+1.266.O.,Vibrio sp. 10N.2,NoInf
+1.266.O.,Vibrio sp. 10N.3,NoInf
+1.266.O.,Vibrio sp. 10N.4,NoInf
+1.266.O.,Vibrio sp. 10N.5,NoInf
+1.266.O.,Vibrio sp. F12,NoInf
+1.266.O.,Vibrio sp. F13,NoInf
+1.266.O.,Vibrio splendidus,NoInf
+1.266.O.,Vibrio tasmaniensis,NoInf
+1.266.O.,Vibrio vulnificus,NoInf
+1.267.O.,Aliivibrio fischeri,NoInf
+1.267.O.,Enterovibrio norvegicus,NoInf
+1.267.O.,Shewanella sp. 10N.6,NoInf
+1.267.O.,Shewanella sp. 10N.7,NoInf
+1.267.O.,Vibrio alginolyticus,NoInf
+1.267.O.,Vibrio anguillarum,NoInf
+1.267.O.,Vibrio breoganii,NoInf
+1.267.O.,Vibrio cyclitrophicus,NoInf
+1.267.O.,Vibrio jasicida,NoInf
+1.267.O.,Vibrio kanaloae,NoInf
+1.267.O.,Vibrio lentus,Inf
+1.267.O.,Vibrio parahaemolyticus,NoInf
+1.267.O.,Vibrio sp. 10N.1,NoInf
+1.267.O.,Vibrio sp. 10N.2,NoInf
+1.267.O.,Vibrio sp. 10N.3,NoInf
+1.267.O.,Vibrio sp. 10N.4,NoInf
+1.267.O.,Vibrio sp. 10N.5,NoInf
+1.267.O.,Vibrio sp. F12,NoInf
+1.267.O.,Vibrio sp. F13,NoInf
+1.267.O.,Vibrio splendidus,NoInf
+1.267.O.,Vibrio tasmaniensis,NoInf
+1.267.O.,Vibrio vulnificus,NoInf
+1.268.A.,Aliivibrio fischeri,NoInf
+1.268.A.,Enterovibrio norvegicus,NoInf
+1.268.A.,Shewanella sp. 10N.6,NoInf
+1.268.A.,Shewanella sp. 10N.7,NoInf
+1.268.A.,Vibrio alginolyticus,NoInf
+1.268.A.,Vibrio anguillarum,NoInf
+1.268.A.,Vibrio breoganii,NoInf
+1.268.A.,Vibrio cyclitrophicus,NoInf
+1.268.A.,Vibrio jasicida,NoInf
+1.268.A.,Vibrio kanaloae,NoInf
+1.268.A.,Vibrio lentus,Inf
+1.268.A.,Vibrio parahaemolyticus,NoInf
+1.268.A.,Vibrio sp. 10N.1,NoInf
+1.268.A.,Vibrio sp. 10N.2,NoInf
+1.268.A.,Vibrio sp. 10N.3,NoInf
+1.268.A.,Vibrio sp. 10N.4,NoInf
+1.268.A.,Vibrio sp. 10N.5,NoInf
+1.268.A.,Vibrio sp. F12,NoInf
+1.268.A.,Vibrio sp. F13,NoInf
+1.268.A.,Vibrio splendidus,NoInf
+1.268.A.,Vibrio tasmaniensis,NoInf
+1.268.A.,Vibrio vulnificus,NoInf
+1.269.O.,Aliivibrio fischeri,NoInf
+1.269.O.,Enterovibrio norvegicus,NoInf
+1.269.O.,Shewanella sp. 10N.6,NoInf
+1.269.O.,Shewanella sp. 10N.7,NoInf
+1.269.O.,Vibrio alginolyticus,NoInf
+1.269.O.,Vibrio anguillarum,NoInf
+1.269.O.,Vibrio breoganii,NoInf
+1.269.O.,Vibrio cyclitrophicus,NoInf
+1.269.O.,Vibrio jasicida,NoInf
+1.269.O.,Vibrio kanaloae,NoInf
+1.269.O.,Vibrio lentus,Inf
+1.269.O.,Vibrio parahaemolyticus,NoInf
+1.269.O.,Vibrio sp. 10N.1,NoInf
+1.269.O.,Vibrio sp. 10N.2,NoInf
+1.269.O.,Vibrio sp. 10N.3,NoInf
+1.269.O.,Vibrio sp. 10N.4,NoInf
+1.269.O.,Vibrio sp. 10N.5,NoInf
+1.269.O.,Vibrio sp. F12,NoInf
+1.269.O.,Vibrio sp. F13,NoInf
+1.269.O.,Vibrio splendidus,NoInf
+1.269.O.,Vibrio tasmaniensis,NoInf
+1.269.O.,Vibrio vulnificus,NoInf
+1.270.A.,Aliivibrio fischeri,NoInf
+1.270.A.,Enterovibrio norvegicus,NoInf
+1.270.A.,Shewanella sp. 10N.6,NoInf
+1.270.A.,Shewanella sp. 10N.7,NoInf
+1.270.A.,Vibrio alginolyticus,NoInf
+1.270.A.,Vibrio anguillarum,NoInf
+1.270.A.,Vibrio breoganii,NoInf
+1.270.A.,Vibrio cyclitrophicus,NoInf
+1.270.A.,Vibrio jasicida,NoInf
+1.270.A.,Vibrio kanaloae,NoInf
+1.270.A.,Vibrio lentus,Inf
+1.270.A.,Vibrio parahaemolyticus,NoInf
+1.270.A.,Vibrio sp. 10N.1,NoInf
+1.270.A.,Vibrio sp. 10N.2,NoInf
+1.270.A.,Vibrio sp. 10N.3,NoInf
+1.270.A.,Vibrio sp. 10N.4,NoInf
+1.270.A.,Vibrio sp. 10N.5,NoInf
+1.270.A.,Vibrio sp. F12,NoInf
+1.270.A.,Vibrio sp. F13,NoInf
+1.270.A.,Vibrio splendidus,NoInf
+1.270.A.,Vibrio tasmaniensis,NoInf
+1.270.A.,Vibrio vulnificus,NoInf
+1.271.A.,Aliivibrio fischeri,NoInf
+1.271.A.,Enterovibrio norvegicus,NoInf
+1.271.A.,Shewanella sp. 10N.6,NoInf
+1.271.A.,Shewanella sp. 10N.7,NoInf
+1.271.A.,Vibrio alginolyticus,NoInf
+1.271.A.,Vibrio anguillarum,NoInf
+1.271.A.,Vibrio breoganii,NoInf
+1.271.A.,Vibrio cyclitrophicus,NoInf
+1.271.A.,Vibrio jasicida,NoInf
+1.271.A.,Vibrio kanaloae,NoInf
+1.271.A.,Vibrio lentus,Inf
+1.271.A.,Vibrio parahaemolyticus,NoInf
+1.271.A.,Vibrio sp. 10N.1,NoInf
+1.271.A.,Vibrio sp. 10N.2,NoInf
+1.271.A.,Vibrio sp. 10N.3,NoInf
+1.271.A.,Vibrio sp. 10N.4,NoInf
+1.271.A.,Vibrio sp. 10N.5,NoInf
+1.271.A.,Vibrio sp. F12,NoInf
+1.271.A.,Vibrio sp. F13,NoInf
+1.271.A.,Vibrio splendidus,NoInf
+1.271.A.,Vibrio tasmaniensis,NoInf
+1.271.A.,Vibrio vulnificus,NoInf
+1.272.O.,Aliivibrio fischeri,NoInf
+1.272.O.,Enterovibrio norvegicus,NoInf
+1.272.O.,Shewanella sp. 10N.6,NoInf
+1.272.O.,Shewanella sp. 10N.7,NoInf
+1.272.O.,Vibrio alginolyticus,NoInf
+1.272.O.,Vibrio anguillarum,NoInf
+1.272.O.,Vibrio breoganii,NoInf
+1.272.O.,Vibrio cyclitrophicus,NoInf
+1.272.O.,Vibrio jasicida,NoInf
+1.272.O.,Vibrio kanaloae,NoInf
+1.272.O.,Vibrio lentus,Inf
+1.272.O.,Vibrio parahaemolyticus,NoInf
+1.272.O.,Vibrio sp. 10N.1,NoInf
+1.272.O.,Vibrio sp. 10N.2,NoInf
+1.272.O.,Vibrio sp. 10N.3,NoInf
+1.272.O.,Vibrio sp. 10N.4,NoInf
+1.272.O.,Vibrio sp. 10N.5,NoInf
+1.272.O.,Vibrio sp. F12,NoInf
+1.272.O.,Vibrio sp. F13,NoInf
+1.272.O.,Vibrio splendidus,NoInf
+1.272.O.,Vibrio tasmaniensis,NoInf
+1.272.O.,Vibrio vulnificus,NoInf
+1.273.O.,Aliivibrio fischeri,NoInf
+1.273.O.,Enterovibrio norvegicus,NoInf
+1.273.O.,Shewanella sp. 10N.6,NoInf
+1.273.O.,Shewanella sp. 10N.7,NoInf
+1.273.O.,Vibrio alginolyticus,NoInf
+1.273.O.,Vibrio anguillarum,NoInf
+1.273.O.,Vibrio breoganii,NoInf
+1.273.O.,Vibrio cyclitrophicus,Inf
+1.273.O.,Vibrio jasicida,NoInf
+1.273.O.,Vibrio kanaloae,NoInf
+1.273.O.,Vibrio lentus,NoInf
+1.273.O.,Vibrio parahaemolyticus,NoInf
+1.273.O.,Vibrio sp. 10N.1,NoInf
+1.273.O.,Vibrio sp. 10N.2,NoInf
+1.273.O.,Vibrio sp. 10N.3,NoInf
+1.273.O.,Vibrio sp. 10N.4,NoInf
+1.273.O.,Vibrio sp. 10N.5,NoInf
+1.273.O.,Vibrio sp. F12,NoInf
+1.273.O.,Vibrio sp. F13,NoInf
+1.273.O.,Vibrio splendidus,NoInf
+1.273.O.,Vibrio tasmaniensis,NoInf
+1.273.O.,Vibrio vulnificus,NoInf
+1.274.O.,Aliivibrio fischeri,NoInf
+1.274.O.,Enterovibrio norvegicus,NoInf
+1.274.O.,Shewanella sp. 10N.6,NoInf
+1.274.O.,Shewanella sp. 10N.7,NoInf
+1.274.O.,Vibrio alginolyticus,NoInf
+1.274.O.,Vibrio anguillarum,NoInf
+1.274.O.,Vibrio breoganii,NoInf
+1.274.O.,Vibrio cyclitrophicus,NoInf
+1.274.O.,Vibrio jasicida,NoInf
+1.274.O.,Vibrio kanaloae,NoInf
+1.274.O.,Vibrio lentus,Inf
+1.274.O.,Vibrio parahaemolyticus,NoInf
+1.274.O.,Vibrio sp. 10N.1,NoInf
+1.274.O.,Vibrio sp. 10N.2,NoInf
+1.274.O.,Vibrio sp. 10N.3,NoInf
+1.274.O.,Vibrio sp. 10N.4,NoInf
+1.274.O.,Vibrio sp. 10N.5,NoInf
+1.274.O.,Vibrio sp. F12,NoInf
+1.274.O.,Vibrio sp. F13,NoInf
+1.274.O.,Vibrio splendidus,NoInf
+1.274.O.,Vibrio tasmaniensis,NoInf
+1.274.O.,Vibrio vulnificus,NoInf
+1.275.O.,Aliivibrio fischeri,NoInf
+1.275.O.,Enterovibrio norvegicus,NoInf
+1.275.O.,Shewanella sp. 10N.6,NoInf
+1.275.O.,Shewanella sp. 10N.7,NoInf
+1.275.O.,Vibrio alginolyticus,NoInf
+1.275.O.,Vibrio anguillarum,NoInf
+1.275.O.,Vibrio breoganii,NoInf
+1.275.O.,Vibrio cyclitrophicus,Inf
+1.275.O.,Vibrio jasicida,NoInf
+1.275.O.,Vibrio kanaloae,NoInf
+1.275.O.,Vibrio lentus,NoInf
+1.275.O.,Vibrio parahaemolyticus,NoInf
+1.275.O.,Vibrio sp. 10N.1,NoInf
+1.275.O.,Vibrio sp. 10N.2,NoInf
+1.275.O.,Vibrio sp. 10N.3,NoInf
+1.275.O.,Vibrio sp. 10N.4,NoInf
+1.275.O.,Vibrio sp. 10N.5,NoInf
+1.275.O.,Vibrio sp. F12,NoInf
+1.275.O.,Vibrio sp. F13,NoInf
+1.275.O.,Vibrio splendidus,NoInf
+1.275.O.,Vibrio tasmaniensis,NoInf
+1.275.O.,Vibrio vulnificus,NoInf
+1.276.O.,Aliivibrio fischeri,NoInf
+1.276.O.,Enterovibrio norvegicus,NoInf
+1.276.O.,Shewanella sp. 10N.6,NoInf
+1.276.O.,Shewanella sp. 10N.7,NoInf
+1.276.O.,Vibrio alginolyticus,NoInf
+1.276.O.,Vibrio anguillarum,NoInf
+1.276.O.,Vibrio breoganii,NoInf
+1.276.O.,Vibrio cyclitrophicus,Inf
+1.276.O.,Vibrio jasicida,NoInf
+1.276.O.,Vibrio kanaloae,NoInf
+1.276.O.,Vibrio lentus,NoInf
+1.276.O.,Vibrio parahaemolyticus,NoInf
+1.276.O.,Vibrio sp. 10N.1,NoInf
+1.276.O.,Vibrio sp. 10N.2,NoInf
+1.276.O.,Vibrio sp. 10N.3,NoInf
+1.276.O.,Vibrio sp. 10N.4,NoInf
+1.276.O.,Vibrio sp. 10N.5,NoInf
+1.276.O.,Vibrio sp. F12,NoInf
+1.276.O.,Vibrio sp. F13,NoInf
+1.276.O.,Vibrio splendidus,NoInf
+1.276.O.,Vibrio tasmaniensis,NoInf
+1.276.O.,Vibrio vulnificus,NoInf
+1.277.A.,Aliivibrio fischeri,NoInf
+1.277.A.,Enterovibrio norvegicus,NoInf
+1.277.A.,Shewanella sp. 10N.6,NoInf
+1.277.A.,Shewanella sp. 10N.7,NoInf
+1.277.A.,Vibrio alginolyticus,NoInf
+1.277.A.,Vibrio anguillarum,NoInf
+1.277.A.,Vibrio breoganii,NoInf
+1.277.A.,Vibrio cyclitrophicus,NoInf
+1.277.A.,Vibrio jasicida,NoInf
+1.277.A.,Vibrio kanaloae,NoInf
+1.277.A.,Vibrio lentus,Inf
+1.277.A.,Vibrio parahaemolyticus,NoInf
+1.277.A.,Vibrio sp. 10N.1,NoInf
+1.277.A.,Vibrio sp. 10N.2,NoInf
+1.277.A.,Vibrio sp. 10N.3,NoInf
+1.277.A.,Vibrio sp. 10N.4,NoInf
+1.277.A.,Vibrio sp. 10N.5,NoInf
+1.277.A.,Vibrio sp. F12,NoInf
+1.277.A.,Vibrio sp. F13,NoInf
+1.277.A.,Vibrio splendidus,NoInf
+1.277.A.,Vibrio tasmaniensis,NoInf
+1.277.A.,Vibrio vulnificus,NoInf
+1.278.O.,Aliivibrio fischeri,NoInf
+1.278.O.,Enterovibrio norvegicus,NoInf
+1.278.O.,Shewanella sp. 10N.6,NoInf
+1.278.O.,Shewanella sp. 10N.7,NoInf
+1.278.O.,Vibrio alginolyticus,NoInf
+1.278.O.,Vibrio anguillarum,NoInf
+1.278.O.,Vibrio breoganii,NoInf
+1.278.O.,Vibrio cyclitrophicus,Inf
+1.278.O.,Vibrio jasicida,NoInf
+1.278.O.,Vibrio kanaloae,NoInf
+1.278.O.,Vibrio lentus,NoInf
+1.278.O.,Vibrio parahaemolyticus,NoInf
+1.278.O.,Vibrio sp. 10N.1,NoInf
+1.278.O.,Vibrio sp. 10N.2,NoInf
+1.278.O.,Vibrio sp. 10N.3,NoInf
+1.278.O.,Vibrio sp. 10N.4,NoInf
+1.278.O.,Vibrio sp. 10N.5,NoInf
+1.278.O.,Vibrio sp. F12,NoInf
+1.278.O.,Vibrio sp. F13,NoInf
+1.278.O.,Vibrio splendidus,NoInf
+1.278.O.,Vibrio tasmaniensis,NoInf
+1.278.O.,Vibrio vulnificus,NoInf
+1.280.O.,Aliivibrio fischeri,NoInf
+1.280.O.,Enterovibrio norvegicus,NoInf
+1.280.O.,Shewanella sp. 10N.6,NoInf
+1.280.O.,Shewanella sp. 10N.7,NoInf
+1.280.O.,Vibrio alginolyticus,NoInf
+1.280.O.,Vibrio anguillarum,NoInf
+1.280.O.,Vibrio breoganii,NoInf
+1.280.O.,Vibrio cyclitrophicus,NoInf
+1.280.O.,Vibrio jasicida,NoInf
+1.280.O.,Vibrio kanaloae,NoInf
+1.280.O.,Vibrio lentus,Inf
+1.280.O.,Vibrio parahaemolyticus,NoInf
+1.280.O.,Vibrio sp. 10N.1,NoInf
+1.280.O.,Vibrio sp. 10N.2,NoInf
+1.280.O.,Vibrio sp. 10N.3,NoInf
+1.280.O.,Vibrio sp. 10N.4,NoInf
+1.280.O.,Vibrio sp. 10N.5,NoInf
+1.280.O.,Vibrio sp. F12,NoInf
+1.280.O.,Vibrio sp. F13,NoInf
+1.280.O.,Vibrio splendidus,NoInf
+1.280.O.,Vibrio tasmaniensis,NoInf
+1.280.O.,Vibrio vulnificus,NoInf
+1.281.O.,Aliivibrio fischeri,NoInf
+1.281.O.,Enterovibrio norvegicus,NoInf
+1.281.O.,Shewanella sp. 10N.6,NoInf
+1.281.O.,Shewanella sp. 10N.7,NoInf
+1.281.O.,Vibrio alginolyticus,NoInf
+1.281.O.,Vibrio anguillarum,NoInf
+1.281.O.,Vibrio breoganii,NoInf
+1.281.O.,Vibrio cyclitrophicus,NoInf
+1.281.O.,Vibrio jasicida,NoInf
+1.281.O.,Vibrio kanaloae,NoInf
+1.281.O.,Vibrio lentus,Inf
+1.281.O.,Vibrio parahaemolyticus,NoInf
+1.281.O.,Vibrio sp. 10N.1,NoInf
+1.281.O.,Vibrio sp. 10N.2,NoInf
+1.281.O.,Vibrio sp. 10N.3,NoInf
+1.281.O.,Vibrio sp. 10N.4,NoInf
+1.281.O.,Vibrio sp. 10N.5,NoInf
+1.281.O.,Vibrio sp. F12,NoInf
+1.281.O.,Vibrio sp. F13,NoInf
+1.281.O.,Vibrio splendidus,NoInf
+1.281.O.,Vibrio tasmaniensis,NoInf
+1.281.O.,Vibrio vulnificus,NoInf
+1.282.A.,Aliivibrio fischeri,NoInf
+1.282.A.,Enterovibrio norvegicus,NoInf
+1.282.A.,Shewanella sp. 10N.6,NoInf
+1.282.A.,Shewanella sp. 10N.7,NoInf
+1.282.A.,Vibrio alginolyticus,NoInf
+1.282.A.,Vibrio anguillarum,NoInf
+1.282.A.,Vibrio breoganii,NoInf
+1.282.A.,Vibrio cyclitrophicus,NoInf
+1.282.A.,Vibrio jasicida,NoInf
+1.282.A.,Vibrio kanaloae,NoInf
+1.282.A.,Vibrio lentus,Inf
+1.282.A.,Vibrio parahaemolyticus,NoInf
+1.282.A.,Vibrio sp. 10N.1,NoInf
+1.282.A.,Vibrio sp. 10N.2,NoInf
+1.282.A.,Vibrio sp. 10N.3,NoInf
+1.282.A.,Vibrio sp. 10N.4,NoInf
+1.282.A.,Vibrio sp. 10N.5,NoInf
+1.282.A.,Vibrio sp. F12,NoInf
+1.282.A.,Vibrio sp. F13,NoInf
+1.282.A.,Vibrio splendidus,NoInf
+1.282.A.,Vibrio tasmaniensis,NoInf
+1.282.A.,Vibrio vulnificus,NoInf
+1.283.A.,Aliivibrio fischeri,NoInf
+1.283.A.,Enterovibrio norvegicus,NoInf
+1.283.A.,Shewanella sp. 10N.6,NoInf
+1.283.A.,Shewanella sp. 10N.7,NoInf
+1.283.A.,Vibrio alginolyticus,NoInf
+1.283.A.,Vibrio anguillarum,NoInf
+1.283.A.,Vibrio breoganii,NoInf
+1.283.A.,Vibrio cyclitrophicus,NoInf
+1.283.A.,Vibrio jasicida,NoInf
+1.283.A.,Vibrio kanaloae,NoInf
+1.283.A.,Vibrio lentus,Inf
+1.283.A.,Vibrio parahaemolyticus,NoInf
+1.283.A.,Vibrio sp. 10N.1,NoInf
+1.283.A.,Vibrio sp. 10N.2,NoInf
+1.283.A.,Vibrio sp. 10N.3,NoInf
+1.283.A.,Vibrio sp. 10N.4,NoInf
+1.283.A.,Vibrio sp. 10N.5,NoInf
+1.283.A.,Vibrio sp. F12,NoInf
+1.283.A.,Vibrio sp. F13,NoInf
+1.283.A.,Vibrio splendidus,NoInf
+1.283.A.,Vibrio tasmaniensis,NoInf
+1.283.A.,Vibrio vulnificus,NoInf
+1.284.A.,Aliivibrio fischeri,NoInf
+1.284.A.,Enterovibrio norvegicus,NoInf
+1.284.A.,Shewanella sp. 10N.6,NoInf
+1.284.A.,Shewanella sp. 10N.7,NoInf
+1.284.A.,Vibrio alginolyticus,NoInf
+1.284.A.,Vibrio anguillarum,NoInf
+1.284.A.,Vibrio breoganii,NoInf
+1.284.A.,Vibrio cyclitrophicus,Inf
+1.284.A.,Vibrio jasicida,NoInf
+1.284.A.,Vibrio kanaloae,NoInf
+1.284.A.,Vibrio lentus,NoInf
+1.284.A.,Vibrio parahaemolyticus,NoInf
+1.284.A.,Vibrio sp. 10N.1,NoInf
+1.284.A.,Vibrio sp. 10N.2,NoInf
+1.284.A.,Vibrio sp. 10N.3,NoInf
+1.284.A.,Vibrio sp. 10N.4,NoInf
+1.284.A.,Vibrio sp. 10N.5,NoInf
+1.284.A.,Vibrio sp. F12,NoInf
+1.284.A.,Vibrio sp. F13,NoInf
+1.284.A.,Vibrio splendidus,NoInf
+1.284.A.,Vibrio tasmaniensis,NoInf
+1.284.A.,Vibrio vulnificus,NoInf
+1.285.O.,Aliivibrio fischeri,NoInf
+1.285.O.,Enterovibrio norvegicus,NoInf
+1.285.O.,Shewanella sp. 10N.6,NoInf
+1.285.O.,Shewanella sp. 10N.7,NoInf
+1.285.O.,Vibrio alginolyticus,NoInf
+1.285.O.,Vibrio anguillarum,NoInf
+1.285.O.,Vibrio breoganii,NoInf
+1.285.O.,Vibrio cyclitrophicus,NoInf
+1.285.O.,Vibrio jasicida,NoInf
+1.285.O.,Vibrio kanaloae,NoInf
+1.285.O.,Vibrio lentus,Inf
+1.285.O.,Vibrio parahaemolyticus,NoInf
+1.285.O.,Vibrio sp. 10N.1,NoInf
+1.285.O.,Vibrio sp. 10N.2,NoInf
+1.285.O.,Vibrio sp. 10N.3,NoInf
+1.285.O.,Vibrio sp. 10N.4,NoInf
+1.285.O.,Vibrio sp. 10N.5,NoInf
+1.285.O.,Vibrio sp. F12,NoInf
+1.285.O.,Vibrio sp. F13,NoInf
+1.285.O.,Vibrio splendidus,NoInf
+1.285.O.,Vibrio tasmaniensis,NoInf
+1.285.O.,Vibrio vulnificus,NoInf
+1.286.O.,Aliivibrio fischeri,NoInf
+1.286.O.,Enterovibrio norvegicus,NoInf
+1.286.O.,Shewanella sp. 10N.6,NoInf
+1.286.O.,Shewanella sp. 10N.7,NoInf
+1.286.O.,Vibrio alginolyticus,NoInf
+1.286.O.,Vibrio anguillarum,NoInf
+1.286.O.,Vibrio breoganii,NoInf
+1.286.O.,Vibrio cyclitrophicus,Inf
+1.286.O.,Vibrio jasicida,NoInf
+1.286.O.,Vibrio kanaloae,NoInf
+1.286.O.,Vibrio lentus,NoInf
+1.286.O.,Vibrio parahaemolyticus,NoInf
+1.286.O.,Vibrio sp. 10N.1,NoInf
+1.286.O.,Vibrio sp. 10N.2,NoInf
+1.286.O.,Vibrio sp. 10N.3,NoInf
+1.286.O.,Vibrio sp. 10N.4,NoInf
+1.286.O.,Vibrio sp. 10N.5,NoInf
+1.286.O.,Vibrio sp. F12,NoInf
+1.286.O.,Vibrio sp. F13,NoInf
+1.286.O.,Vibrio splendidus,NoInf
+1.286.O.,Vibrio tasmaniensis,NoInf
+1.286.O.,Vibrio vulnificus,NoInf
+1.287.O.,Aliivibrio fischeri,NoInf
+1.287.O.,Enterovibrio norvegicus,NoInf
+1.287.O.,Shewanella sp. 10N.6,NoInf
+1.287.O.,Shewanella sp. 10N.7,NoInf
+1.287.O.,Vibrio alginolyticus,NoInf
+1.287.O.,Vibrio anguillarum,NoInf
+1.287.O.,Vibrio breoganii,NoInf
+1.287.O.,Vibrio cyclitrophicus,Inf
+1.287.O.,Vibrio jasicida,NoInf
+1.287.O.,Vibrio kanaloae,NoInf
+1.287.O.,Vibrio lentus,NoInf
+1.287.O.,Vibrio parahaemolyticus,NoInf
+1.287.O.,Vibrio sp. 10N.1,NoInf
+1.287.O.,Vibrio sp. 10N.2,NoInf
+1.287.O.,Vibrio sp. 10N.3,NoInf
+1.287.O.,Vibrio sp. 10N.4,NoInf
+1.287.O.,Vibrio sp. 10N.5,NoInf
+1.287.O.,Vibrio sp. F12,NoInf
+1.287.O.,Vibrio sp. F13,NoInf
+1.287.O.,Vibrio splendidus,NoInf
+1.287.O.,Vibrio tasmaniensis,NoInf
+1.287.O.,Vibrio vulnificus,NoInf
+1.289.A.,Aliivibrio fischeri,NoInf
+1.289.A.,Enterovibrio norvegicus,NoInf
+1.289.A.,Shewanella sp. 10N.6,NoInf
+1.289.A.,Shewanella sp. 10N.7,NoInf
+1.289.A.,Vibrio alginolyticus,NoInf
+1.289.A.,Vibrio anguillarum,NoInf
+1.289.A.,Vibrio breoganii,NoInf
+1.289.A.,Vibrio cyclitrophicus,Inf
+1.289.A.,Vibrio jasicida,NoInf
+1.289.A.,Vibrio kanaloae,NoInf
+1.289.A.,Vibrio lentus,NoInf
+1.289.A.,Vibrio parahaemolyticus,NoInf
+1.289.A.,Vibrio sp. 10N.1,NoInf
+1.289.A.,Vibrio sp. 10N.2,NoInf
+1.289.A.,Vibrio sp. 10N.3,NoInf
+1.289.A.,Vibrio sp. 10N.4,NoInf
+1.289.A.,Vibrio sp. 10N.5,NoInf
+1.289.A.,Vibrio sp. F12,NoInf
+1.289.A.,Vibrio sp. F13,NoInf
+1.289.A.,Vibrio splendidus,NoInf
+1.289.A.,Vibrio tasmaniensis,NoInf
+1.289.A.,Vibrio vulnificus,NoInf
+1.291.O.,Aliivibrio fischeri,NoInf
+1.291.O.,Enterovibrio norvegicus,NoInf
+1.291.O.,Shewanella sp. 10N.6,NoInf
+1.291.O.,Shewanella sp. 10N.7,NoInf
+1.291.O.,Vibrio alginolyticus,NoInf
+1.291.O.,Vibrio anguillarum,NoInf
+1.291.O.,Vibrio breoganii,NoInf
+1.291.O.,Vibrio cyclitrophicus,NoInf
+1.291.O.,Vibrio jasicida,NoInf
+1.291.O.,Vibrio kanaloae,NoInf
+1.291.O.,Vibrio lentus,NoInf
+1.291.O.,Vibrio parahaemolyticus,NoInf
+1.291.O.,Vibrio sp. 10N.1,NoInf
+1.291.O.,Vibrio sp. 10N.2,NoInf
+1.291.O.,Vibrio sp. 10N.3,NoInf
+1.291.O.,Vibrio sp. 10N.4,NoInf
+1.291.O.,Vibrio sp. 10N.5,NoInf
+1.291.O.,Vibrio sp. F12,NoInf
+1.291.O.,Vibrio sp. F13,NoInf
+1.291.O.,Vibrio splendidus,NoInf
+1.291.O.,Vibrio tasmaniensis,NoInf
+1.291.O.,Vibrio vulnificus,NoInf
+1.293.O.,Aliivibrio fischeri,NoInf
+1.293.O.,Enterovibrio norvegicus,NoInf
+1.293.O.,Shewanella sp. 10N.6,NoInf
+1.293.O.,Shewanella sp. 10N.7,NoInf
+1.293.O.,Vibrio alginolyticus,NoInf
+1.293.O.,Vibrio anguillarum,NoInf
+1.293.O.,Vibrio breoganii,NoInf
+1.293.O.,Vibrio cyclitrophicus,Inf
+1.293.O.,Vibrio jasicida,NoInf
+1.293.O.,Vibrio kanaloae,NoInf
+1.293.O.,Vibrio lentus,NoInf
+1.293.O.,Vibrio parahaemolyticus,NoInf
+1.293.O.,Vibrio sp. 10N.1,NoInf
+1.293.O.,Vibrio sp. 10N.2,NoInf
+1.293.O.,Vibrio sp. 10N.3,NoInf
+1.293.O.,Vibrio sp. 10N.4,NoInf
+1.293.O.,Vibrio sp. 10N.5,NoInf
+1.293.O.,Vibrio sp. F12,NoInf
+1.293.O.,Vibrio sp. F13,NoInf
+1.293.O.,Vibrio splendidus,NoInf
+1.293.O.,Vibrio tasmaniensis,NoInf
+1.293.O.,Vibrio vulnificus,NoInf
+2.044.O.,Aliivibrio fischeri,NoInf
+2.044.O.,Enterovibrio norvegicus,NoInf
+2.044.O.,Shewanella sp. 10N.6,NoInf
+2.044.O.,Shewanella sp. 10N.7,NoInf
+2.044.O.,Vibrio alginolyticus,NoInf
+2.044.O.,Vibrio anguillarum,NoInf
+2.044.O.,Vibrio breoganii,NoInf
+2.044.O.,Vibrio cyclitrophicus,NoInf
+2.044.O.,Vibrio jasicida,NoInf
+2.044.O.,Vibrio kanaloae,NoInf
+2.044.O.,Vibrio lentus,Inf
+2.044.O.,Vibrio parahaemolyticus,NoInf
+2.044.O.,Vibrio sp. 10N.1,NoInf
+2.044.O.,Vibrio sp. 10N.2,NoInf
+2.044.O.,Vibrio sp. 10N.3,NoInf
+2.044.O.,Vibrio sp. 10N.4,NoInf
+2.044.O.,Vibrio sp. 10N.5,NoInf
+2.044.O.,Vibrio sp. F12,NoInf
+2.044.O.,Vibrio sp. F13,NoInf
+2.044.O.,Vibrio splendidus,NoInf
+2.044.O.,Vibrio tasmaniensis,NoInf
+2.044.O.,Vibrio vulnificus,NoInf
+2.092.O.,Aliivibrio fischeri,NoInf
+2.092.O.,Enterovibrio norvegicus,NoInf
+2.092.O.,Shewanella sp. 10N.6,NoInf
+2.092.O.,Shewanella sp. 10N.7,NoInf
+2.092.O.,Vibrio alginolyticus,NoInf
+2.092.O.,Vibrio anguillarum,NoInf
+2.092.O.,Vibrio breoganii,NoInf
+2.092.O.,Vibrio cyclitrophicus,Inf
+2.092.O.,Vibrio jasicida,NoInf
+2.092.O.,Vibrio kanaloae,NoInf
+2.092.O.,Vibrio lentus,Inf
+2.092.O.,Vibrio parahaemolyticus,NoInf
+2.092.O.,Vibrio sp. 10N.1,NoInf
+2.092.O.,Vibrio sp. 10N.2,NoInf
+2.092.O.,Vibrio sp. 10N.3,NoInf
+2.092.O.,Vibrio sp. 10N.4,NoInf
+2.092.O.,Vibrio sp. 10N.5,NoInf
+2.092.O.,Vibrio sp. F12,Inf
+2.092.O.,Vibrio sp. F13,NoInf
+2.092.O.,Vibrio splendidus,Inf
+2.092.O.,Vibrio tasmaniensis,NoInf
+2.092.O.,Vibrio vulnificus,NoInf
+2.095.B.,Aliivibrio fischeri,NoInf
+2.095.B.,Enterovibrio norvegicus,NoInf
+2.095.B.,Shewanella sp. 10N.6,NoInf
+2.095.B.,Shewanella sp. 10N.7,NoInf
+2.095.B.,Vibrio alginolyticus,NoInf
+2.095.B.,Vibrio anguillarum,NoInf
+2.095.B.,Vibrio breoganii,NoInf
+2.095.B.,Vibrio cyclitrophicus,NoInf
+2.095.B.,Vibrio jasicida,NoInf
+2.095.B.,Vibrio kanaloae,NoInf
+2.095.B.,Vibrio lentus,Inf
+2.095.B.,Vibrio parahaemolyticus,NoInf
+2.095.B.,Vibrio sp. 10N.1,NoInf
+2.095.B.,Vibrio sp. 10N.2,NoInf
+2.095.B.,Vibrio sp. 10N.3,NoInf
+2.095.B.,Vibrio sp. 10N.4,NoInf
+2.095.B.,Vibrio sp. 10N.5,NoInf
+2.095.B.,Vibrio sp. F12,Inf
+2.095.B.,Vibrio sp. F13,NoInf
+2.095.B.,Vibrio splendidus,NoInf
+2.095.B.,Vibrio tasmaniensis,NoInf
+2.095.B.,Vibrio vulnificus,NoInf
+2.096.O.,Aliivibrio fischeri,NoInf
+2.096.O.,Enterovibrio norvegicus,NoInf
+2.096.O.,Shewanella sp. 10N.6,Inf
+2.096.O.,Shewanella sp. 10N.7,NoInf
+2.096.O.,Vibrio alginolyticus,NoInf
+2.096.O.,Vibrio anguillarum,NoInf
+2.096.O.,Vibrio breoganii,Inf
+2.096.O.,Vibrio cyclitrophicus,NoInf
+2.096.O.,Vibrio jasicida,NoInf
+2.096.O.,Vibrio kanaloae,NoInf
+2.096.O.,Vibrio lentus,NoInf
+2.096.O.,Vibrio parahaemolyticus,NoInf
+2.096.O.,Vibrio sp. 10N.1,NoInf
+2.096.O.,Vibrio sp. 10N.2,NoInf
+2.096.O.,Vibrio sp. 10N.3,NoInf
+2.096.O.,Vibrio sp. 10N.4,NoInf
+2.096.O.,Vibrio sp. 10N.5,NoInf
+2.096.O.,Vibrio sp. F12,NoInf
+2.096.O.,Vibrio sp. F13,NoInf
+2.096.O.,Vibrio splendidus,NoInf
+2.096.O.,Vibrio tasmaniensis,NoInf
+2.096.O.,Vibrio vulnificus,NoInf
+2.117.O.,Aliivibrio fischeri,NoInf
+2.117.O.,Enterovibrio norvegicus,NoInf
+2.117.O.,Shewanella sp. 10N.6,NoInf
+2.117.O.,Shewanella sp. 10N.7,NoInf
+2.117.O.,Vibrio alginolyticus,NoInf
+2.117.O.,Vibrio anguillarum,NoInf
+2.117.O.,Vibrio breoganii,Inf
+2.117.O.,Vibrio cyclitrophicus,NoInf
+2.117.O.,Vibrio jasicida,NoInf
+2.117.O.,Vibrio kanaloae,NoInf
+2.117.O.,Vibrio lentus,NoInf
+2.117.O.,Vibrio parahaemolyticus,NoInf
+2.117.O.,Vibrio sp. 10N.1,NoInf
+2.117.O.,Vibrio sp. 10N.2,NoInf
+2.117.O.,Vibrio sp. 10N.3,NoInf
+2.117.O.,Vibrio sp. 10N.4,NoInf
+2.117.O.,Vibrio sp. 10N.5,NoInf
+2.117.O.,Vibrio sp. F12,NoInf
+2.117.O.,Vibrio sp. F13,NoInf
+2.117.O.,Vibrio splendidus,NoInf
+2.117.O.,Vibrio tasmaniensis,NoInf
+2.117.O.,Vibrio vulnificus,NoInf
+2.130.O.,Aliivibrio fischeri,NoInf
+2.130.O.,Enterovibrio norvegicus,NoInf
+2.130.O.,Shewanella sp. 10N.6,NoInf
+2.130.O.,Shewanella sp. 10N.7,NoInf
+2.130.O.,Vibrio alginolyticus,NoInf
+2.130.O.,Vibrio anguillarum,NoInf
+2.130.O.,Vibrio breoganii,NoInf
+2.130.O.,Vibrio cyclitrophicus,NoInf
+2.130.O.,Vibrio jasicida,NoInf
+2.130.O.,Vibrio kanaloae,NoInf
+2.130.O.,Vibrio lentus,NoInf
+2.130.O.,Vibrio parahaemolyticus,NoInf
+2.130.O.,Vibrio sp. 10N.1,NoInf
+2.130.O.,Vibrio sp. 10N.2,NoInf
+2.130.O.,Vibrio sp. 10N.3,NoInf
+2.130.O.,Vibrio sp. 10N.4,NoInf
+2.130.O.,Vibrio sp. 10N.5,NoInf
+2.130.O.,Vibrio sp. F12,NoInf
+2.130.O.,Vibrio sp. F13,NoInf
+2.130.O.,Vibrio splendidus,Inf
+2.130.O.,Vibrio tasmaniensis,NoInf
+2.130.O.,Vibrio vulnificus,NoInf
+2.275.O.,Aliivibrio fischeri,NoInf
+2.275.O.,Enterovibrio norvegicus,NoInf
+2.275.O.,Shewanella sp. 10N.6,NoInf
+2.275.O.,Shewanella sp. 10N.7,NoInf
+2.275.O.,Vibrio alginolyticus,NoInf
+2.275.O.,Vibrio anguillarum,NoInf
+2.275.O.,Vibrio breoganii,NoInf
+2.275.O.,Vibrio cyclitrophicus,Inf
+2.275.O.,Vibrio jasicida,NoInf
+2.275.O.,Vibrio kanaloae,NoInf
+2.275.O.,Vibrio lentus,Inf
+2.275.O.,Vibrio parahaemolyticus,NoInf
+2.275.O.,Vibrio sp. 10N.1,NoInf
+2.275.O.,Vibrio sp. 10N.2,NoInf
+2.275.O.,Vibrio sp. 10N.3,NoInf
+2.275.O.,Vibrio sp. 10N.4,NoInf
+2.275.O.,Vibrio sp. 10N.5,NoInf
+2.275.O.,Vibrio sp. F12,NoInf
+2.275.O.,Vibrio sp. F13,NoInf
+2.275.O.,Vibrio splendidus,NoInf
+2.275.O.,Vibrio tasmaniensis,NoInf
+2.275.O.,Vibrio vulnificus,NoInf
+3.058.O.,Aliivibrio fischeri,NoInf
+3.058.O.,Enterovibrio norvegicus,NoInf
+3.058.O.,Shewanella sp. 10N.6,NoInf
+3.058.O.,Shewanella sp. 10N.7,NoInf
+3.058.O.,Vibrio alginolyticus,NoInf
+3.058.O.,Vibrio anguillarum,NoInf
+3.058.O.,Vibrio breoganii,Inf
+3.058.O.,Vibrio cyclitrophicus,NoInf
+3.058.O.,Vibrio jasicida,NoInf
+3.058.O.,Vibrio kanaloae,NoInf
+3.058.O.,Vibrio lentus,Inf
+3.058.O.,Vibrio parahaemolyticus,NoInf
+3.058.O.,Vibrio sp. 10N.1,NoInf
+3.058.O.,Vibrio sp. 10N.2,NoInf
+3.058.O.,Vibrio sp. 10N.3,NoInf
+3.058.O.,Vibrio sp. 10N.4,NoInf
+3.058.O.,Vibrio sp. 10N.5,NoInf
+3.058.O.,Vibrio sp. F12,NoInf
+3.058.O.,Vibrio sp. F13,NoInf
+3.058.O.,Vibrio splendidus,NoInf
+3.058.O.,Vibrio tasmaniensis,NoInf
+3.058.O.,Vibrio vulnificus,NoInf
