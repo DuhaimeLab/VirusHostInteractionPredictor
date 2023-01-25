@@ -11,7 +11,7 @@ class Pairs:
     host: str
     interaction: int
 
-    # features
+    # genome level features
     GCdifference: float
     k3dist: float
     k6dist: float
@@ -19,6 +19,7 @@ class Pairs:
     spacers_hit: bool = False
     blastn_hit: bool = False
 
+    # TODO: gene level features
 
     
 
