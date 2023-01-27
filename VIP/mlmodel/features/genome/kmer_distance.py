@@ -55,19 +55,19 @@ print(test.profile_freqs.shape)
 
 class d2Distance:
 
-    def __init__(self, virus_profile, host_profile) -> None:
+    def __init__(self, seq1_profile, seq2_profile) -> None:
 
         # TODO: need check that k-length used in virus profile and host profile match
 
 
-        self.k = virus_profile.k
-        self.kmer_words = virus_profile.kmer_words
+        self.k = seq1_profile.k
+        self.kmer_words = seq1_profile.kmer_words
 
-        self.virus_profile = virus_profile
-        self.host_profile = host_profile
+        self.seq1_profile = seq1_profile
+        self.seq2_profile = seq2_profile
 
-        self.virus_seqlen = virus_profile.seqlen
-        self.host_seqlen = host_profile.seqlen
+        self.seq1_seqlen = seq1_profile.seqlen
+        self.seq2_seqlen = seq2_profile.seqlen
 
 
     def distance(self):
@@ -77,27 +77,27 @@ class d2Distance:
 
     
     def nucleotide_count(self) -> None:
-        virus_nuc_count = dict.fromkeys(self.virus_profile.nucleotides, 0)
-        host_nuc_count = dict.fromkeys(self.host_profile.nucleotides, 0)
+        seq1_nuc_count = dict.fromkeys(self.seq1_profile.nucleotides, 0)
+        seq2_nuc_count = dict.fromkeys(self.seq2_profile.nucleotides, 0)
 
-        for nuc in self.virus_profile.seq:
-            virus_nuc_count[nuc] += 1
-        for nuc in self.host_profile.seq:
-            host_nuc_count[nuc] += 1
+        for nuc in self.seq1_profile.seq:
+            seq1_nuc_count[nuc] += 1
+        for nuc in self.seq2_profile.seq:
+            seq2_nuc_count[nuc] += 1
 
         # calculate frequencies
-        virus_total = sum(virus_nuc_count.values(), 0)
-        host_total = sum(host_nuc_count.values(), 0)
-        self.virus_nuc_freq = {key: value / virus_total for key, value in virus_nuc_count.items()}
-        self.host_nuc_freq = {key: value / host_total for key, value in host_nuc_count.items()}
+        seq1_total = sum(seq1_nuc_count.values(), 0)
+        seq2_total = sum(seq2_nuc_count.values(), 0)
+        self.seq1_nuc_freq = {key: value / seq1_total for key, value in seq1_nuc_count.items()}
+        self.seq2_nuc_freq = {key: value / seq2_total for key, value in seq2_nuc_count.items()}
 
 
     def null(self):
 
         self.nucleotide_count()
 
-        virus_null = dict.fromkeys(self.kmer_words, 0)
-        host_null = dict.fromkeys(self.kmer_words, 0)
+        seq1_null = dict.fromkeys(self.kmer_words, 0)
+        seq2_null = dict.fromkeys(self.kmer_words, 0)
 
         for word in self.kmer_words:
             
@@ -108,42 +108,42 @@ class d2Distance:
 
             if countA == 0:
                 countA = 1
-                virus_nfA = 1
-                host_nfA = 1
+                seq1_nfA = 1
+                seq2_nfA = 1
             else:
-                virus_nfA = self.virus_nuc_freq['A']
-                host_nfA = self.host_nuc_freq['A']
+                seq1_nfA = self.seq1_nuc_freq['A']
+                seq2_nfA = self.seq2_nuc_freq['A']
             
             if countT == 0:
                 countT = 1
-                virus_nfT = 1
-                host_nfT = 1
+                seq1_nfT = 1
+                seq2_nfT = 1
             else:
-                virus_nfT = self.virus_nuc_freq['T']
-                host_nfT = self.host_nuc_freq['T']
+                seq1_nfT = self.seq1_nuc_freq['T']
+                seq2_nfT = self.seq2_nuc_freq['T']
 
             if countC == 0:
                 countC = 1
-                virus_nfC = 1
-                host_nfC = 1
+                seq1_nfC = 1
+                seq2_nfC = 1
             else:
-                virus_nfC = self.virus_nuc_freq['C']
-                host_nfC = self.host_nuc_freq['C']
+                seq1_nfC = self.seq1_nuc_freq['C']
+                seq2_nfC = self.seq2_nuc_freq['C']
 
             if countG == 0:
                 countG = 1
-                virus_nfG = 1
-                host_nfG = 1
+                seq1_nfG = 1
+                seq2_nfG = 1
             else:
-                virus_nfG = self.virus_nuc_freq['G']
-                host_nfG = self.host_nuc_freq['G']
+                seq1_nfG = self.seq1_nuc_freq['G']
+                seq2_nfG = self.seq2_nuc_freq['G']
             
             # compute null 
-            virus_null[word] = (virus_nfA ** countA) * (virus_nfT ** countT) * (virus_nfG ** countG) * (virus_nfC ** countC)
-            host_null[word] = (host_nfA ** countA) * (host_nfT ** countT) * (host_nfG ** countG) * (host_nfC ** countC)
+            seq1_null[word] = (seq1_nfA ** countA) * (seq1_nfT ** countT) * (seq1_nfG ** countG) * (seq1_nfC ** countC)
+            seq2_null[word] = (seq2_nfA ** countA) * (seq2_nfT ** countT) * (seq2_nfG ** countG) * (seq2_nfC ** countC)
 
-        self.virus_null_prob = np.fromiter(virus_null.values(), dtype=float)
-        self.host_null_prob = np.fromiter(host_null.values(), dtype=float)
+        self.seq1_null_prob = np.fromiter(seq1_null.values(), dtype=float)
+        self.seq2_null_prob = np.fromiter(seq2_null.values(), dtype=float)
 
 
     def d2star(self):
@@ -156,15 +156,15 @@ class d2Distance:
     def D2star(self):
 
         # difference in observed kmer counts and expected kmer counts
-        self.x_expected = self.virus_null_prob * self.virus_profile.seqlen
-        self.y_expected = self.host_null_prob * self.host_profile.seqlen
+        self.x_expected = self.seq1_null_prob * self.seq1_profile.seqlen
+        self.y_expected = self.seq2_null_prob * self.seq2_profile.seqlen
 
-        self.x = self.virus_profile.profile_counts - self.x_expected
-        self.y = self.host_profile.profile_counts - self.y_expected
+        self.x = self.seq1_profile.profile_counts - self.x_expected
+        self.y = self.seq2_profile.profile_counts - self.y_expected
 
         # D2* distance between x, the virus, and y, the host
         numerator = self.x * self.y
-        denominator = np.sqrt(self.virus_profile.seqlen * self.host_profile.seqlen * self.virus_null_prob * self.host_null_prob)
+        denominator = np.sqrt(self.seq1_profile.seqlen * self.seq2_profile.seqlen * self.seq1_null_prob * self.seq2_null_prob)
         return sum(numerator / denominator)
 
 
@@ -185,4 +185,7 @@ test = d2Distance(virus_kmer_profile, host_kmer_profile)
 test.distance()
 print(test.distance())
 
+test2 = d2Distance(host_kmer_profile, virus_kmer_profile)
+test2.distance
+print(test2.distance())
 
