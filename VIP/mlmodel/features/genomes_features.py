@@ -13,6 +13,7 @@ class KmerProfile:
         self.seqlen = len(seq)
         self.nucleotides = ['A', 'T', 'C', 'G']
 
+        self.profile_counts = None
     
     def generate_profile(self):
         words = self.generate_kmer_words(self.k)
@@ -174,7 +175,7 @@ class d2Distance:
 
 
 
-virus_seq = 'GGGCCCTTTAAA'
+virus_seq = 'GGGCCCCCTTTAAAA'
 host_seq = 'AAATTTCCCGGG'
 
 virus_kmer_profile = KmerProfile(virus_seq, 6)
@@ -189,4 +190,12 @@ print(test.distance())
 test2 = d2Distance(host_kmer_profile, virus_kmer_profile)
 test2.distance
 print(test2.distance())
+
+
+virus_kmer_profile = KmerProfile(virus_seq, 1)
+virus_kmer_profile.generate_profile()
+print(virus_kmer_profile.nucleotides)
+print(virus_kmer_profile.profile_counts)
+
+
 
