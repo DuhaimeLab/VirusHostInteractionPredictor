@@ -73,7 +73,8 @@ class d2Distance:
     def distance(self):
         self.nucleotide_count()
         self.null()
-        return self.d2star()
+        self.d2star()
+        return self.dist
 
     
     def nucleotide_count(self) -> None:
@@ -150,7 +151,7 @@ class d2Distance:
 
         D2star_value = self.D2star()
         numerator = np.sqrt(sum(self.x ** 2 / self.x_expected)) * np.sqrt(sum(self.y ** 2 / self.y_expected))
-        return 0.5 * (1 - (D2star_value / numerator))
+        self.dist = 0.5 * (1 - (D2star_value / numerator))
 
 
     def D2star(self):
