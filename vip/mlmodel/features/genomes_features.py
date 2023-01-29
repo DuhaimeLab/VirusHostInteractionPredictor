@@ -31,6 +31,12 @@ class KmerProfile:
         #freqs = {key: value / total for key, value in profile.items()}
         #self.profile_freqs = np.fromiter(freqs.values(), dtype=float)
 
+        # calculate GC content if k = 1 since it's nucleotide counting
+        if self.k == 1:
+            AT = self.profile_counts[0] + self.profile_counts[1]
+            GC = self.profile_counts[2] + self.profile_counts[3]
+            self.GCcontent = GC / (AT + GC) * 100 
+
 
     def generate_kmer_words(self, length):
         if length == 1:
@@ -43,16 +49,12 @@ class KmerProfile:
             return result
         
 
-
-
 '''
-seq = 'ATCCTAGAGTTAGCCGTAAAAAAAAAAAAAAAA'
-test = KmerProfile(seq, 3)
+seq = 'ATCCTAGAGTTAGCCGTAAAAAAAAAAAAAAACCCCCCCA'
+test = KmerProfile(seq, 1)
 test.generate_profile()
-print(test.profile_counts.shape)
-print(test.profile_freqs.shape)
+print(test.GCcontent)
 '''
-
 
 class d2Distance:
 
