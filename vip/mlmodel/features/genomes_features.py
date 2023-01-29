@@ -174,7 +174,7 @@ class d2Distance:
 
 
 
-
+'''
 virus_seq = 'GGGCCCCCTTTAAAA'
 host_seq = 'AAATTTCCCGGG'
 
@@ -197,5 +197,5 @@ virus_kmer_profile.generate_profile()
 print(virus_kmer_profile.nucleotides)
 print(virus_kmer_profile.profile_counts)
 
-
+'''
 
