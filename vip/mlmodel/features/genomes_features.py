@@ -158,11 +158,10 @@ class d2Distance:
 
 
     def D2star(self):
-
-        # difference in observed kmer counts and expected kmer counts
+        # calculate expected kmer counts based on null probability multiplied by length of sequence
         self.x_expected = self.seq1_null_prob * self.seq1_profile.seqlen
         self.y_expected = self.seq2_null_prob * self.seq2_profile.seqlen
-
+        # difference in observed kmer counts and expected kmer counts
         self.x = self.seq1_profile.profile_counts - self.x_expected
         self.y = self.seq2_profile.profile_counts - self.y_expected
 
@@ -176,7 +175,6 @@ class d2Distance:
 
 
 
-'''
 virus_seq = 'GGGCCCCCTTTAAAA'
 host_seq = 'AAATTTCCCGGG'
 
@@ -194,10 +192,4 @@ test2.distance
 print(test2.distance())
 
 
-virus_kmer_profile = KmerProfile(virus_seq, 1)
-virus_kmer_profile.generate_profile()
-print(virus_kmer_profile.nucleotides)
-print(virus_kmer_profile.profile_counts)
-
-'''
-
+print(test.x_expected)
