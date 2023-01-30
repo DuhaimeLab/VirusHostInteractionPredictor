@@ -35,6 +35,7 @@ def determine_pairs(virus_directory, host_directory):
     print(f'There are {len(host_filenames)} host sequences')
     print(f'Total number of interactions: {total_interactions}')
 
+    # determine all virus-host pair possible (every host is going to be considered for every virus of interest)
     virus_inter = list(itertools.chain.from_iterable(itertools.repeat(x, len(host_filenames)) for x in virus_filenames))
     host_inter = host_filenames * len(virus_filenames)
     return list(zip(virus_inter, host_inter))
