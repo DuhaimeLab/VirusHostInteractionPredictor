@@ -1,3 +1,7 @@
 *.bkp
 *.dtmp
 *.pyc
+
+vip/mlmodel/pairs/__pycache__/
+
+vip/mlmodel/features/__pycache__/
