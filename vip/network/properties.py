@@ -19,32 +19,6 @@ class AdjacencyMatrix:
         self.NODF = None
 
 
-    def sort(self):
-
-        # calculate sums of 1s for rows and columns, and stores as a list of tuples
-        # first element of tuple: sum | second element: index
-        self.sum_rows = []
-        self.sum_cols = []
-
-        for i, row in enumerate(self.adj):
-            self.sum_rows.append((sum(row), i))
-        for i, col in enumerate(self.adj.T):
-            self.sum_cols.append((sum(col), i))
-        
-        # descending order for sum_rows and sum_cols
-        self.sum_rows = sorted(self.sum_rows, reverse=True)
-        self.sum_cols = sorted(self.sum_cols, reverse=True)
-
-        # unpack second element of list of tuples to get desired order of indices
-        new_row_order = [x[1] for x in self.sum_rows]
-        new_col_order = [x[1] for x in self.sum_cols]
-
-        # rearrange matrix
-        self.adj = self.adj[new_row_order,]
-        self.adj = self.adj[:,new_col_order]
-        self.sorted = True
-
-
     def nestedness(self):
 
         # sort matrix if it has not been done
@@ -73,7 +47,33 @@ class AdjacencyMatrix:
         
         print(N_row, N_col)
         self.NODF = (N_row + N_col) / 2
+
+
+    def sort(self):
+
+        # calculate sums of 1s for rows and columns, and stores as a list of tuples
+        # first element of tuple: sum | second element: index
+        self.sum_rows = []
+        self.sum_cols = []
+
+        for i, row in enumerate(self.adj):
+            self.sum_rows.append((sum(row), i))
+        for i, col in enumerate(self.adj.T):
+            self.sum_cols.append((sum(col), i))
         
+        # descending order for sum_rows and sum_cols
+        self.sum_rows = sorted(self.sum_rows, reverse=True)
+        self.sum_cols = sorted(self.sum_cols, reverse=True)
+
+        # unpack second element of list of tuples to get desired order of indices
+        new_row_order = [x[1] for x in self.sum_rows]
+        new_col_order = [x[1] for x in self.sum_cols]
+
+        # rearrange matrix
+        self.adj = self.adj[new_row_order,]
+        self.adj = self.adj[:,new_col_order]
+        self.sorted = True
+
         
     def pairs(self, axis=0):
         lst = []
@@ -99,6 +99,7 @@ class AdjacencyMatrix:
             val = counter / total
         
         return val * 10
+    
 
 
 

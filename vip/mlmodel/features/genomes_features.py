@@ -85,9 +85,11 @@ class d2Distance:
         seq2_nuc_count = dict.fromkeys(self.seq2_profile.nucleotides, 0)
 
         for nuc in self.seq1_profile.seq:
-            seq1_nuc_count[nuc] += 1
+            if nuc in self.seq1_profile.nucleotides: 
+                seq1_nuc_count[nuc] += 1
         for nuc in self.seq2_profile.seq:
-            seq2_nuc_count[nuc] += 1
+            if nuc in self.seq2_profile.nucleotides: 
+                seq2_nuc_count[nuc] += 1
 
         # calculate frequencies
         seq1_total = sum(seq1_nuc_count.values(), 0)
@@ -172,9 +174,6 @@ class d2Distance:
 
 
 
-
-
-
 virus_seq = 'GGGCCCCCTTTAAAA'
 host_seq = 'AAATTTCCCGGG'
 
@@ -193,3 +192,27 @@ print(test2.distance())
 
 
 print(test.x_expected)
+
+
+
+class HomologyMatch:
+
+    def __init__(self):
+        pass
+
+    def read_blastn():
+        pass
+
+    def read_spacers():
+        pass
+
+    def check_match():
+        pass
+
+
+test = HomologyMatch()
+
+#test.read_blastn()
+#test.read_spacers()
+
+#test.check_match(virus_filename, host_filename)
