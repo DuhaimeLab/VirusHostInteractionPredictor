@@ -12,12 +12,12 @@ class Pairs:
 
     virus: str
     host: str
-    interaction: int
+    interaction: int = None
 
     # genome level features
-    GCdifference: float
-    k3dist: float
-    k6dist: float
+    GCdifference: float = None
+    k3dist: float = None
+    k6dist: float = None
 
     spacers_hit: bool = False
     blastn_hit: bool = False
