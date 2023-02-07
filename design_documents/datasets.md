@@ -12,4 +12,4 @@ There are a total of 8,849 pairs in the host range dataset.
 The computation of coevolution signals between viruses and hosts are computationally expensive. To reduce time to develop the code, only the host range 
 from the Staphylococcus study and their respective sequences for the viruses and hosts were used. 
 
-Once the code is validated, the machine learning model will be tested and training on the entire dataset. 
+Once the code is validated, the machine learning model will be tested and trained on the entire dataset. 
