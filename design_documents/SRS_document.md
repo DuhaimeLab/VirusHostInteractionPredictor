@@ -15,6 +15,8 @@ This tool predict ecological interactions between a set of viruses (either infec
 
 ## III. Requirements
 
+Before running the model, user will need to run CRISPRCasFinder to predict spacers in hosts of interest. Then run blastn between the viruses and their hosts, and between the viruses and the CRISPR-cas spacers. 
+
 To apply the model on a small dataset (less than 50,000 pairs to be tested), this tool can be ran locally. On any dataset larger than 50k pairs, we recommend using a HPC cluster. 
 
 To re-train and re-test the machine learning model, a HPC cluster is needed. 
