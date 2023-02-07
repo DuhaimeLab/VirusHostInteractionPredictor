@@ -1,7 +1,7 @@
 # Software requirement specification
 
-Tool: Virus Infection Predictor (VIP)  
-Author: Eric Bastien
+**Tool:** Virus Infection Predictor (VIP)  
+**Author:** Eric Bastien
 
 # I. Introduction
 
