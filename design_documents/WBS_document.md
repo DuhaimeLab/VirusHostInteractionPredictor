@@ -2,10 +2,12 @@ Activity 1 - Set up folder structure
 - [x] Task 1.1 - Make list of functionalities
 - [x] Task 1.2 - Broadly design where functions should reside 
 
-Activity 2 - Rebuild basic functionality of VIP 
+Activity 2 - Rewrite basic functionality of VIP 
 - [x] Task 2.1 - Keep code from previous VIP iteration that are needed
 - [x] Task 2.2 - Implement OOP for predictions
-- [ ] Task 3.2 - Write scripts to parse output of CRISPRCasFinder
+- [ ] Task 2.2 - Write scripts to parse output of CRISPRCasFinder
+- [ ] Task 2.3 - Write script to barn blastn output
+- [ ] Task 2.4 - Write main python script to be ran by user (this script will calculate all features needed by the model and output virus-host predictions) 
 
 Activity 3 - Implement novel gene features
 - [ ] Task 3.1 - Determine pipeline for de novo genome annotation so it is consistent across the board
