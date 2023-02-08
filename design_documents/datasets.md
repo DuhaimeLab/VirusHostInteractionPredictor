@@ -13,3 +13,5 @@ The computation of coevolution signals between viruses and hosts are computation
 from the Staphylococcus study and their respective sequences for the viruses and hosts were used. 
 
 Once the code is validated, the machine learning model will be tested and trained on the entire dataset. 
+
+The smaller set data is stored in the `/data/` folder. 
