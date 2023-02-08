@@ -2,7 +2,7 @@
 
 The training and testing of the machine learning model uses the following datasets:
 - Host range data (lab-tested knowledge of which virus infect which host). This data came from 3 major sources (NCBI viral database, the Nahant Collection, 
-and a large scale host range experiment against Staphylococcus)
+and a large scale host range experiment against Staphylococcus). This data was manually curated and digitized.
 - Sequences of viruses and hosts corresponding to the viruses and hosts in the host range dataset
 
 There are a total of 8,849 pairs in the host range dataset. 
