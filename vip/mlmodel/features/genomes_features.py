@@ -7,6 +7,19 @@ import numpy as np
 
 class KmerProfile:
 
+    '''
+    The KmerProfile class takes for input a sequence and a k-mer length. Its purpose
+    is to compute the k-mer profile for a given sequence. 
+    
+    Parameters: 
+        seq (string): a DNA sequence. It assumes that it is composed of A, T, C, and G
+        k (int): length of the k-mer word to be considered. 
+    
+    Returns:
+        A KmerProfile object, by which the k-mer profile of a sequence is computed
+        by calling the generate_profile method
+     '''
+
     def __init__(self, seq, k) -> None:
         self.k = k
         self.seq = seq
@@ -16,6 +29,18 @@ class KmerProfile:
         self.profile_counts = None
     
     def generate_profile(self):
+        '''
+        Method that generates the k-mer profile for a sequence. 
+
+        Paramaters:
+            self.seq (string): DNA sequence composed of A, T, C, and G
+            self.k (int): k-mer length to be used
+
+        Returns: 
+
+        
+        '''
+
         words = self.generate_kmer_words(self.k)
         self.kmer_words = words
         profile = dict.fromkeys(words, 0)
@@ -48,13 +73,6 @@ class KmerProfile:
                     result.append(seq + base)
             return result
         
-
-'''
-seq = 'ATCCTAGAGTTAGCCGTAAAAAAAAAAAAAAACCCCCCCA'
-test = KmerProfile(seq, 1)
-test.generate_profile()
-print(test.GCcontent)
-'''
 
 class d2Distance:
 
