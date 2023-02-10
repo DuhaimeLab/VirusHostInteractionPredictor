@@ -6,18 +6,14 @@ import numpy as np
 
 
 class KmerProfile:
-
     '''
     The KmerProfile class takes for input a sequence and a k-mer length. Its purpose
-    is to compute the k-mer profile for a given sequence. 
+    is to compute the k-mer profile for the given sequence and k length. 
     
-    Parameters: 
-        seq (string): a DNA sequence. It assumes that it is composed of A, T, C, and G
-        k (int): length of the k-mer word to be considered. 
-    
-    Returns:
-        A KmerProfile object, by which the k-mer profile of a sequence is computed
-        by calling the generate_profile method
+    :param seq: A sequence of DNA from which the k-mer profile is to be calculated
+    :type seq: str
+    :param k: k-length to use to compute the k-mers
+    :type k: int
      '''
 
     def __init__(self, seq, k) -> None:
@@ -30,15 +26,11 @@ class KmerProfile:
     
     def generate_profile(self):
         '''
-        Method that generates the k-mer profile for a sequence. 
+        Method that generates the k-mer profile for a sequence. No parameters
+        are needed since they are stored in self when initializing object. 
 
-        Paramaters:
-            self.seq (string): DNA sequence composed of A, T, C, and G
-            self.k (int): k-mer length to be used
+        If the k-length is set to 1, then this method also calculate GC content.
 
-        Returns: 
-
-        
         '''
 
         words = self.generate_kmer_words(self.k)
@@ -64,6 +56,11 @@ class KmerProfile:
 
 
     def generate_kmer_words(self, length):
+        '''
+        Function to generate all possible k-mer words possible for a given length
+
+        :param length: int, k-length to be used to generate the words
+        '''
         if length == 1:
             return self.nucleotides
         else:
@@ -75,6 +72,16 @@ class KmerProfile:
         
 
 class d2Distance:
+    '''
+    This class allows user to compute the d2* distance between two k-mer profiles of interest. 
+    The d2* distance is a measurement of how similar or dissimilar those two k-mer profiles are to 
+    one another, and the value returned ranged from 0 to 1. 
+    
+    :param seq1_profile: k-mer profile of first sequence
+    :type seq1_profile: class:KmerProfile
+    :param seq2_profile: k-mer profile of second sequence (to compare with first sequence)
+    :type seq2_profile: class:KmerProfile
+    '''
 
     def __init__(self, seq1_profile, seq2_profile) -> None:
 
@@ -92,6 +99,13 @@ class d2Distance:
 
 
     def distance(self):
+        '''
+        Method to call all the other methods. It first computes the nucleotide_count, which is needed
+        to generate the null expectation of k-mer profile. This, in turn, is needed to compute the 
+        d2* distance
+
+        :return: float, between 0 and 1.
+        '''
         self.nucleotide_count()
         self.null()
         self.d2star()
@@ -99,6 +113,9 @@ class d2Distance:
 
     
     def nucleotide_count(self) -> None:
+        '''
+        Determine the nucleotide count for sequence 1 and 2. It assumes A, T, C, and G letters. 
+        '''
         seq1_nuc_count = dict.fromkeys(self.seq1_profile.nucleotides, 0)
         seq2_nuc_count = dict.fromkeys(self.seq2_profile.nucleotides, 0)
 
@@ -117,6 +134,9 @@ class d2Distance:
 
 
     def null(self):
+        '''
+        Compute the null expectation of k-mer words based on A, T, C, and G counts
+        '''
 
         self.nucleotide_count()
 
@@ -171,13 +191,18 @@ class d2Distance:
 
 
     def d2star(self):
-
+        '''
+        Normalize the distance between two k-mer profile
+        '''
         D2star_value = self.D2star()
         numerator = np.sqrt(sum(self.x ** 2 / self.x_expected)) * np.sqrt(sum(self.y ** 2 / self.y_expected))
         self.dist = 0.5 * (1 - (D2star_value / numerator))
 
 
     def D2star(self):
+        '''
+        Compute the distance between two kmer profiles
+        '''
         # calculate expected kmer counts based on null probability multiplied by length of sequence
         self.x_expected = self.seq1_null_prob * self.seq1_profile.seqlen
         self.y_expected = self.seq2_null_prob * self.seq2_profile.seqlen
