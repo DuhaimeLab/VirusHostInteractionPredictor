@@ -32,7 +32,6 @@ class KmerProfile:
         If the k-length is set to 1, then this method also calculate GC content.
 
         '''
-
         words = self.generate_kmer_words(self.k)
         self.kmer_words = words
         profile = dict.fromkeys(words, 0)
@@ -86,7 +85,11 @@ class d2Distance:
     def __init__(self, seq1_profile, seq2_profile) -> None:
 
         # TODO: need check that k-length used in virus profile and host profile match
-
+        try:
+            seq1_profile.k != seq2_profile.k
+        except:
+            print('k-length between sequence 1 and sequence 2 are NOT set to the same value')
+            return
 
         self.k = seq1_profile.k
         self.kmer_words = seq1_profile.kmer_words
@@ -149,8 +152,10 @@ class d2Distance:
             countT = word.count('T')
             countC = word.count('C')
             countG = word.count('G')
-
+            
             if countA == 0:
+                # set to 1 becasue when computing null, everything is multiplied 
+                # so 1 would not change the values
                 countA = 1
                 seq1_nfA = 1
                 seq2_nfA = 1
