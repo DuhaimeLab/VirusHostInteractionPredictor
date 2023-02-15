@@ -1,9 +1,8 @@
 '''
-
+Contains classes to compute genome-wide features. 
 '''
 
 import numpy as np
-
 
 class KmerProfile:
     '''
@@ -84,13 +83,6 @@ class d2Distance:
 
     def __init__(self, seq1_profile, seq2_profile) -> None:
 
-        # TODO: need check that k-length used in virus profile and host profile match
-        try:
-            seq1_profile.k != seq2_profile.k
-        except:
-            print('k-length between sequence 1 and sequence 2 are NOT set to the same value')
-            return
-
         self.k = seq1_profile.k
         self.kmer_words = seq1_profile.kmer_words
 
@@ -109,10 +101,17 @@ class d2Distance:
 
         :return: float, between 0 and 1.
         '''
-        self.nucleotide_count()
-        self.null()
-        self.d2star()
-        return self.dist
+
+        if self.seq1_profile.k == self.seq2_profile.k:
+            self.nucleotide_count()
+            self.null()
+            self.dist = self.d2star()
+            return self.dist
+
+        else: 
+            print('k-length used to generate the profiles is not consistent')
+            self.dist = None
+            return self.dist
 
     
     def nucleotide_count(self) -> None:
@@ -194,15 +193,13 @@ class d2Distance:
         self.seq1_null_prob = np.fromiter(seq1_null.values(), dtype=float)
         self.seq2_null_prob = np.fromiter(seq2_null.values(), dtype=float)
 
-
     def d2star(self):
         '''
         Normalize the distance between two k-mer profile
         '''
         D2star_value = self.D2star()
         numerator = np.sqrt(sum(self.x ** 2 / self.x_expected)) * np.sqrt(sum(self.y ** 2 / self.y_expected))
-        self.dist = 0.5 * (1 - (D2star_value / numerator))
-
+        return 0.5 * (1 - (D2star_value / numerator))
 
     def D2star(self):
         '''
@@ -219,28 +216,6 @@ class d2Distance:
         numerator = self.x * self.y
         denominator = np.sqrt(self.seq1_profile.seqlen * self.seq2_profile.seqlen * self.seq1_null_prob * self.seq2_null_prob)
         return sum(numerator / denominator)
-
-
-
-virus_seq = 'GGGCCCCCTTTAAAA'
-host_seq = 'AAATTTCCCGGG'
-
-virus_kmer_profile = KmerProfile(virus_seq, 6)
-virus_kmer_profile.generate_profile()
-host_kmer_profile = KmerProfile(host_seq, 6)
-host_kmer_profile.generate_profile()
-
-test = d2Distance(virus_kmer_profile, host_kmer_profile)
-test.distance()
-print(test.distance())
-
-test2 = d2Distance(host_kmer_profile, virus_kmer_profile)
-test2.distance
-print(test2.distance())
-
-
-print(test.x_expected)
-
 
 
 class HomologyMatch:
