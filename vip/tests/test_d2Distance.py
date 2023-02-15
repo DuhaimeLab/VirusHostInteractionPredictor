@@ -1,15 +1,48 @@
-from vip.mlmodel.features.genomes_features import d2Distance
+from vip.mlmodel.features.genomes_features import d2Distance, KmerProfile
 
 # test that d2Distance returns an error because k length used
 # between the two different sequences are different
 def d2Distance_init():
-    # sequence
+    # test 1 (distance value is meaningful)
     seq1 = 'ATCCTGAGTA'
     seq2 = 'CCAGGCCTGA'
 
-    # generate k-mer profile
+    seq1_profile = KmerProfile(seq1, 6)
+    seq1_profile.generate_profile()
+    seq2_profile = KmerProfile(seq2, 6)
+    seq2_profile.generate_profile()
+
+    test = d2Distance(seq1_profile, seq2_profile)
+    test.distance()
+    dist = 0.4997 # distance for the two small sequences above
+    assert round(test.distance, 4) == dist
+
+    # test 2 (sequences are the same so distance is 0)
+    seq1 = 'ATTCCTGGAGTGACCGTGATGA'
+    seq2 = 'ATTCCTGGAGTGACCGTGATGA'
+
+    seq1_profile = KmerProfile(seq1, 3)
+    seq1_profile.generate_profile()
+    seq2_profile = KmerProfile(seq2, 3)
+    seq2_profile.generate_profile()
+
+    test = d2Distance(seq1_profile, seq2_profile)
+    test.distance()
+    dist = 0 # distance is 0 since sequences are completely similar
+    assert test.distance == dist
+
+    # test 3 (edge case where k used for the sequences do not match)
+    seq1 = 'ATCCTGAGTA'
+    seq2 = 'CCAGGCCTGA'
+
     seq1_profile = KmerProfile(seq1, 3)
     seq1_profile.generate_profile()
     seq2_profile = KmerProfile(seq2, 6)
     seq2_profile.generate_profile()
+
+    test = d2Distance(seq1_profile, seq2_profile)
+    test.distance()
+    assert test.distance == None
+
+
 
