@@ -1,8 +1,7 @@
 from vip.mlmodel.features.genomes_features import d2Distance, KmerProfile
+import numpy as np
 
-# test that d2Distance returns an error because k length used
-# between the two different sequences are different
-def d2Distance_init():
+def test_d2Distance_init():
     # test 1 (distance value is meaningful)
     seq1 = 'ATCCTGAGTA'
     seq2 = 'CCAGGCCTGA'
@@ -15,7 +14,7 @@ def d2Distance_init():
     test = d2Distance(seq1_profile, seq2_profile)
     test.distance()
     dist = 0.4997 # distance for the two small sequences above
-    assert round(test.distance, 4) == dist
+    assert np.round(test.dist, 4) == dist
 
     # test 2 (sequences are the same so distance is 0)
     seq1 = 'ATTCCTGGAGTGACCGTGATGA'
@@ -29,7 +28,7 @@ def d2Distance_init():
     test = d2Distance(seq1_profile, seq2_profile)
     test.distance()
     dist = 0 # distance is 0 since sequences are completely similar
-    assert test.distance == dist
+    assert test.dist == dist
 
     # test 3 (edge case where k used for the sequences do not match)
     seq1 = 'ATCCTGAGTA'
@@ -42,7 +41,7 @@ def d2Distance_init():
 
     test = d2Distance(seq1_profile, seq2_profile)
     test.distance()
-    assert test.distance == None
+    assert test.dist == None
 
 
 
