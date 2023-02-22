@@ -26,3 +26,7 @@
 **Activity 5 - Plots/visualization of data**
 - [x] Task 5.1 - Code to transform output of machine learning model into input for Gephi for network visualization purposes
 - [ ] Task 5.2 - Re-write code to plot/visualize features of coevolution
+
+**Activity 6 - Tutorial on how to apply model**
+- [ ] Task 6.1 - Create test dataset
+- [ ] Task 6.2 - Write tutorial and wiki
