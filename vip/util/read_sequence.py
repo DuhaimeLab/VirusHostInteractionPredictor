@@ -1,8 +1,5 @@
 from Bio import SeqIO
 
-import os
-print(os.getcwd())
-
 def read_sequence(path):
     '''
     Return the sequence as a string. 
