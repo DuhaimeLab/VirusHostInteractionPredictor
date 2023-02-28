@@ -1,17 +1,15 @@
 '''
-Description goes here
+This script calls methods and functions to compute signals of coevolutions. 
+Those signals are necessary for virus0-host predictions. 
 '''
-
-from features.genomes_features import KmerProfile, d2Distance
-from pairs.pairs import Pairs, determine_pairs, list_files
 
 from Bio import SeqIO
 import os
 
-def read_sequence(dir, filename):
-    path = dir + filename
-    for record in SeqIO.parse(path, 'fasta'):
-        return str(record.seq)
+from features.genomes_features import KmerProfile, d2Distance
+from pairs.pairs import Pairs, determine_pairs, list_files
+# TODO: find a fix for absolute import rather than doing relative import
+from vip.util.read_sequence import read_sequence
 
 
 virus_directory_path = './data/sequences/viruses/'
@@ -64,7 +62,7 @@ print('.....computing GC difference and distances between k-mer profiles.....')
 
 # Calculate features for each pair of interest
 pairs = []
-count = 0
+count = []
 pairs_to_test = determine_pairs(virus_directory_path, host_directory_path)
 for virus, host in pairs_to_test:
     
