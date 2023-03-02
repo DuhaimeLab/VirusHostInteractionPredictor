@@ -3,6 +3,8 @@ Contains classes to compute genome-wide features.
 '''
 
 import numpy as np
+from util.read_sequence import read_headers
+
 
 class KmerProfile:
     '''
@@ -81,6 +83,8 @@ class d2Distance:
     :type seq2_profile: class:KmerProfile
     '''
 
+    #TODO: modify code so it can deal with fasta files containing multiple sequences belonging to same species
+
     def __init__(self, seq1_profile, seq2_profile) -> None:
 
         self.k = seq1_profile.k
@@ -153,7 +157,7 @@ class d2Distance:
             countG = word.count('G')
             
             if countA == 0:
-                # set to 1 becasue when computing null, everything is multiplied 
+                # set to 1 because when computing null, everything is multiplied 
                 # so 1 would not change the values
                 countA = 1
                 seq1_nfA = 1
@@ -218,22 +222,35 @@ class d2Distance:
         return sum(numerator / denominator)
 
 
+
 class HomologyMatch:
+    '''
+    '''
 
-    def __init__(self):
+    def __init__(self, virus_host_blastn, virus_spacer_blastn):
+        self.virus_host = virus_host_blastn
+        self.virus_spacers = virus_spacer_blastn
+                
+    def match(self, virus, host):
         pass
 
-    def read_blastn():
+    def check_blastn(self, virus, host):
+        if virus not in self.virus_host:
+            self.blast = False
+        elif host in self.virus_host[virus]:
+            self.blast = True
+        else:
+            self.blast = False
+        
+        return self.blast
+
+    def check_spacers(self, virus, host):
         pass
 
-    def read_spacers():
-        pass
-
-    def check_match():
-        pass
 
 
-test = HomologyMatch()
+
+#test = HomologyMatch()
 
 #test.read_blastn()
 #test.read_spacers()
