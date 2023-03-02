@@ -6,28 +6,92 @@ Those signals are necessary for virus0-host predictions.
 from Bio import SeqIO
 import os
 
-from features.genomes_features import KmerProfile, d2Distance
+from features.genomes_features import KmerProfile, d2Distance, HomologyMatch
 from pairs.pairs import Pairs, determine_pairs, list_files
-# TODO: find a fix for absolute import rather than doing relative import
-from vip.util.read_sequence import read_sequence
+from util.read_sequence import read_sequence, read_headers
 
 
+
+print('.....setup.....')
+
+# define location of viruses and hosts of interest
 virus_directory_path = './data/sequences/viruses/'
 host_directory_path = './data/sequences/hosts/'
-
 virus_files = list_files(virus_directory_path) 
 host_files = list_files(host_directory_path)
 files = virus_files + host_files
 
+# determine all possible virus-host pairs
+pairs_to_test = determine_pairs(virus_directory_path, host_directory_path)
+
+# initialize dictionaries to store k-mer profiles and GC content
 GCcontent = dict.fromkeys(files)
 k3profiles = dict.fromkeys(files)
 k6profiles = dict.fromkeys(files)
 
+# blastn and spacers information
+blastn_path = './vip/tests/datatests/StaphStudy_virusvhosts_blastn.tsv'
+spacer_path = None
+#blastn_cnames = ['qseqid', 'sseqid', 'pident', 'length', 'mismatch', 'gapopen', 
+#                 'qstart', 'qend', 'sstart', 'send', 'evalue', 'bitscore']
+
+
+
+print('.....processing blastn and spacers files.....')
+
+# get headers for each fasta files
+header_filename = {}
+
+for virus in virus_files:
+    path = virus_directory_path + virus
+    headers = read_headers(path)
+    for header in headers:
+        header_filename[header] = virus
+
+for host in host_files:
+    path = host_directory_path + host
+    headers = read_headers(path)
+    for header in headers:
+        header_filename[header] = host
+
+# build dictionary 
+blastn = {}
+
+with open(blastn_path, 'r') as f:
+    lines = [line.rstrip() for line in f]
+    for line in lines:
+        split = line.split('\t')
+        # get accessions (blastn naming system)
+        virus_accession = split[0]
+        host_accession = split[1]
+        # switch to my naming system (based on filenames)
+        virus = header_filename[virus_accession]
+        host = header_filename[host_accession]
+        # add virus host relation to dictionary
+        if virus not in blastn:
+            blastn[virus] = [host]
+        elif host not in blastn[virus]:
+            blastn[virus].append(host)
+
+
+print(blastn)
+
+print('.....determine if homology match exist between virus and host.....')
+
+homology_match = HomologyMatch(blastn, None)
+
+for virus, host in pairs_to_test:
+    current_pair = Pairs(virus, host)
+    current_pair.blastn_hit = homology_match.check_blastn(virus, host)
+    
+
+
 print('.....generating k-mer profiles.....')
 
-# Generate k-mer profiles for viruses and their potential hosts
+# generate k-mer profiles for viruses and their potential hosts
 for virus in virus_files:
-    seq = read_sequence(virus_directory_path, virus)
+    path = virus_directory_path + virus
+    seq = read_sequence(path)
 
     seq_profile = KmerProfile(seq, k=1)
     seq_profile.generate_profile()
@@ -42,7 +106,8 @@ for virus in virus_files:
     k6profiles[virus] = seq_profile
 
 for host in host_files: 
-    seq = read_sequence(host_directory_path, host)
+    path = host_directory_path + host
+    seq = read_sequence(path)
 
     seq_profile = KmerProfile(seq, k=1)
     seq_profile.generate_profile()
@@ -57,16 +122,12 @@ for host in host_files:
     k6profiles[host] = seq_profile
 
 
+
 print('.....computing GC difference and distances between k-mer profiles.....')
 
-
-# Calculate features for each pair of interest
-pairs = []
-count = []
-pairs_to_test = determine_pairs(virus_directory_path, host_directory_path)
+# calculate features for each pair of interest
+count = 0
 for virus, host in pairs_to_test:
-    
-    current_pair = Pairs(virus, host)
     
     k3distance = d2Distance(k3profiles[virus], k3profiles[host])
     k3distance.distance()
@@ -84,9 +145,10 @@ for virus, host in pairs_to_test:
         print(f'Progress -- {round(count / len(pairs_to_test) * 100, 1)}%')
 
 
-    
-
-
+print(current_pair.k3dist)
+print(current_pair.k6dist)
+print(current_pair.GCdifference)
+print(current_pair.blastn_hit)
 
 # ATTIC 
 
