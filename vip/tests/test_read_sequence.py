@@ -1,4 +1,4 @@
-from vip.util.read_sequence import read_sequence
+from vip.mlmodel.util.read_sequence import read_sequence
 
 seq = '''AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
 CTCGCTGAAGTACTATTAGATGTAGACGTGCTTGCGCTTATCGATTCAGAAGTACTTGTACTTTCTGAAC
@@ -27,7 +27,7 @@ def test_read_sequence():
     res = read_sequence(filename)
     assert len(res) == len(cleaned_seq)
 
-    # test 2 - check that sequences match
+    # test 2 - check that sequences do match
     assert res == cleaned_seq
 
 

@@ -1,4 +1,4 @@
-from vip.util.read_sequence import read_headers
+from vip.mlmodel.util.read_sequence import read_headers
 
 def test_read_headers():
     headers = ['test_sequence.fasta', 'NZ_CP065712.1']
