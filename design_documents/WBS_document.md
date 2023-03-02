@@ -8,6 +8,7 @@
 - [ ] Task 2.2 - Write scripts to parse output of CRISPRCasFinder
 - [ ] Task 2.3 - Write script to barn blastn output
 - [ ] Task 2.4 - Write main python script to be ran by user (this script will calculate all features needed by the model and output virus-host predictions) 
+- [ ] Task 2.5 - Improve code performance (use more cores)
 
 **Activity 3 - Implement novel gene features**
 - [ ] Task 3.1 - Determine pipeline for de novo genome annotation so it is consistent across the board
