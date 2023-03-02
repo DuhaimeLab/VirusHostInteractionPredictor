@@ -12,9 +12,7 @@ def read_sequence(path):
 def read_headers(path):
     '''
     '''
-    split = path.split('/')
-    filename = split[-1]
-    result = [filename]
+    result = []
     for record in SeqIO.parse(path, 'fasta'):
         result.append(record.id)
     return result

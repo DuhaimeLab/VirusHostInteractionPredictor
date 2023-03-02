@@ -6,32 +6,27 @@ Those signals are necessary for virus0-host predictions.
 from Bio import SeqIO
 import os
 
-from features.genomes_features import KmerProfile, d2Distance, HomologyMatch
+from features.genomes_features import KmerProfile, d2Distance
 from pairs.pairs import Pairs, determine_pairs, list_files
-from util.read_sequence import read_sequence, read_headers
+# TODO: find a fix for absolute import rather than doing relative import
+from vip.util.read_sequence import read_sequence
 
 
-
-print('.....setup.....')
-
-# define location of viruses and hosts of interest
 virus_directory_path = './data/sequences/viruses/'
 host_directory_path = './data/sequences/hosts/'
+
 virus_files = list_files(virus_directory_path) 
 host_files = list_files(host_directory_path)
 files = virus_files + host_files
 
-# determine all possible virus-host pairs
-pairs_to_test = determine_pairs(virus_directory_path, host_directory_path)
-
-# initialize dictionaries to store k-mer profiles and GC content
 GCcontent = dict.fromkeys(files)
 k3profiles = dict.fromkeys(files)
 k6profiles = dict.fromkeys(files)
 
+<<<<<<< HEAD
 # blastn and spacers information
-blastn_path = './vip/tests/datatests/StaphStudy_virusvhosts_blastn.tsv'
-spacer_path = None
+blastn_path = './vip/tests/datatests/blastnNahantCollection_phagevhost.tsv'
+spacer_path = './vip/tests/datatests/blastnNahantCollection_phagevspacers.tsv'
 #blastn_cnames = ['qseqid', 'sseqid', 'pident', 'length', 'mismatch', 'gapopen', 
 #                 'qstart', 'qend', 'sstart', 'send', 'evalue', 'bitscore']
 
@@ -82,16 +77,18 @@ homology_match = HomologyMatch(blastn, None)
 
 for virus, host in pairs_to_test:
     current_pair = Pairs(virus, host)
-    current_pair.blastn_hit = homology_match.check_blastn(virus, host)
-    
+    current_pair.blastn_hit = homology_match.match(virus, host)
 
 
+
+
+=======
+>>>>>>> parent of acbbaba (refactored code)
 print('.....generating k-mer profiles.....')
 
-# generate k-mer profiles for viruses and their potential hosts
+# Generate k-mer profiles for viruses and their potential hosts
 for virus in virus_files:
-    path = virus_directory_path + virus
-    seq = read_sequence(path)
+    seq = read_sequence(virus_directory_path, virus)
 
     seq_profile = KmerProfile(seq, k=1)
     seq_profile.generate_profile()
@@ -106,8 +103,7 @@ for virus in virus_files:
     k6profiles[virus] = seq_profile
 
 for host in host_files: 
-    path = host_directory_path + host
-    seq = read_sequence(path)
+    seq = read_sequence(host_directory_path, host)
 
     seq_profile = KmerProfile(seq, k=1)
     seq_profile.generate_profile()
@@ -122,12 +118,16 @@ for host in host_files:
     k6profiles[host] = seq_profile
 
 
-
 print('.....computing GC difference and distances between k-mer profiles.....')
 
-# calculate features for each pair of interest
-count = 0
+
+# Calculate features for each pair of interest
+pairs = []
+count = []
+pairs_to_test = determine_pairs(virus_directory_path, host_directory_path)
 for virus, host in pairs_to_test:
+    
+    current_pair = Pairs(virus, host)
     
     k3distance = d2Distance(k3profiles[virus], k3profiles[host])
     k3distance.distance()
@@ -145,11 +145,13 @@ for virus, host in pairs_to_test:
         print(f'Progress -- {round(count / len(pairs_to_test) * 100, 1)}%')
 
 
-print(current_pair.k3dist)
-print(current_pair.k6dist)
-print(current_pair.GCdifference)
-print(current_pair.blastn_hit)
+<<<<<<< HEAD
+=======
+    
 
+
+
+>>>>>>> parent of acbbaba (refactored code)
 # ATTIC 
 
 '''

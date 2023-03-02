@@ -24,6 +24,7 @@ class KmerProfile:
         self.nucleotides = ['A', 'T', 'C', 'G']
 
         self.profile_counts = None
+
     
     def generate_profile(self):
         '''
@@ -86,7 +87,6 @@ class d2Distance:
     #TODO: modify code so it can deal with fasta files containing multiple sequences belonging to same species
 
     def __init__(self, seq1_profile, seq2_profile) -> None:
-
         self.k = seq1_profile.k
         self.kmer_words = seq1_profile.kmer_words
 
@@ -197,6 +197,7 @@ class d2Distance:
         self.seq1_null_prob = np.fromiter(seq1_null.values(), dtype=float)
         self.seq2_null_prob = np.fromiter(seq2_null.values(), dtype=float)
 
+
     def d2star(self):
         '''
         Normalize the distance between two k-mer profile
@@ -204,6 +205,7 @@ class d2Distance:
         D2star_value = self.D2star()
         numerator = np.sqrt(sum(self.x ** 2 / self.x_expected)) * np.sqrt(sum(self.y ** 2 / self.y_expected))
         return 0.5 * (1 - (D2star_value / numerator))
+    
 
     def D2star(self):
         '''
@@ -230,9 +232,19 @@ class HomologyMatch:
     def __init__(self, virus_host_blastn, virus_spacer_blastn):
         self.virus_host = virus_host_blastn
         self.virus_spacers = virus_spacer_blastn
+
                 
     def match(self, virus, host):
-        pass
+        self.check_blastn(virus, host)
+        #self.check_spacers()
+
+        if self.blast:
+            self.hit = True
+        else:
+            self.hit = False
+
+        return self.hit
+    
 
     def check_blastn(self, virus, host):
         if virus not in self.virus_host:
@@ -241,11 +253,15 @@ class HomologyMatch:
             self.blast = True
         else:
             self.blast = False
-        
-        return self.blast
 
+        
     def check_spacers(self, virus, host):
-        pass
+        if virus not in self.virus_spacers:
+            self.spacer = False
+        elif host not in self.virus_spacers[virus]:
+            self.spacer = True
+        else:
+            self.spacer = False
 
 
 

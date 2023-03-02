@@ -1,4 +1,4 @@
-from vip.mlmodel.util.read_sequence import read_sequence
+from vip.mlmodel.features.util.read_sequence import read_sequence
 
 seq = '''AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
 CTCGCTGAAGTACTATTAGATGTAGACGTGCTTGCGCTTATCGATTCAGAAGTACTTGTACTTTCTGAAC
