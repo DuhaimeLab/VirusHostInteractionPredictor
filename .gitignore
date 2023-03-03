@@ -3,5 +3,6 @@
 *.pyc
 
 vip/mlmodel/pairs/__pycache__/
-
 vip/mlmodel/features/__pycache__/
+
+data/sequences/*

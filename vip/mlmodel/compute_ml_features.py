@@ -6,11 +6,14 @@ Those signals are necessary for virus0-host predictions.
 from Bio import SeqIO
 import os
 
-from features.genomes_features import KmerProfile, d2Distance
+from features.genomes_features import KmerProfile, d2Distance, HomologyMatch
 from pairs.pairs import Pairs, determine_pairs, list_files
-# TODO: find a fix for absolute import rather than doing relative import
-from vip.util.read_sequence import read_sequence
+from util.read_sequence import read_sequence, read_headers
 
+
+
+
+# TO REFACTOR
 
 virus_directory_path = './data/sequences/viruses/'
 host_directory_path = './data/sequences/hosts/'
@@ -19,11 +22,13 @@ virus_files = list_files(virus_directory_path)
 host_files = list_files(host_directory_path)
 files = virus_files + host_files
 
+pairs_to_test = determine_pairs(virus_directory_path, host_directory_path)
+
+
 GCcontent = dict.fromkeys(files)
 k3profiles = dict.fromkeys(files)
 k6profiles = dict.fromkeys(files)
 
-<<<<<<< HEAD
 # blastn and spacers information
 blastn_path = './vip/tests/datatests/blastnNahantCollection_phagevhost.tsv'
 spacer_path = './vip/tests/datatests/blastnNahantCollection_phagevspacers.tsv'
@@ -68,27 +73,47 @@ with open(blastn_path, 'r') as f:
         elif host not in blastn[virus]:
             blastn[virus].append(host)
 
-
 print(blastn)
+
+spacers = {}
+
+with open(spacer_path, 'r') as f:
+    lines = [line.rstrip() for line in f]
+    for line in lines:
+        split = line.split('\t')
+        # get filename for virus
+        virus_accession = split[0]
+        virus = header_filename[virus_accession]
+        # get filename for host
+        tmp = split[1].split('_')
+        host_partial = tmp[0] + '_' + tmp[1]
+        host = list(filter(lambda x: x.startswith(host_partial), host_files))
+        print(host)
+        # add virus spacer relation to dictionaory
+        if virus not in spacers:
+            spacers[virus] = host
+        elif host not in spacers[virus]:
+            spacers[virus].append(host[0])
+
+print(spacers)
+
 
 print('.....determine if homology match exist between virus and host.....')
 
-homology_match = HomologyMatch(blastn, None)
+homology_match = HomologyMatch(blastn, spacers)
 
 for virus, host in pairs_to_test:
+    print(virus, host)
     current_pair = Pairs(virus, host)
-    current_pair.blastn_hit = homology_match.match(virus, host)
+    current_pair.homology_hit = homology_match.match(virus, host)
 
 
-
-
-=======
->>>>>>> parent of acbbaba (refactored code)
 print('.....generating k-mer profiles.....')
 
 # Generate k-mer profiles for viruses and their potential hosts
 for virus in virus_files:
-    seq = read_sequence(virus_directory_path, virus)
+    path = virus_directory_path + virus
+    seq = read_sequence(path)
 
     seq_profile = KmerProfile(seq, k=1)
     seq_profile.generate_profile()
@@ -103,7 +128,8 @@ for virus in virus_files:
     k6profiles[virus] = seq_profile
 
 for host in host_files: 
-    seq = read_sequence(host_directory_path, host)
+    path = host_directory_path + host
+    seq = read_sequence(path)
 
     seq_profile = KmerProfile(seq, k=1)
     seq_profile.generate_profile()
@@ -122,12 +148,8 @@ print('.....computing GC difference and distances between k-mer profiles.....')
 
 
 # Calculate features for each pair of interest
-pairs = []
-count = []
-pairs_to_test = determine_pairs(virus_directory_path, host_directory_path)
+count = 0
 for virus, host in pairs_to_test:
-    
-    current_pair = Pairs(virus, host)
     
     k3distance = d2Distance(k3profiles[virus], k3profiles[host])
     k3distance.distance()
@@ -145,13 +167,10 @@ for virus, host in pairs_to_test:
         print(f'Progress -- {round(count / len(pairs_to_test) * 100, 1)}%')
 
 
-<<<<<<< HEAD
-=======
     
 
 
 
->>>>>>> parent of acbbaba (refactored code)
 # ATTIC 
 
 '''
