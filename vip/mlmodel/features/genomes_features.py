@@ -250,7 +250,6 @@ class HomologyMatch:
         if virus not in self.virus_host:
             self.blast = False
         elif host in self.virus_host[virus]:
-            print('blastn hit')
             self.blast = True
         else:
             self.blast = False
@@ -260,7 +259,6 @@ class HomologyMatch:
         if virus not in self.virus_spacers:
             self.spacer = False
         elif host in self.virus_spacers[virus]:
-            print('spacer hit')
             self.spacer = True
         else:
             self.spacer = False
