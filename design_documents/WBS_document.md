@@ -5,8 +5,8 @@
 **Activity 2 - Rewrite basic functionality of VIP**
 - [x] Task 2.1 - Keep code from previous VIP iteration that are needed
 - [x] Task 2.2 - Implement OOP for predictions
-- [ ] Task 2.2 - Write scripts to parse output of CRISPRCasFinder
-- [ ] Task 2.3 - Write script to barn blastn output
+- [x] Task 2.2 - Write scripts to parse output of CRISPRCasFinder
+- [x] Task 2.3 - Write script to barn blastn output
 - [ ] Task 2.4 - Write main python script to be ran by user (this script will calculate all features needed by the model and output virus-host predictions) 
 - [ ] Task 2.5 - Improve code performance (use more cores)
 
