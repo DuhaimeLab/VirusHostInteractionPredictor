@@ -6,4 +6,4 @@ vip/mlmodel/pairs/__pycache__/
 vip/mlmodel/features/__pycache__/
 
 data/sequences/*
-test_seq/*
+test_set/*
