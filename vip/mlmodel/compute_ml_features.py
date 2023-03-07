@@ -252,11 +252,11 @@ class ComputeFeatures:
 
 
 
-virus_directory_path = './data/sequences/viruses/'
-host_directory_path = './data/sequences/hosts/'
+virus_directory_path = './test_set/virus_sequences/'
+host_directory_path = './test_set/host_sequences/'
 
-blastn_path = './vip/tests/datatests/blastnNahantCollection_phagevhost.tsv'
-spacer_path = './vip/tests/datatests/blastnNahantCollection_phagevspacers.tsv'
+blastn_path = './test_set/StaphStudy_virusvhosts.tsv'
+spacer_path = './test_set/StaphStudy_virusvspacers_blastn.tsv'
 
 
 test = ComputeFeatures(virus_directory_path, host_directory_path)
