@@ -227,8 +227,6 @@ class ComputeFeatures:
         
         print('RUN - ...compute k-mer distances and GC differences...')
 
-        print(f' There are {len(self.virus_filenames)} viral sequences')
-
         count = 0
 
         for pair in self.pairs:
@@ -243,7 +241,7 @@ class ComputeFeatures:
             pair.k6dist = k6distance.dist
 
             pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]
-    
+
 
     def save_features(self):
         '''
@@ -251,7 +249,8 @@ class ComputeFeatures:
         pass
 
 
-
+#TODO: To transfer code below to tests
+'''
 virus_directory_path = './test_set/virus_sequences/'
 host_directory_path = './test_set/host_sequences/'
 
@@ -264,3 +263,4 @@ test.add_blastn_files(blastn_path, spacer_path)
 test.setup()
 test.run()
 
+'''
