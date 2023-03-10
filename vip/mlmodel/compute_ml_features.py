@@ -8,8 +8,10 @@ from Bio import SeqIO
 import itertools
 import os
 
-from features.genomes_features import KmerProfile, d2Distance, HomologyMatch
-from util.read_sequence import read_sequence, read_headers
+from multiprocessing import Pool
+
+from .features.genomes_features import KmerProfile, d2Distance, HomologyMatch
+from .util.read_sequence import read_sequence, read_headers
 
 
 @dataclass
@@ -241,6 +243,43 @@ class ComputeFeatures:
             pair.k6dist = k6distance.dist
 
             pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]
+    
+
+    def run_parallel(self, num_procs=6):
+        '''
+        '''
+
+        pairs = self.pairs
+        results = []
+
+        with Pool(num_procs) as pool:
+            pair_features = pool.map(self.compute_feature, pairs)
+            results.append(pair_features)
+        
+        self.pairs = results
+
+
+    
+    def compute_feature(self, pair):
+        '''
+        '''
+
+        print(f'-------> current pair: {pair.virus} | {pair.host}')
+        pair.homology_hit = self.homology_matches.match(pair.virus, pair.host)
+        
+        k3distance = d2Distance(self.k3profiles[pair.virus], self.k3profiles[pair.host])
+        k3distance.distance()
+        pair.k3dist = k3distance.dist
+
+        k6distance = d2Distance(self.k6profiles[pair.virus], self.k6profiles[pair.host])
+        k6distance.distance()
+        pair.k6dist = k6distance.dist
+
+        pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]
+
+        return pair
+
+
 
 
     def save_features(self):
@@ -250,7 +289,7 @@ class ComputeFeatures:
 
 
 #TODO: To transfer code below to tests
-'''
+
 virus_directory_path = './test_set/virus_sequences/'
 host_directory_path = './test_set/host_sequences/'
 
@@ -261,6 +300,13 @@ spacer_path = './test_set/StaphStudy_virusvspacers_blastn.tsv'
 test = ComputeFeatures(virus_directory_path, host_directory_path)
 test.add_blastn_files(blastn_path, spacer_path)
 test.setup()
+
 test.run()
 
-'''
+
+# below worked
+#test.compute_feature(test.pairs[1])
+#print(test.compute_feature(test.pairs[5]))
+
+#test.run_parallel()
+
