@@ -227,18 +227,14 @@ class ComputeFeatures:
             self.compute_feature(pair)
         
 
-
     def run_parallel(self, num_procs=6):
         '''
         '''
 
         pairs = self.pairs
-
         with Pool(num_procs) as pool:
             pool.map(self.compute_feature, pairs)
         
-
-
     
     def compute_feature(self, pair):
         '''
@@ -283,4 +279,4 @@ if __name__ == "__main__":
     print("* run paralell")
     test.run_parallel()
 
-    print(test.pair[6])
+    print(test.pairs[6])
