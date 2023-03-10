@@ -3,7 +3,6 @@ Contains classes to compute genome-wide features.
 '''
 
 import numpy as np
-from util.read_sequence import read_headers
 
 
 class KmerProfile:

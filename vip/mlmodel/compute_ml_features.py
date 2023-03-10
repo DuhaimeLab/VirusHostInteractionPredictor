@@ -10,8 +10,8 @@ import os
 
 from multiprocessing import Pool
 
-from .features.genomes_features import KmerProfile, d2Distance, HomologyMatch
-from .util.read_sequence import read_sequence, read_headers
+from features.genomes_features import KmerProfile, d2Distance, HomologyMatch
+from util.read_sequence import read_sequence, read_headers
 
 
 @dataclass
@@ -54,7 +54,7 @@ class ComputeFeatures:
         self.spacer_path = spacer_path
 
     
-    def setup(self, custom_pairs = False):
+    def do_setup(self, custom_pairs = False):
         '''
         '''
 
@@ -223,40 +223,20 @@ class ComputeFeatures:
         '''
         '''
 
-        print('RUN - ...checking for homology matches...')
         for pair in self.pairs:
-            pair.homology_hit = self.homology_matches.match(pair.virus, pair.host)
+            self.compute_feature(pair)
         
-        print('RUN - ...compute k-mer distances and GC differences...')
 
-        count = 0
-
-        for pair in self.pairs:
-            count += 1
-            print(f'-------> current pair: {pair.virus} | {pair.host} || Percent done: {round(count / len(self.pairs) * 100, 1)}')
-            k3distance = d2Distance(self.k3profiles[pair.virus], self.k3profiles[pair.host])
-            k3distance.distance()
-            pair.k3dist = k3distance.dist
-
-            k6distance = d2Distance(self.k6profiles[pair.virus], self.k6profiles[pair.host])
-            k6distance.distance()
-            pair.k6dist = k6distance.dist
-
-            pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]
-    
 
     def run_parallel(self, num_procs=6):
         '''
         '''
 
         pairs = self.pairs
-        results = []
 
         with Pool(num_procs) as pool:
-            pair_features = pool.map(self.compute_feature, pairs)
-            results.append(pair_features)
+            pool.map(self.compute_feature, pairs)
         
-        self.pairs = results
 
 
     
@@ -277,15 +257,13 @@ class ComputeFeatures:
 
         pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]
 
-        return pair
-
-
 
 
     def save_features(self):
         '''
         '''
         pass
+
 
 
 #TODO: To transfer code below to tests
@@ -299,14 +277,7 @@ spacer_path = './test_set/StaphStudy_virusvspacers_blastn.tsv'
 
 test = ComputeFeatures(virus_directory_path, host_directory_path)
 test.add_blastn_files(blastn_path, spacer_path)
-test.setup()
+test.do_setup()
+test.run_parallel()
 
-test.run()
-
-
-# below worked
-#test.compute_feature(test.pairs[1])
-#print(test.compute_feature(test.pairs[5]))
-
-#test.run_parallel()
-
+print(test.pair[6])
