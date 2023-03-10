@@ -265,19 +265,22 @@ class ComputeFeatures:
         pass
 
 
+if __name__ == "__main__":
+    #TODO: To transfer code below to tests
 
-#TODO: To transfer code below to tests
+    virus_directory_path = './test_set/virus_sequences/'
+    host_directory_path = './test_set/host_sequences/'
 
-virus_directory_path = './test_set/virus_sequences/'
-host_directory_path = './test_set/host_sequences/'
+    blastn_path = './test_set/StaphStudy_virusvhosts.tsv'
+    spacer_path = './test_set/StaphStudy_virusvspacers_blastn.tsv'
 
-blastn_path = './test_set/StaphStudy_virusvhosts.tsv'
-spacer_path = './test_set/StaphStudy_virusvspacers_blastn.tsv'
+    print("* initialize ComputeFeatures")
+    test = ComputeFeatures(virus_directory_path, host_directory_path)
+    print("* add blastn files")
+    test.add_blastn_files(blastn_path, spacer_path)
+    print("* do setup()")
+    test.do_setup()
+    print("* run paralell")
+    test.run_parallel()
 
-
-test = ComputeFeatures(virus_directory_path, host_directory_path)
-test.add_blastn_files(blastn_path, spacer_path)
-test.do_setup()
-test.run_parallel()
-
-print(test.pair[6])
+    print(test.pair[6])
