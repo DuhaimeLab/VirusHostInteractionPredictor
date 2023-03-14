@@ -10,8 +10,8 @@ import os
 
 from multiprocessing import Pool
 
-from features.genomes_features import KmerProfile, d2Distance, HomologyMatch
-from util.read_sequence import read_sequence, read_headers
+from .features.genomes_features import KmerProfile, d2Distance, HomologyMatch
+from .util.read_sequence import read_sequence, read_headers
 
 
 @dataclass
@@ -231,9 +231,10 @@ class ComputeFeatures:
         '''
         '''
 
-        pairs = self.pairs
         with Pool(num_procs) as pool:
-            pool.map(self.compute_feature, pairs)
+            results = pool.map(self.compute_feature, self.pairs)
+        
+        self.computed_pairs = results
         
     
     def compute_feature(self, pair):
@@ -253,6 +254,8 @@ class ComputeFeatures:
 
         pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]
 
+        return pair
+
 
 
     def save_features(self):
@@ -261,8 +264,10 @@ class ComputeFeatures:
         pass
 
 
+
+#TODO: To transfer code below to tests
+'''
 if __name__ == "__main__":
-    #TODO: To transfer code below to tests
 
     virus_directory_path = './test_set/virus_sequences/'
     host_directory_path = './test_set/host_sequences/'
@@ -277,6 +282,7 @@ if __name__ == "__main__":
     print("* do setup()")
     test.do_setup()
     print("* run paralell")
-    test.run_parallel()
+    test.run_parallel(8)
 
-    print(test.pairs[6])
+    print(test.computed_pairs[6])
+'''
