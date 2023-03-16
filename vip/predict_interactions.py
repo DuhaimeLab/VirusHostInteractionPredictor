@@ -18,23 +18,61 @@ class PredictInteractions(ComputeFeatures):
         '''
         '''
 
-        self.model = None
+        self.model = joblib.load(path)
+
+    
+    def predict(self):
+        '''
+        '''
+        pass
+
+    
+    def convert_to_dataframe(self):
+        '''
+        '''
+
+        pairs = []
+        
+        k3dist = []
+        k6dist = []
+        GCdiff = []
+        Homology = []
+
+        for pair in self.computed_pairs:
+            virus_host = str(pair.virus + ':' + pair.host)
+            pairs.append(virus_host)
+
+            k3dist.append(pair.k3dist)
+            k6dist.append(pair.k6dist)
+            GCdiff.append(pair.GCdifference)
+            Homology.append(int(pair.homology_hit))
+        
+        self.features_df = pd.DataFrame(list(zip(pairs, GCdiff, k3dist, k6dist, Homology)),
+                                        columns = ['pairs', 'GCdiff', 'k3dist', 'k6dist', 'Homology'])
+        self.features_df = self.features_df.set_index('pairs')
+
+        return self.features_df
 
 
 
 
 
+if __name__ == '__main__':
+    virus_directory_path = './test_set/virus_sequences/'
+    host_directory_path = './test_set/host_sequences/'
 
-'''
-virus_directory_path = './test_set/virus_sequences/'
-host_directory_path = './test_set/host_sequences/'
+    blastn_path = './test_set/StaphStudy_virusvhosts.tsv'
+    spacer_path = './test_set/StaphStudy_virusvspacers_blastn.tsv'
 
-blastn_path = './test_set/StaphStudy_virusvhosts.tsv'
-spacer_path = './test_set/StaphStudy_virusvspacers_blastn.tsv'
+    model_path = './vip/gbrt.pkl'
 
 
-test = PredictInteractions(virus_directory_path, host_directory_path)
-test.add_blastn_files(blastn_path, spacer_path)
-test.setup()
-test.run()
-'''
+    test = PredictInteractions(virus_directory_path, host_directory_path)
+    test.add_blastn_files(blastn_path, spacer_path)
+    test.load_model(model_path)
+    test.do_setup()
+    test.run_parallel(6)
+    print(len(test.pairs))
+    print(len(test.computed_pairs))
+    test.convert_to_dataframe()
+    test.features_df.to_csv('test.tsv', sep='\t')
