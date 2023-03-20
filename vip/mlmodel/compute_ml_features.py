@@ -63,7 +63,7 @@ class ComputeFeatures:
 
         print('SETUP - ...initialize all pairs...')
         if custom_pairs:
-            pass
+            self.determine_custom_pairs(custom_pairs)
         else:
             self.determine_pairs()
 
@@ -108,10 +108,21 @@ class ComputeFeatures:
             self.pairs.append(Pairs(virus, host))
 
 
-    def custom_pairs(self):
+    def determine_custom_pairs(self,custom_pairs):
         '''
+        The input pair file needs to be virus first then host. Must be separated by tabs.
         '''
-        pass
+        
+        self.pairs = []
+        pairs_file = open(filepath,"r")
+        for pair_line in pairs_file:
+            pair_line = "\t".split(pair_line)
+            virus = pair_line[0]
+            host = pair_line[1]
+            if virus in self.all_files and host in self.all_files:
+                self.pairs.append(Pairs(pair_line[0],pair_line[1]))
+            else:
+                print("Warning: file pair "+virus+" and "+host+" are not all present. Please double check.")
 
 
     def get_headers(self):
