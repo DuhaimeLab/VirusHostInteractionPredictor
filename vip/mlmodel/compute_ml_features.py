@@ -7,12 +7,12 @@ from dataclasses import dataclass
 from Bio import SeqIO
 import itertools
 import os
+import pandas as pd
 
 from multiprocessing import Pool
 
 from .genomes_features import KmerProfile, d2Distance, HomologyMatch
 from .read_sequence import read_sequence, read_headers
-
 
 
 @dataclass
@@ -46,6 +46,8 @@ class ComputeFeatures:
             self.pairs_dict = pairs_dict
         else:
             self.pairs_dict = None
+        
+        self.features_df = None
 
     
     def add_blastn_files(self, blastn_path, spacer_path):
@@ -269,11 +271,40 @@ class ComputeFeatures:
         return pair
 
 
+    def convert_to_dataframe(self):
+        '''
+        '''
 
-    def save_features(self):
+        pairs = []
+        
+        k3dist = []
+        k6dist = []
+        GCdiff = []
+        Homology = []
+
+        for pair in self.computed_pairs:
+            virus_host = str(pair.virus + ':' + pair.host)
+            pairs.append(virus_host)
+
+            k3dist.append(pair.k3dist)
+            k6dist.append(pair.k6dist)
+            GCdiff.append(pair.GCdifference)
+            Homology.append(int(pair.homology_hit))
+        
+        self.features_df = pd.DataFrame(list(zip(pairs, GCdiff, k3dist, k6dist, Homology)),
+                                        columns = ['pairs', 'GCdiff', 'k3dist', 'k6dist', 'Homology'])
+        self.features_df = self.features_df.set_index('pairs')
+
+
+    def save_features(self, filename):
         '''
         '''
-        pass
+        
+        if self.features_df is None:
+            self.convert_to_dataframe()
+        
+        self.features_df.to_csv(filename, sep='\t')
+
 
 
 

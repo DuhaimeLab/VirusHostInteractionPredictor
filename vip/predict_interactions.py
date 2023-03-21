@@ -41,34 +41,6 @@ class PredictInteractions(ComputeFeatures):
 
 
 
-    
-    def convert_to_dataframe(self):
-        '''
-        '''
-
-        pairs = []
-        
-        k3dist = []
-        k6dist = []
-        GCdiff = []
-        Homology = []
-
-        for pair in self.computed_pairs:
-            virus_host = str(pair.virus + ':' + pair.host)
-            pairs.append(virus_host)
-
-            k3dist.append(pair.k3dist)
-            k6dist.append(pair.k6dist)
-            GCdiff.append(pair.GCdifference)
-            Homology.append(int(pair.homology_hit))
-        
-        self.features_df = pd.DataFrame(list(zip(pairs, GCdiff, k3dist, k6dist, Homology)),
-                                        columns = ['pairs', 'GCdiff', 'k3dist', 'k6dist', 'Homology'])
-        self.features_df = self.features_df.set_index('pairs')
-
-
-
-
 
 if __name__ == '__main__':
     virus_directory_path = './test_set/virus_sequences/'
