@@ -33,8 +33,19 @@ class PredictInteractions(ComputeFeatures):
         
         # run predictions
         print('MODEL - ...making predictions...')
-        predictions = self.model.predict(self.features_df)
-        probabilities = self.model.predict_proba(self.features_df)
+        self.predictions = self.model.predict(self.features_df)
+        self.scores = self.model.predict_proba(self.features_df)[:, 1]
+    
+
+    def save_predictions(self, filename):
+        '''
+        '''
+
+        self.features_df['Predictions'] = self.predictions
+        self.features_df['Scores'] = self.scores
+
+        self.features_df.to_csv(filename, sep='\t')
+
 
 
 
@@ -58,4 +69,5 @@ if __name__ == '__main__':
     test.do_setup()
     test.run_parallel(6)
     test.predict()
+    test.save_predictions('test_predictions.tsv')
 
