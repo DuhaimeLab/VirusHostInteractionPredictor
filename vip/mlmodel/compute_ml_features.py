@@ -10,8 +10,9 @@ import os
 
 from multiprocessing import Pool
 
-from .features.genomes_features import KmerProfile, d2Distance, HomologyMatch
-from .util.read_sequence import read_sequence, read_headers
+from .genomes_features import KmerProfile, d2Distance, HomologyMatch
+from .read_sequence import read_sequence, read_headers
+
 
 
 @dataclass
@@ -108,13 +109,13 @@ class ComputeFeatures:
             self.pairs.append(Pairs(virus, host))
 
 
-    def determine_custom_pairs(self,custom_pairs):
+    def determine_custom_pairs(self, custom_pairs):
         '''
         The input pair file needs to be virus first then host. Must be separated by tabs.
         '''
         
         self.pairs = []
-        pairs_file = open(filepath,"r")
+        pairs_file = open(custom_pairs, "r")
         for pair_line in pairs_file:
             pair_line = "\t".split(pair_line)
             virus = pair_line[0]

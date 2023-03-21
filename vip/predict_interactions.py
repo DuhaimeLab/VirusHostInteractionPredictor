@@ -24,7 +24,22 @@ class PredictInteractions(ComputeFeatures):
     def predict(self):
         '''
         '''
-        pass
+
+        # call method to transfer dataclass pairs into a dataframe
+        # this is a requirement for scikit-learn
+        self.convert_to_dataframe()
+
+        # TODO: check model was loaded
+        
+        # run predictions
+        print('MODEL - ...making predictions...')
+        predictions = self.model.predict(self.features_df)
+        probabilities = self.model.predict_proba(self.features_df)
+
+
+
+
+
 
     
     def convert_to_dataframe(self):
@@ -51,8 +66,6 @@ class PredictInteractions(ComputeFeatures):
                                         columns = ['pairs', 'GCdiff', 'k3dist', 'k6dist', 'Homology'])
         self.features_df = self.features_df.set_index('pairs')
 
-        return self.features_df
-
 
 
 
@@ -72,7 +85,5 @@ if __name__ == '__main__':
     test.load_model(model_path)
     test.do_setup()
     test.run_parallel(6)
-    print(len(test.pairs))
-    print(len(test.computed_pairs))
-    test.convert_to_dataframe()
-    test.features_df.to_csv('test.tsv', sep='\t')
+    test.predict()
+
