@@ -7,6 +7,16 @@ from .mlmodel.compute_ml_features import *
 
 class PredictInteractions(ComputeFeatures):
     '''
+    Add methods to ComputeFeatures related to making predictions. 
+
+    :param virus_directory: Path to the directory of viruses filenames. 1 fasta file = 1 unique virus
+    :type virus_directory: str
+    :param host_directory: Path to the directory of host filenames. 1 fasta file = 1 unique host
+    :type host_directory: str
+    :param ext: Extension of fasta filenames. It assumes it is .fasta.
+    :type ext: str
+    :param model: Pathway of model to be loaded
+    :type model: str
     '''
 
     def __init__(self, virus_directory, host_directory, ext='fasta', pairs_dict=None) -> None:
@@ -16,6 +26,7 @@ class PredictInteractions(ComputeFeatures):
     
     def load_model(self, path):
         '''
+        Load machine learning model. 
         '''
 
         self.model = joblib.load(path)
@@ -23,6 +34,8 @@ class PredictInteractions(ComputeFeatures):
     
     def predict(self):
         '''
+        Uses machine learning and uses signals of co-evolution to predict if virus
+        infect host. Also calculate score for each prediction. 
         '''
 
         # call method to transfer dataclass pairs into a dataframe
@@ -41,6 +54,10 @@ class PredictInteractions(ComputeFeatures):
 
     def save_predictions(self, filename):
         '''
+        Save predictions as a tsv file. 
+
+        :param filename: Name of output filename. 
+        :type filename: str
         '''
 
         self.features_df['Predictions'] = self.predictions
