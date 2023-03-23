@@ -2,7 +2,7 @@ import pandas as pd
 import joblib
 import importlib
 
-from mlmodel.compute_ml_features import *
+from .mlmodel.compute_ml_features import *
 
 
 class PredictInteractions(ComputeFeatures):
@@ -35,6 +35,8 @@ class PredictInteractions(ComputeFeatures):
         print('MODEL - ...making predictions...')
         self.predictions = self.model.predict(self.features_df)
         self.scores = self.model.predict_proba(self.features_df)[:, 1]
+
+        print('MODEL - ...predictions are done!...')
     
 
     def save_predictions(self, filename):
@@ -48,26 +50,4 @@ class PredictInteractions(ComputeFeatures):
 
 
 
-
-
-
-
-
-if __name__ == '__main__':
-    virus_directory_path = './test_set/virus_sequences/'
-    host_directory_path = './test_set/host_sequences/'
-
-    blastn_path = './test_set/StaphStudy_virusvhosts.tsv'
-    spacer_path = './test_set/StaphStudy_virusvspacers_blastn.tsv'
-
-    model_path = './vip/gbrt.pkl'
-
-
-    test = PredictInteractions(virus_directory_path, host_directory_path)
-    test.add_blastn_files(blastn_path, spacer_path)
-    test.load_model(model_path)
-    test.do_setup()
-    test.run_parallel(6)
-    test.predict()
-    test.save_predictions('test_predictions.tsv')
 
