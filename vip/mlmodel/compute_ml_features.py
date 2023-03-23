@@ -17,6 +17,16 @@ from .read_sequence import read_sequence, read_headers
 
 @dataclass
 class Pairs:
+    '''
+    Dataclass to store coevolution signals values for a specific virus-host pair. 
+    To initiaize this class, only the filename of the virus and host are needed. 
+    This is needed for the ComputeFeatures class below.
+
+    :param virus: Filename of virus of interest
+    :type virus: str
+    :param host: Filename of host of interest
+    :type host: str
+    '''
 
     virus: str
     host: str
@@ -35,6 +45,18 @@ class Pairs:
 
 class ComputeFeatures:
     '''
+    The ComputeFeatures class takes for input the virus directory (location of all viral fasta)
+    and the host directory (location of all hosts fasta). Its purpose is to determine all possible
+    pairs to be computed, and calls on other classes to calculate signals of co-evolution. 
+    In other words, this class stitch all the code together and contans the necessary setup 
+    to compute to each individual virus-host pair signals of co-evolution. 
+
+    :param virus_directory: Path to the directory of viruses filenames. 1 fasta file = 1 unique virus
+    :type virus_directory: str
+    :param host_directory: Path to the directory of host filenames. 1 fasta file = 1 unique host
+    :type host_directory: str
+    :param ext: Extension of fasta filenames. It assumes it is .fasta.
+    :type ext: str
     '''
 
     def __init__(self, virus_directory, host_directory, ext='fasta', pairs_dict=None) -> None:
@@ -52,6 +74,13 @@ class ComputeFeatures:
     
     def add_blastn_files(self, blastn_path, spacer_path):
         '''
+        Add blastn path for viruses against hosts and viruses against spacers. 
+        Needed for homology features. 
+
+        :param blastn_path: Path to location of blastn output for viruses against hosts
+        :type blastn_path: str
+        :param spacer_path: Path to location of blastn output for viruses against spacers
+        :type blastn_spath: str
         '''
         self.blastn_path = blastn_path
         self.spacer_path = spacer_path
@@ -59,6 +88,9 @@ class ComputeFeatures:
     
     def do_setup(self, custom_pairs = False):
         '''
+        This method call on other methods to determine all possible virus-host pairs, get fasta headers, 
+        read blastn outputs, and computes GC content and k-mer profiles. 
+        The methods it calls on are defined below. 
         '''
 
         print('SETUP - ...indexing fasta filenames for viruses and hosts...')
@@ -84,6 +116,7 @@ class ComputeFeatures:
 
     def list_files(self):
         '''
+        List all fasta file in the virus and host directories. 
         '''
         self.virus_filenames = [f for f in os.listdir(self.virus_directory) if f.endswith('.' + self.ext)]
         self.host_filenames = [f for f in os.listdir(self.host_directory) if f.endswith('.' + self.ext)]
@@ -92,6 +125,8 @@ class ComputeFeatures:
 
     def determine_pairs(self):
         '''
+        This method determine all possible virus-host pairs. This assume that each virus should be tested against
+        each host. The method also initialize the pair dataclass for each possible virus-host pair combination. 
         '''
         total_interactions = len(self.virus_filenames) * len(self.host_filenames)
         print(f'-------> There are {len(self.virus_filenames)} viral sequences')
@@ -130,6 +165,8 @@ class ComputeFeatures:
 
     def get_headers(self):
         '''
+        Get headers in fasta files. This is because some fasta files might have multiple > in them. This is needed
+        to map which blast hit came from which virus/host. 
         '''
         header_filename = {}
 
@@ -150,6 +187,8 @@ class ComputeFeatures:
     
     def process_blastn(self):
         '''
+        Read blastn file and store hits as a dictionary. Keys of the dictionary are viruses. For each key, then 
+        there is a list of hosts that had a homology hit with that virus. 
         '''
         self.blastn = {}
 
@@ -172,6 +211,8 @@ class ComputeFeatures:
 
     def process_spacers(self):
         '''
+        Read spacer file and store hits as a dictionary. Key of the dictionary are viruses. For each keym then there 
+        is a list of hosts that had a homology hit with that virus. 
         '''
         self.spacers = {}
 
@@ -194,6 +235,8 @@ class ComputeFeatures:
 
     def generate_kmer_profiles(self):
         '''
+        Method to compute the GC content, kmer profile with k=3, and kmer profile with k=6, for each fasta file
+        (viruses and hosts both included).
         '''
 
         self.GCcontent = dict.fromkeys(self.all_files)
@@ -231,18 +274,15 @@ class ComputeFeatures:
             seq_profile = KmerProfile(seq, k=6)
             seq_profile.generate_profile()
             self.k6profiles[host] = seq_profile
-
-
-    def run(self):
-        '''
-        '''
-
-        for pair in self.pairs:
-            self.compute_feature(pair)
         
 
     def run_parallel(self, num_procs=6):
         '''
+        Call the compute_feature method to compute features for each virus-host pair. This step is parallelized 
+        to significantly improve run time. 
+
+        :param num_procs: Number of core to be used. 
+        :type num_procs: int
         '''
 
         with Pool(num_procs) as pool:
@@ -253,6 +293,11 @@ class ComputeFeatures:
     
     def compute_feature(self, pair):
         '''
+        Calls on feature classes to compute genome level features. Returns the signals of coevolution for 
+        the given pair. 
+
+        :param pair: pair Dataclass. 
+        :type pair: Pairs
         '''
 
         print(f'-------> current pair: {pair.virus} | {pair.host}')
@@ -273,6 +318,7 @@ class ComputeFeatures:
 
     def convert_to_dataframe(self):
         '''
+        Convert the list of Pairs into a Pandas dataframe.
         '''
 
         pairs = []
@@ -298,6 +344,7 @@ class ComputeFeatures:
 
     def save_features(self, filename):
         '''
+        This is an optional method. This allow user to save the computed features as a tsv file. 
         '''
         
         if self.features_df is None:
@@ -305,27 +352,3 @@ class ComputeFeatures:
         
         self.features_df.to_csv(filename, sep='\t')
 
-
-
-
-#TODO: To transfer code below to tests
-'''
-if __name__ == "__main__":
-
-    virus_directory_path = './test_set/virus_sequences/'
-    host_directory_path = './test_set/host_sequences/'
-
-    blastn_path = './test_set/StaphStudy_virusvhosts.tsv'
-    spacer_path = './test_set/StaphStudy_virusvspacers_blastn.tsv'
-
-    print("* initialize ComputeFeatures")
-    test = ComputeFeatures(virus_directory_path, host_directory_path)
-    print("* add blastn files")
-    test.add_blastn_files(blastn_path, spacer_path)
-    print("* do setup()")
-    test.do_setup()
-    print("* run paralell")
-    test.run_parallel(8)
-
-    print(test.computed_pairs[6])
-'''
