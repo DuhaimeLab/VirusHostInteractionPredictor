@@ -3,9 +3,9 @@
 
 ## Introduction 
 
-**Goal**: Predict hosts for virus of interest from sequence data (fasta files) 
-**Input**: Sequences for viruses and hosts of interest and the blast results between viruses and hosts, and between viruses and spacers. 
-**Output**: Predictions and score for each virus-host pair. This can be used to plot virus-host infection network. 
+**Goal**: Predict hosts for virus of interest from sequence data (fasta files)  
+**Input**: Sequences for viruses and hosts of interest and the blast results between viruses and hosts, and between viruses and spacers.  
+**Output**: Predictions and score for each virus-host pair. This can be used to plot virus-host infection network.  
 
 
 ## Requirements
