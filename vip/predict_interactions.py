@@ -19,8 +19,8 @@ class PredictInteractions(ComputeFeatures):
     :type model: str
     '''
 
-    def __init__(self, virus_directory, host_directory, ext='fasta', pairs_dict=None) -> None:
-        super().__init__(virus_directory, host_directory, ext, pairs_dict)
+    def __init__(self, virus_directory, host_directory, ext='fasta', pairs_of_interest=None) -> None:
+        super().__init__(virus_directory, host_directory, ext, pairs_of_interest)
         self.model = None
     
     

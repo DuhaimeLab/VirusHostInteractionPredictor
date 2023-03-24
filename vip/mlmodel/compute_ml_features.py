@@ -59,15 +59,15 @@ class ComputeFeatures:
     :type ext: str
     '''
 
-    def __init__(self, virus_directory, host_directory, ext='fasta', pairs_dict=None) -> None:
+    def __init__(self, virus_directory, host_directory, ext='fasta', pairs_of_interest=None) -> None:
         self.virus_directory = virus_directory
         self.host_directory = host_directory
         self.ext = ext
 
-        if pairs_dict:
-            self.pairs_dict = pairs_dict
+        if pairs_of_interest:
+            self.pairs_of_interest = pairs_of_interest
         else:
-            self.pairs_dict = None
+            self.pairs_of_interest = None
         
         self.features_df = None
 
@@ -86,7 +86,7 @@ class ComputeFeatures:
         self.spacer_path = spacer_path
 
     
-    def do_setup(self, custom_pairs = False):
+    def do_setup(self):
         '''
         This method call on other methods to determine all possible virus-host pairs, get fasta headers, 
         read blastn outputs, and computes GC content and k-mer profiles. 
@@ -97,8 +97,9 @@ class ComputeFeatures:
         self.list_files()
 
         print('SETUP - ...initialize all pairs...')
-        if custom_pairs:
-            self.determine_custom_pairs(custom_pairs)
+        print(self.pairs_of_interest)
+        if self.pairs_of_interest:
+            self.determine_custom_pairs(self.pairs_of_interest)
         else:
             self.determine_pairs()
 
@@ -152,15 +153,19 @@ class ComputeFeatures:
         '''
         
         self.pairs = []
-        pairs_file = open(custom_pairs, "r")
-        for pair_line in pairs_file:
-            pair_line = "\t".split(pair_line)
-            virus = pair_line[0]
-            host = pair_line[1]
-            if virus in self.all_files and host in self.all_files:
-                self.pairs.append(Pairs(pair_line[0],pair_line[1]))
-            else:
-                print("Warning: file pair "+virus+" and "+host+" are not all present. Please double check.")
+        print('reading pairs file')
+        
+        with open(custom_pairs, 'r') as f:
+            lines = [line.rstrip() for line in f]
+            for pair in lines:
+                split = pair.split('\t')
+                virus = split[0]
+                host = split[1]
+
+                if virus in self.virus_filenames and host in self.host_filenames:
+                    self.pairs.append(Pairs(virus, host))
+                else:
+                    print("Warning: file pair "+virus+" and "+host+" are not all present. Please double check.")
 
 
     def get_headers(self):
@@ -200,8 +205,8 @@ class ComputeFeatures:
                 virus_acc = split[0]
                 host_acc = split[1]
                 # switch to naming by filenames
-                virus = self.headers[virus_acc]
-                host = self.headers[host_acc]
+                virus = self.headers.get(virus_acc, 'NA')
+                host = self.headers.get(host_acc, 'NA')
                 # add virus host relation to dictionary
                 if virus not in self.blastn:
                     self.blastn[virus] = [host]
