@@ -1,4 +1,4 @@
-from vip.mlmodel.features.genomes_features import KmerProfile, d2Distance
+from vip.mlmodel.genomes_features import KmerProfile, d2Distance
 
 def test_KmerProfile_generate_profile():
     # test 1 (GC content calculation)

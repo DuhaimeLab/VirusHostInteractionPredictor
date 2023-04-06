@@ -1,4 +1,4 @@
-from vip.mlmodel.features.util.read_sequence import read_sequence
+from vip.mlmodel.read_sequence import read_sequence
 
 seq = '''AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
 CTCGCTGAAGTACTATTAGATGTAGACGTGCTTGCGCTTATCGATTCAGAAGTACTTGTACTTTCTGAAC
@@ -23,7 +23,7 @@ cleaned_seq = seq.replace('\n', '') #remove \n created by long string
 
 def test_read_sequence():
     # test 1 - check length of sequences match
-    filename = 'vip/tests/datatests/test_sequence.fasta'
+    filename = 'tests/datatests/test_sequence.fasta'
     res = read_sequence(filename)
     assert len(res) == len(cleaned_seq)
 

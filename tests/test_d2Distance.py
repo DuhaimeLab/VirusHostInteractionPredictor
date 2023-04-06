@@ -1,4 +1,4 @@
-from vip.mlmodel.features.genomes_features import d2Distance, KmerProfile
+from vip.mlmodel.genomes_features import d2Distance, KmerProfile
 import numpy as np
 
 def test_d2Distance_init():
