@@ -1,0 +1,184 @@
+---
+title: "Analysis of VIP output"
+author: "Eric Bastien"
+date: "2023-04-07"
+output: html_document
+---
+
+In this tutorial, the output of VIP will be analyzed. VIP sequences of viruses and hosts as input, and output a datatable of predicted interactions between 
+for each possible virus-host pair (predictions are either infection or non-infection). 
+
+For real dataset, I strongly recommend using an HPC since the total possible virus-host pairs can increase very fast.
+
+A tutorial for how to run VIP can be found in the tutorial folder. 
+
+For this tutorial, I will be using sequences from this paper: https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-018-0522-4
+
+For this dataset, the predictions were done on Great Lakes. In this tutorial, we will be exploring the results of the predictions. 
+
+First, let's load some R libraries. 
+```{r}
+library(tidyverse)
+library(ggthemes)
+```
+
+Custom ggplot theme
+```{r ggplot_theme}
+# Theme Publication for ggplot
+theme_Publication <- function(base_size=14) { # can add base_family = "Helvetica"
+      (theme_foundation(base_size = base_size)
+       + theme(plot.title = element_text(face = "bold", size = rel(1.2), hjust = 0.5),
+               text = element_text(),
+               panel.background = element_rect(colour = NA),
+               plot.background = element_rect(colour = NA),
+               panel.border = element_rect(colour = NA),
+               axis.title = element_text(face = "bold",size = rel(1)),
+               axis.title.y = element_text(angle = 90,vjust = 2),
+               axis.title.x = element_text(vjust = -0.2),
+               axis.text = element_text(),
+               axis.line = element_line(colour = "black"),
+               axis.ticks = element_line(),
+               panel.grid.major = element_line(colour = "#f0f0f0"),
+               panel.grid.minor = element_blank(),
+               legend.key = element_rect(colour = NA),
+               legend.position = "bottom",
+               legend.direction = "horizontal",
+               legend.key.size = unit(0.2, "cm"),
+               legend.spacing = unit(0, "cm"),
+               legend.title = element_text(face = "italic"),
+               plot.margin = unit(c(10,5,5,5),"mm"),
+               strip.background = element_rect(colour = "#f0f0f0", fill = "#f0f0f0"),
+               strip.text = element_text(face = "bold")
+          ))
+}
+
+# Set theme for all plots in this document
+theme_set(theme_Publication())
+
+```
+
+Then then let's load the prediction file. 
+```{r}
+predictions <- read_tsv('wetlands_predictions.tsv') %>%
+  separate(col=pairs, c('phage', 'host'), sep=':concatenated_', remove=FALSE) %>%
+  # renaming 0 and 1 to noninfection and infection
+  mutate(Predictions = replace(Predictions, Predictions==0, 'Non-Infection')) %>%
+  mutate(Predictions = replace(Predictions, Predictions==1, 'Infection')) %>%
+  select(-pairs)
+
+head(predictions)
+```
+
+The table above is an example of the output from VIP. Each row represent an unique virus-host pairs. By default, all possible virus-host pairs are considered. 
+Then each subsequent columns shows the signal of coevolution for that pair, from GC difference to k-mer profiles similarities and if they share some DNA sequences. 
+Finally, the last two columns are the predictions. The InfProbabilities can be thought as the score of the prediction. 
+
+Because the predictions is fairly large, 52999 total rows, plotting the network in R is not recommended. Instead, we will explore the output in other ways. 
+
+First, let's explore the score distribution. Ideally, we want the majority of the data to be close to 0 (strongly predict non-infection) or close to 1 (strongly predict infection). 
+Any values in between represent predictions where the model is unsure about the prediction. 
+```{r score_distribution_Wetland, fig.height=6, fig.width=8}
+ggplot(predictions, aes(x=InfProbabilities, fill=Predictions)) +
+  geom_histogram(color='white', binwidth=0.01) +
+  scale_fill_manual(values=c('Infection'='orange', 'Non-Infection'='#41039f')) +
+  scale_y_continuous(expand=c(0,0)) +
+  scale_x_continuous(expand=c(0,0)) +
+  theme(
+      legend.key.size = unit(0.7, 'cm')) +
+  labs(
+    x = 'Confidence Score', 
+    y = 'Count', 
+    title = 'Wetland study'
+  )
+```
+
+Next, let's determine if all viruses were predicted to infect at least one host. 
+For this, I will make a function that will subset the predictions by phage name, and determine how many hosts the phage was predicted to infect. 
+```{r}
+scores_per_virus <- function(dataset){
+  phagename <- unique(dataset$phage)
+  number_phages <- length(phagename)
+  
+  minvalue <- vector(mode='numeric', number_phages)
+  maxvalue <- vector(mode='numeric', number_phages)
+  
+  counter <- 0 
+  
+  for(i in phagename){
+    counter <- counter + 1
+    subset <- dataset[which(dataset$phage==i), ]
+    minvalue[counter] <- min(subset$InfProbabilities)
+    maxvalue[counter] <- max(subset$InfProbabilities)
+  }
+  
+  df <- data.frame(phagename, minvalue, maxvalue)
+  return(df)
+}
+
+```
+
+Let's apply the function to our prediction datable. 
+```{r}
+minmax <- scores_per_virus(predictions)
+```
+
+```{r minmaxdots_sanitycheck_Wetland, fig.height=7, fig.width=8}
+ggplot(minmax, aes(x=minvalue, y=maxvalue)) +
+  geom_point(alpha=0.2) +
+  ylim(0,1) + xlim(0,1) +
+  geom_hline(yintercept = 0.5) +
+  geom_vline(xintercept = 0.5) +
+  geom_hline(yintercept = 0.93, linetype='dashed') +
+  annotate('text', x=0.25, y=0.75, label='Predicted that phage\ninfect some host', size=5) +
+  annotate('text', x=0.25, y=0.25, label='Predicted that phage\ninfect no host', size=5) +
+  annotate('text', x=0.75, y=0.75, label='Predicted that phage\ninfect all host', size=5) +
+  annotate('text', x=0.95, y=0.96, label='Score = 0.93', size=5) +
+  labs(
+    x = 'Minimum score value', 
+    y = 'Maximum score value'
+  )
+
+```
+
+In this type of plot, we can divide into four quadrants: 
+1. The bottom left shows viruses from which the model predicted they could not infect any hosts. 
+2. Bottom right has no meaning
+3. Top left show viruses from which the model predicted it could infect at LEAST 1 host. 
+4. Top right show viruses from which the model predicted that they could infect every single host. 
+
+Typically, we would expect the majority of the data to fall into the top left category. 
+
+Below is a version where we used density rather than dot to show the data. 
+
+```{r minmaxdensity_sanitycheck_Wetland, fig.height=7, fig.width=8}
+ggplot(minmax, aes(x=minvalue, y=maxvalue)) +
+  geom_bin2d(bins=100) +
+  ylim(-0.01,1.01) + xlim(-0.01,1.01) +
+  geom_hline(yintercept = 0.5) +
+  geom_vline(xintercept = 0.5) +
+  geom_hline(yintercept = 0.93, linetype='dashed') +
+  annotate('text', x=0.25, y=0.75, label='Predicted that phage\ninfect some host', size=5) +
+  annotate('text', x=0.25, y=0.25, label='Predicted that phage\ninfect no host', size=5) +
+  annotate('text', x=0.75, y=0.75, label='Predicted that phage\ninfect all host', size=5) +
+  annotate('text', x=0.86, y=0.96, label='Score = 0.93', size=5) +
+  theme(
+    legend.key.size = unit(1, 'centimeters')
+  ) +
+  labs(
+    x = 'Minimum score value', 
+    y = 'Maximum score value'
+  )
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
