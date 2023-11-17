@@ -1,9 +1,0 @@
-LICENSE
-README.md
-setup.py
-VirusInfectionPredictor_project.egg-info/PKG-INFO
-VirusInfectionPredictor_project.egg-info/SOURCES.txt
-VirusInfectionPredictor_project.egg-info/dependency_links.txt
-VirusInfectionPredictor_project.egg-info/top_level.txt
-vip/__init__.py
-vip/predict_interactions.py
