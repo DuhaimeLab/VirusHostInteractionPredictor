@@ -1,5 +1,4 @@
-# Virus Infection Predictor (VIP)
-
+# Virus Host Infection Predictor (VHIP)
 
 ## Introduction 
 
@@ -11,16 +10,13 @@
 ## Requirements
 
 Before the tool can be used, you will need to:
-1. Create a virus and a host directory. Each fasta file should only represent 1 host/virus.
+1. Create a virus and a host directory. The virus and host sequences need to be in separate folders. Each fasta file should only represent 1 host or virus.
 2. Run blastn between viruses and hosts. Also run CRISPRCasFinder on hosts sequences, then blastn between viruses and the spacers (output of CRISPRCasFinder). 
-3. Create a conda environment named `vip` with the modules/packages that are in the `requirements.txt` file. 
-
-An example test set is provided. For the example, the directories are already created (`/test_set`) and the blastn have already been computed. 
+3. Create a conda environment named `vhip` with the modules/packages that are in the `requirements.txt` file. 
 
 
-## To run the tool 
+## Tutorial
 
-To showcase how this tool work, I made a file named `example.ipynb` to showcase the setup needed to run the tool. 
-
-To use it for your own purposes, you will need to modify the user input code chunk. 
+A tutorial is included in the `tutorials/` folder, with a test dataset. 
+The test dataset include sequences for hosts, viruses, and the blastn files (viruses against spacers, and viruses against host sequences).
 
