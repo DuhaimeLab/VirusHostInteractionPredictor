@@ -5,16 +5,20 @@ description = ""
 packages = [
     { include = "vhip", from = "src" },
 ]
-authors = ["Your Name <you@example.com>"]
+authors = ["Eric Bastien <gbastien@umich.edu>"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-numpy = "^1.26.2"
-pandas = "^2.1.3"
-scikit-learn = "^1.3.2"
+python = "^3.9"
+numpy = "^1.25.2"
+pandas = {version = "^2.0.3", extras = ["computation"]}
+scikit-learn = "^1.2.2"
+biopython = "^1.78"
 
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.26.0"
 
 [build-system]
 requires = ["poetry-core"]
