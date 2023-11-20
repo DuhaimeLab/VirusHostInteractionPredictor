@@ -1,13 +1,11 @@
+# Project specific ignores
 *.bkp
 *.dtmp
-*.pyc
-
-__pycache__
-*.egginfo
-
 data/sequences/*
 /design_documents/*
+.VSCodeCounter/*
 
+# gitignore.io template
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,macos,windows,linux,pycharm
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,macos,windows,linux,pycharm
 
