@@ -1,6 +1,5 @@
 import pandas as pd
-import joblib
-import importlib
+import skops.io as sio
 
 from .mlmodel.compute_ml_features import *
 
@@ -23,16 +22,23 @@ class PredictInteractions(ComputeFeatures):
         super().__init__(virus_directory, host_directory, ext, pairs_of_interest)
         self.model = None
     
-    
-    def load_model(self, path):
+    def load_model(self, path) -> None:
         '''
         Load machine learning model. 
         '''
 
-        self.model = joblib.load(path)
+        self.model = sio.load(path, trusted=True)
 
-    
-    def predict(self):
+
+    def load_model_user(self, ml_model): 
+        '''
+        Take user model. 
+        '''
+
+        self.model = ml_model
+
+
+    def predict(self) -> None:
         '''
         Uses machine learning and uses signals of co-evolution to predict if virus
         infect host. Also calculate score for each prediction. 
