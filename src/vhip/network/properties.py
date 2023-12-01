@@ -3,7 +3,7 @@ import numpy as np
 
 
 '''
-Adjacency matrix class that takes for input a numpy 2d array. 
+Adjacency matrix class that takes for input a numpy 2d array.
 
 '''
 
@@ -34,7 +34,7 @@ class AdjacencyMatrix:
             pair1 = self.adj[x,]
             pair2 = self.adj[y,]
 
-            N_row += self.compare(pair1, pair2)    
+            N_row += self.compare(pair1, pair2)
 
         # generate list of columns to compare
         cols_to_compare = self.pairs(axis=1)
@@ -44,7 +44,7 @@ class AdjacencyMatrix:
             print(pair1, pair2)
 
             N_col += self.compare(pair1, pair2)
-        
+
         print(N_row, N_col)
         self.NODF = (N_row + N_col) / 2
 
@@ -60,7 +60,7 @@ class AdjacencyMatrix:
             self.sum_rows.append((sum(row), i))
         for i, col in enumerate(self.adj.T):
             self.sum_cols.append((sum(col), i))
-        
+
         # descending order for sum_rows and sum_cols
         self.sum_rows = sorted(self.sum_rows, reverse=True)
         self.sum_cols = sorted(self.sum_cols, reverse=True)
@@ -74,7 +74,7 @@ class AdjacencyMatrix:
         self.adj = self.adj[:,new_col_order]
         self.sorted = True
 
-        
+
     def pairs(self, axis=0):
         lst = []
         for i in range(0, self.shape[axis]):
@@ -97,17 +97,17 @@ class AdjacencyMatrix:
                 elif i == 0 and j == 1:
                     total += 1
             val = counter / total
-        
+
         return val * 10
-    
 
 
 
 
 
-unsorted = np.array([[0,0,0,1,1], 
+
+unsorted = np.array([[0,0,0,1,1],
                      [0,1,1,1,0],
-                     [0,0,0,1,1], 
+                     [0,0,0,1,1],
                      [0,0,1,1,1],
                      [1,1,1,0,1]])
 

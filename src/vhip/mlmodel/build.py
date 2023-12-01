@@ -3,8 +3,6 @@
 '''
 
 from sklearn.model_selection import train_test_split
-from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import ShuffleSplit
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.utils import resample
 
@@ -13,7 +11,7 @@ import pandas as pd
 class BuildModel:
 
     def __init__(self, training_data_path) -> None:
-        
+
         # load training data
         data = pd.read_csv(training_data_path)
         data = data.set_index('pairs')
@@ -26,7 +24,7 @@ class BuildModel:
         tmp = pd.concat([noninf_downsample, inf_messages])
 
 
-        # select relevant rows for machine learning model 
+        # select relevant rows for machine learning model
         self.ml_input = tmp[['GCdiff', 'k3dist', 'k6dist', 'Homology']]
         print('The dataframe is made of {} rows and {} columns!'.format(self.ml_input.shape[0], self.ml_input.shape[1]))
 
@@ -42,18 +40,18 @@ class BuildModel:
 
 
     def build(self):
-        
+
         X_train, X_test, y_train, y_test = train_test_split(self.ml_input,
-                                                            self.ml_target, 
-                                                            random_state=5, 
-                                                            test_size=0.3, 
+                                                            self.ml_target,
+                                                            random_state=5,
+                                                            test_size=0.3,
                                                             train_size=0.7)
 
-        self.gbrt = GradientBoostingClassifier(random_state=42, 
-                                               max_depth=self.default_max_depth, 
+        self.gbrt = GradientBoostingClassifier(random_state=42,
+                                               max_depth=self.default_max_depth,
                                                learning_rate=self.default_learning_rate,
                                                loss=self.default_loss)
-        
+
         self.gbrt.fit(X_train, y_train)
 
         print("Accuracy on training set: {:.3f}".format(self.gbrt.score(X_train, y_train)))
