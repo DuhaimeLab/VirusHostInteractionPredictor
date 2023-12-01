@@ -1,15 +1,13 @@
 import numpy as np
 
 
-
-'''
+"""
 Adjacency matrix class that takes for input a numpy 2d array.
 
-'''
+"""
 
 
 class AdjacencyMatrix:
-
     def __init__(self, matrix):
         self.adj = matrix
 
@@ -18,9 +16,7 @@ class AdjacencyMatrix:
 
         self.NODF = None
 
-
     def nestedness(self):
-
         # sort matrix if it has not been done
         if self.sorted == False:
             self.sort()
@@ -30,7 +26,7 @@ class AdjacencyMatrix:
 
         # generate list of rows to compare
         rows_to_compare = self.pairs(axis=0)
-        for x,y in rows_to_compare:
+        for x, y in rows_to_compare:
             pair1 = self.adj[x,]
             pair2 = self.adj[y,]
 
@@ -39,8 +35,8 @@ class AdjacencyMatrix:
         # generate list of columns to compare
         cols_to_compare = self.pairs(axis=1)
         for x, y in cols_to_compare:
-            pair1 = self.adj[:,x]
-            pair2 = self.adj[:,y]
+            pair1 = self.adj[:, x]
+            pair2 = self.adj[:, y]
             print(pair1, pair2)
 
             N_col += self.compare(pair1, pair2)
@@ -48,9 +44,7 @@ class AdjacencyMatrix:
         print(N_row, N_col)
         self.NODF = (N_row + N_col) / 2
 
-
     def sort(self):
-
         # calculate sums of 1s for rows and columns, and stores as a list of tuples
         # first element of tuple: sum | second element: index
         self.sum_rows = []
@@ -71,21 +65,18 @@ class AdjacencyMatrix:
 
         # rearrange matrix
         self.adj = self.adj[new_row_order,]
-        self.adj = self.adj[:,new_col_order]
+        self.adj = self.adj[:, new_col_order]
         self.sorted = True
-
 
     def pairs(self, axis=0):
         lst = []
         for i in range(0, self.shape[axis]):
-            for j in range(i+1, self.shape[axis]):
+            for j in range(i + 1, self.shape[axis]):
                 lst.append((i, j))
         return lst
 
-
     def compare(self, x, y):
-
-        if(sum(x) <= sum(y)):
+        if sum(x) <= sum(y):
             val = 0
         else:
             counter = 0
@@ -101,24 +92,17 @@ class AdjacencyMatrix:
         return val * 10
 
 
-
-
-
-
-unsorted = np.array([[0,0,0,1,1],
-                     [0,1,1,1,0],
-                     [0,0,0,1,1],
-                     [0,0,1,1,1],
-                     [1,1,1,0,1]])
+unsorted = np.array(
+    [
+        [0, 0, 0, 1, 1],
+        [0, 1, 1, 1, 0],
+        [0, 0, 0, 1, 1],
+        [0, 0, 1, 1, 1],
+        [1, 1, 1, 0, 1],
+    ]
+)
 
 
 test = AdjacencyMatrix(unsorted)
 test.nestedness()
 print(test.NODF)
-
-
-
-
-
-
-

@@ -1,8 +1,8 @@
 import csv
 
+
 # This function will read the csv file and create an output multifasta file
 def csv_to_multifasta(csv_file):
-
     # Create output filename
     output_filename = ""
     for c in csv_file:
@@ -17,16 +17,14 @@ def csv_to_multifasta(csv_file):
 
     # Open the csv file
     with open(csv_file) as csvfile:
-
         # Careful not to use the filenme as first param in reader
-        filereader = csv.reader(csvfile, delimiter=',')
+        filereader = csv.reader(csvfile, delimiter=",")
 
         # Dummy to avoid sending first row (description) to output
         entry = 0
 
         # Iterate through each row in the csv file
         for row in filereader:
-
             # Update entry number
             entry += 1
 
@@ -48,13 +46,11 @@ def csv_to_multifasta(csv_file):
 
             # Iterate character by character in content
             for c in content:
-
                 # Add char to info
                 info += c
 
                 # Check if it is the beginning of a header
                 if c == ">":
-
                     # Add sample and id
                     info += sample
                     info += " "
@@ -65,17 +61,18 @@ def csv_to_multifasta(csv_file):
                 if c == " ":
                     spaces += 1
                     if spaces > 1:
-                        info += '\n'
+                        info += "\n"
                         spaces = 0
-                    info += '\n'
+                    info += "\n"
 
             # Now send info to output file
             if entry > 1:
                 output.write(info)
-                output.write('\n\n')
+                output.write("\n\n")
 
         # end for
     # end with
+
 
 ###################### MAIN ####################################
 
@@ -83,4 +80,3 @@ string = input("Enter csv file: ")
 print("Concatenating to multifasta...")
 csv_to_multifasta(string)
 print("Done! Output has .fasta extension")
-
