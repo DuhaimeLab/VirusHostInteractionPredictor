@@ -1,0 +1,12 @@
+# Dependabot configuration
+version: 2
+updates:
+  # Python
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "⬆ "
+      prefix-development: "⬆ [dev] "
+    versioning-strategy: "increase-if-necessary"
