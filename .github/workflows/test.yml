@@ -1,0 +1,50 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  merge_group:
+
+env:
+  poetry_version: 1.7.1
+
+jobs:
+  check_and_lint:
+    name: Check and lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install Poetry and set up Python using cache
+      - name: Install Poetry
+        run: pipx install poetry==${{ env.poetry_version }}
+
+      # Run Poetry checks
+      - name: Check pyproject.toml and poetry.lock
+        run: |
+          poetry check
+          poetry check --lock
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version-file: "pyproject.toml"
+          cache: "poetry"
+
+      # Install dependencies and add virtualenv to path
+      - name: Install dependencies
+        run: |
+          poetry install
+          echo "$(poetry env info --path)/bin" >> $GITHUB_PATH
+
+      # Ruff
+      - name: Lint and check formatting with Ruff
+        run: |
+          ruff check --output-format=github .
+          ruff format --diff .
+
+      # Pyright
+      - name: Check with Pyright
+        run: pyright

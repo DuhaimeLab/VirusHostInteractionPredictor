@@ -1,4 +1,15 @@
+[project]
+# Standard project metadata.
+# This is kept alongside tool.poetry.* for compatibility with other tools.
+name = "virushostinteractionpredictor"
+version = "0.1.0"
+requires-python = ">=3.9"
+
+
 [tool.poetry]
+# Poetry configuration.
+# Some configuration kept here should be moved to [project] once Poetry adds full
+# support for PEP 621.
 name = "virushostinteractionpredictor"
 version = "0.1.0"
 description = ""
@@ -23,6 +34,30 @@ seaborn = "^0.13.0"
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.26.0"
 
+
+[tool.poetry.group.test.dependencies]
+ruff = "^0.1.6"
+pyright = "^1.1.336"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+# Ruff configuration
+
+# On top of the default `select` (E, F), enable pydocstyle (D), pycodestyle Warning (W).
+extend-select = ["D", "W"]
+
+# Ignore redundant rules when using formatter
+ignore = ["W191", "D206", "D300"]
+
+# Allow imports relative to the "src" directory
+src = ["src"]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.pyright]
+include = ["src"]
+typeCheckingMode = "strict"
