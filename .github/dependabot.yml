@@ -10,3 +10,10 @@ updates:
       prefix: "⬆ "
       prefix-development: "⬆ [dev] "
     versioning-strategy: "increase-if-necessary"
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "⬆ "
