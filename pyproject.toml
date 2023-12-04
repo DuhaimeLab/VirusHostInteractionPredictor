@@ -38,6 +38,8 @@ seaborn = "^0.13.0"
 [tool.poetry.group.test.dependencies]
 ruff = "^0.1.6"
 pyright = "^1.1.336"
+pytest = "^7.4.3"
+pytest-cov = "^4.1.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -61,3 +63,13 @@ convention = "google"
 [tool.pyright]
 include = ["src"]
 typeCheckingMode = "strict"
+
+[tool.pytest.ini_options]
+## pytest configuration
+
+addopts = [
+    "--cov=src"  # Generate coverage reports for source code
+]
+
+# Specify test directory so pytest does not have to search
+testpaths = ["tests"]
