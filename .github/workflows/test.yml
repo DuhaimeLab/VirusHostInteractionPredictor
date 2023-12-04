@@ -11,13 +11,13 @@ env:
   poetry_version: 1.7.1
 
 jobs:
-  check_and_lint:
-    name: Check and lint
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      # Install Poetry and set up Python using cache
+      # Install Poetry
       - name: Install Poetry
         run: pipx install poetry==${{ env.poetry_version }}
 
@@ -36,7 +36,7 @@ jobs:
       # Install dependencies and add virtualenv to path
       - name: Install dependencies
         run: |
-          poetry install
+          poetry install --only main,lint
           echo "$(poetry env info --path)/bin" >> $GITHUB_PATH
 
       # Ruff
@@ -48,3 +48,33 @@ jobs:
       # Pyright
       - name: Check with Pyright
         run: pyright
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install Poetry
+      - name: Install Poetry
+        run: pipx install poetry==${{ env.poetry_version }}
+
+      # Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "poetry"
+
+      # Install dependencies and add virtualenv to path
+      - name: Install dependencies
+        run: |
+          poetry install --only main,test
+          echo "$(poetry env info --path)/bin" >> $GITHUB_PATH
+
+      # Run tests
+      - name: Run tests
+        run: pytest
