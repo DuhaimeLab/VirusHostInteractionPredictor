@@ -3,7 +3,7 @@
 # This is kept alongside tool.poetry.* for compatibility with other tools.
 name = "virushostinteractionpredictor"
 version = "0.1.0"
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 
 
 [tool.poetry]
