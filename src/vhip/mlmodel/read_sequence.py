@@ -5,7 +5,7 @@ This module provides:
 - read_headers: retrieve the headers for fasta path
 '''
 
-from Bio import SeqIO
+from Bio import SeqIO #pyright: ignore[reportMissingTypeStubs]
 
 
 def read_sequence(path: str) -> str:
@@ -17,8 +17,8 @@ def read_sequence(path: str) -> str:
     Returns:
         str: nucleotide sequence
     '''
-    for record in SeqIO.parse(path, "fasta"):
-        return str(record.seq)
+    for record in SeqIO.parse(path, "fasta"): #pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
+        return str(record.seq) #pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
     return 'no sequence for given path file'
 
 
@@ -32,6 +32,6 @@ def read_headers(path: str) -> list[str]:
         list: list of all headers for a given fasta file
     '''
     result = []
-    for record in SeqIO.parse(path, "fasta"):
-        result.append(record.id)
-    return result
+    for record in SeqIO.parse(path, "fasta"): #pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
+        result.append(record.id) #pyright: ignore[reportUnknownMemberType]
+    return result #pyright: ignore[reportUnknownVariableType]
