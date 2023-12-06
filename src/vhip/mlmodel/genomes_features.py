@@ -13,12 +13,17 @@ class KmerProfile:
     '''Computes the k-mer profile for a given sequence.
 
     Args:
-        seq (str): nucleotide sequence
+        seq (str): ucleotide sequence
         k (int): k-length to be used when generating k-mer profile of sequence
     '''
 
     def __init__(self, seq: str, k: int) -> None:
-        '''Initialize class variables.'''
+        '''Initialize class variables.
+
+        Args:
+            seq (str): Sequence DNA for which to construct the k-mer profile. 
+            k (int): k-length to be used.
+        '''
         self.k = k
         self.seq = seq
         self.seqlen = len(seq)
