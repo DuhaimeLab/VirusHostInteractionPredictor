@@ -1,4 +1,6 @@
-"""This script calls methods and functions to compute signals of coevolutions.
+"""
+This script calls methods and functions to compute signals of coevolutions.
+
 Those signals are necessary for virus0-host predictions.
 """
 
@@ -27,12 +29,12 @@ class Pairs:
 
     virus: str
     host: str
-    interaction: int = None
+    interaction: int
 
     # genome level features
-    GCdifference: float = None
-    k3dist: float = None
-    k6dist: float = None
+    GCdifference: float
+    k3dist: float
+    k6dist: float
 
     homology_hit: bool = False
 
@@ -55,7 +57,11 @@ class ComputeFeatures:
     """
 
     def __init__(
-        self, virus_directory, host_directory, ext="fasta", pairs_of_interest=None
+        self,
+        virus_directory: str,
+        host_directory: str,
+        ext="fasta",
+        pairs_of_interest=None,
     ) -> None:
         self.virus_directory = virus_directory
         self.host_directory = host_directory

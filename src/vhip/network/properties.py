@@ -27,8 +27,12 @@ class AdjacencyMatrix:
         # generate list of rows to compare
         rows_to_compare = self.pairs(axis=0)
         for x, y in rows_to_compare:
-            pair1 = self.adj[x,]
-            pair2 = self.adj[y,]
+            pair1 = self.adj[
+                x,
+            ]
+            pair2 = self.adj[
+                y,
+            ]
 
             N_row += self.compare(pair1, pair2)
 
@@ -64,7 +68,9 @@ class AdjacencyMatrix:
         new_col_order = [x[1] for x in self.sum_cols]
 
         # rearrange matrix
-        self.adj = self.adj[new_row_order,]
+        self.adj = self.adj[
+            new_row_order,
+        ]
         self.adj = self.adj[:, new_col_order]
         self.sorted = True
 

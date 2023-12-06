@@ -4,13 +4,13 @@
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.utils import resample
+from sklearn.utils import resample  # pyright: ignore[reportUnknownVariableType]
 
 import pandas as pd
 
 
 class BuildModel:
-    def __init__(self, training_data_path) -> None:
+    def __init__(self, training_data_path: str) -> None:
         # load training data
         data = pd.read_csv(training_data_path)
         data = data.set_index("pairs")
