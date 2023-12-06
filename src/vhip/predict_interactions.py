@@ -1,39 +1,38 @@
-import skops.io as sio
+'''
+'''
 
-from .mlmodel.compute_ml_features import *
+import skops.io as sio #pyright: ignore[reportMissingTypeStubs]
+
+from .mlmodel.compute_ml_features import ComputeFeatures
 
 
 class PredictInteractions(ComputeFeatures):
-    """Add methods to ComputeFeatures related to making predictions.
+    '''Predict virus-host ecological interactions.
 
-    :param virus_directory: Path to the directory of viruses filenames. 1 fasta file = 1 unique virus
-    :type virus_directory: str
-    :param host_directory: Path to the directory of host filenames. 1 fasta file = 1 unique host
-    :type host_directory: str
-    :param ext: Extension of fasta filenames. It assumes it is .fasta.
-    :type ext: str
-    :param model: Pathway of model to be loaded
-    :type model: str
-    """
+    Args:
+        virus_directory (str): Pathway to the virus directory
+        host_directory (str): Pathway to the host directory
+        ext (str): Extension used for the fasta file. Default to fasta
+        model (str): Pathway to model to be loaded
+    '''
 
-    def __init__(
-        self, virus_directory, host_directory, ext="fasta", pairs_of_interest=None
-    ) -> None:
+    def __init__(self, virus_directory: str, host_directory: str, ext: str="fasta", pairs_of_interest=None) -> None:
+        '''Initialize class variables.'''
         super().__init__(virus_directory, host_directory, ext, pairs_of_interest)
         self.model = None
 
-    def load_model(self, path) -> None:
-        """Load machine learning model."""
+
+    def load_model(self, path: str) -> None:
+        '''Load machine learning model.
+
+        Args:
+            path (str): Pathway to model
+        '''
         self.model = sio.load(path, trusted=True)
 
-    def load_model_user(self, ml_model):
-        """Take user model."""
-        self.model = ml_model
 
     def predict(self) -> None:
-        """Uses machine learning and uses signals of co-evolution to predict if virus
-        infect host. Also calculate score for each prediction.
-        """
+        '''Make interaction prediction for each virus-host pair.'''
         # call method to transfer dataclass pairs into a dataframe
         # this is a requirement for scikit-learn
         self.convert_to_dataframe()
@@ -47,12 +46,13 @@ class PredictInteractions(ComputeFeatures):
 
         print("MODEL - ...predictions are done!...")
 
-    def save_predictions(self, filename):
-        """Save predictions as a tsv file.
 
-        :param filename: Name of output filename.
-        :type filename: str
-        """
+    def save_predictions(self, filename: str):
+        '''Save predictions as a tsv file.
+
+        Args:
+            filename (str): Filename to be used when saving predictions
+        '''
         self.features_df["Predictions"] = self.predictions
         self.features_df["Scores"] = self.scores
 

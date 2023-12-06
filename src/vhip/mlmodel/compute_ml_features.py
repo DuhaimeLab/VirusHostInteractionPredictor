@@ -290,7 +290,7 @@ class ComputeFeatures:
         self.computed_pairs = results
 
 
-    def compute_feature(self, pair: Pairs):
+    def compute_feature(self, pair: Pairs) -> Pairs:
         '''Compute all virus-host coevolution signals needed to predict interaction.
 
         Args:

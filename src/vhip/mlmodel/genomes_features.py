@@ -18,12 +18,7 @@ class KmerProfile:
     '''
 
     def __init__(self, seq: str, k: int) -> None:
-        '''Initialize class variables.
-
-        Args:
-            seq (str): Sequence DNA for which to construct the k-mer profile. 
-            k (int): k-length to be used.
-        '''
+        '''Initialize class variables.'''
         self.k = k
         self.seq = seq
         self.seqlen = len(seq)

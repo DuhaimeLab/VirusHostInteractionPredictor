@@ -1,14 +1,17 @@
+'''Adjacency matrix class that takes for input a numpy 2d array.'''
+
 import numpy as np
 
 
-"""
-Adjacency matrix class that takes for input a numpy 2d array.
-
-"""
-
-
 class AdjacencyMatrix:
-    def __init__(self, matrix):
+    '''Define class for virus-host interaction networks (VHINs).
+
+    Args:
+        matrix (np.array): Array representing interactions.
+    '''
+
+    def __init__(self, matrix) -> None:
+        '''Initializes class variables.'''
         self.adj = matrix
 
         self.sorted = False
@@ -16,9 +19,11 @@ class AdjacencyMatrix:
 
         self.NODF = None
 
-    def nestedness(self):
+
+    def nestedness(self) -> None:
+        '''Calculate nestedness using the NODF algorithm for the array.'''
         # sort matrix if it has not been done
-        if self.sorted == False:
+        if self.sorted is False:
             self.sort()
 
         N_row = 0
@@ -48,7 +53,9 @@ class AdjacencyMatrix:
         print(N_row, N_col)
         self.NODF = (N_row + N_col) / 2
 
-    def sort(self):
+
+    def sort(self) -> None:
+        '''Sort matrix.'''
         # calculate sums of 1s for rows and columns, and stores as a list of tuples
         # first element of tuple: sum | second element: index
         self.sum_rows = []
@@ -74,14 +81,27 @@ class AdjacencyMatrix:
         self.adj = self.adj[:, new_col_order]
         self.sorted = True
 
-    def pairs(self, axis=0):
+
+    def pairs(self, axis: int = 0) -> list[int]:
+        '''Determine all possible i-j pairs.
+
+        Args:
+            axis (int): Axis to be used when determining all pairs.
+        '''
         lst = []
         for i in range(0, self.shape[axis]):
             for j in range(i + 1, self.shape[axis]):
                 lst.append((i, j))
         return lst
 
-    def compare(self, x, y):
+
+    def compare(self, x: list[int], y: list[int]):
+        '''Compare two lists containing 0 and 1.
+
+        Args:
+            x (list[int]): first list
+            y (list[int]): second list
+        '''
         if sum(x) <= sum(y):
             val = 0
         else:
@@ -98,6 +118,8 @@ class AdjacencyMatrix:
         return val * 10
 
 
+#TODO: Export code below to be its own test
+
 unsorted = np.array(
     [
         [0, 0, 0, 1, 1],
@@ -107,7 +129,6 @@ unsorted = np.array(
         [1, 1, 1, 0, 1],
     ]
 )
-
 
 test = AdjacencyMatrix(unsorted)
 test.nestedness()
