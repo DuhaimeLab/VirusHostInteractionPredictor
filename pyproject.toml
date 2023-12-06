@@ -3,7 +3,7 @@
 # This is kept alongside tool.poetry.* for compatibility with other tools.
 name = "virushostinteractionpredictor"
 version = "0.1.0"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 
 
 [tool.poetry]
@@ -13,35 +13,32 @@ requires-python = ">=3.8"
 name = "virushostinteractionpredictor"
 version = "0.1.0"
 description = ""
-packages = [
-    { include = "vhip", from = "src" },
-]
+packages = [{ include = "vhip", from = "src" }]
 authors = ["Eric Bastien <gbastien@umich.edu>"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-numpy = "^1.25.2"
-pandas = {version = "^2.0.3", extras = ["computation"]}
-scikit-learn = "^1.2.2"
-biopython = "^1.78"
-skops = "^0.9.0"
+biopython = "^1.79"
+numpy = "^1.20"
+pandas = ">=1.1.0,<3.0.0"
+scikit-learn = "^1.0"
+skops = ">=0.8.0"
 
 
 [tool.poetry.group.dev.dependencies]
-ipykernel = "^6.26.0"
-matplotlib = "^3.8.2"
-seaborn = "^0.13.0"
-
+ipykernel = "*"
+matplotlib = "*"
+seaborn = "*"
 
 [tool.poetry.group.lint.dependencies]
-ruff = "^0.1.6"
-pyright = "^1.1.336"
+pyright = "==1.1.338"
+ruff = "==0.1.7"
 
 [tool.poetry.group.test.dependencies]
-pytest = "^7.4.3"
-pytest-cov = "^4.1.0"
+coverage = { version = "==7.3.2", extras = ["toml"] }
+pytest = "==7.4.3"
 
 [build-system]
 requires = ["poetry-core"]
@@ -69,9 +66,14 @@ typeCheckingMode = "strict"
 [tool.pytest.ini_options]
 ## pytest configuration
 
-addopts = [
-    "--cov=src"  # Generate coverage reports for source code
-]
-
 # Specify test directory so pytest does not have to search
 testpaths = ["tests"]
+
+[tool.coverage]
+## Coverage.py configuration
+
+branch = true
+concurrency = "multiprocessing"
+
+[tool.coverage.run]
+source = ["src"]
