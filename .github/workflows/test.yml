@@ -79,7 +79,7 @@ jobs:
 
   # This job does nothing and is only used for branch protection
   # https://github.com/marketplace/actions/alls-green#why
-  check:
+  alls-green:
     if: always()
     needs: [lint, test]
     runs-on: ubuntu-latest
