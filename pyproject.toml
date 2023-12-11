@@ -33,7 +33,7 @@ matplotlib = "*"
 seaborn = "*"
 
 [tool.poetry.group.lint.dependencies]
-pyright = "==1.1.338"
+pyright = "==1.1.339"
 ruff = "==0.1.7"
 
 [tool.poetry.group.test.dependencies]
