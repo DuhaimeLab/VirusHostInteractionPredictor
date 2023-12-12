@@ -1,17 +1,9 @@
-[project]
-# Standard project metadata.
-# This is kept alongside tool.poetry.* for compatibility with other tools.
-name = "virushostinteractionpredictor"
-version = "0.1.0"
-requires-python = ">=3.9"
-
-
 [tool.poetry]
 # Poetry configuration.
 # Some configuration kept here should be moved to [project] once Poetry adds full
 # support for PEP 621.
 name = "virushostinteractionpredictor"
-version = "0.1.0"
+version = "0.0.1"
 description = ""
 packages = [{ include = "vhip", from = "src" }]
 authors = ["Eric Bastien <gbastien@umich.edu>"]
@@ -55,6 +47,9 @@ ignore = ["W191", "D206", "D300"]
 
 # Allow imports relative to the "src" directory
 src = ["src"]
+
+# Specify a minimum Python version to target
+target-version = "py39"
 
 [tool.ruff.pydocstyle]
 convention = "google"
