@@ -7,10 +7,11 @@ on:
 
 jobs:
   build:
+    name: Build distribution 📦
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python 🐍
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
@@ -18,7 +19,7 @@ jobs:
         run: python3 -m pip install build --user
       - name: Build a binary wheel and source tarball
         run: python3 -m build
-      - name: Store the distribution packages 📦
+      - name: Store the distribution
         uses: actions/upload-artifact@v3
         with:
           name: python-package-distributions
@@ -36,13 +37,41 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - name: Download the distribution packages 📦
+      - name: Download the distribution
         uses: actions/download-artifact@v3
         with:
           name: python-package-distributions
           path: dist/
-      - name: Publish distribution 📦 to PyPI
+      - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+
+  github-release:
+    name: Create a GitHub Release
+    needs:
+      - publish-to-pypi
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # needed for making GitHub Releases
+      id-token: write # Needed for sigstore
+    steps:
+      - name: Download the distribution
+        uses: actions/download-artifact@v3
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Sign the distribution with Sigstore
+        uses: sigstore/gh-action-sigstore-python@v2.1.0
+        with:
+          inputs: >-
+            dist/*.whl
+            dist/*.tar.gz
+      - name: Release to GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*
+          draft: true
+          fail_on_unmatched_files: true
+          generate_release_notes: true
 
   publish-to-testpypi:
     name: Publish Python 🐍 distribution 📦 to TestPyPI
