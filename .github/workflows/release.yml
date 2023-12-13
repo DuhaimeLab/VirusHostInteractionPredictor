@@ -40,7 +40,7 @@ jobs:
     name: Validate tag
     runs-on: ubuntu-latest
     # If this workflow was not triggered by a release, it's a dry run (no uploads).
-    if: ${{ github.ref_type }} == 'tag'
+    if: ${{ github.ref_type == 'tag' }}
     steps:
       - uses: actions/checkout@v4
         with:
