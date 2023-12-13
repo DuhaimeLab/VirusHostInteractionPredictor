@@ -48,13 +48,13 @@ jobs:
       - name: Check tag consistency
         run: |
           version=$(grep "^version = " pyproject.toml | sed -e 's/version = "\(.*\)"/\1/g')
-          if [ "${{ github.ref_name }}" != "${version}" ]; then
-            echo "The input tag does not match the version from pyproject.toml:" >&2
+          if [ "${{ github.ref_name }}" != "v${version}" ]; then
+            echo "The release tag does not match the version from pyproject.toml:" >&2
             echo "${{ github.ref_name }}" >&2
-            echo "${version}" >&2
+            echo "v${version}" >&2
             exit 1
           else
-            echo "Releasing ${version}"
+            echo "Publishing ${version}"
           fi
 
   publish-to-pypi:
