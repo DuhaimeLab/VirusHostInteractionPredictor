@@ -1,15 +1,8 @@
 name: Release
 
 on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: "The version to tag, without the leading 'v'. If omitted, will initiate a dry run (no uploads)."
-        type: string
-      sha:
-        description: "The full sha of the commit to be released. If omitted, the latest commit on the default branch will be used."
-        default: ""
-        type: string
+  release:
+    types: [created]
   pull_request:
     paths:
       # When we change pyproject.toml, we want to ensure that the builds still work
@@ -46,29 +39,18 @@ jobs:
   validate-tag:
     name: Validate tag
     runs-on: ubuntu-latest
-    # If no input tag is set, it's a dry run (no uploads).
-    if: ${{ inputs.tag }}
+    # If this workflow was not triggered by a release, it's a dry run (no uploads).
+    if: ${{ github.ref_type }} == 'tag'
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main # We checkout the main branch to check for the commit
-      - name: Check main branch
-        if: ${{ inputs.sha }}
-        run: |
-          # Fetch the main branch since a shallow checkout is used by default
-          git fetch origin main --unshallow
-          if ! git branch --contains ${{ inputs.sha }} | grep -E '(^|\s)main$'; then
-            echo "The specified sha is not on the main branch" >&2
-            exit 1
-          fi
       - name: Check tag consistency
         run: |
-          # Switch to the commit we want to release
-          git checkout ${{ inputs.sha }}
           version=$(grep "^version = " pyproject.toml | sed -e 's/version = "\(.*\)"/\1/g')
-          if [ "${{ inputs.tag }}" != "${version}" ]; then
+          if [ "${{ github.ref_name }}" != "${version}" ]; then
             echo "The input tag does not match the version from pyproject.toml:" >&2
-            echo "${{ inputs.tag }}" >&2
+            echo "${{ github.ref_name }}" >&2
             echo "${version}" >&2
             exit 1
           else
@@ -77,8 +59,8 @@ jobs:
 
   publish-to-pypi:
     name: Publish to PyPI
-    # If you don't set an input tag, it's a dry run (no uploads).
-    if: ${{ inputs.tag }}
+    # If this workflow was not triggered by a release, it's a dry run (no uploads).
+    if: ${{ github.ref_type }} == 'tag'
     needs:
       - build
       - validate-tag
@@ -96,55 +78,6 @@ jobs:
           path: dist/
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-
-  tag-release:
-    name: Tag release
-    # If you don't set an input tag, it's a dry run (no uploads).
-    if: ${{ inputs.tag }}
-    needs:
-      - publish-to-pypi
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write # Needed for git tag
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.sha }}
-      - name: Create tag
-        run: |
-          git tag -m "v${{ inputs.tag }}" "v${{ inputs.tag }}"
-          # If there is duplicate tag, this will fail.
-          git push --tags
-
-  github-release:
-    name: Create GitHub Release
-    # If you don't set an input tag, it's a dry run (no uploads).
-    if: ${{ inputs.tag }}
-    needs:
-      - tag-release
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write # Needed for making GitHub Releases
-      id-token: write # Needed for sigstore
-    steps:
-      - name: Download the distribution
-        uses: actions/download-artifact@v3
-        with:
-          name: python-package-distributions
-          path: dist/
-      - name: Sign the distribution with Sigstore
-        uses: sigstore/gh-action-sigstore-python@v2.1.0
-        with:
-          inputs: >-
-            dist/*.whl
-            dist/*.tar.gz
-      - name: Release to GitHub
-        uses: softprops/action-gh-release@v1
-        with:
-          files: dist/*
-          draft: true
-          fail_on_unmatched_files: true
-          generate_release_notes: true
 
   publish-to-testpypi:
     name: Publish to TestPyPI
