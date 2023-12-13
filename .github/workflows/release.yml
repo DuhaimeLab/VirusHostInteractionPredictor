@@ -8,7 +8,7 @@ on:
       # When we change pyproject.toml, we want to ensure that the builds still work
       - pyproject.toml
       # And when we change this workflow itself...
-      - .github/workflows/release.yaml
+      - .github/workflows/release.yml
   push:
     branches:
       - main
@@ -40,7 +40,7 @@ jobs:
     name: Validate tag
     runs-on: ubuntu-latest
     # If this workflow was not triggered by a release, it's a dry run (no uploads).
-    if: ${{ github.ref_type }} == 'tag'
+    if: ${{ github.ref_type == 'tag' }}
     steps:
       - uses: actions/checkout@v4
         with:

@@ -3,7 +3,7 @@
 # Some configuration kept here should be moved to [project] once Poetry adds full
 # support for PEP 621.
 name = "virushostinteractionpredictor"
-version = "0.0.1"
+version = "0.0.2"
 description = ""
 packages = [{ include = "vhip", from = "src" }]
 authors = ["Eric Bastien <gbastien@umich.edu>"]
