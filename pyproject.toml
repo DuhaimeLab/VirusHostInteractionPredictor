@@ -29,7 +29,7 @@ pyright = "==1.1.339"
 ruff = "==0.1.7"
 
 [tool.poetry.group.test.dependencies]
-coverage = { version = "==7.3.2", extras = ["toml"] }
+coverage = { version = "==7.3.3", extras = ["toml"] }
 pytest = "==7.4.3"
 
 [build-system]
