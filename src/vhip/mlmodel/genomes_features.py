@@ -25,8 +25,6 @@ class KmerProfile:
         self.seqlen = len(seq)
         self.nucleotides = ["A", "T", "C", "G"]
 
-        #self.profile_counts = None
-
 
     def generate_profile(self):
         '''Generate k-mer profile for sequence.'''
@@ -82,8 +80,6 @@ class d2Distance:
         seq2_profile (KmerProfile): k-mer profile of sequence 2
     '''
 
-    # TODO: modify code so it can deal with fasta files containing multiple sequences belonging to same species
-
     def __init__(self, seq1_profile: KmerProfile, seq2_profile: KmerProfile) -> None:
         '''Initialize class variables.'''
         self.k = seq1_profile.k
@@ -94,6 +90,12 @@ class d2Distance:
 
         self.seq1_seqlen = seq1_profile.seqlen
         self.seq2_seqlen = seq2_profile.seqlen
+
+        if not isinstance(self.seq1_profile, np.ndarray):
+            raise TypeError('k-mer profile 1 needs to be generated')
+
+        if not isinstance(self.seq2_profile, np.ndarray):
+            raise TypeError('k-mer profile 2 needs to be generated')
 
 
     def distance(self):
@@ -247,10 +249,11 @@ class HomologyMatch:
         virus_spacer_blastn (dict): dictionary containing viruses as keys and list of spacers headers as values.
     '''
 
-    def __init__(self, virus_host_blastn: dict[str, str], virus_spacer_blastn: dict[str, str]):
+    def __init__(self, virus_host_blastn: dict[str, list[str]], virus_spacer_blastn: dict[str, list[str]]):
         '''Initialize class variables.'''
         self.virus_host = virus_host_blastn
         self.virus_spacers = virus_spacer_blastn
+
 
     def match(self, virus: str, host:str):
         '''Determine if there is a match in homology for given virus-host pair.
@@ -271,6 +274,7 @@ class HomologyMatch:
 
         return self.hit
 
+
     def check_blastn(self, virus: str, host: str):
         '''Check the virus against host blastn dictionary.
 
@@ -286,6 +290,7 @@ class HomologyMatch:
             self.blast = True
         else:
             self.blast = False
+
 
     def check_spacers(self, virus: str, host: str):
         '''Check the virus against spacer blastn dictionary.

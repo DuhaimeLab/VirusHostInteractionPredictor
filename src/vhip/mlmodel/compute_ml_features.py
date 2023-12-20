@@ -8,11 +8,11 @@ import os
 import pandas as pd
 
 from multiprocessing import Pool
+from typing import List
 
 from .genomes_features import KmerProfile, d2Distance, HomologyMatch
 from .read_sequence import read_sequence, read_headers
 
-# TODO: change from dataclass to regular class.
 class Pairs:
     '''Class to store coevolution signal values for a virus-host pair.
 
@@ -38,9 +38,9 @@ class ComputeFeatures:
     '''Class organizing all methods to compute all virus-host coevolution signals.
 
     Args:
-        virus_directory (str): Path to the directory containing viruses fasta files. Each file should contain an unique virus. 
+        virus_directory (str): Path to the directory containing viruses fasta files. Each file should contain an unique virus.
         host_directory (str): Path to the directory containing host fasta files.  Each file should contain an unique host species/OTUs.
-        ext (str): Extension used for fasta files. Default is 'fasta'. 
+        ext (str): Extension used for fasta files. Default is 'fasta'.
         pairs_of_interest (str): Pathway to file containing virus-host pairs of interest. Optional.
     '''
 
@@ -118,7 +118,7 @@ class ComputeFeatures:
         print(f"-------> Total number of interactions: {total_interactions}")
 
         # determine all virus-host pair possible (every host is going to be considered for every virus of interest)
-        virus_inter = list(
+        virus_inter: List[str] = list(
             itertools.chain.from_iterable(
                 itertools.repeat(x, len(self.host_filenames))
                 for x in self.virus_filenames
@@ -136,7 +136,7 @@ class ComputeFeatures:
 
     def determine_custom_pairs(self, custom_pairs: str):
         """The input pair file needs to be virus first then host. Must be separated by tabs."""
-        self.pairs = []
+        self.pairs: List[Pairs] = []
         print("reading pairs file")
 
         with open(custom_pairs, "r") as f:
@@ -226,7 +226,7 @@ class ComputeFeatures:
                 )
                 if virus not in self.spacers:
                     self.spacers[virus] = host
-                elif host not in self.spacers[virus]: #TODO: refactoring needed, this is because host may be a list so it does not work
+                else:
                     self.spacers[virus].append(host[0])
 
 
@@ -295,27 +295,27 @@ class ComputeFeatures:
         print(f"-------> current pair: {pair.virus} | {pair.host}")
         pair.homology_hit = self.homology_matches.match(pair.virus, pair.host)
 
-        k3distance = d2Distance(self.k3profiles[pair.virus], self.k3profiles[pair.host])
+        k3distance = d2Distance(self.k3profiles[pair.virus], self.k3profiles[pair.host]) #pyright: ignore[reportGeneralTypeIssues]
         k3distance.distance()
-        pair.k3dist = k3distance.dist
+        pair.k3dist = k3distance.dist #pyright: ignore[reportGeneralTypeIssues]
 
-        k6distance = d2Distance(self.k6profiles[pair.virus], self.k6profiles[pair.host])
+        k6distance = d2Distance(self.k6profiles[pair.virus], self.k6profiles[pair.host]) #pyright: ignore[reportGeneralTypeIssues]
         k6distance.distance()
-        pair.k6dist = k6distance.dist
+        pair.k6dist = k6distance.dist #pyright: ignore[reportGeneralTypeIssues]
 
-        pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]
+        pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host] #pyright: ignore[reportOptionalOperand]
 
         return pair
 
 
     def convert_to_dataframe(self):
         '''Convert the list of Pairs into a Pandas dataframe.'''
-        pairs = []
+        pairs: List[str] = []
 
-        k3dist = []
-        k6dist = []
-        GCdiff = []
-        Homology = []
+        k3dist: List[float] = []
+        k6dist: List[float] = []
+        GCdiff: List[float] = []
+        Homology: List[int] = []
 
         for pair in self.computed_pairs:
             virus_host = str(pair.virus + ":" + pair.host)
@@ -330,8 +330,7 @@ class ComputeFeatures:
             list(zip(pairs, GCdiff, k3dist, k6dist, Homology)),
             columns=["pairs", "GCdiff", "k3dist", "k6dist", "Homology"],
         )
-        self.features_df = self.features_df.set_index("pairs")
-        #TODO: have it return instead of saving in self
+        self.features_df = self.features_df.set_index("pairs") #pyright: ignore[reportUnknownMemberType]
 
 
     def save_features(self, filename: str):
@@ -343,4 +342,4 @@ class ComputeFeatures:
         if self.features_df is None:
             self.convert_to_dataframe()
 
-        self.features_df.to_csv(filename, sep="\t")
+        self.features_df.to_csv(filename, sep="\t") #pyright: ignore[reportOptionalMemberAccess]
