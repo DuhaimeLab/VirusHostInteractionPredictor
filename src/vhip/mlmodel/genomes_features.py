@@ -7,6 +7,7 @@ This module provides:
 '''
 
 import numpy as np
+from typing import List
 
 
 class KmerProfile:
@@ -24,7 +25,7 @@ class KmerProfile:
         self.seqlen = len(seq)
         self.nucleotides = ["A", "T", "C", "G"]
 
-        self.profile_counts = None
+        #self.profile_counts = None
 
 
     def generate_profile(self):
@@ -63,7 +64,7 @@ class KmerProfile:
         if length == 1:
             return self.nucleotides
         else:
-            result = []
+            result: List[str] = []
             for seq in self.generate_kmer_words(length - 1):
                 for base in self.nucleotides:
                     result.append(seq + base)
@@ -83,7 +84,7 @@ class d2Distance:
 
     # TODO: modify code so it can deal with fasta files containing multiple sequences belonging to same species
 
-    def __init__(self, seq1_profile: type[KmerProfile], seq2_profile: type[KmerProfile]) -> None:
+    def __init__(self, seq1_profile: KmerProfile, seq2_profile: KmerProfile) -> None:
         '''Initialize class variables.'''
         self.k = seq1_profile.k
         self.kmer_words = seq1_profile.kmer_words
@@ -140,8 +141,8 @@ class d2Distance:
         '''Computer null expectation of k-mer words based on A, T, C, and G counts.'''
         self.nucleotide_count()
 
-        seq1_null = dict.fromkeys(self.kmer_words, 0)
-        seq2_null = dict.fromkeys(self.kmer_words, 0)
+        seq1_null = dict.fromkeys(self.kmer_words, 0.0)
+        seq2_null = dict.fromkeys(self.kmer_words, 0.0)
 
         for word in self.kmer_words:
             countA = word.count("A")
@@ -205,7 +206,7 @@ class d2Distance:
         '''Normalize the distance.
 
         Returns:
-            float: the distance value normalized, between 0 and 1 
+            float: the distance value normalized, between 0 and 1
         '''
         D2star_value = self.D2star()
         numerator = np.sqrt(sum(self.x**2 / self.x_expected)) * np.sqrt(
