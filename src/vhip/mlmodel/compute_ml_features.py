@@ -3,7 +3,6 @@
 Those signals are necessary for virus-host predictions.
 """
 
-from dataclasses import dataclass
 import itertools
 import os
 import pandas as pd
@@ -13,29 +12,26 @@ from multiprocessing import Pool
 from .genomes_features import KmerProfile, d2Distance, HomologyMatch
 from .read_sequence import read_sequence, read_headers
 
-
-@dataclass
+# TODO: change from dataclass to regular class.
 class Pairs:
-    '''Dataclass to organize coevolution signals values for a given virus-host pair.
+    '''Class to store coevolution signal values for a virus-host pair.
 
     Args:
         virus (str): filename of virus of interest
         host (str): filename of host of interest
-        interaction (int): Predicted interaction. 0 is non-infection, 1 is infection, 2 means prediction has not been done yet.
-        GCdifference (float): GC difference between virus and host.
-        k3dist (float): d2* distance using k-length 3 between virus and host k-mer profiles.
-        k6dist (float): d2* distance using k-length 6 between virus and host k-mer profiles.
-        homology_hit (bool): If there is a homology hit between virus and host, this is True, otherwise False.
     '''
-    virus: str
-    host: str
-    interaction: int = 2
 
-    # genome level features
-    GCdifference: float = 1000
-    k3dist: float = 1000
-    k6dist: float = 1000
-    homology_hit: bool = False
+    def __init__(self, virus: str, host: str) -> None:
+        '''Initialize class variables.'''
+        self.virus = virus
+        self.host = host
+
+        self.GCdifference: float
+        self.k3dist: float
+        self.k6dist: float
+        self.homology_hit: bool
+
+        self.interaction: int
 
 
 class ComputeFeatures:
@@ -49,7 +45,7 @@ class ComputeFeatures:
     '''
 
     def __init__(
-        self, virus_directory: str, host_directory: str, ext: str="fasta", pairs_of_interest=None) -> None:
+        self, virus_directory: str, host_directory: str, pairs_of_interest: str, ext: str="fasta") -> None:
         '''Initialize class variables.'''
         self.virus_directory = virus_directory
         self.host_directory = host_directory
@@ -167,7 +163,7 @@ class ComputeFeatures:
 
         This is used to map where each blast hit came from between viruses and hosts.
         '''
-        header_filename = {}
+        header_filename: dict[str, str] = {}
 
         for virus in self.virus_filenames:
             path = self.virus_directory + virus
@@ -189,7 +185,7 @@ class ComputeFeatures:
 
         Keys of the dictionary are viruses. For each key, there is a list of hosts that had a homology hit with that virus.
         '''
-        self.blastn = {}
+        self.blastn: dict[str, list[str]] = {}
 
         with open(self.blastn_path, "r") as f:
             lines = [line.rstrip() for line in f]
@@ -213,7 +209,7 @@ class ComputeFeatures:
 
         Key of the dictionary are viruses. For each key, there is a list of hosts that had a homology hit with that virus.
         '''
-        self.spacers = {}
+        self.spacers: dict[str, list[str]] = {}
 
         with open(self.spacer_path, "r") as f:
             lines = [line.rstrip() for line in f]
@@ -230,7 +226,7 @@ class ComputeFeatures:
                 )
                 if virus not in self.spacers:
                     self.spacers[virus] = host
-                elif host not in self.spacers[virus]:
+                elif host not in self.spacers[virus]: #TODO: refactoring needed, this is because host may be a list so it does not work
                     self.spacers[virus].append(host[0])
 
 
@@ -335,6 +331,7 @@ class ComputeFeatures:
             columns=["pairs", "GCdiff", "k3dist", "k6dist", "Homology"],
         )
         self.features_df = self.features_df.set_index("pairs")
+        #TODO: have it return instead of saving in self
 
 
     def save_features(self, filename: str):
