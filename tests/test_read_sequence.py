@@ -1,3 +1,5 @@
+'''Pytest to read sequence.'''
+
 from vhip.mlmodel.read_sequence import read_sequence
 
 seq = """AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
@@ -23,6 +25,7 @@ cleaned_seq = seq.replace("\n", "")  # remove \n created by long string
 
 
 def test_read_sequence():
+    '''Test to check if reading fasta file is working as intended.'''
     # test 1 - check length of sequences match
     filename = "tests/datatests/test_sequence.fasta"
     res = read_sequence(filename)

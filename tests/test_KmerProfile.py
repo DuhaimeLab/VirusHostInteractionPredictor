@@ -1,7 +1,10 @@
+'''Pytest to generate k-mer profiles.'''
+
 from vhip.mlmodel.genomes_features import KmerProfile
 
 
 def test_KmerProfile_generate_profile():
+    '''Test code to generate k-mer profiles from DNA sequences.'''
     # test 1 (GC content calculation)
     seq = "ATCG"
     expected_GCcontent = 50
