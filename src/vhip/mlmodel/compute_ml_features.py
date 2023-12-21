@@ -5,13 +5,14 @@ Those signals are necessary for virus-host predictions.
 
 import itertools
 import os
-import pandas as pd
+import pandas as pd #pyright: ignore[reportMissingTypeStubs]
 
 from multiprocessing import Pool
 from typing import List
 
 from .genomes_features import KmerProfile, d2Distance, HomologyMatch
 from .read_sequence import read_sequence, read_headers
+
 
 class Pairs:
     '''Class to store coevolution signal values for a virus-host pair.
@@ -342,4 +343,4 @@ class ComputeFeatures:
         if self.features_df is None:
             self.convert_to_dataframe()
 
-        self.features_df.to_csv(filename, sep="\t") #pyright: ignore[reportOptionalMemberAccess]
+        self.features_df.to_csv(filename, sep="\t") #pyright: ignore

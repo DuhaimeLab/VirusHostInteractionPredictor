@@ -3,11 +3,11 @@
 In case the skops file is unusable, this file contains all the information needed to retrain VHIP.
 '''
 
-from sklearn.model_selection import train_test_split #pyright: ignore[reportUnknownVariableType]
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.utils import resample  # pyright: ignore[reportUnknownVariableType]
+from sklearn.model_selection import train_test_split #pyright: ignore[reportUnknownVariableType, reportMissingTypeStubs]
+from sklearn.ensemble import GradientBoostingClassifier #pyright: ignore[reportMissingTypeStubs]
+from sklearn.utils import resample  #pyright: ignore[reportUnknownVariableType, reportMissingTypeStubs]
 
-import pandas as pd
+import pandas as pd #pyright: ignore[reportMissingTypeStubs]
 
 
 class BuildModel:
@@ -20,29 +20,29 @@ class BuildModel:
             training_data_path (str): Pathway to the training/testing host range dataset.
         '''
         # load training data
-        data = pd.read_csv(training_data_path)
-        data = data.set_index("pairs")
+        data = pd.read_csv(training_data_path) #pyright: ignore[reportUnknownMemberType]
+        data = data.set_index("pairs") #pyright: ignore[reportUnknownMemberType]
 
         # downsample non-infection data
-        noninf_messages = data[data["infection"] == "NoInf"]
-        inf_messages = data[data["infection"] == "Inf"]
-        ntarget_samples = int(len(inf_messages) + 0.50 * len(inf_messages))
-        noninf_downsample = resample(
+        noninf_messages = data[data["infection"] == "NoInf"] #pyright: ignore
+        inf_messages = data[data["infection"] == "Inf"] #pyright: ignore
+        ntarget_samples = int(len(inf_messages) + 0.50 * len(inf_messages)) #pyright: ignore
+        noninf_downsample = resample( #pyright: ignore[reportUnknownVariableType]
             noninf_messages, replace=True, n_samples=ntarget_samples
         )
-        tmp = pd.concat([noninf_downsample, inf_messages])
+        tmp = pd.concat([noninf_downsample, inf_messages]) #pyright: ignore
 
         # select relevant rows for machine learning model
-        self.ml_input = tmp[["GCdiff", "k3dist", "k6dist", "Homology"]]
+        self.ml_input = tmp[["GCdiff", "k3dist", "k6dist", "Homology"]] #pyright: ignore
         print(
             "The dataframe is made of {} rows and {} columns!".format(
-                self.ml_input.shape[0], self.ml_input.shape[1]
+                self.ml_input.shape[0], self.ml_input.shape[1] #pyright: ignore
             )
         )
 
         # retrieve target (what we want to predict)
-        ml_target = tmp["infection"]
-        self.ml_target = ml_target.map({"NoInf": 0, "Inf": 1})
+        ml_target = tmp["infection"] #pyright: ignore
+        self.ml_target = ml_target.map({"NoInf": 0, "Inf": 1}) #pyright: ignore
 
         # parameters resulting in best performing ml model.
         # they were determined by running a grid search
@@ -50,24 +50,25 @@ class BuildModel:
         self.default_learning_rate = 0.75
         self.default_loss = "exponential"
 
+
     def build(self):
         '''Build machine learning model de novo.'''
-        X_train, X_test, y_train, y_test = train_test_split(
-            self.ml_input, self.ml_target, random_state=5, test_size=0.3, train_size=0.7
+        X_train, X_test, y_train, y_test = train_test_split( #pyright: ignore
+            self.ml_input, self.ml_target, random_state=5, test_size=0.3, train_size=0.7 #pyright: ignore
         )
 
         self.gbrt = GradientBoostingClassifier(
             random_state=42,
             max_depth=self.default_max_depth,
             learning_rate=self.default_learning_rate,
-            loss=self.default_loss,
+            loss=self.default_loss, #pyright: ignore
         )
 
-        self.gbrt.fit(X_train, y_train)
+        self.gbrt.fit(X_train, y_train) #pyright: ignore
 
         print(
-            "Accuracy on training set: {:.3f}".format(self.gbrt.score(X_train, y_train))
+            "Accuracy on training set: {:.3f}".format(self.gbrt.score(X_train, y_train)) #pyright: ignore
         )
-        print("Accuracy on test set: {:.3f}".format(self.gbrt.score(X_test, y_test)))
+        print("Accuracy on test set: {:.3f}".format(self.gbrt.score(X_test, y_test))) #pyright: ignore
 
         return self.gbrt
