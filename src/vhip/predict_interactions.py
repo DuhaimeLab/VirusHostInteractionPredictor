@@ -1,10 +1,9 @@
-'''
-'''
+'''Predict class.'''
 
 import skops.io as sio #pyright: ignore[reportMissingTypeStubs]
 
 from .mlmodel.compute_ml_features import ComputeFeatures
-
+from sklearn.ensemble import GradientBoostingClassifier
 
 class PredictInteractions(ComputeFeatures):
     '''Predict virus-host ecological interactions.
@@ -16,10 +15,10 @@ class PredictInteractions(ComputeFeatures):
         model (str): Pathway to model to be loaded
     '''
 
-    def __init__(self, virus_directory: str, host_directory: str, ext: str="fasta", pairs_of_interest=None) -> None:
+    def __init__(self, virus_directory: str, host_directory: str, pairs_of_interest: str, ext: str="fasta") -> None:
         '''Initialize class variables.'''
         super().__init__(virus_directory, host_directory, ext, pairs_of_interest)
-        self.model = None
+        self.model: GradientBoostingClassifier
 
 
     def load_model(self, path: str) -> None:
@@ -28,7 +27,9 @@ class PredictInteractions(ComputeFeatures):
         Args:
             path (str): Pathway to model
         '''
-        self.model = sio.load(path, trusted=True)
+        loaded_model = sio.load(path, trusted=True)
+        if isinstance(loaded_model, GradientBoostingClassifier):
+            self.model = loaded_model
 
 
     def predict(self) -> None:
