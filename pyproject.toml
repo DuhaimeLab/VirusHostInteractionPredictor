@@ -30,7 +30,7 @@ ruff = "==0.1.7"
 
 [tool.poetry.group.test.dependencies]
 coverage = { version = "==7.3.2", extras = ["toml"] }
-pytest = "==7.4.3"
+pytest = "==7.4.4"
 
 [build-system]
 requires = ["poetry-core"]
