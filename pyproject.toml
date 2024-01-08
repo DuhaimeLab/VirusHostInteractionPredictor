@@ -26,7 +26,7 @@ seaborn = "*"
 
 [tool.poetry.group.lint.dependencies]
 pyright = "==1.1.339"
-ruff = "==0.1.7"
+ruff = "==0.1.11"
 
 [tool.poetry.group.test.dependencies]
 coverage = { version = "==7.3.2", extras = ["toml"] }
