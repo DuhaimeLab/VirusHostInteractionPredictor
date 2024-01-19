@@ -14,7 +14,7 @@ class KmerProfile:
     '''Computes the k-mer profile for a given sequence.
 
     Args:
-        seq (str): ucleotide sequence
+        seq (str): nucleotide sequence
         k (int): k-length to be used when generating k-mer profile of sequence
     '''
 
@@ -90,12 +90,6 @@ class d2Distance:
 
         self.seq1_seqlen = seq1_profile.seqlen
         self.seq2_seqlen = seq2_profile.seqlen
-
-        if not isinstance(self.seq1_profile, np.ndarray):
-            raise TypeError('k-mer profile 1 needs to be generated')
-
-        if not isinstance(self.seq2_profile, np.ndarray):
-            raise TypeError('k-mer profile 2 needs to be generated')
 
 
     def distance(self):

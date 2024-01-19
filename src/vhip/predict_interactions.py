@@ -16,9 +16,9 @@ class PredictInteractions(ComputeFeatures):
         model (str): Pathway to model to be loaded
     '''
 
-    def __init__(self, virus_directory: str, host_directory: str, pairs_of_interest: str, ext: str="fasta") -> None:
+    def __init__(self, virus_directory: str, host_directory: str, ext: str="fasta") -> None:
         '''Initialize class variables.'''
-        super().__init__(virus_directory, host_directory, ext, pairs_of_interest)
+        super().__init__(virus_directory, host_directory, ext)
         self.model: GradientBoostingClassifier
 
 

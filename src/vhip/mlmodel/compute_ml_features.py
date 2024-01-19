@@ -46,16 +46,12 @@ class ComputeFeatures:
     '''
 
     def __init__(
-        self, virus_directory: str, host_directory: str, pairs_of_interest: str, ext: str="fasta") -> None:
+        self, virus_directory: str, host_directory: str, ext: str="fasta") -> None:
         '''Initialize class variables.'''
         self.virus_directory = virus_directory
         self.host_directory = host_directory
         self.ext = ext
-
-        if pairs_of_interest:
-            self.pairs_of_interest = pairs_of_interest
-        else:
-            self.pairs_of_interest = None
+        self.pairs_of_interest = None
 
         self.features_df = None
 
