@@ -1,0 +1,105 @@
+name: Release
+
+on:
+  release:
+    types:
+      - published
+  pull_request:
+    paths:
+      # When we change pyproject.toml, we want to ensure that the builds still work
+      - pyproject.toml
+      # And when we change this workflow itself...
+      - .github/workflows/release.yml
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install pypa/build
+        run: python3 -m pip install build --user
+      - name: Build a binary wheel and source tarball
+        run: python3 -m build
+      - name: Store the distribution
+        uses: actions/upload-artifact@v3
+        with:
+          name: python-package-distributions
+          path: dist/
+
+  validate-tag:
+    name: Validate tag
+    runs-on: ubuntu-latest
+    # If this workflow was not triggered by a release, it's a dry run (no uploads).
+    if: ${{ github.ref_type == 'tag' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main # We checkout the main branch to check for the commit
+      - name: Check tag consistency
+        run: |
+          version=$(grep "^version = " pyproject.toml | sed -e 's/version = "\(.*\)"/\1/g')
+          if [ "${{ github.ref_name }}" != "v${version}" ]; then
+            echo "The release tag does not match the version from pyproject.toml:" >&2
+            echo "${{ github.ref_name }}" >&2
+            echo "v${version}" >&2
+            exit 1
+          else
+            echo "Publishing ${version}"
+          fi
+
+  publish-to-pypi:
+    name: Publish to PyPI
+    # If this workflow was not triggered by a release, it's a dry run (no uploads).
+    if: ${{ github.ref_type }} == 'tag'
+    needs:
+      - build
+      - validate-tag
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/virushostinteractionpredictor/
+    permissions:
+      id-token: write # Needed for PyPI trusted publishing
+    steps:
+      - name: Download the distribution
+        uses: actions/download-artifact@v3
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+
+  publish-to-testpypi:
+    name: Publish to TestPyPI
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    if: ${{ github.ref_name == 'main' }}
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/virushostinteractionpredictor
+    permissions:
+      id-token: write
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Publish package distributions to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          skip-existing: true
+          verbose: true

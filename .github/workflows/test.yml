@@ -4,28 +4,19 @@ on:
   push:
     branches:
       - main
-    paths:
-      - src/**
-      - pyproject.toml
-      - poetry.lock
   pull_request:
-    paths:
-      - src/**
-      - pyproject.toml
-      - poetry.lock
   merge_group:
 
 env:
   poetry_version: 1.7.1
 
 jobs:
-  check_and_lint:
-    name: Check and lint
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      # Install Poetry and set up Python using cache
+      # Install Poetry
       - name: Install Poetry
         run: pipx install poetry==${{ env.poetry_version }}
 
@@ -36,7 +27,7 @@ jobs:
           poetry check --lock
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version-file: "pyproject.toml"
           cache: "poetry"
@@ -44,7 +35,7 @@ jobs:
       # Install dependencies and add virtualenv to path
       - name: Install dependencies
         run: |
-          poetry install
+          poetry install --only main,lint
           echo "$(poetry env info --path)/bin" >> $GITHUB_PATH
 
       # Ruff
@@ -56,3 +47,43 @@ jobs:
       # Pyright
       - name: Check with Pyright
         run: pyright
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install Poetry
+      - name: Install Poetry
+        run: pipx install poetry==${{ env.poetry_version }}
+
+      # Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "poetry"
+
+      # Install dependencies and add virtualenv to path
+      - name: Install dependencies
+        run: |
+          poetry install --only main,test
+          echo "$(poetry env info --path)/bin" >> $GITHUB_PATH
+
+      # Run tests
+      - name: Run tests
+        run: pytest
+
+  # This job does nothing and is only used for branch protection
+  # https://github.com/marketplace/actions/alls-green#why
+  alls-green:
+    if: always()
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: re-actors/alls-green@release/v1
+        with:
+          jobs: ${{ toJson(needs) }}

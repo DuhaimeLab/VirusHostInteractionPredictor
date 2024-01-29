@@ -5,39 +5,38 @@ name = "virushostinteractionpredictor"
 version = "0.1.0"
 requires-python = ">=3.9"
 
-
 [tool.poetry]
 # Poetry configuration.
 # Some configuration kept here should be moved to [project] once Poetry adds full
 # support for PEP 621.
 name = "virushostinteractionpredictor"
-version = "0.1.0"
+version = "0.0.2"
 description = ""
-packages = [
-    { include = "vhip", from = "src" },
-]
+packages = [{ include = "vhip", from = "src" }]
 authors = ["Eric Bastien <gbastien@umich.edu>"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-numpy = "^1.25.2"
-pandas = {version = "^2.0.3", extras = ["computation"]}
-scikit-learn = "^1.2.2"
-biopython = "^1.78"
-skops = "^0.9.0"
-matplotlib = "^3.8.2"
-seaborn = "^0.13.0"
-
+biopython = "^1.79"
+numpy = "^1.20"
+pandas = ">=1.1.0,<3.0.0"
+scikit-learn = "^1.0"
+skops = ">=0.8.0"
 
 [tool.poetry.group.dev.dependencies]
-ipykernel = "^6.26.0"
+ipykernel = "*"
+matplotlib = "*"
+seaborn = "*"
 
+[tool.poetry.group.lint.dependencies]
+pyright = "==1.1.339"
+ruff = "==0.1.7"
 
 [tool.poetry.group.test.dependencies]
-ruff = "^0.1.6"
-pyright = "^1.1.336"
+coverage = { version = "==7.3.2", extras = ["toml"] }
+pytest = "==7.4.3"
 
 [build-system]
 requires = ["poetry-core"]
@@ -50,10 +49,13 @@ build-backend = "poetry.core.masonry.api"
 extend-select = ["D", "W"]
 
 # Ignore redundant rules when using formatter
-ignore = ["W191", "D206", "D300"]
+ignore = ["D206", "D300", "W191"]
 
 # Allow imports relative to the "src" directory
 src = ["src"]
+
+# Specify a minimum Python version to target
+target-version = "py39"
 
 [tool.ruff.pydocstyle]
 convention = "google"
@@ -61,3 +63,18 @@ convention = "google"
 [tool.pyright]
 include = ["src"]
 typeCheckingMode = "strict"
+
+[tool.pytest.ini_options]
+## pytest configuration
+
+# Specify test directory so pytest does not have to search
+testpaths = ["tests"]
+
+[tool.coverage]
+## Coverage.py configuration
+
+branch = true
+concurrency = "multiprocessing"
+
+[tool.coverage.run]
+source = ["src"]
