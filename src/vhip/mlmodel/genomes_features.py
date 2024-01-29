@@ -1,34 +1,33 @@
-"""Contains classes to compute genome-wide features.
-"""
+'''Contains classes to compute genome-wide features.
+
+This module provides:
+- KmerProfile: generate k-mer profiles for a give sequence and k-length
+- d2Distance: computes the d2* distance between two KmerProfile
+- HomologyMatch: check for DNA sequence match between a virus and host from blastn files
+'''
 
 import numpy as np
+from typing import List
 
 
 class KmerProfile:
-    """The KmerProfile class takes for input a sequence and a k-mer length. Its purpose
-    is to compute the k-mer profile for the given sequence and k length.
+    '''Computes the k-mer profile for a given sequence.
 
-    :param seq: A sequence of DNA from which the k-mer profile is to be calculated
-    :type seq: str
-    :param k: k-length to use to compute the k-mers
-    :type k: int
-    """
+    Args:
+        seq (str): nucleotide sequence
+        k (int): k-length to be used when generating k-mer profile of sequence
+    '''
 
-    def __init__(self, seq, k) -> None:
+    def __init__(self, seq: str, k: int) -> None:
+        '''Initialize class variables.'''
         self.k = k
         self.seq = seq
         self.seqlen = len(seq)
         self.nucleotides = ["A", "T", "C", "G"]
 
-        self.profile_counts = None
 
     def generate_profile(self):
-        """Method that generates the k-mer profile for a sequence. No parameters
-        are needed since they are stored in self when initializing object.
-
-        If the k-length is set to 1, then this method also calculate GC content.
-
-        """
+        '''Generate k-mer profile for sequence.'''
         words = self.generate_kmer_words(self.k)
         self.kmer_words = words
         profile = dict.fromkeys(words, 0)
@@ -50,15 +49,20 @@ class KmerProfile:
             GC = self.profile_counts[2] + self.profile_counts[3]
             self.GCcontent = GC / (AT + GC) * 100
 
-    def generate_kmer_words(self, length):
-        """Function to generate all possible k-mer words possible for a given length
 
-        :param length: int, k-length to be used to generate the words
-        """
+    def generate_kmer_words(self, length: int) -> list[str]:
+        '''Generate all possible k-mer words based on parameter length.
+
+        Args:
+            length (int): k-length to be used
+
+        Returns:
+            list: list of all possible k-mer words
+        '''
         if length == 1:
             return self.nucleotides
         else:
-            result = []
+            result: List[str] = []
             for seq in self.generate_kmer_words(length - 1):
                 for base in self.nucleotides:
                     result.append(seq + base)
@@ -66,19 +70,18 @@ class KmerProfile:
 
 
 class d2Distance:
-    """This class allows user to compute the d2* distance between two k-mer profiles of interest.
-    The d2* distance is a measurement of how similar or dissimilar those two k-mer profiles are to
+    '''Compute d2* distance between two k-mer profiles.
+
+    The d2* a measurement of how similar or dissimilar those two k-mer profiles are to
     one another, and the value returned ranged from 0 to 1.
 
-    :param seq1_profile: k-mer profile of first sequence
-    :type seq1_profile: class:KmerProfile
-    :param seq2_profile: k-mer profile of second sequence (to compare with first sequence)
-    :type seq2_profile: class:KmerProfile
-    """
+    Args:
+        seq1_profile (KmerProfile): k-mer profile of sequence 1
+        seq2_profile (KmerProfile): k-mer profile of sequence 2
+    '''
 
-    # TODO: modify code so it can deal with fasta files containing multiple sequences belonging to same species
-
-    def __init__(self, seq1_profile, seq2_profile) -> None:
+    def __init__(self, seq1_profile: KmerProfile, seq2_profile: KmerProfile) -> None:
+        '''Initialize class variables.'''
         self.k = seq1_profile.k
         self.kmer_words = seq1_profile.kmer_words
 
@@ -88,13 +91,13 @@ class d2Distance:
         self.seq1_seqlen = seq1_profile.seqlen
         self.seq2_seqlen = seq2_profile.seqlen
 
-    def distance(self):
-        """Method to call all the other methods. It first computes the nucleotide_count, which is needed
-        to generate the null expectation of k-mer profile. This, in turn, is needed to compute the
-        d2* distance
 
-        :return: float, between 0 and 1.
-        """
+    def distance(self):
+        '''Compute the distance for the two input k-mer profile.
+
+        Returns:
+            float: distance value that is between 0 and 1.
+        '''
         if self.seq1_profile.k == self.seq2_profile.k:
             self.nucleotide_count()
             self.null()
@@ -106,8 +109,9 @@ class d2Distance:
             self.dist = None
             return self.dist
 
+
     def nucleotide_count(self) -> None:
-        """Determine the nucleotide count for sequence 1 and 2. It assumes A, T, C, and G letters."""
+        '''Calculate the nucleotide count for sequence 1 and 2. It assumes A, T, C, and G letters.'''
         seq1_nuc_count = dict.fromkeys(self.seq1_profile.nucleotides, 0)
         seq2_nuc_count = dict.fromkeys(self.seq2_profile.nucleotides, 0)
 
@@ -128,12 +132,13 @@ class d2Distance:
             key: value / seq2_total for key, value in seq2_nuc_count.items()
         }
 
-    def null(self):
-        """Compute the null expectation of k-mer words based on A, T, C, and G counts"""
+
+    def null(self) -> None:
+        '''Computer null expectation of k-mer words based on A, T, C, and G counts.'''
         self.nucleotide_count()
 
-        seq1_null = dict.fromkeys(self.kmer_words, 0)
-        seq2_null = dict.fromkeys(self.kmer_words, 0)
+        seq1_null = dict.fromkeys(self.kmer_words, 0.0)
+        seq2_null = dict.fromkeys(self.kmer_words, 0.0)
 
         for word in self.kmer_words:
             countA = word.count("A")
@@ -192,16 +197,26 @@ class d2Distance:
         self.seq1_null_prob = np.fromiter(seq1_null.values(), dtype=float)
         self.seq2_null_prob = np.fromiter(seq2_null.values(), dtype=float)
 
-    def d2star(self):
-        """Normalize the distance between two k-mer profile"""
+
+    def d2star(self) -> float:
+        '''Normalize the distance.
+
+        Returns:
+            float: the distance value normalized, between 0 and 1
+        '''
         D2star_value = self.D2star()
         numerator = np.sqrt(sum(self.x**2 / self.x_expected)) * np.sqrt(
             sum(self.y**2 / self.y_expected)
         )
         return 0.5 * (1 - (D2star_value / numerator))
 
-    def D2star(self):
-        """Compute the distance between two kmer profiles"""
+
+    def D2star(self) -> float:
+        '''Computer distance between two k-mer profiles.
+
+        Returns:
+            float: distance measurement
+        '''
         # calculate expected kmer counts based on null probability multiplied by length of sequence
         self.x_expected = self.seq1_null_prob * self.seq1_profile.seqlen
         self.y_expected = self.seq2_null_prob * self.seq2_profile.seqlen
@@ -221,13 +236,28 @@ class d2Distance:
 
 
 class HomologyMatch:
-    """ """
+    '''Class to determine if there are matches in DNA sequences between viruses and hosts of interest using blastn output as input.
 
-    def __init__(self, virus_host_blastn, virus_spacer_blastn):
+    Args:
+        virus_host_blastn (dict): dictionary containing viruses as keys and list of host fasta file headers as values.
+        virus_spacer_blastn (dict): dictionary containing viruses as keys and list of spacers headers as values.
+    '''
+
+    def __init__(self, virus_host_blastn: dict[str, list[str]], virus_spacer_blastn: dict[str, list[str]]):
+        '''Initialize class variables.'''
         self.virus_host = virus_host_blastn
         self.virus_spacers = virus_spacer_blastn
 
-    def match(self, virus, host):
+
+    def match(self, virus: str, host:str):
+        '''Determine if there is a match in homology for given virus-host pair.
+
+        This will check the virus against host blastn results, and the virus against host spacers blastn results.
+
+        Args:
+            virus (str): virus filename
+            host (str): host filename
+        '''
         self.check_blastn(virus, host)
         self.check_spacers(virus, host)
 
@@ -238,7 +268,16 @@ class HomologyMatch:
 
         return self.hit
 
-    def check_blastn(self, virus, host):
+
+    def check_blastn(self, virus: str, host: str):
+        '''Check the virus against host blastn dictionary.
+
+        If there is a match from this blastn dictionary, set self.blast to True.
+
+        Args:
+            virus (str): virus filename
+            host (str): host filename
+        '''
         if virus not in self.virus_host:
             self.blast = False
         elif host in self.virus_host[virus]:
@@ -246,18 +285,19 @@ class HomologyMatch:
         else:
             self.blast = False
 
-    def check_spacers(self, virus, host):
+
+    def check_spacers(self, virus: str, host: str):
+        '''Check the virus against spacer blastn dictionary.
+
+        If there is a match from this blastn dictionary, set self.spacer to True.
+
+        Args:
+            virus (str): virus filename
+            host (str): host filename
+        '''
         if virus not in self.virus_spacers:
             self.spacer = False
         elif host in self.virus_spacers[virus]:
             self.spacer = True
         else:
             self.spacer = False
-
-
-# test = HomologyMatch()
-
-# test.read_blastn()
-# test.read_spacers()
-
-# test.check_match(virus_filename, host_filename)

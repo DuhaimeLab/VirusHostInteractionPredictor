@@ -1,3 +1,10 @@
+[project]
+# Standard project metadata.
+# This is kept alongside tool.poetry.* for compatibility with other tools.
+name = "virushostinteractionpredictor"
+version = "0.1.0"
+requires-python = ">=3.9"
+
 [tool.poetry]
 # Poetry configuration.
 # Some configuration kept here should be moved to [project] once Poetry adds full
@@ -17,7 +24,6 @@ numpy = "^1.20"
 pandas = ">=1.1.0,<3.0.0"
 scikit-learn = "^1.0"
 skops = ">=0.8.0"
-
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "*"
@@ -43,7 +49,7 @@ build-backend = "poetry.core.masonry.api"
 extend-select = ["D", "W"]
 
 # Ignore redundant rules when using formatter
-ignore = ["W191", "D206", "D300"]
+ignore = ["D206", "D300", "W191"]
 
 # Allow imports relative to the "src" directory
 src = ["src"]
