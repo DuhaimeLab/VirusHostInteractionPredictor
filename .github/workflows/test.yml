@@ -74,8 +74,12 @@ jobs:
           echo "$(poetry env info --path)/bin" >> $GITHUB_PATH
 
       # Run tests
-      - name: Run tests
-        run: pytest
+      - name: Run tests and collect coverage
+        run: coverage run -m pytest && coverage xml
+
+      # Upload coverage reports to Codecov
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
 
   # This job does nothing and is only used for branch protection
   # https://github.com/marketplace/actions/alls-green#why
