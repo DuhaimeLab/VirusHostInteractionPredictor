@@ -79,6 +79,7 @@ jobs:
 
       # Upload coverage reports to Codecov
       - name: Upload coverage reports to Codecov
+        if: ${{ matrix.python-version }} == "3.12"
         uses: codecov/codecov-action@v3
 
   # This job does nothing and is only used for branch protection
