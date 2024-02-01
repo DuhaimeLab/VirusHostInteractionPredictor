@@ -1,7 +1,18 @@
 '''Pytest for genomes_features module.'''
 import pytest
 import numpy as np
-from vhip.mlmodel.genomes_features import KmerProfile, d2Distance
+from vhip.mlmodel.genomes_features import KmerProfile
+
+
+def test_KmerProfile_generate_kmer_words():
+    '''Test code to generate k-mer words from given length.'''
+    # Kmer words generation
+    seq = "ATCG"
+    profile = KmerProfile(seq, 3)
+    assert (len(profile.generate_kmer_words(1)) == 4)
+    assert (len(profile.generate_kmer_words(2)) == 16)
+    assert (len(profile.generate_kmer_words(3)) == 64)
+    assert (len(profile.generate_kmer_words(6)) == 4096)
 
 
 def test_KmerProfile_generate_profile():
@@ -64,7 +75,7 @@ def test_KmerProfile_generate_profile():
     assert sum(profile.profile_counts) == 5
 
 
-def test_empty_string():
+def test_KmerProfile_empty_string():
     '''Test for empty string as input to KmerProfile.'''
     # Empty string given as input
     seq = ""
@@ -72,4 +83,6 @@ def test_empty_string():
         profile = KmerProfile(seq, 3)
         profile.generate_profile()
     assert str(excinfo.value) == "seq cannot be an empty string"
+
+
 
