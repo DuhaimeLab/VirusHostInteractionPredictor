@@ -1,5 +1,5 @@
 '''Pytest for genomes_features module.'''
-
+import pytest
 import numpy as np
 from vhip.mlmodel.genomes_features import KmerProfile, d2Distance
 
@@ -41,18 +41,35 @@ def test_KmerProfile_generate_profile():
     k6mer = 'ATCGGG'
     assert k6mer in profile.kmer_words
 
+    # Kmer profile generation - checking kmer3-word count is correct
     seq = "ATCG"
     profile = KmerProfile(seq, 3)
     profile.generate_profile()
     assert sum(profile.profile_counts) == 2
+    assert len(profile.profile_counts) == 64
+    assert isinstance(profile.profile_counts, np.ndarray)
 
-    # test 4 (profile generated even if N are present in sequence)
-    seq = "AATCCGGNNNGG"
+    # Kmer profile generation - checking kmer6-word count is correct
+    seq = 'TTGTCTGCTGTATC'
+    profile = KmerProfile(seq, 6)
+    profile.generate_profile()
+    assert sum(profile.profile_counts) == 9
+    assert len(profile.profile_counts) == 4096
+    assert isinstance(profile.profile_counts, np.ndarray)
+
+    # Profile is correctly generated even if non-nucleotide characters are present
+    seq = "AATCCGGNNKKZZNGG"
     profile = KmerProfile(seq, 3)
     profile.generate_profile()
     assert sum(profile.profile_counts) == 5
 
-    # test 5 (empty string)
+
+def test_empty_string():
+    '''Test for empty string as input to KmerProfile.'''
+    # Empty string given as input
     seq = ""
-    profile = KmerProfile(seq, 3)
-    profile.generate_profile()
+    with pytest.raises(ValueError) as excinfo:
+        profile = KmerProfile(seq, 3)
+        profile.generate_profile()
+    assert str(excinfo.value) == "seq cannot be an empty string"
+

@@ -20,10 +20,14 @@ class KmerProfile:
 
     def __init__(self, seq: str, k: int) -> None:
         '''Initialize class variables.'''
+        if not seq:
+            raise ValueError("seq cannot be an empty string")
         self.k = k
         self.seq = seq
         self.seqlen = len(seq)
         self.nucleotides = ["A", "T", "C", "G"]
+        
+        
 
 
     def generate_profile(self):
