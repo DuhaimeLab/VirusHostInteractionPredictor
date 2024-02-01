@@ -1,6 +1,7 @@
 '''Pytest to read sequence.'''
 
-from vhip.mlmodel.read_sequence import read_sequence
+import pytest
+from vhip.mlmodel.read_sequence import read_sequence, read_headers
 
 seq = """AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
 CTCGCTGAAGTACTATTAGATGTAGACGTGCTTGCGCTTATCGATTCAGAAGTACTTGTACTTTCTGAAC
@@ -33,3 +34,20 @@ def test_read_sequence():
 
     # test 2 - check that sequences do match
     assert res == cleaned_seq
+
+
+def test_read_empty_sequence():
+    '''Test to check if reading empty fasta file raises ValueError.'''
+    # test 1 - check if empty file raises ValueError
+    filename = "tests/datatests/test_empty_sequence.fasta"
+    with pytest.raises(ValueError) as excinfo:
+        read_sequence(filename)
+    assert str(excinfo.value) == 'Given fasta path does not contain any sequence'
+
+
+def test_read_headers():
+    '''Test to read header of a fasta file.'''
+    headers = ["NZ_CP065712.1"]
+    filename = "tests/datatests/test_sequence.fasta"
+    res = read_headers(filename)
+    assert res == headers
