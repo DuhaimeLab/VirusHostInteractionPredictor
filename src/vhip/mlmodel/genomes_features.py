@@ -21,7 +21,7 @@ class KmerProfile:
     def __init__(self, seq: List[str], k: int) -> None:
         '''Initialize class variables.'''
         if not seq:
-            raise ValueError("seq cannot be an empty string")
+            raise ValueError("seq cannot be an empty list")
         self.k = k
         self.seq = seq
         self.seqlen = len(seq)
