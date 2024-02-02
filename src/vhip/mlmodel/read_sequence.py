@@ -6,9 +6,9 @@ This module provides:
 '''
 
 from Bio import SeqIO #pyright: ignore[reportMissingTypeStubs]
+from typing import List
 
-
-def read_sequence(path: str) -> str:
+def read_sequence(path: str) -> list[str]:
     '''Return the sequence in a fasta file as a string.
 
     Args:
@@ -17,9 +17,10 @@ def read_sequence(path: str) -> str:
     Returns:
         str: nucleotide sequence
     '''
+    sequences: List[str] = []
     for record in SeqIO.parse(path, "fasta"): #pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
-        return str(record.seq) #pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
-    return 'no sequence for given path file'
+        sequences.append(str(record.seq)) #pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
+    return sequences
 
 
 def read_headers(path: str) -> list[str]:
