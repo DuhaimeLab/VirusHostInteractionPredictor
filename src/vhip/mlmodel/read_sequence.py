@@ -20,6 +20,9 @@ def read_sequence(path: str) -> list[str]:
     sequences: List[str] = []
     for record in SeqIO.parse(path, "fasta"): #pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
         sequences.append(str(record.seq)) #pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
+    for seq in sequences:
+        if seq == "":
+            raise ValueError('Sequence list contains an empty string')
     return sequences
 
 

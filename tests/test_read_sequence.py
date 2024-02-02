@@ -40,9 +40,9 @@ def test_read_empty_sequence():
     '''Test to check if reading empty fasta file raises ValueError.'''
     # test 1 - check if empty file raises ValueError
     filename = "tests/datatests/test_sequence_empty.fasta"
-    #with pytest.raises(ValueError) as excinfo:
-    #    read_sequence(filename)
-    #assert str(excinfo.value) == 'Given fasta path does not contain any sequence'
+    with pytest.raises(ValueError) as excinfo:
+        read_sequence(filename)
+    assert str(excinfo.value) == 'Sequence list contains an empty string'
 
 
 def test_read_headers():
@@ -52,8 +52,10 @@ def test_read_headers():
     res = read_headers(filename)
     assert res == headers
 
-#TODO: test with multiple contigs in file
 
-if __name__ == "__main__":
-    test = read_sequence('tests/datatests/test_sequence_multiple_contigs.fasta')
-    print(test)
+def test_read_sequence_many_contigs():
+    '''Test to read a fasta file with many contigs.'''
+    filename = "tests/datatests/test_sequence_multiple_contigs.fasta"
+    res = read_sequence(filename)
+    assert len(res) == 2
+

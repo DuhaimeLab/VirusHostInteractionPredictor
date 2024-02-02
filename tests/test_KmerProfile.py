@@ -2,7 +2,6 @@
 import pytest
 import numpy as np
 from vhip.mlmodel.genomes_features import KmerProfile
-from vhip.mlmodel.read_sequence import read_sequence
 
 
 def test_KmerProfile_generate_kmer_words():
@@ -85,9 +84,9 @@ def test_KmerProfile_generate_profile():
 def test_KmerProfile_empty_string():
     '''Test for empty string as input to KmerProfile.'''
     # Empty string given as input
-    seq = ""
+    seq = []
     with pytest.raises(ValueError) as excinfo:
         profile = KmerProfile(seq, 3)
         profile.generate_profile()
-    assert str(excinfo.value) == "seq cannot be an empty string"
+    assert str(excinfo.value) == "seq cannot be an empty list"
 
