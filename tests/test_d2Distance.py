@@ -4,11 +4,11 @@ import numpy as np
 from vhip.mlmodel.genomes_features import KmerProfile, d2Distance
 
 
-def test_d2Distance_init():
+def test_d2Distance_distance():
     '''Test distance measurement of k-mer profiles.'''
     # test 1 (distance value is meaningful)
-    seq1 = "ATCCTGAGTA"
-    seq2 = "CCAGGCCTGA"
+    seq1 = ["ATCCTGAGTA", 'ATCCTGGGGCACGGTGCG']
+    seq2 = ["CCAGGCCTGA"]
 
     seq1_profile = KmerProfile(seq1, 6)
     seq1_profile.generate_profile()
@@ -17,12 +17,12 @@ def test_d2Distance_init():
 
     test = d2Distance(seq1_profile, seq2_profile)
     test.distance()
-    dist = 0.4997  # distance for the two small sequences above
+    dist = 0.5004 # distance for the two small sequences above
     assert np.round(test.dist, 4) == dist #pyright: ignore[reportGeneralTypeIssues]
 
     # test 2 (sequences are the same so distance is 0)
-    seq1 = "ATTCCTGGAGTGACCGTGATGA"
-    seq2 = "ATTCCTGGAGTGACCGTGATGA"
+    seq1 = ["ATTCCTGGAGTGACCGTGATGA"]
+    seq2 = ["ATTCCTGGAGTGACCGTGATGA"]
 
     seq1_profile = KmerProfile(seq1, 3)
     seq1_profile.generate_profile()
@@ -35,8 +35,8 @@ def test_d2Distance_init():
     assert test.dist == dist
 
     # test 3 (edge case where k used for the sequences do not match)
-    seq1 = "ATCCTGAGTA"
-    seq2 = "CCAGGCCTGA"
+    seq1 = ["ATCCTGAGTA"]
+    seq2 = ["CCAGGCCTGA"]
 
     seq1_profile = KmerProfile(seq1, 3)
     seq1_profile.generate_profile()
