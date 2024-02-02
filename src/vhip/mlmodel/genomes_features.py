@@ -18,7 +18,7 @@ class KmerProfile:
         k (int): k-length to be used when generating k-mer profile of sequence
     '''
 
-    def __init__(self, seq: str, k: int) -> None:
+    def __init__(self, seq: List[str], k: int) -> None:
         '''Initialize class variables.'''
         if not seq:
             raise ValueError("seq cannot be an empty string")
@@ -26,8 +26,6 @@ class KmerProfile:
         self.seq = seq
         self.seqlen = len(seq)
         self.nucleotides = ["A", "T", "C", "G"]
-        
-        
 
 
     def generate_profile(self):
@@ -36,16 +34,13 @@ class KmerProfile:
         self.kmer_words = words
         profile = dict.fromkeys(words, 0)
 
-        for i in range(0, len(self.seq) - self.k + 1):
-            kmer = self.seq[i : i + self.k]
-            if kmer in profile:
-                profile[kmer] += 1
+        for seq in self.seq:
+            for i in range(0, len(seq) - self.k + 1):
+                kmer = seq[i : i + self.k]
+                if kmer in profile:
+                    profile[kmer] += 1
 
         self.profile_counts = np.fromiter(profile.values(), dtype=int)
-        # code below is not needed
-        # total = sum(profile.values(), 0)
-        # freqs = {key: value / total for key, value in profile.items()}
-        # self.profile_freqs = np.fromiter(freqs.values(), dtype=float)
 
         # calculate GC content if k = 1 since it's nucleotide counting
         if self.k == 1:
@@ -119,12 +114,14 @@ class d2Distance:
         seq1_nuc_count = dict.fromkeys(self.seq1_profile.nucleotides, 0)
         seq2_nuc_count = dict.fromkeys(self.seq2_profile.nucleotides, 0)
 
-        for nuc in self.seq1_profile.seq:
-            if nuc in self.seq1_profile.nucleotides:
-                seq1_nuc_count[nuc] += 1
-        for nuc in self.seq2_profile.seq:
-            if nuc in self.seq2_profile.nucleotides:
-                seq2_nuc_count[nuc] += 1
+        for seq in self.seq1_profile.seq:
+            for nuc in seq:
+                if nuc in self.seq1_profile.nucleotides:
+                    seq1_nuc_count[nuc] += 1
+        for seq in self.seq2_profile.seq:
+            for nuc in seq:
+                if nuc in self.seq2_profile.nucleotides:
+                    seq2_nuc_count[nuc] += 1
 
         # calculate frequencies
         seq1_total = sum(seq1_nuc_count.values(), 0)
