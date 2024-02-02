@@ -1,4 +1,3 @@
 GCA_021090665.1_ASM2109066v1_genomic.fasta	Staphylococcus_arlettae.fasta
 GCA_021090665.1_ASM2109066v1_genomic.fasta	Staphylococcus_aureus.fasta
 GCA_021090675.1_ASM2109067v1_genomic.fasta	Staphylococcus_epidermidis.fasta
-GCA_021090675.1_ASM2109067v1_genomic.fasta	Staphylococcus_epidermidis_noneexist.fasta
