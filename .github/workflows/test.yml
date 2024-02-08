@@ -51,6 +51,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12"]
     steps:
@@ -78,8 +79,8 @@ jobs:
         run: coverage run -m pytest && coverage xml
 
       # Upload coverage reports to Codecov
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
+      - name: Upload coverage reports to Coveralls
+        uses: coverallsapp/github-action@v2
         if: matrix.python-version == '3.12'
 
   # This job does nothing and is only used for branch protection
