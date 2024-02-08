@@ -1,6 +1,7 @@
 # Virus Host Infection Predictor (VHIP)
 
 [![Test](https://github.com/DuhaimeLab/VirusHostInteractionPredictor/actions/workflows/test.yml/badge.svg?branch=main&event=push)](https://github.com/DuhaimeLab/VirusHostInteractionPredictor/actions/workflows/test.yml)
+[![Coverage Status](https://coveralls.io/repos/github/DuhaimeLab/VirusHostInteractionPredictor/badge.svg?branch=main)](https://coveralls.io/github/DuhaimeLab/VirusHostInteractionPredictor?branch=main)
 
 ## Introduction
 
