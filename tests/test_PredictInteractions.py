@@ -16,6 +16,6 @@ def test_PredictInteractions_complete_pipeline():
     test.run_parallel()
     test.predict()
 
-    assert test.predictions is not None
-    assert test.scores is not None
+    assert test.predictions is not None #pyright: ignore
+    assert test.scores is not None #pyright: ignore
 
