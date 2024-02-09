@@ -21,8 +21,10 @@ def test_ComputeFeatures_list_files():
         'GCA_002875995.1_ASM287599v1_genomic.fna.fasta'
         ]
 
+    all_filenames.sort()
     test = ComputeFeatures(test_virus_directory, test_host_directory)
     test.list_files()
+    test.all_files.sort()
     assert len(test.all_files) == 7
     assert len(test.virus_filenames) == 4
     assert len(test.host_filenames) == 3
