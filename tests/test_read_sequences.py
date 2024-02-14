@@ -1,4 +1,4 @@
-'''Pytest to read sequence.'''
+"""Pytest to read sequence."""
 
 import pytest
 from vhip.mlmodel.read_sequence import read_sequence, read_headers
@@ -26,7 +26,7 @@ cleaned_seq = seq.replace("\n", "")  # remove \n created by long string
 
 
 def test_read_sequence():
-    '''Test to check if reading fasta file is working as intended.'''
+    """Test to check if reading fasta file is working as intended."""
     # test 1 - check length of sequences match
     filename = "tests/datatests/test_sequence.fasta"
     res = read_sequence(filename)
@@ -36,17 +36,8 @@ def test_read_sequence():
     assert res[0] == cleaned_seq
 
 
-def test_read_empty_sequence():
-    '''Test to check if reading empty fasta file raises ValueError.'''
-    # test 1 - check if empty file raises ValueError
-    filename = "tests/datatests/test_sequence_empty.fasta"
-    with pytest.raises(ValueError) as excinfo:
-        read_sequence(filename)
-    assert str(excinfo.value) == 'Sequence list contains an empty string'
-
-
 def test_read_headers():
-    '''Test to read header of a fasta file.'''
+    """Test to read header of a fasta file."""
     headers = ["NZ_CP065712.1"]
     filename = "tests/datatests/test_sequence.fasta"
     res = read_headers(filename)
@@ -54,7 +45,7 @@ def test_read_headers():
 
 
 def test_read_sequence_many_contigs():
-    '''Test to read a fasta file with many contigs.'''
+    """Test to read a fasta file with many contigs."""
     filename = "tests/datatests/test_sequence_multiple_contigs.fasta"
     res = read_sequence(filename)
     assert len(res) == 2

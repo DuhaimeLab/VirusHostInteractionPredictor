@@ -15,15 +15,15 @@ from .read_sequence import read_sequence, read_headers
 
 
 class Pairs:
-    '''Class to store coevolution signal values for a virus-host pair.
+    """Class to store coevolution signal values for a virus-host pair.
 
     Args:
         virus (str): filename of virus of interest
         host (str): filename of host of interest
-    '''
+    """
 
     def __init__(self, virus: str, host: str) -> None:
-        '''Initialize class variables.'''
+        """Initialize class variables."""
         self.virus = virus
         self.host = host
 
@@ -36,18 +36,18 @@ class Pairs:
 
 
 class ComputeFeatures:
-    '''Class organizing all methods to compute all virus-host coevolution signals.
+    """Class organizing all methods to compute all virus-host coevolution signals.
 
     Args:
         virus_directory (str): Path to the directory containing viruses fasta files. Each file should contain an unique virus.
         host_directory (str): Path to the directory containing host fasta files.  Each file should contain an unique host species/OTUs.
-        ext (str): Extension used for fasta files. Default is 'fasta'.
+        ext (str): Extension used for fasta files. Default is "fasta".
         pairs_of_interest (str): Pathway to file containing virus-host pairs of interest. Optional.
-    '''
+    """
 
     def __init__(
         self, virus_directory: str, host_directory: str, ext: str="fasta") -> None:
-        '''Initialize class variables.'''
+        """Initialize class variables."""
         self.virus_directory = virus_directory
         self.host_directory = host_directory
         self.ext = ext
@@ -57,21 +57,21 @@ class ComputeFeatures:
 
 
     def add_blastn_files(self, blastn_path: str, spacer_path: str):
-        '''Add blastn path for viruses against hosts and viruses against spacers.
+        """Add blastn path for viruses against hosts and viruses against spacers.
 
         Args:
             blastn_path (str): Path to blastn output of viruses against hosts
             spacer_path (str): Path to blastn output of viruses against spacers
-        '''
+        """
         self.blastn_path = blastn_path
         self.spacer_path = spacer_path
 
 
     def do_setup(self):
-        '''Calls other methods to setup.
+        """Calls other methods to setup.
 
         The setup process includes determining all possible virus-host pairs, get fasta headers, read and process blastn_output, and compute GC content and k-mer profiles.
-        '''
+        """
         print("SETUP - ...indexing fasta filenames for viruses and hosts...")
         self.list_files()
 
@@ -105,10 +105,10 @@ class ComputeFeatures:
 
 
     def determine_pairs(self):
-        '''Determine all possible virus-host pairs.
+        """Determine all possible virus-host pairs.
 
         This assume that each virus should be tested against each host.
-        '''
+        """
         total_interactions = len(self.virus_filenames) * len(self.host_filenames)
         print(f"-------> There are {len(self.virus_filenames)} viral sequences")
         print(f"-------> There are {len(self.host_filenames)} host sequences")
@@ -156,10 +156,10 @@ class ComputeFeatures:
 
 
     def get_headers(self):
-        '''Retrieve headers from fasta files.
+        """Retrieve headers from fasta files.
 
         This is used to map where each blast hit came from between viruses and hosts.
-        '''
+        """
         header_filename: dict[str, str] = {}
 
         for virus in self.virus_filenames:
@@ -178,10 +178,10 @@ class ComputeFeatures:
 
 
     def process_blastn(self):
-        '''Process blastn file of viruses against hosts and store data in a dictionary.
+        """Process blastn file of viruses against hosts and store data in a dictionary.
 
         Keys of the dictionary are viruses. For each key, there is a list of hosts that had a homology hit with that virus.
-        '''
+        """
         self.blastn: dict[str, list[str]] = {}
 
         with open(self.blastn_path, "r") as f:
@@ -202,10 +202,10 @@ class ComputeFeatures:
 
 
     def process_spacers(self):
-        '''Process blastn file of viruses against spacers and store data in a dictionary.
+        """Process blastn file of viruses against spacers and store data in a dictionary.
 
         Key of the dictionary are viruses. For each key, there is a list of hosts that had a homology hit with that virus.
-        '''
+        """
         self.spacers: dict[str, list[str]] = {}
 
         with open(self.spacer_path, "r") as f:
@@ -228,10 +228,10 @@ class ComputeFeatures:
 
 
     def generate_kmer_profiles(self):
-        '''Generate kmer profiles for viruses and hosts, and compute GC content.
+        """Generate kmer profiles for viruses and hosts, and compute GC content.
 
         This will be done for each fasta files in the virus and host directories.
-        '''
+        """
         self.GCcontent = dict.fromkeys(self.all_files)
         self.k3profiles = dict.fromkeys(self.all_files)
         self.k6profiles = dict.fromkeys(self.all_files)
@@ -270,13 +270,13 @@ class ComputeFeatures:
 
 
     def run_parallel(self, num_procs: int=6):
-        '''Run multiple process of the compute_feature method.
+        """Run multiple process of the compute_feature method.
 
         This significantly improves run time by using multiple CPU cores.
 
         Args:
             num_procs (int): Number of core to be used.
-        '''
+        """
         with Pool(num_procs) as pool:
             results = pool.map(self.compute_feature, self.pairs)
 
@@ -284,29 +284,29 @@ class ComputeFeatures:
 
 
     def compute_feature(self, pair: Pairs) -> Pairs:
-        '''Compute all virus-host coevolution signals needed to predict interaction.
+        """Compute all virus-host coevolution signals needed to predict interaction.
 
         Args:
             pair (Dataclass): virus-host Pairs dataclass.
-        '''
+        """
         print(f"-------> current pair: {pair.virus} | {pair.host}")
         pair.homology_hit = self.homology_matches.match(pair.virus, pair.host)
 
-        k3distance = d2Distance(self.k3profiles[pair.virus], self.k3profiles[pair.host]) #pyright: ignore[reportGeneralTypeIssues]
+        k3distance = d2Distance(self.k3profiles[pair.virus], self.k3profiles[pair.host]) #pyright: ignore
         k3distance.distance()
-        pair.k3dist = k3distance.dist #pyright: ignore[reportGeneralTypeIssues]
+        pair.k3dist = k3distance.dist #pyright: ignore
 
-        k6distance = d2Distance(self.k6profiles[pair.virus], self.k6profiles[pair.host]) #pyright: ignore[reportGeneralTypeIssues]
+        k6distance = d2Distance(self.k6profiles[pair.virus], self.k6profiles[pair.host]) #pyright: ignore
         k6distance.distance()
-        pair.k6dist = k6distance.dist #pyright: ignore[reportGeneralTypeIssues]
+        pair.k6dist = k6distance.dist #pyright: ignore
 
-        pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host] #pyright: ignore[reportOptionalOperand]
+        pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host] #pyright: ignore
 
         return pair
 
 
     def convert_to_dataframe(self):
-        '''Convert the list of Pairs into a Pandas dataframe.'''
+        """Convert the list of Pairs into a Pandas dataframe."""
         pairs: List[str] = []
 
         k3dist: List[float] = []
@@ -331,11 +331,11 @@ class ComputeFeatures:
 
 
     def save_features(self, filename: str):
-        '''Save computed features as a tsv file.
+        """Save computed features as a tsv file.
 
         Args:
             filename (str): Name to be used when exporting features as a tsv file.
-        '''
+        """
         if self.features_df is None:
             self.convert_to_dataframe()
 

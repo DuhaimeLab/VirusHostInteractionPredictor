@@ -1,11 +1,11 @@
-'''Pytest for genomes_features module.'''
+"""Pytest for genomes_features module."""
 import pytest
 import numpy as np
 from vhip.mlmodel.genomes_features import KmerProfile
 
 
 def test_KmerProfile_generate_kmer_words():
-    '''Test code to generate k-mer words from given length.'''
+    """Test code to generate k-mer words from given length."""
     # Kmer words generation
     seq = ["ATCG"]
     profile = KmerProfile(seq, 3)
@@ -16,7 +16,7 @@ def test_KmerProfile_generate_kmer_words():
 
 
 def test_KmerProfile_generate_profile():
-    '''Test code to generate k-mer profiles from DNA sequences.'''
+    """Test code to generate k-mer profiles from DNA sequences."""
     # GC content calculation test #1
     seq = ["ATCG"]
     expected_GCcontent = 50
@@ -32,7 +32,7 @@ def test_KmerProfile_generate_profile():
     assert profile.GCcontent == expected_GCcontent
 
     # GC content calculation test #3
-    seq = ['GGGGGGGGGGGGG']
+    seq = ["GGGGGGGGGGGGG"]
     expected_GCcontent = 100
     profile = KmerProfile(seq, 1)
     profile.generate_profile()
@@ -42,14 +42,14 @@ def test_KmerProfile_generate_profile():
     seq = ["ATCG"]
     profile = KmerProfile(seq, 3)
     profile.generate_profile()
-    k3mer = 'TTC'
+    k3mer = "TTC"
     assert k3mer in profile.kmer_words
 
     # Kmer profile generation - checking presence of a k6-mer in profile
-    seq = ['ATCG']
+    seq = ["ATCG"]
     profile = KmerProfile(seq, 6)
     profile.generate_profile()
-    k6mer = 'ATCGGG'
+    k6mer = "ATCGGG"
     assert k6mer in profile.kmer_words
 
     # Kmer profile generation - checking kmer3-word count is correct
@@ -61,7 +61,7 @@ def test_KmerProfile_generate_profile():
     assert isinstance(profile.profile_counts, np.ndarray)
 
     # Kmer profile generation - checking kmer6-word count is correct
-    seq = ['TTGTCTGCTGTATC']
+    seq = ["TTGTCTGCTGTATC"]
     profile = KmerProfile(seq, 6)
     profile.generate_profile()
     assert sum(profile.profile_counts) == 9
@@ -75,14 +75,14 @@ def test_KmerProfile_generate_profile():
     assert sum(profile.profile_counts) == 5
 
     # Profile is correctly generated if there are multiple sequences in list
-    seq = ['AAAATTTT', 'TCGAAATG']
+    seq = ["AAAATTTT", "TCGAAATG"]
     profile = KmerProfile(seq, 3)
     profile.generate_profile()
     assert sum(profile.profile_counts) == 12
 
 
 def test_KmerProfile_empty_string():
-    '''Test for empty string as input to KmerProfile.'''
+    """Test for empty string as input to KmerProfile."""
     # Empty string given as input
     seq = []
     with pytest.raises(ValueError) as excinfo:

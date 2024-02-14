@@ -1,4 +1,4 @@
-'''Predict class.'''
+"""Predict class."""
 
 import skops.io as sio #pyright: ignore[reportMissingTypeStubs]
 
@@ -7,34 +7,34 @@ from sklearn.ensemble import GradientBoostingClassifier #pyright: ignore[reportM
 
 
 class PredictInteractions(ComputeFeatures):
-    '''Predict virus-host ecological interactions.
+    """Predict virus-host ecological interactions.
 
     Args:
         virus_directory (str): Pathway to the virus directory
         host_directory (str): Pathway to the host directory
         ext (str): Extension used for the fasta file. Default to fasta
         model (str): Pathway to model to be loaded
-    '''
+    """
 
     def __init__(self, virus_directory: str, host_directory: str, ext: str="fasta") -> None:
-        '''Initialize class variables.'''
+        """Initialize class variables."""
         super().__init__(virus_directory, host_directory, ext)
         self.model: GradientBoostingClassifier
 
 
     def load_model(self, path: str) -> None:
-        '''Load machine learning model.
+        """Load machine learning model.
 
         Args:
             path (str): Pathway to model
-        '''
+        """
         loaded_model = sio.load(path, trusted=True)
         if isinstance(loaded_model, GradientBoostingClassifier):
             self.model = loaded_model
 
 
     def predict(self) -> None:
-        '''Make interaction prediction for each virus-host pair.'''
+        """Make interaction prediction for each virus-host pair."""
         # call method to transfer dataclass pairs into a dataframe
         # this is a requirement for scikit-learn
         self.convert_to_dataframe()
@@ -50,11 +50,11 @@ class PredictInteractions(ComputeFeatures):
 
 
     def save_predictions(self, filename: str):
-        '''Save predictions as a tsv file.
+        """Save predictions as a tsv file.
 
         Args:
             filename (str): Filename to be used when saving predictions
-        '''
+        """
         self.features_df["Predictions"] = self.predictions #pyright: ignore
         self.features_df["Scores"] = self.scores #pyright: ignore
 
