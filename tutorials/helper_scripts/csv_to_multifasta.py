@@ -1,11 +1,8 @@
-'''Helper file to process output of CRISPRCasFinder.'''
-
 import csv
 
 
 # This function will read the csv file and create an output multifasta file
-def csv_to_multifasta(csv_file: str):
-    '''Convert csv file into multifasta file.'''
+def csv_to_multifasta(csv_file):
     # Create output filename
     output_filename = ""
     for c in csv_file:
