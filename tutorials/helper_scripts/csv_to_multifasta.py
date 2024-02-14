@@ -1,8 +1,11 @@
+"""Script to convert a csv file to a multifasta file."""
+
 import csv
 
 
 # This function will read the csv file and create an output multifasta file
-def csv_to_multifasta(csv_file):
+def csv_to_multifasta(csv_file: str):
+    """Convert a csv file to a multifasta file."""
     # Create output filename
     output_filename = ""
     for c in csv_file:
