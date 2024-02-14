@@ -1,2 +1,2 @@
-'''Init file.'''
+"""Init file."""
 

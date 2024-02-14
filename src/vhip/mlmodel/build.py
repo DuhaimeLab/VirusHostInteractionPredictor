@@ -1,7 +1,7 @@
-'''Build machine learning model de novo.
+"""Build machine learning model de novo.
 
 In case the skops file is unusable, this file contains all the information needed to retrain VHIP.
-'''
+"""
 
 from sklearn.model_selection import train_test_split #pyright: ignore[reportUnknownVariableType, reportMissingTypeStubs]
 from sklearn.ensemble import GradientBoostingClassifier #pyright: ignore[reportMissingTypeStubs]
@@ -11,14 +11,14 @@ import pandas as pd #pyright: ignore[reportMissingTypeStubs]
 
 
 class BuildModel:
-    '''Class to re-build the model from host range data.'''
+    """Class to re-build the model from host range data."""
 
     def __init__(self, training_data_path: str) -> None:
-        '''Initialize class variables.
+        """Initialize class variables.
 
         Args:
             training_data_path (str): Pathway to the training/testing host range dataset.
-        '''
+        """
         # load training data
         data = pd.read_csv(training_data_path) #pyright: ignore[reportUnknownMemberType]
         data = data.set_index("pairs") #pyright: ignore[reportUnknownMemberType]
@@ -52,7 +52,7 @@ class BuildModel:
 
 
     def build(self):
-        '''Build machine learning model de novo.'''
+        """Build machine learning model de novo."""
         X_train, X_test, y_train, y_test = train_test_split( #pyright: ignore
             self.ml_input, self.ml_target, random_state=5, test_size=0.3, train_size=0.7 #pyright: ignore
         )

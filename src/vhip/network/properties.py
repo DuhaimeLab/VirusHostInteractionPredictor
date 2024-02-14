@@ -1,4 +1,4 @@
-'''Adjacency matrix class that takes for input a numpy 2d array.'''
+"""Adjacency matrix class that takes for input a numpy 2d array."""
 
 from typing import List
 
@@ -6,14 +6,14 @@ import numpy as np
 from numpy.typing import NDArray
 
 class AdjacencyMatrix:
-    '''Define class for virus-host interaction networks (VHINs).
+    """Define class for virus-host interaction networks (VHINs).
 
     Args:
         matrix (np.array): Array representing interactions.
-    '''
+    """
 
     def __init__(self, matrix: NDArray[np.int_]) -> None:
-        '''Initializes class variables.'''
+        """Initializes class variables."""
         self.adj = matrix
 
         self.sorted = False
@@ -21,7 +21,7 @@ class AdjacencyMatrix:
 
 
     def nestedness(self) -> None:
-        '''Calculate nestedness using the NODF algorithm for the array.'''
+        """Calculate nestedness using the NODF algorithm for the array."""
         # sort matrix if it has not been done
         if self.sorted is False:
             self.sort()
@@ -55,7 +55,7 @@ class AdjacencyMatrix:
 
 
     def sort(self) -> None:
-        '''Sort matrix.'''
+        """Sort matrix."""
         # calculate sums of 1s for rows and columns, and stores as a list of tuples
         # first element of tuple: sum | second element: index
         self.sum_rows: List[tuple[int, int]] = []
@@ -83,11 +83,11 @@ class AdjacencyMatrix:
 
 
     def pairs(self, axis: int = 0) -> list[tuple[int, int]]:
-        '''Determine all possible i-j pairs.
+        """Determine all possible i-j pairs.
 
         Args:
             axis (int): Axis to be used when determining all pairs.
-        '''
+        """
         lst: List[tuple[int, int]] = []
         for i in range(0, self.shape[axis]):
             for j in range(i + 1, self.shape[axis]):
@@ -96,12 +96,12 @@ class AdjacencyMatrix:
 
 
     def compare(self, x: list[int], y: list[int]) -> float:
-        '''Compare two lists containing 0 and 1.
+        """Compare two lists containing 0 and 1.
 
         Args:
             x (list[int]): first list
             y (list[int]): second list
-        '''
+        """
         if sum(x) <= sum(y):
             val = 0
         else:

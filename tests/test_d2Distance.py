@@ -1,13 +1,13 @@
-'''Pytest for d2distances measurements of k-mer profiles.'''
+"""Pytest for d2distances measurements of k-mer profiles."""
 
 import numpy as np
 from vhip.mlmodel.genomes_features import KmerProfile, d2Distance
 
 
 def test_d2Distance_distance():
-    '''Test distance measurement of k-mer profiles.'''
+    """Test distance measurement of k-mer profiles."""
     # test 1 (distance value is meaningful)
-    seq1 = ["ATCCTGAGTA", 'ATCCTGGGGCACGGTGCG']
+    seq1 = ["ATCCTGAGTA", "ATCCTGGGGCACGGTGCG"]
     seq2 = ["CCAGGCCTGA"]
 
     seq1_profile = KmerProfile(seq1, 6)
