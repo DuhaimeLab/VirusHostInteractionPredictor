@@ -48,7 +48,7 @@ class AdjacencyMatrix:
             pair2 = self.adj[:, y]
             print(pair1, pair2)
 
-            N_col += self.compare(pair1, pair2) #pyright: ignore[reportGeneralTypeIssues]
+            N_col += self.compare(pair1, pair2) # pyright: ignore
 
         print(N_row, N_col)
         self.nodf = (N_row + N_col) / 2

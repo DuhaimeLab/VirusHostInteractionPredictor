@@ -1,9 +1,9 @@
 """Predict class."""
 
-import skops.io as sio #pyright: ignore[reportMissingTypeStubs]
+import skops.io as sio # pyright: ignore[reportMissingTypeStubs]
 
 from .mlmodel.compute_ml_features import ComputeFeatures
-from sklearn.ensemble import GradientBoostingClassifier #pyright: ignore[reportMissingTypeStubs]
+from sklearn.ensemble import GradientBoostingClassifier # pyright: ignore[reportMissingTypeStubs]
 
 
 class PredictInteractions(ComputeFeatures):
@@ -43,8 +43,8 @@ class PredictInteractions(ComputeFeatures):
 
         # run predictions
         print("MODEL - ...making predictions...")
-        self.predictions = self.model.predict(self.features_df) #pyright: ignore
-        self.scores = self.model.predict_proba(self.features_df)[:, 1] #pyright: ignore
+        self.predictions = self.model.predict(self.features_df) # pyright: ignore
+        self.scores = self.model.predict_proba(self.features_df)[:, 1] # pyright: ignore
 
         print("MODEL - ...predictions are done!...")
 
@@ -55,7 +55,7 @@ class PredictInteractions(ComputeFeatures):
         Args:
             filename (str): Filename to be used when saving predictions
         """
-        self.features_df["Predictions"] = self.predictions #pyright: ignore
-        self.features_df["Scores"] = self.scores #pyright: ignore
+        self.features_df["Predictions"] = self.predictions # pyright: ignore
+        self.features_df["Scores"] = self.scores # pyright: ignore
 
-        self.features_df.to_csv(filename, sep="\t") #pyright: ignore
+        self.features_df.to_csv(filename, sep="\t") # pyright: ignore

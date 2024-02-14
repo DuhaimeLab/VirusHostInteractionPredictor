@@ -5,7 +5,7 @@ Those signals are necessary for virus-host predictions.
 
 import itertools
 import os
-import pandas as pd #pyright: ignore[reportMissingTypeStubs]
+import pandas as pd # pyright: ignore[reportMissingTypeStubs]
 
 from multiprocessing import Pool
 from typing import List
@@ -292,15 +292,15 @@ class ComputeFeatures:
         print(f"-------> current pair: {pair.virus} | {pair.host}")
         pair.homology_hit = self.homology_matches.match(pair.virus, pair.host)
 
-        k3distance = d2Distance(self.k3profiles[pair.virus], self.k3profiles[pair.host]) #pyright: ignore
+        k3distance = d2Distance(self.k3profiles[pair.virus], self.k3profiles[pair.host]) # pyright: ignore
         k3distance.distance()
-        pair.k3dist = k3distance.dist #pyright: ignore
+        pair.k3dist = k3distance.dist # pyright: ignore
 
-        k6distance = d2Distance(self.k6profiles[pair.virus], self.k6profiles[pair.host]) #pyright: ignore
+        k6distance = d2Distance(self.k6profiles[pair.virus], self.k6profiles[pair.host]) # pyright: ignore
         k6distance.distance()
-        pair.k6dist = k6distance.dist #pyright: ignore
+        pair.k6dist = k6distance.dist # pyright: ignore
 
-        pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host] #pyright: ignore
+        pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host] # pyright: ignore
 
         return pair
 
@@ -327,7 +327,7 @@ class ComputeFeatures:
             list(zip(pairs, GCdiff, k3dist, k6dist, Homology)),
             columns=["pairs", "GCdiff", "k3dist", "k6dist", "Homology"],
         )
-        self.features_df = self.features_df.set_index("pairs") #pyright: ignore[reportUnknownMemberType]
+        self.features_df = self.features_df.set_index("pairs") # pyright: ignore[reportUnknownMemberType]
 
 
     def save_features(self, filename: str):
@@ -339,4 +339,4 @@ class ComputeFeatures:
         if self.features_df is None:
             self.convert_to_dataframe()
 
-        self.features_df.to_csv(filename, sep="\t") #pyright: ignore
+        self.features_df.to_csv(filename, sep="\t") # pyright: ignore

@@ -5,7 +5,7 @@ This module provides:
 - read_headers: retrieve the headers for fasta path
 """
 
-from Bio import SeqIO #pyright: ignore[reportMissingTypeStubs]
+from Bio import SeqIO # pyright: ignore[reportMissingTypeStubs]
 from typing import List
 
 def read_sequence(path: str) -> list[str]:
@@ -18,8 +18,8 @@ def read_sequence(path: str) -> list[str]:
         str: nucleotide sequence
     """
     sequences: List[str] = []
-    for record in SeqIO.parse(path, 'fasta'): #pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
-        sequences.append(str(record.seq)) #pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
+    for record in SeqIO.parse(path, 'fasta'): # pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
+        sequences.append(str(record.seq)) # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
     return sequences
 
 
@@ -33,6 +33,6 @@ def read_headers(path: str) -> list[str]:
         list: list of all headers for a given fasta file
     """
     result = []
-    for record in SeqIO.parse(path, "fasta"): #pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
-        result.append(record.id) #pyright: ignore[reportUnknownMemberType]
-    return result #pyright: ignore[reportUnknownVariableType]
+    for record in SeqIO.parse(path, "fasta"): # pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
+        result.append(record.id) # pyright: ignore[reportUnknownMemberType]
+    return result # pyright: ignore[reportUnknownVariableType]
