@@ -35,7 +35,7 @@ jobs:
       # Install dependencies and add virtualenv to path
       - name: Install dependencies
         run: |
-          poetry install --only main,lint
+          poetry install --only main,test
           echo "$(poetry env info --path)/bin" >> $GITHUB_PATH
 
       # Ruff
