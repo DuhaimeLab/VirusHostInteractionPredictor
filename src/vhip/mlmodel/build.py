@@ -3,11 +3,16 @@
 In case the skops file is unusable, this file contains all the information needed to retrain VHIP.
 """
 
-from sklearn.model_selection import train_test_split  # pyright: ignore[reportUnknownVariableType, reportMissingTypeStubs]
-from sklearn.ensemble import GradientBoostingClassifier  # pyright: ignore[reportMissingTypeStubs]
-from sklearn.utils import resample  # pyright: ignore[reportUnknownVariableType, reportMissingTypeStubs]
-
 import pandas as pd  # pyright: ignore[reportMissingTypeStubs]
+from sklearn.ensemble import (  # pyright: ignore[reportMissingTypeStubs]
+    GradientBoostingClassifier,
+)
+from sklearn.model_selection import (  # pyright: ignore[reportMissingTypeStubs]
+    train_test_split,  # pyright: ignore[reportUnknownVariableType]
+)
+from sklearn.utils import (  # pyright: ignore[reportMissingTypeStubs]
+    resample,  # pyright: ignore[reportUnknownVariableType]
+)
 
 
 class BuildModel:
@@ -36,8 +41,8 @@ class BuildModel:
         self.ml_input = tmp[["GCdiff", "k3dist", "k6dist", "Homology"]]  # pyright: ignore
         print(
             "The dataframe is made of {} rows and {} columns!".format(
-                self.ml_input.shape[0],
-                self.ml_input.shape[1],  # pyright: ignore
+                self.ml_input.shape[0],  # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
+                self.ml_input.shape[1],  # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
             )
         )
 
@@ -53,9 +58,9 @@ class BuildModel:
 
     def build(self):
         """Build machine learning model de novo."""
-        X_train, X_test, y_train, y_test = train_test_split(  # pyright: ignore
-            self.ml_input,
-            self.ml_target,
+        X_train, X_test, y_train, y_test = train_test_split(  # pyright: ignore[reportUnknownVariableType]
+            self.ml_input,  # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
+            self.ml_target,  # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
             random_state=5,
             test_size=0.3,
             train_size=0.7,  # pyright: ignore
