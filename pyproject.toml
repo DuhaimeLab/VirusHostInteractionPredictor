@@ -28,7 +28,7 @@ coverage = { version = "==7.3.2", extras = ["toml"] }
 pytest = "==8.0.0"
 pyright = "==1.1.350"
 ruff = "==0.2.1"
-pandas-stubs = "^2.1.4.231227"
+pandas-stubs = "==2.1.4.231227"
 
 [build-system]
 requires = ["poetry-core"]
