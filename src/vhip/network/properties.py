@@ -5,6 +5,7 @@ from typing import List
 import numpy as np
 from numpy.typing import NDArray
 
+
 class AdjacencyMatrix:
     """Define class for virus-host interaction networks (VHINs).
 
@@ -19,7 +20,6 @@ class AdjacencyMatrix:
         self.sorted = False
         self.shape = matrix.shape
 
-
     def nestedness(self) -> None:
         """Calculate nestedness using the NODF algorithm for the array."""
         # sort matrix if it has not been done
@@ -32,12 +32,8 @@ class AdjacencyMatrix:
         # generate list of rows to compare
         rows_to_compare = self.pairs(axis=0)
         for x, y in rows_to_compare:
-            pair1 = self.adj[
-                x,
-            ]
-            pair2 = self.adj[
-                y,
-            ]
+            pair1 = self.adj[x,]
+            pair2 = self.adj[y,]
 
             N_row += self.compare(pair1, pair2)
 
@@ -48,11 +44,10 @@ class AdjacencyMatrix:
             pair2 = self.adj[:, y]
             print(pair1, pair2)
 
-            N_col += self.compare(pair1, pair2) # pyright: ignore
+            N_col += self.compare(pair1, pair2)  # pyright: ignore
 
         print(N_row, N_col)
         self.nodf = (N_row + N_col) / 2
-
 
     def sort(self) -> None:
         """Sort matrix."""
@@ -75,12 +70,9 @@ class AdjacencyMatrix:
         new_col_order = [x[1] for x in self.sum_cols]
 
         # rearrange matrix
-        self.adj = self.adj[
-            new_row_order,
-        ]
+        self.adj = self.adj[new_row_order,]
         self.adj = self.adj[:, new_col_order]
         self.sorted = True
-
 
     def pairs(self, axis: int = 0) -> list[tuple[int, int]]:
         """Determine all possible i-j pairs.
@@ -93,7 +85,6 @@ class AdjacencyMatrix:
             for j in range(i + 1, self.shape[axis]):
                 lst.append((i, j))
         return lst
-
 
     def compare(self, x: list[int], y: list[int]) -> float:
         """Compare two lists containing 0 and 1.
@@ -118,7 +109,7 @@ class AdjacencyMatrix:
         return val * 10
 
 
-#TODO: Export code below to be its own test
+# TODO: Export code below to be its own test
 
 unsorted = np.array(
     [

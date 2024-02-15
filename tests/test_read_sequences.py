@@ -48,4 +48,3 @@ def test_read_sequence_many_contigs():
     filename = "tests/datatests/test_sequence_multiple_contigs.fasta"
     res = read_sequence(filename)
     assert len(res) == 2
-

@@ -18,8 +18,8 @@ def test_ComputeFeatures_list_files():
         "GCA_003344205.1_ASM334420v1_genomic.fasta",
         "GCA_005146815.1_ASM514681v1_genomic.fna.fasta",
         "GCA_001974575.1_ASM197457v1_genomic.fna.fasta",
-        "GCA_002875995.1_ASM287599v1_genomic.fna.fasta"
-        ]
+        "GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
+    ]
 
     all_filenames.sort()
     test = ComputeFeatures(test_virus_directory, test_host_directory)
@@ -47,9 +47,18 @@ def test_ComputeFeatures_get_headers():
     test.get_headers()
 
     assert test.headers["MG592522.1"] == "GCA_003344205.1_ASM334420v1_genomic.fasta"
-    assert test.headers["MKKP01000001.1"] == "GCA_001974575.1_ASM197457v1_genomic.fna.fasta"
-    assert test.headers["MKKP01000002.1"] == "GCA_001974575.1_ASM197457v1_genomic.fna.fasta"
-    assert test.headers["MKKP01000003.1"] == "GCA_001974575.1_ASM197457v1_genomic.fna.fasta"
+    assert (
+        test.headers["MKKP01000001.1"]
+        == "GCA_001974575.1_ASM197457v1_genomic.fna.fasta"
+    )
+    assert (
+        test.headers["MKKP01000002.1"]
+        == "GCA_001974575.1_ASM197457v1_genomic.fna.fasta"
+    )
+    assert (
+        test.headers["MKKP01000003.1"]
+        == "GCA_001974575.1_ASM197457v1_genomic.fna.fasta"
+    )
 
 
 def test_ComputeFeatures_add_blastn_files():
@@ -65,8 +74,14 @@ def test_ComputeFeatures_add_blastn_files():
 def test_ComputeFeatures_process_blastn():
     """Test that blastn file is processed correctly."""
     expected_results = {
-        "GCA_003344205.1_ASM334420v1_genomic.fasta": ["GCA_003931015.1_ASM393101v1_genomic.fasta"],
-        "GCA_003931015.1_ASM393101v1_genomic.fasta": ["GCA_005146815.1_ASM514681v1_genomic.fna.fasta", "GCA_003931015.1_ASM393101v1_genomic.fasta"]}
+        "GCA_003344205.1_ASM334420v1_genomic.fasta": [
+            "GCA_003931015.1_ASM393101v1_genomic.fasta"
+        ],
+        "GCA_003931015.1_ASM393101v1_genomic.fasta": [
+            "GCA_005146815.1_ASM514681v1_genomic.fna.fasta",
+            "GCA_003931015.1_ASM393101v1_genomic.fasta",
+        ],
+    }
     test = ComputeFeatures(test_virus_directory, test_host_directory)
     test.list_files()
     test.get_headers()
@@ -78,13 +93,15 @@ def test_ComputeFeatures_process_blastn():
 def test_ComputeFeatures_process_spacers():
     """Test that spacers are processed correctly."""
     expected_results = {
-        "GCA_003344205.1_ASM334420v1_genomic.fasta": ["GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
-                                                      "GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
-                                                      "GCA_002875995.1_ASM287599v1_genomic.fna.fasta"
-                                                      ],
-        "GCA_003931015.1_ASM393101v1_genomic.fasta": ["GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
-                                                      "GCA_002875995.1_ASM287599v1_genomic.fna.fasta"
-                                                      ]
+        "GCA_003344205.1_ASM334420v1_genomic.fasta": [
+            "GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
+            "GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
+            "GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
+        ],
+        "GCA_003931015.1_ASM393101v1_genomic.fasta": [
+            "GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
+            "GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
+        ],
     }
     test = ComputeFeatures(test_virus_directory, test_host_directory)
     test.list_files()
@@ -101,20 +118,24 @@ def test_ComputeFeatures_generate_kmer_profiles():
     test.determine_pairs()
     test.generate_kmer_profiles()
     assert isinstance(test.k6profiles, dict)
-    assert isinstance(test.k6profiles["GCA_003344205.1_ASM334420v1_genomic.fasta"], KmerProfile)
+    assert isinstance(
+        test.k6profiles["GCA_003344205.1_ASM334420v1_genomic.fasta"], KmerProfile
+    )
 
 
 def test_ComputeFeatures_complete_pipeline():
     """Check the complete pipeline for ComputeFeatures is working as intended."""
     test = ComputeFeatures(test_virus_directory, test_host_directory)
-    test.add_blastn_files("tests/datatests/blastn_phagevhost.tsv", "tests/datatests/blastn_phagevspacer.tsv")
+    test.add_blastn_files(
+        "tests/datatests/blastn_phagevhost.tsv",
+        "tests/datatests/blastn_phagevspacer.tsv",
+    )
     test.do_setup()
     test.run_parallel()
     test.convert_to_dataframe()
     assert isinstance(test.features_df, pd.DataFrame)
     assert test.features_df.shape[0] == 12
     assert test.features_df.shape[1] == 4
-
 
 
 if __name__ == "__main__":

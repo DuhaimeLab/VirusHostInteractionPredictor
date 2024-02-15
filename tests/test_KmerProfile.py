@@ -9,10 +9,10 @@ def test_KmerProfile_generate_kmer_words():
     # Kmer words generation
     seq = ["ATCG"]
     profile = KmerProfile(seq, 3)
-    assert (len(profile.generate_kmer_words(1)) == 4)
-    assert (len(profile.generate_kmer_words(2)) == 16)
-    assert (len(profile.generate_kmer_words(3)) == 64)
-    assert (len(profile.generate_kmer_words(6)) == 4096)
+    assert len(profile.generate_kmer_words(1)) == 4
+    assert len(profile.generate_kmer_words(2)) == 16
+    assert len(profile.generate_kmer_words(3)) == 64
+    assert len(profile.generate_kmer_words(6)) == 4096
 
 
 def test_KmerProfile_generate_profile():
@@ -89,4 +89,3 @@ def test_KmerProfile_empty_string():
         profile = KmerProfile(seq, 3)
         profile.generate_profile()
     assert str(excinfo.value) == "seq cannot be an empty list"
-

@@ -27,7 +27,6 @@ class KmerProfile:
         self.seqlen = len(seq)
         self.nucleotides = ["A", "T", "C", "G"]
 
-
     def generate_profile(self):
         """Generate k-mer profile for sequence."""
         words = self.generate_kmer_words(self.k)
@@ -47,7 +46,6 @@ class KmerProfile:
             AT = self.profile_counts[0] + self.profile_counts[1]
             GC = self.profile_counts[2] + self.profile_counts[3]
             self.GCcontent = GC / (AT + GC) * 100
-
 
     def generate_kmer_words(self, length: int) -> list[str]:
         """Generate all possible k-mer words based on parameter length.
@@ -90,7 +88,6 @@ class d2Distance:
         self.seq1_seqlen = seq1_profile.seqlen
         self.seq2_seqlen = seq2_profile.seqlen
 
-
     def distance(self):
         """Compute the distance for the two input k-mer profile.
 
@@ -107,7 +104,6 @@ class d2Distance:
             print("k-length used to generate the profiles is not consistent")
             self.dist = None
             return self.dist
-
 
     def nucleotide_count(self) -> None:
         """Calculate the nucleotide count for sequence 1 and 2. It assumes A, T, C, and G letters."""
@@ -132,7 +128,6 @@ class d2Distance:
         self.seq2_nuc_freq = {
             key: value / seq2_total for key, value in seq2_nuc_count.items()
         }
-
 
     def null(self) -> None:
         """Computer null expectation of k-mer words based on A, T, C, and G counts."""
@@ -198,7 +193,6 @@ class d2Distance:
         self.seq1_null_prob = np.fromiter(seq1_null.values(), dtype=float)
         self.seq2_null_prob = np.fromiter(seq2_null.values(), dtype=float)
 
-
     def d2star(self) -> float:
         """Normalize the distance.
 
@@ -210,7 +204,6 @@ class d2Distance:
             sum(self.y**2 / self.y_expected)
         )
         return 0.5 * (1 - (D2star_value / numerator))
-
 
     def D2star(self) -> float:
         """Computer distance between two k-mer profiles.
@@ -244,13 +237,16 @@ class HomologyMatch:
         virus_spacer_blastn (dict): dictionary containing viruses as keys and list of spacers headers as values.
     """
 
-    def __init__(self, virus_host_blastn: dict[str, list[str]], virus_spacer_blastn: dict[str, list[str]]):
+    def __init__(
+        self,
+        virus_host_blastn: dict[str, list[str]],
+        virus_spacer_blastn: dict[str, list[str]],
+    ):
         """Initialize class variables."""
         self.virus_host = virus_host_blastn
         self.virus_spacers = virus_spacer_blastn
 
-
-    def match(self, virus: str, host:str):
+    def match(self, virus: str, host: str):
         """Determine if there is a match in homology for given virus-host pair.
 
         This will check the virus against host blastn results, and the virus against host spacers blastn results.
@@ -269,7 +265,6 @@ class HomologyMatch:
 
         return self.hit
 
-
     def check_blastn(self, virus: str, host: str):
         """Check the virus against host blastn dictionary.
 
@@ -285,7 +280,6 @@ class HomologyMatch:
             self.blast = True
         else:
             self.blast = False
-
 
     def check_spacers(self, virus: str, host: str):
         """Check the virus against spacer blastn dictionary.
