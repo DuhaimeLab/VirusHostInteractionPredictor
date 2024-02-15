@@ -9,7 +9,6 @@ updates:
     commit-message:
       prefix: "⬆ "
       prefix-development: "⬆ [dev] "
-    versioning-strategy: "increase-if-necessary"
     groups:
       # Group patch updates to production dependencies
       python-prod:
