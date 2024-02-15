@@ -4,6 +4,8 @@
 data/sequences/*
 /design_documents/*
 .VSCodeCounter/*
+notebooks/*
+
 
 # gitignore.io template
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,macos,windows,linux,pycharm

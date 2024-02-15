@@ -1,27 +1,27 @@
-'''Adjacency matrix class that takes for input a numpy 2d array.'''
+"""Adjacency matrix class that takes for input a numpy 2d array."""
 
 from typing import List
 
 import numpy as np
 from numpy.typing import NDArray
 
+
 class AdjacencyMatrix:
-    '''Define class for virus-host interaction networks (VHINs).
+    """Define class for virus-host interaction networks (VHINs).
 
     Args:
         matrix (np.array): Array representing interactions.
-    '''
+    """
 
     def __init__(self, matrix: NDArray[np.int_]) -> None:
-        '''Initializes class variables.'''
+        """Initializes class variables."""
         self.adj = matrix
 
         self.sorted = False
         self.shape = matrix.shape
 
-
     def nestedness(self) -> None:
-        '''Calculate nestedness using the NODF algorithm for the array.'''
+        """Calculate nestedness using the NODF algorithm for the array."""
         # sort matrix if it has not been done
         if self.sorted is False:
             self.sort()
@@ -32,12 +32,8 @@ class AdjacencyMatrix:
         # generate list of rows to compare
         rows_to_compare = self.pairs(axis=0)
         for x, y in rows_to_compare:
-            pair1 = self.adj[
-                x,
-            ]
-            pair2 = self.adj[
-                y,
-            ]
+            pair1 = self.adj[x,]
+            pair2 = self.adj[y,]
 
             N_row += self.compare(pair1, pair2)
 
@@ -48,14 +44,13 @@ class AdjacencyMatrix:
             pair2 = self.adj[:, y]
             print(pair1, pair2)
 
-            N_col += self.compare(pair1, pair2) #pyright: ignore[reportGeneralTypeIssues]
+            N_col += self.compare(pair1, pair2)  # pyright: ignore
 
         print(N_row, N_col)
         self.nodf = (N_row + N_col) / 2
 
-
     def sort(self) -> None:
-        '''Sort matrix.'''
+        """Sort matrix."""
         # calculate sums of 1s for rows and columns, and stores as a list of tuples
         # first element of tuple: sum | second element: index
         self.sum_rows: List[tuple[int, int]] = []
@@ -75,33 +70,29 @@ class AdjacencyMatrix:
         new_col_order = [x[1] for x in self.sum_cols]
 
         # rearrange matrix
-        self.adj = self.adj[
-            new_row_order,
-        ]
+        self.adj = self.adj[new_row_order,]
         self.adj = self.adj[:, new_col_order]
         self.sorted = True
 
-
     def pairs(self, axis: int = 0) -> list[tuple[int, int]]:
-        '''Determine all possible i-j pairs.
+        """Determine all possible i-j pairs.
 
         Args:
             axis (int): Axis to be used when determining all pairs.
-        '''
+        """
         lst: List[tuple[int, int]] = []
         for i in range(0, self.shape[axis]):
             for j in range(i + 1, self.shape[axis]):
                 lst.append((i, j))
         return lst
 
-
     def compare(self, x: list[int], y: list[int]) -> float:
-        '''Compare two lists containing 0 and 1.
+        """Compare two lists containing 0 and 1.
 
         Args:
             x (list[int]): first list
             y (list[int]): second list
-        '''
+        """
         if sum(x) <= sum(y):
             val = 0
         else:
@@ -118,7 +109,7 @@ class AdjacencyMatrix:
         return val * 10
 
 
-#TODO: Export code below to be its own test
+# TODO: Export code below to be its own test
 
 unsorted = np.array(
     [
