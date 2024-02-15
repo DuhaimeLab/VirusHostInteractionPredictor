@@ -25,9 +25,9 @@ seaborn = "*"
 
 [tool.poetry.group.test.dependencies]
 coverage = { version = "==7.3.2", extras = ["toml"] }
-pytest = "==7.4.3"
-pyright = "==1.1.339"
-ruff = "==0.1.7"
+pytest = "==8.0.0"
+pyright = "==1.1.350"
+ruff = "==0.2.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -36,19 +36,20 @@ build-backend = "poetry.core.masonry.api"
 [tool.ruff]
 # Ruff configuration
 
-# On top of the default `select` (E, F), enable pydocstyle (D), pycodestyle Warning (W).
-extend-select = ["D", "W"]
-
-# Ignore redundant rules when using formatter
-ignore = ["D206", "D300", "W191"]
-
 # Allow imports relative to the "src" directory
 src = ["src"]
 
 # Specify a minimum Python version to target
 target-version = "py39"
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint]
+# On top of the default `select` (E, F), enable pydocstyle (D), pycodestyle Warning (W).
+extend-select = ["D", "W"]
+
+# Ignore redundant rules when using formatter
+ignore = ["D206", "D300", "W191"]
+
+[tool.ruff.lint.pydocstyle]
 convention = "google"
 
 [tool.pyright]
