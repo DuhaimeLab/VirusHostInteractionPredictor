@@ -81,6 +81,14 @@ def test_KmerProfile_generate_profile():
     assert sum(profile.profile_counts) == 12
 
 
+def test_KmerProfile_multiple_sequences():
+    '''Test for multiple sequences in the input list.'''
+    seq = ['TAATTT', 'GGATTT']
+    profile = KmerProfile(seq, 3)
+    profile.generate_profile()
+    assert sum(profile.profile_counts) == 8
+
+
 def test_KmerProfile_empty_string():
     """Test for empty string as input to KmerProfile."""
     # Empty string given as input
