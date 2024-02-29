@@ -82,8 +82,8 @@ def test_KmerProfile_generate_profile():
 
 
 def test_KmerProfile_multiple_sequences():
-    '''Test for multiple sequences in the input list.'''
-    seq = ['TAATTT', 'GGATTT']
+    """Test for multiple sequences in the input list."""
+    seq = ["TAATTT", "GGATTT"]
     profile = KmerProfile(seq, 3)
     profile.generate_profile()
     assert sum(profile.profile_counts) == 8

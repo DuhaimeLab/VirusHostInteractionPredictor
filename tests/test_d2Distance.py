@@ -17,6 +17,7 @@ def test_d2Distance_distance():
 
     test = d2Distance(seq1_profile, seq2_profile)
     test.distance()
+    print(test.dist)
     dist = 0.5004  # distance for the two small sequences above
     assert np.round(test.dist, 4) == dist  # pyright: ignore[reportGeneralTypeIssues, reportCallIssue, reportArgumentType]
 
@@ -46,3 +47,7 @@ def test_d2Distance_distance():
     test = d2Distance(seq1_profile, seq2_profile)
     test.distance()
     assert test.dist is None
+
+
+if __name__ == "__main__":
+    test_d2Distance_distance()
