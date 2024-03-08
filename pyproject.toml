@@ -44,8 +44,8 @@ src = ["src"]
 target-version = "py39"
 
 [tool.ruff.lint]
-# On top of the default `select` (E, F), enable pydocstyle (D), pycodestyle Warning (W).
-extend-select = ["D", "W"]
+# On top of the default `select` (E, F), enable pydocstyle (D), isort (I), pycodestyle Warning (W).
+extend-select = ["D", "I", "W"]
 
 # Ignore redundant rules when using formatter
 ignore = ["D206", "D300", "W191"]
@@ -54,7 +54,6 @@ ignore = ["D206", "D300", "W191"]
 convention = "google"
 
 [tool.pyright]
-include = ["src"]
 typeCheckingMode = "strict"
 
 [tool.pytest.ini_options]
