@@ -15,7 +15,7 @@ python = ">=3.9"
 biopython = "*"
 numpy = "*"
 pandas = "*"
-scikit-learn = ">=1.3.2"
+scikit-learn = "*"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "*"
