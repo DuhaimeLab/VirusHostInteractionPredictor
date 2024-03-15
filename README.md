@@ -13,6 +13,8 @@ You can find more information about the philosophy and performance of VHIP here:
 
 This module will be made available as a conda environment. To be updated once it is up on conda. 
 
+Also will be available with `pip install virushostinteractionpredictor`. 
+
 
 ## Inputs
 
