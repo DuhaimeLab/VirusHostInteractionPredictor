@@ -1,7 +1,7 @@
 """Tests for the PredictInteractions module."""
 
-from vhip.predict_interactions import PredictInteractions
 from vhip.mlmodel.build import BuildModel
+from vhip.predict_interactions import PredictInteractions
 
 test_virus_directory = "tests/datatests/sequences/virus_seqs/"
 test_host_directory = "tests/datatests/sequences/host_seqs/"
