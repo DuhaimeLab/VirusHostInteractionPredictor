@@ -1,6 +1,6 @@
 """Pytest to read sequence."""
 
-from vhip.mlmodel.read_sequence import read_sequence, read_headers
+from vhip.mlmodel.read_sequence import read_headers, read_sequence
 
 seq = """AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
 CTCGCTGAAGTACTATTAGATGTAGACGTGCTTGCGCTTATCGATTCAGAAGTACTTGTACTTTCTGAAC

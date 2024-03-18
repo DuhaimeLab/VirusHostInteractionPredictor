@@ -1,9 +1,9 @@
 """Test suite for the ComputeFeatures module."""
 
+import pandas as pd
+
 from vhip.mlmodel.compute_ml_features import ComputeFeatures, Pairs
 from vhip.mlmodel.genomes_features import KmerProfile
-
-import pandas as pd
 
 test_virus_directory = "tests/datatests/sequences/virus_seqs/"
 test_host_directory = "tests/datatests/sequences/host_seqs/"
