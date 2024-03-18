@@ -1,9 +1,6 @@
 name: Test
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
   merge_group:
 
@@ -78,7 +75,7 @@ jobs:
       - name: Run tests and collect coverage
         run: coverage run -m pytest && coverage xml
 
-      # Upload coverage reports to Codecov
+      # Upload coverage reports to Coveralls
       - name: Upload coverage reports to Coveralls
         uses: coverallsapp/github-action@v2
         if: matrix.python-version == '3.12'

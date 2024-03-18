@@ -1,6 +1,6 @@
 [tool.poetry]
 # Poetry configuration.
-# Some configuration kept here should be moved to [project] once Poetry adds full
+# Some configuration options here could be moved to [project] once Poetry adds full
 # support for PEP 621.
 name = "virushostinteractionpredictor"
 version = "0.0.2"
