@@ -1,7 +1,5 @@
 """Predict class."""
 
-import skops.io as sio  # pyright: ignore[reportMissingTypeStubs]
-
 from .mlmodel.compute_ml_features import ComputeFeatures
 from sklearn.ensemble import GradientBoostingClassifier  # pyright: ignore[reportMissingTypeStubs]
 
