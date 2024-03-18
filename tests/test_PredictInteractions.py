@@ -1,16 +1,20 @@
-"""Test suite for the PredictInteractions module."""
+"""Tests for the PredictInteractions module."""
 
+from vhip.mlmodel.build import BuildModel
 from vhip.predict_interactions import PredictInteractions
 
-MODEL = "tests/datatests/gbrt.skops"
 test_virus_directory = "tests/datatests/sequences/virus_seqs/"
 test_host_directory = "tests/datatests/sequences/host_seqs/"
+ml_training = "tests/datatests/ml_input.csv"
 
 
 def test_PredictInteractions_complete_pipeline():
     """Test that the complete pipeline to compute and predict virus-host interaction is working."""
+    model = BuildModel(ml_training)
+    VHIP = model.build()
+
     test = PredictInteractions(test_virus_directory, test_host_directory)
-    test.load_model(MODEL)
+    test.model = VHIP
     test.add_blastn_files(
         "tests/datatests/blastn_phagevhost.tsv",
         "tests/datatests/blastn_phagevspacer.tsv",

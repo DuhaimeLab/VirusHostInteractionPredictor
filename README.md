@@ -5,19 +5,26 @@
 
 ## Introduction
 
-**Goal**: Predict hosts for virus of interest from sequence data (fasta files)  
-**Input**: Sequences for viruses and hosts of interest and the blast results between viruses and hosts, and between viruses and spacers.  
-**Output**: Predictions and score for each virus-host pair. This can be used to plot virus-host infection network.
+VHIP is a machine-learning model that predict virus-microbe interactions (i.e., infection or non-infection) from genomic sequences of viruses and microbes of interest. It leverages virus-microbe coevolution signal that are extracted from genomic sequences. VHIP was trained on lab-verified virus-microbe pairs collected from literature and the NCBI virus database. 
 
-## Requirements
+You can find more information about the philosophy and performance of VHIP here: https://www.biorxiv.org/content/10.1101/2023.11.03.565433v1 
 
-Before the tool can be used, you will need to:
+## Installation 
 
-1. Create a virus and a host directory. The virus and host sequences need to be in separate folders. Each fasta file should only represent 1 host or virus.
-2. Run blastn between viruses and hosts. Also run CRISPRCasFinder on hosts sequences, then blastn between viruses and the spacers (output of CRISPRCasFinder).
-3. Create a conda environment named `vhip` with the modules/packages that are in the `requirements.txt` file.
+This module will be made available as a conda environment. To be updated once it is up on conda. 
 
-## Tutorial
+Also will be available with `pip install virushostinteractionpredictor`. 
 
-A tutorial is included in the `tutorials/` folder, with a test dataset.
-The test dataset include sequences for hosts, viruses, and the blastn files (viruses against spacers, and viruses against host sequences).
+
+## Inputs
+
+The inputs for VHIP are sequences for the viruses and hosts of interest. Each file should represent an unique virus/host species. In addition, a blastn between the virus and host sequences, and between viruses and host spacers are needed. If there are no results from the blastn, then the files can be empty. 
+
+## Example
+
+An example is included in the `example` folder. It includes virus and microbes sequences, how they should be organized (separate folders), and example blastn files. Make sure you are able to run VHIP on the example before applying to a new dataset. 
+
+
+## Citation
+
+https://www.biorxiv.org/content/10.1101/2023.11.03.565433v1

@@ -25,7 +25,7 @@ class KmerProfile:
             raise ValueError("seq cannot be an empty list")
         self.k = k
         self.seq = seq
-        self.seqlen = len(seq)
+        self.seqlen = sum(len(s) for s in seq)
         self.nucleotides = ["A", "T", "C", "G"]
 
     def generate_profile(self):
