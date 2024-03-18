@@ -1,4 +1,4 @@
-"""Test suite for the PredictInteractions module."""
+"""Tests for the PredictInteractions module."""
 
 from vhip.predict_interactions import PredictInteractions
 from vhip.mlmodel.build import BuildModel
