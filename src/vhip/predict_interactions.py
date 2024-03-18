@@ -21,16 +21,6 @@ class PredictInteractions(ComputeFeatures):
         super().__init__(virus_directory, host_directory, ext)
         self.model: GradientBoostingClassifier
 
-    def load_model(self, path: str) -> None:
-        """Load machine learning model.
-
-        Args:
-            path (str): Pathway to model
-        """
-        loaded_model = sio.load(path, trusted=True)
-        if isinstance(loaded_model, GradientBoostingClassifier):
-            self.model = loaded_model
-
     def predict(self) -> None:
         """Make interaction prediction for each virus-host pair."""
         # call method to transfer dataclass pairs into a dataframe
