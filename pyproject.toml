@@ -1,6 +1,6 @@
 [tool.poetry]
 # Poetry configuration.
-# Some configuration kept here should be moved to [project] once Poetry adds full
+# Some configuration options here could be moved to [project] once Poetry adds full
 # support for PEP 621.
 name = "virushostinteractionpredictor"
 version = "0.0.2"
@@ -43,8 +43,8 @@ src = ["src"]
 target-version = "py39"
 
 [tool.ruff.lint]
-# On top of the default `select` (E, F), enable pydocstyle (D), pycodestyle Warning (W).
-extend-select = ["D", "W"]
+# On top of the default `select` (E, F), enable pydocstyle (D), isort (I), pycodestyle Warning (W).
+extend-select = ["D", "I", "W"]
 
 # Ignore redundant rules when using formatter
 ignore = ["D206", "D300", "W191"]
@@ -53,7 +53,6 @@ ignore = ["D206", "D300", "W191"]
 convention = "google"
 
 [tool.pyright]
-include = ["src"]
 typeCheckingMode = "strict"
 
 [tool.pytest.ini_options]

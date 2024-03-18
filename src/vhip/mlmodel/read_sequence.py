@@ -5,8 +5,9 @@ This module provides:
 - read_headers: retrieve the headers for fasta path
 """
 
-from Bio import SeqIO  # pyright: ignore[reportMissingTypeStubs]
 from typing import List
+
+from Bio import SeqIO  # pyright: ignore[reportMissingTypeStubs]
 
 
 def read_sequence(path: str) -> list[str]:

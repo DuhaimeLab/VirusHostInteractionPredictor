@@ -1,6 +1,7 @@
 """Pytest for d2distances measurements of k-mer profiles."""
 
 import numpy as np
+
 from vhip.mlmodel.genomes_features import KmerProfile, d2Distance
 
 

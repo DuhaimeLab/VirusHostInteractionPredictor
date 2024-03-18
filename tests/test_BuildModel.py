@@ -1,7 +1,10 @@
 """Test suite for the BuildModel module."""
 
+from sklearn.ensemble import (  # pyright: ignore[reportMissingTypeStubs]
+    GradientBoostingClassifier,
+)
+
 from vhip.mlmodel.build import BuildModel
-from sklearn.ensemble import GradientBoostingClassifier
 
 
 def test_BuildModel_init():

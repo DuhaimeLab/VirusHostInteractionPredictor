@@ -1,6 +1,9 @@
 """Pytest for genomes_features module."""
-import pytest
+from typing import List
+
 import numpy as np
+import pytest
+
 from vhip.mlmodel.genomes_features import KmerProfile
 
 
@@ -92,7 +95,7 @@ def test_KmerProfile_multiple_sequences():
 def test_KmerProfile_empty_string():
     """Test for empty string as input to KmerProfile."""
     # Empty string given as input
-    seq = []
+    seq: List[str] = []
     with pytest.raises(ValueError) as excinfo:
         profile = KmerProfile(seq, 3)
         profile.generate_profile()

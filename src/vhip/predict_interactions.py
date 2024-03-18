@@ -1,7 +1,10 @@
 """Predict class."""
 
+from sklearn.ensemble import (  # pyright: ignore[reportMissingTypeStubs]
+    GradientBoostingClassifier,
+)
+
 from .mlmodel.compute_ml_features import ComputeFeatures
-from sklearn.ensemble import GradientBoostingClassifier  # pyright: ignore[reportMissingTypeStubs]
 
 
 class PredictInteractions(ComputeFeatures):

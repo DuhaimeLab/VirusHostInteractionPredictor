@@ -6,8 +6,9 @@ This module provides:
 - HomologyMatch: check for DNA sequence match between a virus and host from blastn files
 """
 
-import numpy as np
 from typing import List
+
+import numpy as np
 
 
 class KmerProfile:
