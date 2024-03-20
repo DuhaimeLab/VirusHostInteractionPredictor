@@ -1,5 +1,4 @@
 """Pytest for genomes_features module."""
-
 from typing import List
 
 import numpy as np
