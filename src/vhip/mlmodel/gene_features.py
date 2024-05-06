@@ -90,8 +90,12 @@ class Gene:
 
     def __init__(self, gene_seq: str, codon_length: int = 3) -> None:
         """Initialize class variables."""
-        self.seq = gene_seq
-        self.codon_length = codon_length
+        if len(gene_seq) % codon_length == 0:
+            self.seq = gene_seq
+            self.codon_length = codon_length
+        elif len(gene_seq) % codon_length != 0:
+            raise Exception("Gene length is not a multiple of codon length.")
+
 
     def calculate_codon_counts(self) -> None:
         """Calculate counts of each unique codon in a gene.
@@ -103,12 +107,9 @@ class Gene:
         self.number_imprecise_codons = 0
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
 
-        if len(self.seq) % self.codon_length == 0:
-            for i in range(0, len(self.seq), self.codon_length):
-                codon = self.seq[i : i + self.codon_length]
-                if codon in self.codon_dict.keys():
-                    self.codon_dict[codon] += 1
-                else:
-                    self.number_imprecise_codons += 1
-        elif len(self.seq) % self.codon_length != 0:
-            raise Exception("Gene length is not a multiple of codon length.")
+        for i in range(0, len(self.seq), self.codon_length):
+            codon = self.seq[i : i + self.codon_length]
+            if codon in self.codon_dict.keys():
+                self.codon_dict[codon] += 1
+            else:
+                self.number_imprecise_codons += 1
