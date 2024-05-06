@@ -1,13 +1,19 @@
 """Pytest for Gene methods in gene_features module."""
 
+import pytest
+
 from vhip.mlmodel.gene_features import Gene
 
 
 def test_Gene_attributes():
     """Test code to create Gene object and initialize class attributes."""
-    test_gene = Gene("ATGCCGATT")
-    assert test_gene.seq == "ATGCCGATT"
-    assert test_gene.codon_length == 3
+    test_gene_1 = Gene("ATGCCGATT")
+    assert test_gene_1.seq == "ATGCCGATT"
+    assert test_gene_1.codon_length == 3
+
+    # Test that Exception is raised when gene length not divisible by codon length
+    with pytest.raises(Exception):
+        Gene("ATGCCGATTA")
 
 
 def test_Gene_calculate_codon_counts():
