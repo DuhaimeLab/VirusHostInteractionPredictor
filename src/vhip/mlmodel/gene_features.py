@@ -41,3 +41,8 @@ class Gene:
         calculate_codon_counts(): Extract counts of each codon in a gene, and also return imprecise codons (i.e. not in provided CODON_LIST) 
         calculate_aa_counts(): Extract counts of each amino acid in a gene, and also return imprecise codons (i.e. not in provided AA_LIST)
     '''
+
+    def __init__(self, gene_seq: str, codon_length: int = 3) -> None:
+        '''Initialize class variables.'''
+        self.seq = gene_seq
+        self.codon_length = codon_length
