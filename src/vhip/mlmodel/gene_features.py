@@ -122,10 +122,11 @@ class Gene:
         """
         self.aa_dict = dict.fromkeys(AA_LIST, 0)
 
-        if not self.codon_dict:
+        if not hasattr(self, 'codon_dict'):
             self.calculate_codon_counts()
 
         for codon in self.codon_dict:
             if self.codon_dict[codon] != 0:
                 aa = CODON_TABLE[codon]
                 self.aa_dict[aa] += self.codon_dict[codon]
+
