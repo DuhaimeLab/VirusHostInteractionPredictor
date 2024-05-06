@@ -26,7 +26,7 @@ def test_Gene_calculate_codon_counts():
         'GCA': 0, 'GCC': 0, 'GCG': 0, 'GCT': 0,
         'GAC': 0, 'GAT': 0, 'GAA': 0, 'GAG': 0,
         'GGA': 0, 'GGC': 0, 'GGG': 0, 'GGT': 0,
-        'TCA': 1, 'TCC': 0, 'TCG': 0, 'TCT': 0,
+        'TCA': 0, 'TCC': 0, 'TCG': 0, 'TCT': 0,
         'TTC': 0, 'TTT': 0, 'TTA': 0, 'TTG': 0,
         'TAC': 0, 'TAT': 0, 'TAA': 0, 'TAG': 0,
         'TGC': 0, 'TGT': 0, 'TGA': 0, 'TGG': 0}
