@@ -28,3 +28,16 @@ CODON_TABLE = {
 # Separate CODON_TABLE dictionary into lists of codons and amino acids
 CODON_LIST = CODON_TABLE.keys()
 AA_LIST = set(CODON_TABLE.values())
+
+# Define Gene class
+class Gene:
+    '''Class representing a gene.
+
+    Args:
+        gene_seq (str): The nucleotide sequence of the gene.
+        codon_length (int): Length of 1 codon (default is 3).
+
+    Methods:
+        calculate_codon_counts(): Extract counts of each codon in a gene, and also return imprecise codons (i.e. not in provided CODON_LIST) 
+        calculate_aa_counts(): Extract counts of each amino acid in a gene, and also return imprecise codons (i.e. not in provided AA_LIST)
+    '''
