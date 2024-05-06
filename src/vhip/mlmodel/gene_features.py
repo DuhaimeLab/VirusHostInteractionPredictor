@@ -96,7 +96,6 @@ class Gene:
         elif len(gene_seq) % codon_length != 0:
             raise Exception("Gene length is not a multiple of codon length.")
 
-
     def calculate_codon_counts(self) -> None:
         """Calculate counts of each unique codon in a gene.
 
