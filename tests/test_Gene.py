@@ -88,8 +88,31 @@ def test_Gene_calculate_codon_counts():
     }
     assert test_gene.number_imprecise_codons == 1
 
+
 def test_Gene_calculate_aa_counts():
     """Test code to calculate amino acid counts for a given gene."""
     test_gene = Gene("NTGCCGATT")
     test_gene.calculate_aa_counts()
-    assert test_gene.aa_dict == {'_': 0,'C': 0, 'Y': 0, 'W': 0, 'S': 0, 'R': 0, 'N': 0, 'F': 0, 'V': 0, 'M': 0, 'I': 1, 'L': 0, 'E': 0, 'A': 0, 'H': 0, 'Q': 0, 'K': 0, 'D': 0, 'G': 0, 'T': 0, 'P': 1}
+    assert test_gene.aa_dict == {
+        "_": 0,
+        "C": 0,
+        "Y": 0,
+        "W": 0,
+        "S": 0,
+        "R": 0,
+        "N": 0,
+        "F": 0,
+        "V": 0,
+        "M": 0,
+        "I": 1,
+        "L": 0,
+        "E": 0,
+        "A": 0,
+        "H": 0,
+        "Q": 0,
+        "K": 0,
+        "D": 0,
+        "G": 0,
+        "T": 0,
+        "P": 1,
+    }

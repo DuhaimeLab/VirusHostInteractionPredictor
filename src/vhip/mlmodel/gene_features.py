@@ -114,12 +114,12 @@ class Gene:
                 self.number_imprecise_codons += 1
 
     def calculate_aa_counts(self) -> None:
-        '''Calculate counts of each unique amino acid encoded by a gene.
+        """Calculate counts of each unique amino acid encoded by a gene.
 
         Return:
             aa_dict (str: int): Each key of dictionary is an unique amino acid, and values represent the number of times the associated amino acid (key) appears to be encoded by codons in the gene sequence.
             number_imprecise_codons (int): Number of codons (encoding amino acids) that are not precise (i.e. where not found in expected codon list).
-        '''
+        """
         self.aa_dict = dict.fromkeys(AA_LIST, 0)
 
         if not self.codon_dict:
