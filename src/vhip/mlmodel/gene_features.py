@@ -31,30 +31,25 @@ AA_LIST = set(CODON_TABLE.values())
 
 # Define Gene class
 class Gene:
-    '''Class representing a gene.
+    """Class representing a gene.
 
     Args:
         gene_seq (str): The nucleotide sequence of the gene.
         codon_length (int): Length of 1 codon (default is 3).
-
-    Methods:
-        calculate_codon_counts(): Extract counts of each codon in a gene, and also return imprecise codons (i.e. not in provided CODON_LIST) 
-        calculate_aa_counts(): Extract counts of each amino acid in a gene, and also return imprecise codons (i.e. not in provided AA_LIST)
-    '''
+    """
 
     def __init__(self, gene_seq: str, codon_length: int = 3) -> None:
-        '''Initialize class variables.'''
+        """Initialize class variables."""
         self.seq = gene_seq
         self.codon_length = codon_length
 
     def calculate_codon_counts(self) -> tuple[dict[str, int], int]:
-        '''Calculate counts of each unique codon in a gene.
+        """Calculate counts of each unique codon in a gene.
 
-        Args: None
         Return:
             codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
             number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
-        '''
+        """
         self.number_imprecise_codons = 0
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
 
