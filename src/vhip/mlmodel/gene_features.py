@@ -43,7 +43,7 @@ class Gene:
         self.seq = gene_seq
         self.codon_length = codon_length
 
-    def calculate_codon_counts(self) -> tuple[dict[str, int], int]:
+    def calculate_codon_counts(self) -> None:
         """Calculate counts of each unique codon in a gene.
 
         Return:
@@ -60,5 +60,4 @@ class Gene:
             else:
                 self.number_imprecise_codons += 1
 
-        return self.codon_dict, self.number_imprecise_codons
 
