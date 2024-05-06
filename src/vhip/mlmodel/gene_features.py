@@ -46,3 +46,24 @@ class Gene:
         '''Initialize class variables.'''
         self.seq = gene_seq
         self.codon_length = codon_length
+
+    def calculate_codon_counts(self) -> tuple[dict[str, int], int]:
+        '''Calculate counts of each unique codon in a gene.
+
+        Args: None
+        Return:
+            codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
+            number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
+        '''
+        self.number_imprecise_codons = 0
+        self.codon_dict = dict.fromkeys(CODON_LIST, 0)
+
+        for i in range(0, len(self.seq), self.codon_length):
+            codon = self.seq[i : i + self.codon_length]
+            if codon in self.codon_dict.keys():
+                self.codon_dict[codon] += 1
+            else:
+                self.number_imprecise_codons += 1
+
+        return self.codon_dict, self.number_imprecise_codons
+
