@@ -103,9 +103,12 @@ class Gene:
         self.number_imprecise_codons = 0
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
 
-        for i in range(0, len(self.seq), self.codon_length):
-            codon = self.seq[i : i + self.codon_length]
-            if codon in self.codon_dict.keys():
-                self.codon_dict[codon] += 1
-            else:
-                self.number_imprecise_codons += 1
+        if len(self.seq) % self.codon_length == 0:
+            for i in range(0, len(self.seq), self.codon_length):
+                codon = self.seq[i : i + self.codon_length]
+                if codon in self.codon_dict.keys():
+                    self.codon_dict[codon] += 1
+                else:
+                    self.number_imprecise_codons += 1
+        elif len(self.seq) % self.codon_length != 0:
+            raise Exception("Gene length is not a multiple of codon length.")
