@@ -137,6 +137,7 @@ class Gene:
                 aa = CODON_TABLE[codon]
                 self.aa_dict[aa] += self.codon_dict[codon]
 
+
 # Define GeneSet class
 class GeneSet:
     """Class representing a gene set, usually the genes predicted from a genome sequence.
@@ -148,7 +149,9 @@ class GeneSet:
     def __init__(self, gene_file: str) -> None:
         """Initialize class variables and read in an annotated genes file, storing Gene objects and metadata in lists."""
         if not gene_file or not os.path.getsize(gene_file):
-            raise Exception("Genes file is not provided or empty. Please provide a valid gene file.")
+            raise Exception(
+                "Genes file is not provided or empty. Please provide a valid gene file."
+            )
 
         sequences = read_sequence(gene_file)
         self.genes: List[Gene] = [Gene(seq) for seq in sequences]
