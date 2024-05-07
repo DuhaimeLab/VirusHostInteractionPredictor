@@ -80,5 +80,5 @@ def test_read_annotated_genes():
     ]
 
     filename = "tests/datatests/test_annotated_genes.ffn"
-    res = read_annotated_genes(filename) # type: ignore
+    res = read_annotated_genes(filename)  # type: ignore
     assert res == [sequences, ids, products]

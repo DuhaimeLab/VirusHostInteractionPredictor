@@ -93,7 +93,13 @@ class Gene:
         codon_length (int): Length of 1 codon (default is 3).
     """
 
-    def __init__(self, gene_seq: str, codon_length: int = 3, gene_id: str = '', gene_product: str = '') -> None:
+    def __init__(
+        self,
+        gene_seq: str,
+        codon_length: int = 3,
+        gene_id: str = "",
+        gene_product: str = "",
+    ) -> None:
         """Initialize class variables."""
         if len(gene_seq) % codon_length == 0:
             self.seq = gene_seq
@@ -156,5 +162,11 @@ class GeneSet:
             )
 
         readout = read_annotated_genes(gene_file)
-        self.genes: List[Gene] = [Gene(gene_seq = readout[0][out], gene_id = readout[1][out], gene_product = readout[2][out]) for out in range(len(readout[0]))]
-
+        self.genes: List[Gene] = [
+            Gene(
+                gene_seq=readout[0][out],
+                gene_id=readout[1][out],
+                gene_product=readout[2][out],
+            )
+            for out in range(len(readout[0]))
+        ]

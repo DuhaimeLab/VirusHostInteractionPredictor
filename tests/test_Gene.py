@@ -7,7 +7,9 @@ from vhip.mlmodel.gene_features import Gene
 
 def test_Gene_init():
     """Test code to create Gene object and initialize class attributes."""
-    test_gene_1 = Gene(gene_seq="ATGCCGATT",gene_id="test_gene_1",gene_product="test_gene_product_1")
+    test_gene_1 = Gene(
+        gene_seq="ATGCCGATT", gene_id="test_gene_1", gene_product="test_gene_product_1"
+    )
     assert test_gene_1.seq == "ATGCCGATT"
     assert test_gene_1.codon_length == 3
     assert test_gene_1.gene_id == "test_gene_1"
