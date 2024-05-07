@@ -1,5 +1,6 @@
 """Pytest to read sequence."""
 
+from fileinput import filename
 from vhip.mlmodel.read_sequence import read_headers, read_sequence, read_gene_products
 
 seq = """AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
@@ -37,10 +38,17 @@ def test_read_sequence():
 
 def test_read_headers():
     """Test to read header of a fasta file."""
-    headers = ["NZ_CP065712.1"]
-    filename = "tests/datatests/test_sequence.fasta"
-    res = read_headers(filename)
-    assert res == headers
+    # Test genome with one contig
+    headers_1 = ["NZ_CP065712.1"]
+    filename_1 = "tests/datatests/test_sequence.fasta"
+    res = read_headers(filename_1)
+    assert res == headers_1
+
+    # Test annotated gene file
+    headers_2 = ["ABDEAL_00005","ABDEAL_00010","ABDEAL_00015"]
+    filename_2 = "tests/datatests/test_annotated_genes.ffn"
+    res = read_headers(filename_2)
+    assert res == headers_2
 
 
 def test_read_sequence_many_contigs():
