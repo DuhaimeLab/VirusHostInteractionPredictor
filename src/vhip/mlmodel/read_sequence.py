@@ -40,8 +40,8 @@ def read_headers(path: str) -> list[str]:
     return result  # pyright: ignore[reportUnknownVariableType]
 
 
-def read_gene_products(path: str) -> list[str]:
-    """Return all gene products in an annotated fasta gene file as a list.
+def read_annotated_genes(path: str) -> list[str]:
+    """Return all gene sequences, gene ids, and gene products from an annotated fasta gene file as a list.
 
     Args:
         path (str): path to annotated gene fasta file
@@ -49,7 +49,14 @@ def read_gene_products(path: str) -> list[str]:
     Returns:
         list: list of all gene products for a given fasta file
     """
-    result = []
+    sequences = []
+    gene_ids = []
+    gene_products = []
+
+    result = [sequences, gene_ids, gene_products] # pyright: ignore[reportUnknownVariableType]
     for record in SeqIO.parse(path, "fasta"):  # pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
-        result.append(" ".join(record.description.split(" ")[1:]))  # pyright: ignore
-    return result  # pyright: ignore[reportUnknownVariableType]
+        sequences.append(str(record.seq)) # pyright: ignore
+        gene_ids.append(record.id) # pyright: ignore
+        gene_products.append(" ".join(record.description.split(" ")[1:]))  # pyright: ignore
+    return result  # pyright: ignore
+
