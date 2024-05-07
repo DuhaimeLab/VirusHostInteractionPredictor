@@ -69,13 +69,16 @@ def test_read_sequence_many_contigs():
     assert len(res) == 2
 
 
-def test_read_gene_products():
-    """Test to read gene products from an annotated fasta gene file."""
+def test_read_annotated_genes():
+    """Test to read gene sequences, ids, and products from an annotated fasta gene file."""
+    sequences = [gene1_seq, gene2_seq, gene3_seq]
+    ids = ["ABDEAL_00005", "ABDEAL_00010", "ABDEAL_00015"]
     products = [
         "Chromosomal replication initiator protein DnaA",
         "Beta sliding clamp",
         "S4 domain-containing protein YaaA",
     ]
+
     filename = "tests/datatests/test_annotated_genes.ffn"
-    res = read_gene_products(filename)
-    assert res == products
+    res = read_gene_products(filename) # type: ignore
+    assert res == [sequences, ids, products]
