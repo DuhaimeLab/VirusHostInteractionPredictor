@@ -99,9 +99,9 @@ class Gene:
     def calculate_codon_counts(self) -> None:
         """Calculate counts of each unique codon in a gene.
 
-        Return:
-            codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
-            number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
+        Populates the following class attributes:
+            self.codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
+            self.number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
         """
         self.number_imprecise_codons = 0
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
@@ -112,3 +112,22 @@ class Gene:
                 self.codon_dict[codon] += 1
             else:
                 self.number_imprecise_codons += 1
+
+    def calculate_aa_counts(self) -> None:
+        """Calculate counts of each unique amino acid encoded by a gene.
+
+        Populates the following class attributes:
+            self.aa_dict (str: int): Each key of dictionary is an unique amino acid, and values represent the number of times the associated amino acid (key) appears to be encoded by codons in the gene sequence.
+        If not previously calculated, method will also populate:
+            self.codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
+            self.number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
+        """
+        self.aa_dict = dict.fromkeys(AA_LIST, 0)
+
+        if not hasattr(self, "codon_dict"):
+            self.calculate_codon_counts()
+
+        for codon in self.codon_dict:
+            if self.codon_dict[codon] != 0:
+                aa = CODON_TABLE[codon]
+                self.aa_dict[aa] += self.codon_dict[codon]
