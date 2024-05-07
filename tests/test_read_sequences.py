@@ -1,7 +1,6 @@
 """Pytest to read sequence."""
 
-from fileinput import filename
-from vhip.mlmodel.read_sequence import read_headers, read_sequence, read_gene_products
+from vhip.mlmodel.read_sequence import read_gene_products, read_headers, read_sequence
 
 seq = """AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
 CTCGCTGAAGTACTATTAGATGTAGACGTGCTTGCGCTTATCGATTCAGAAGTACTTGTACTTTCTGAAC
@@ -48,7 +47,6 @@ def test_read_sequence():
     assert res == [gene1_seq, gene2_seq, gene3_seq]
 
 
-
 def test_read_headers():
     """Test to read header of a fasta file."""
     # Test genome with one contig
@@ -58,7 +56,7 @@ def test_read_headers():
     assert res == headers_1
 
     # Test annotated gene file
-    headers_2 = ["ABDEAL_00005","ABDEAL_00010","ABDEAL_00015"]
+    headers_2 = ["ABDEAL_00005", "ABDEAL_00010", "ABDEAL_00015"]
     filename_2 = "tests/datatests/test_annotated_genes.ffn"
     res = read_headers(filename_2)
     assert res == headers_2
@@ -73,7 +71,11 @@ def test_read_sequence_many_contigs():
 
 def test_read_gene_products():
     """Test to read gene products from an annotated fasta gene file."""
-    products = ["Chromosomal replication initiator protein DnaA","Beta sliding clamp","S4 domain-containing protein YaaA"]
+    products = [
+        "Chromosomal replication initiator protein DnaA",
+        "Beta sliding clamp",
+        "S4 domain-containing protein YaaA",
+    ]
     filename = "tests/datatests/test_annotated_genes.ffn"
     res = read_gene_products(filename)
     assert res == products
