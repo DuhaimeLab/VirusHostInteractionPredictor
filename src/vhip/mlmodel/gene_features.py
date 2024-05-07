@@ -93,11 +93,13 @@ class Gene:
         codon_length (int): Length of 1 codon (default is 3).
     """
 
-    def __init__(self, gene_seq: str, codon_length: int = 3) -> None:
+    def __init__(self, gene_seq: str, codon_length: int = 3, gene_id: str = '', gene_product: str = '') -> None:
         """Initialize class variables."""
         if len(gene_seq) % codon_length == 0:
             self.seq = gene_seq
             self.codon_length = codon_length
+            self.gene_id = gene_id
+            self.gene_product = gene_product
         elif len(gene_seq) % codon_length != 0:
             raise Exception("Gene length is not a multiple of codon length.")
 
