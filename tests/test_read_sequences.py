@@ -1,6 +1,6 @@
 """Pytest to read sequence."""
 
-from vhip.mlmodel.read_sequence import read_headers, read_sequence
+from vhip.mlmodel.read_sequence import read_headers, read_sequence, read_gene_products
 
 seq = """AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
 CTCGCTGAAGTACTATTAGATGTAGACGTGCTTGCGCTTATCGATTCAGAAGTACTTGTACTTTCTGAAC
@@ -48,3 +48,11 @@ def test_read_sequence_many_contigs():
     filename = "tests/datatests/test_sequence_multiple_contigs.fasta"
     res = read_sequence(filename)
     assert len(res) == 2
+
+
+def test_read_gene_products():
+    """Test to read gene products from an annotated fasta gene file."""
+    products = ["Chromosomal replication initiator protein DnaA","Beta sliding clamp","S4 domain-containing protein YaaA"]
+    filename = "tests/datatests/test_annotated_genes.ffn"
+    res = read_gene_products(filename)
+    assert res == products
