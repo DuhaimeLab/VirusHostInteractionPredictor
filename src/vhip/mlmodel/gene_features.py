@@ -9,7 +9,7 @@ This module provides:
 import os
 from typing import List
 
-from .read_sequence import read_gene_products, read_headers, read_sequence
+from .read_sequence import read_annotated_genes
 
 # Set up Codon Table with each codon's encoded amino acid (1 letter abbreviation)
 CODON_TABLE = {
@@ -155,7 +155,6 @@ class GeneSet:
                 "Genes file is not provided or empty. Please provide a valid gene file."
             )
 
-        sequences = read_sequence(gene_file)
-        self.genes: List[Gene] = [Gene(seq) for seq in sequences]
-        self.gene_ids: List[str] = read_headers(gene_file)
-        self.gene_products: List[str] = read_gene_products(gene_file)
+        readout = read_annotated_genes(gene_file)
+        self.genes: List[Gene] = [Gene(gene_seq = readout[0][out], gene_id = readout[1][out], gene_product = readout[2][out]) for out in range(len(readout[0]))]
+
