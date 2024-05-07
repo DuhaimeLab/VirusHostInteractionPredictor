@@ -39,7 +39,7 @@ def test_read_sequence():
     assert res[0] == cleaned_seq
 
     # test 3 - check that sequences from annotated gene files are read in correctly
-    filename_2 = "tests/datatests/test_annotation_genes.ffn"
+    filename_2 = "tests/datatests/test_annotated_genes.ffn"
     res = read_sequence(filename_2)
     assert len(res[0]) == len(gene1_seq)
     assert len(res[1]) == len(gene2_seq)
