@@ -1,6 +1,6 @@
 """Pytest to read sequence."""
 
-from vhip.mlmodel.read_sequence import read_gene_products, read_headers, read_sequence
+from vhip.mlmodel.read_sequence import read_annotated_genes, read_headers, read_sequence
 
 seq = """AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
 CTCGCTGAAGTACTATTAGATGTAGACGTGCTTGCGCTTATCGATTCAGAAGTACTTGTACTTTCTGAAC
@@ -80,5 +80,5 @@ def test_read_annotated_genes():
     ]
 
     filename = "tests/datatests/test_annotated_genes.ffn"
-    res = read_gene_products(filename) # type: ignore
+    res = read_annotated_genes(filename) # type: ignore
     assert res == [sequences, ids, products]
