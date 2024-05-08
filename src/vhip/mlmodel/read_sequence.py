@@ -54,8 +54,8 @@ def read_annotated_genes(path: str) -> list[list[str] | list[str | None]]:
     gene_products: List[str] = []
 
     result = [sequences, gene_ids, gene_products]
-    for record in SeqIO.parse(path, "fasta"): # pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
-        sequences.append(str(record.seq)) # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
-        gene_ids.append(record.id) # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
-        gene_products.append(" ".join(record.description.split(" ")[1:])) # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
+    for record in SeqIO.parse(path, "fasta"):  # pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
+        sequences.append(str(record.seq))  # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
+        gene_ids.append(record.id)  # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
+        gene_products.append(" ".join(record.description.split(" ")[1:]))  # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
     return result
