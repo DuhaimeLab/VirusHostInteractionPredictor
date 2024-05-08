@@ -176,56 +176,21 @@ class GeneSet:
                 )
             except Exception:
                 self.skipped_genes.append(str(readout[1][out]))
-
         print(f"{len(self.skipped_genes)} genes skipped")
 
-    def codoncounts(self, threshold_imprecise: int = 1000000, threshold_too_many_imprecise_instances: int = 1000000,
-                    threshold_wronglength:int = 1000000) -> None:
-        """Aggregate the counts for each unique codon and imprecise codons across an entire gene set.
-
-        Args:
-            threshold_imprecise (int): Number of imprecise codons allowed in a gene (default is 1000000)
-            threshold_too_many_imprecise_instances (int): Number of genes in gene set allowed to have more than threshold_imprecise imprecise codons (default is 1000000)
-            threshold_wronglength (int): Number of genes in gene set allowed to have lengths not a multiple of codon length (default is 1000000)
-        Return: None (calculations stored as GeneSet attributes)
-        """
+    def codon_counts(self, threshold_imprecise: int, threshold_too_many_imprecise_instances: int) -> None:
+        """Aggregate the counts for each unique codon and imprecise codons across an entire gene set."""
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
-
-        self.imprecise_codons = 0
-        self.wrong_gene_length_instances = 0
-        self.too_many_imprecise_instances = 0
+        self.imprecise_codons: int = 0
+        self.too_many_imprecise_instances: int = 0
 
         counter = 0
-        track_wrong_length_genes = []
-        track_imprecise_genes = []
-
         for gene in self.genes:
-            if len(gene.seq) % gene.codon_length == 0:
-                bias, imp = gene.calculate_codoncounts()
-                self.imprecise_codons += imp
-                if imp < threshold_imprecise:
-                    for key, val in bias.items():
-                        self.codon_dict[key] += val
-                else:
-                    self.too_many_imprecise_instances += 1
-                    track_imprecise_genes.append(self.genes_id[counter]) #pyright: ignore
-            else:
-                self.wrong_gene_length_instances += 1
-                track_wrong_length_genes.append(self.genes_id[counter]) #pyright: ignore
             counter += 1
-    
-        if self.wrong_gene_length_instances > threshold_wronglength:
-            raise ValueError(f'{self.wrong_gene_length_instances} genes are not a multiple of codon length.' 
-                             f'Exceeds threshold of {threshold_wronglength}.' 
-                             f'Gene IDs: {track_wrong_length_genes}')
-        elif self.wrong_gene_length_instances > 0:
-            warnings.warn(f'{self.wrong_gene_length_instances} gene lengths not a multiple of codon length.'
-                          f'Gene IDs: {track_wrong_length_genes}') 
-        
-        if self.too_many_imprecise_instances > threshold_too_many_imprecise_instances:
-            raise ValueError(f'{self.too_many_imprecise_instances} genes have more than {threshold_imprecise} imprecise codons.' 
-                             f'Exceeds threshold of {threshold_too_many_imprecise_instances}'
-                             f'Gene IDs: {track_imprecise_genes}')
-        elif self.too_many_imprecise_instances > 0: 
-            warnings.warn(f'{self.too_many_imprecise_instances} genes have more than {threshold_imprecise} imprecise codons.'
-                          f'Gene IDs: {track_imprecise_genes}')
+            gene.calculate_codon_counts()
+            self.imprecise_codons += gene.number_imprecise_codons
+            if gene.number_imprecise_codons < threshold_imprecise:
+                for key, val in gene.codon_dict.items():
+                    self.codon_dict[key] += val
+            else:
+                self.too_many_imprecise_instances += 1
