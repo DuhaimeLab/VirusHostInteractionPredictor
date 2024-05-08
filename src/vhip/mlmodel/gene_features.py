@@ -6,6 +6,11 @@ This module provides:
 - CodonBiasComparison: compare codon bias measurements between two gene sets using linear regression (slope, R^2) and cosine similarity
 """
 
+import os
+from typing import List
+
+from .read_sequence import read_annotated_genes
+
 # Set up Codon Table with each codon's encoded amino acid (1 letter abbreviation)
 CODON_TABLE = {
     "ATA": "I",
@@ -88,11 +93,19 @@ class Gene:
         codon_length (int): Length of 1 codon (default is 3).
     """
 
-    def __init__(self, gene_seq: str, codon_length: int = 3) -> None:
+    def __init__(
+        self,
+        gene_seq: str,
+        codon_length: int = 3,
+        gene_id: str = "",
+        gene_product: str = "",
+    ) -> None:
         """Initialize class variables."""
         if len(gene_seq) % codon_length == 0:
             self.seq = gene_seq
             self.codon_length = codon_length
+            self.gene_id = gene_id
+            self.gene_product = gene_product
         elif len(gene_seq) % codon_length != 0:
             raise Exception("Gene length is not a multiple of codon length.")
 
@@ -131,3 +144,29 @@ class Gene:
             if self.codon_dict[codon] != 0:
                 aa = CODON_TABLE[codon]
                 self.aa_dict[aa] += self.codon_dict[codon]
+
+
+# Define GeneSet class
+class GeneSet:
+    """Class representing a gene set, usually the genes predicted from a genome sequence.
+
+    Args:
+        gene_file (str): Path of annotated genes file containing gene set of interest.
+    """
+
+    def __init__(self, gene_file: str) -> None:
+        """Initialize class variables and read in an annotated genes file, storing Gene objects and metadata in lists."""
+        if not gene_file or not os.path.getsize(gene_file):
+            raise Exception(
+                "Genes file is not provided or empty. Please provide a valid gene file."
+            )
+
+        readout = read_annotated_genes(gene_file)
+        self.genes: List[Gene] = [
+            Gene(
+                gene_seq=str(readout[0][out]),
+                gene_id=str(readout[1][out]),
+                gene_product=str(readout[2][out]),
+            )
+            for out in range(len(readout[0]))
+        ]
