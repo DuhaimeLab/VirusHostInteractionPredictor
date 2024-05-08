@@ -178,7 +178,9 @@ class GeneSet:
                 self.skipped_genes.append(str(readout[1][out]))
         print(f"{len(self.skipped_genes)} genes skipped")
 
-    def codon_counts(self, threshold_imprecise: int, threshold_skipped_genes: int) -> None:
+    def codon_counts(
+        self, threshold_imprecise: int, threshold_skipped_genes: int
+    ) -> None:
         """Aggregate the counts for each unique codon and imprecise codons across an entire GeneSet.
 
         Args:
@@ -206,9 +208,10 @@ class GeneSet:
                 self.skipped_imprecise_genes.append(gene.gene_id)
 
         if len(self.skipped_imprecise_genes) > threshold_skipped_genes:
-            raise Exception(f'Too many skipped genes. {len(self.skipped_imprecise_genes)} genes have > {threshold_imprecise} imprecise codons.')
+            raise Exception(
+                f"Too many skipped genes. {len(self.skipped_imprecise_genes)} genes have > {threshold_imprecise} imprecise codons."
+            )
         elif len(self.skipped_imprecise_genes) > 0:
-            print(f"Skipped {len(self.skipped_imprecise_genes)} genes with too many imprecise codons")
-
-
-
+            print(
+                f"Skipped {len(self.skipped_imprecise_genes)} genes with too many imprecise codons"
+            )

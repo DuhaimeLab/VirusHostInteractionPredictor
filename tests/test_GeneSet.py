@@ -23,6 +23,7 @@ def test_GeneSet_init():
     with pytest.raises(Exception):
         GeneSet("tests/datatests/test_empty_file.ffn")
 
+
 def test_GeneSet_codon_counts():
     """Test code to calculate codon counts across all genes in a GeneSet object."""
     test_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
@@ -172,4 +173,3 @@ def test_GeneSet_codon_counts():
     # test 3 - low threshold threshold_skipped_genes, raising error
     with pytest.raises(Exception):
         test_GeneSet.codon_counts(0, 0)
-
