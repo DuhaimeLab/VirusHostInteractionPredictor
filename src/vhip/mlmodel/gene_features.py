@@ -9,7 +9,7 @@ This module provides:
 import os
 from typing import List
 
-from .read_sequence import read_annotated_genes
+from vhip.mlmodel.read_sequence import read_annotated_genes
 
 # Set up Codon Table with each codon's encoded amino acid (1 letter abbreviation)
 CODON_TABLE = {
@@ -199,7 +199,7 @@ class GeneSet:
             print(f"Analyzing gene 1 of {len(self.genes)}")
             gene.calculate_codon_counts()
             self.imprecise_codons += gene.number_imprecise_codons
-            if gene.number_imprecise_codons < threshold_imprecise:
+            if gene.number_imprecise_codons <= threshold_imprecise:
                 for key, val in gene.codon_dict.items():
                     self.codon_dict[key] += val
             else:
@@ -209,3 +209,6 @@ class GeneSet:
             raise Exception(f'Too many skipped genes. {len(self.skipped_imprecise_genes)} genes have > {threshold_imprecise} imprecise codons.')
         elif len(self.skipped_imprecise_genes) > 0:
             print(f"Skipped {len(self.skipped_imprecise_genes)} genes with too many imprecise codons")
+
+
+
