@@ -160,7 +160,7 @@ class GeneSet:
             raise Exception(
                 "Genes file is not provided or empty. Please provide a valid gene file."
             )
-
+        self.id = gene_file
         self.genes: List[Gene] = []
         self.skipped_genes: List[str] = []
         readout = read_annotated_genes(gene_file)
@@ -179,7 +179,7 @@ class GeneSet:
         print(f"{len(self.skipped_genes)} genes skipped")
 
     def codon_counts(self, threshold_imprecise: int, threshold_too_many_imprecise_instances: int) -> None:
-        """Aggregate the counts for each unique codon and imprecise codons across an entire gene set.
+        """Aggregate the counts for each unique codon and imprecise codons across an entire GeneSet.
 
         Args:
             threshold_imprecise (int): Number of imprecise (non-ATGC) codons tolerated in a single gene.
