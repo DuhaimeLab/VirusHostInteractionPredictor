@@ -164,9 +164,9 @@ class GeneSet:
         readout = read_annotated_genes(gene_file)
         self.genes: List[Gene] = [
             Gene(
-                gene_seq=readout[0][out],
-                gene_id=readout[1][out],
-                gene_product=readout[2][out],
+                gene_seq=str(readout[0][out]),
+                gene_id=str(readout[1][out]),
+                gene_product=str(readout[2][out]),
             )
             for out in range(len(readout[0]))
         ]
