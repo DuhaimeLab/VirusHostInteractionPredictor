@@ -168,3 +168,8 @@ def test_GeneSet_codon_counts():
         "TGA": 0,
         "TGG": 0,
     }
+
+    # test 3 - low threshold threshold_skipped_genes, raising error
+    with pytest.raises(Exception):
+        test_GeneSet.codon_counts(0, 0)
+
