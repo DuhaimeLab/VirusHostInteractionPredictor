@@ -183,11 +183,11 @@ class GeneSet:
 
         Args:
             threshold_imprecise (int): Number of imprecise (non-ATGC) codons tolerated in a single gene.
-            threshold_too_many_imprecise_instances (int): Tolerated number of genes in GeneSet that have more than threshold_imprecise codons.
+            threshold_skipped_genes (int): Tolerated number of genes in GeneSet that have more than threshold_imprecise codons.
         Populates the following class attributes:
             self.codon_dict (str: int): Counts of each unique codon across all genes in the GeneSet.
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
-            self.too_many_imprecise_instances (int): Number of genes in the GeneSet that have more than threshold_imprecise imprecise codons. 
+            self.skipped_imprecise_genes (List(str)): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
         """
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
         self.imprecise_codons: int = 0
