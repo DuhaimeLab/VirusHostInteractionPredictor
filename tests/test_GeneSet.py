@@ -23,6 +23,11 @@ def test_GeneSet_init():
     with pytest.raises(Exception):
         GeneSet("tests/datatests/test_empty_file.ffn")
 
+    # test 4 - test individual genes are skipped and exception is handled when gene length not divisible by codon length
+    test_GeneSet2 = GeneSet("tests/datatests/test_short_genes_file.ffn")
+    assert len(test_GeneSet2.genes) == 2
+    assert test_GeneSet2.skipped_genes == ["ABDEAL_00010"]
+
 
 def test_GeneSet_codon_counts():
     """Test code to calculate codon counts across all genes in a GeneSet object."""
