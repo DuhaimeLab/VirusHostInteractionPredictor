@@ -9,7 +9,7 @@ This module provides:
 import os
 from typing import List
 
-from vhip.mlmodel.read_sequence import read_annotated_genes
+from .read_sequence import read_annotated_genes
 
 # Set up Codon Table with each codon's encoded amino acid (1 letter abbreviation)
 CODON_TABLE = {
