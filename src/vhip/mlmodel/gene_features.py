@@ -198,7 +198,7 @@ class GeneSet:
         counter = 0
         for gene in self.genes:
             counter += 1
-            print(f"Analyzing gene 1 of {len(self.genes)}")
+            print(f"Analyzing gene {counter} of {len(self.genes)}")
             gene.calculate_codon_counts()
             self.imprecise_codons += gene.number_imprecise_codons
             if gene.number_imprecise_codons <= threshold_imprecise:
