@@ -183,13 +183,13 @@ class GeneSet:
         print(f"{percent_skipped}% ({len(self.skipped_genes)}/{len(readout[0])}) of genes skipped")
 
     def codon_counts(
-        self, threshold_imprecise: int, threshold_skipped_genes: int
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
     ) -> None:
         """Aggregate the counts for each unique codon and imprecise codons across an entire GeneSet.
 
         Args:
-            threshold_imprecise (int): Number of imprecise (non-ATGC) codons tolerated in a single gene.
-            threshold_skipped_genes (int): Tolerated number of genes in GeneSet that have more than threshold_imprecise codons.
+            threshold_imprecise (int): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
+            threshold_skipped_genes (int): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
         Populates the following class attributes:
             self.codon_dict (str: int): Counts of each unique codon across all genes in the GeneSet.
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
@@ -205,13 +205,13 @@ class GeneSet:
             print(f"Analyzing gene {counter} of {len(self.genes)}")
             gene.calculate_codon_counts()
             self.imprecise_codons += gene.number_imprecise_codons
-            if gene.number_imprecise_codons <= threshold_imprecise:
+            if gene.percent_imprecise_codons <= threshold_imprecise:
                 for key, val in gene.codon_dict.items():
                     self.codon_dict[key] += val
             else:
                 self.skipped_imprecise_genes.append(gene.gene_id)
 
-        if len(self.skipped_imprecise_genes) > threshold_skipped_genes:
+        if len(self.skipped_imprecise_genes)/len(self.genes) > threshold_skipped_genes:
             raise Exception(
                 f"Too many skipped genes. {len(self.skipped_imprecise_genes)} genes have > {threshold_imprecise} imprecise codons."
             )
