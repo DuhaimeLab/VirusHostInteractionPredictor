@@ -104,6 +104,7 @@ class Gene:
         if len(gene_seq) % codon_length == 0:
             self.seq = gene_seq
             self.codon_length = codon_length
+            self.n_codons = len(gene_seq) / codon_length
             self.gene_id = gene_id
             self.gene_product = gene_product
         elif len(gene_seq) % codon_length != 0:
@@ -116,7 +117,7 @@ class Gene:
             self.codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
             self.number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
         """
-        self.number_imprecise_codons = 0
+        self.number_imprecise_codons: int = 0
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
 
         for i in range(0, len(self.seq), self.codon_length):
@@ -125,6 +126,8 @@ class Gene:
                 self.codon_dict[codon] += 1
             else:
                 self.number_imprecise_codons += 1
+
+        self.percent_imprecise_codons: float = self.number_imprecise_codons/self.n_codons
 
     def calculate_aa_counts(self) -> None:
         """Calculate counts of each unique amino acid encoded by a gene.
