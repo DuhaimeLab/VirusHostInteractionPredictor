@@ -180,7 +180,7 @@ class GeneSet:
             except Exception:
                 self.skipped_genes.append(str(readout[1][out]))
         percent_skipped = len(self.skipped_genes) / len(readout[0]) * 100
-        print(f"{percent_skipped}% ({len(self.skipped_genes)}/{len(readout[0])}) of genes skipped")
+        print(f"{percent_skipped}% ({len(self.skipped_genes)}/{len(readout[0])}) of genes skipped. Expect on average ~2% and ~3% of virus and host genes (respectively) to be skipped on the basis of non-divisibility by codon length.")
 
     def codon_counts(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
