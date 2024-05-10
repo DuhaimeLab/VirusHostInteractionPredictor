@@ -176,7 +176,8 @@ class GeneSet:
                 )
             except Exception:
                 self.skipped_genes.append(str(readout[1][out]))
-        print(f"{len(self.skipped_genes)} of {len(readout[0])} genes skipped")
+        percent_skipped = len(self.skipped_genes) / len(readout[0]) * 100
+        print(f"{percent_skipped}% ({len(self.skipped_genes)}/{len(readout[0])}) of genes skipped")
 
     def codon_counts(
         self, threshold_imprecise: int, threshold_skipped_genes: int
