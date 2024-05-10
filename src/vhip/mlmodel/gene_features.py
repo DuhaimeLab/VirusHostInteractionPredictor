@@ -127,7 +127,9 @@ class Gene:
             else:
                 self.number_imprecise_codons += 1
 
-        self.percent_imprecise_codons: float = self.number_imprecise_codons/self.n_codons
+        self.percent_imprecise_codons: float = (
+            self.number_imprecise_codons / self.n_codons
+        )
 
     def calculate_aa_counts(self) -> None:
         """Calculate counts of each unique amino acid encoded by a gene.
@@ -180,7 +182,9 @@ class GeneSet:
             except Exception:
                 self.skipped_genes.append(str(readout[1][out]))
         percent_skipped = len(self.skipped_genes) / len(readout[0]) * 100
-        print(f"{percent_skipped}% ({len(self.skipped_genes)}/{len(readout[0])}) of genes skipped. Expect on average ~2% and ~3% of virus and host genes (respectively) to be skipped on the basis of non-divisibility by codon length.")
+        print(
+            f"{percent_skipped}% ({len(self.skipped_genes)}/{len(readout[0])}) of genes skipped. Expect on average ~2% and ~3% of virus and host genes (respectively) to be skipped on the basis of non-divisibility by codon length."
+        )
 
     def codon_counts(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
@@ -211,7 +215,10 @@ class GeneSet:
             else:
                 self.skipped_imprecise_genes.append(gene.gene_id)
 
-        if len(self.skipped_imprecise_genes)/len(self.genes) > threshold_skipped_genes:
+        if (
+            len(self.skipped_imprecise_genes) / len(self.genes)
+            > threshold_skipped_genes
+        ):
             raise Exception(
                 f"Too many skipped genes. {len(self.skipped_imprecise_genes)} genes have > {threshold_imprecise} imprecise codons."
             )
@@ -219,4 +226,3 @@ class GeneSet:
             print(
                 f"Skipped {len(self.skipped_imprecise_genes)} genes with too many imprecise codons"
             )
-
