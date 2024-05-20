@@ -241,11 +241,12 @@ class GeneSet:
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
         """
-        if not self.codon_dict:
+        self.codon_frq: dict[str, float] = {}
+
+        if not hasattr(self, "codon_dict"):
             # If aggregate codon counts have not already been calculated, runs codon_counts()
             self.codon_counts(threshold_imprecise=threshold_imprecise,threshold_skipped_genes=threshold_skipped_genes)
 
-        self.codon_frq: dict[str, float] = {}
         if hasattr(self, 'codon_dict'):
             total = sum(self.codon_dict.values())
             self.codon_frq = {k: (v / total) for k, v in self.codon_dict.items()}
