@@ -192,8 +192,8 @@ class GeneSet:
         """Aggregate the counts for each unique codon and imprecise codons across an entire GeneSet.
 
         Args:
-            threshold_imprecise (int): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
-            threshold_skipped_genes (int): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
         Populates the following class attributes:
             self.codon_dict (str: int): Counts of each unique codon across all genes in the GeneSet.
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
@@ -226,3 +226,30 @@ class GeneSet:
             print(
                 f"Skipped {len(self.skipped_imprecise_genes)} genes with too many imprecise codons"
             )
+
+    def codon_frequency(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ) -> None:
+        """Calculate the frequency of each unique codon in an entire GeneSet.
+
+        Args:
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
+        Populates the following class attributes:
+            self.codon_frq (str: int): Frequency of each unique codon across all genes in the GeneSet.
+        If not populated previously by running codon_counts():
+            self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
+            self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
+        """
+        self.codon_frq: dict[str, float] = {}
+
+        if not hasattr(self, "codon_dict"):
+            # If aggregate codon counts have not already been calculated, runs codon_counts()
+            self.codon_counts(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+        if hasattr(self, "codon_dict"):
+            total = sum(self.codon_dict.values())
+            self.codon_frq = {k: (v / total) for k, v in self.codon_dict.items()}
