@@ -265,10 +265,11 @@ class GeneSet:
         Populates the following class attributes:
             self.aa_dict (str: int): Counts of each unique amino acid across all genes in the GeneSet.
         If not populated previously by running codon_counts():
+            self.codon_dict (str: int): Counts of each unique codon across all genes in the GeneSet.
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
         """
-        self.aa_dict: dict[str, int] = {}
+        self.aa_dict: dict[str, int] = dict.fromkeys(AA_LIST, 0)
 
         if not hasattr(self, "codon_dict"):
             # If aggregate codon counts have not already been calculated, runs codon_counts()
@@ -281,3 +282,5 @@ class GeneSet:
             for codon in self.codon_dict.keys():
                 aa = CODON_TABLE[codon]
                 self.aa_dict[aa] += self.codon_dict[codon]
+
+
