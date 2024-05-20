@@ -280,4 +280,4 @@ class GeneSet:
         if hasattr(self, "codon_dict"):
             for codon in self.codon_dict.keys():
                 aa = CODON_TABLE[codon]
-                self.aa_dict[aa] = self.codon_dict[codon]
+                self.aa_dict[aa] += self.codon_dict[codon]
