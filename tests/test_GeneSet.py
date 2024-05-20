@@ -1,6 +1,5 @@
 """Pytest for GeneSet methods in gene_features module."""
 
-from cgi import test
 import pytest
 
 from vhip.mlmodel.gene_features import GeneSet
