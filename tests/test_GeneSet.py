@@ -254,3 +254,36 @@ def test_GeneSet_codon_frequency():
         "TGA": 0.0,
         "TGG": 0.0,
     }
+
+def test_GeneSet_amino_acid_counts():
+    """Test code to calculate amino acid counts across all genes in a GeneSet object."""
+    test_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
+
+    test_GeneSet.amino_acid_counts()  # using default thresholds for tolerable imprecise codons and skipped genes
+    assert test_GeneSet.imprecise_codons == 1
+    assert len(test_GeneSet.skipped_genes) == 1
+    assert len(test_GeneSet.skipped_imprecise_genes) == 1
+    assert test_GeneSet.aa_dict == {
+        "I": 0,
+        "M": 1,
+        "T": 0,
+        "N": 0,
+        "K": 0,
+        "S": 2,
+        "R": 0,
+        "L": 0,
+        "P": 0,
+        "H": 0,
+        "Q": 0,
+        "V": 0,
+        "A": 0,
+        "D": 0,
+        "E": 1,
+        "G": 0,
+        "F": 0,
+        "Y": 0,
+        "_": 0,
+        "C": 0,
+        "W": 0,
+    }
+
