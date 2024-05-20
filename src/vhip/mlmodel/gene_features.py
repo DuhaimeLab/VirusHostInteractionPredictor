@@ -104,6 +104,7 @@ class Gene:
         if len(gene_seq) % codon_length == 0:
             self.seq = gene_seq
             self.codon_length = codon_length
+            self.n_codons = len(gene_seq) / codon_length
             self.gene_id = gene_id
             self.gene_product = gene_product
         elif len(gene_seq) % codon_length != 0:
@@ -116,7 +117,7 @@ class Gene:
             self.codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
             self.number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
         """
-        self.number_imprecise_codons = 0
+        self.number_imprecise_codons: int = 0
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
 
         for i in range(0, len(self.seq), self.codon_length):
@@ -125,6 +126,10 @@ class Gene:
                 self.codon_dict[codon] += 1
             else:
                 self.number_imprecise_codons += 1
+
+        self.percent_imprecise_codons: float = (
+            self.number_imprecise_codons / self.n_codons
+        )
 
     def calculate_aa_counts(self) -> None:
         """Calculate counts of each unique amino acid encoded by a gene.
@@ -160,13 +165,64 @@ class GeneSet:
             raise Exception(
                 "Genes file is not provided or empty. Please provide a valid gene file."
             )
-
+        self.id = gene_file
+        self.genes: List[Gene] = []
+        self.skipped_genes: List[str] = []
         readout = read_annotated_genes(gene_file)
-        self.genes: List[Gene] = [
-            Gene(
-                gene_seq=str(readout[0][out]),
-                gene_id=str(readout[1][out]),
-                gene_product=str(readout[2][out]),
+
+        for out in range(len(readout[0])):
+            try:
+                self.genes.append(
+                    Gene(
+                        gene_seq=str(readout[0][out]),
+                        gene_id=str(readout[1][out]),
+                        gene_product=str(readout[2][out]),
+                    )
+                )
+            except Exception:
+                self.skipped_genes.append(str(readout[1][out]))
+        percent_skipped = len(self.skipped_genes) / len(readout[0]) * 100
+        print(
+            f"{percent_skipped}% ({len(self.skipped_genes)}/{len(readout[0])}) of genes skipped. Expect on average ~2% and ~3% of virus and host genes (respectively) to be skipped on the basis of non-divisibility by codon length."
+        )
+
+    def codon_counts(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ) -> None:
+        """Aggregate the counts for each unique codon and imprecise codons across an entire GeneSet.
+
+        Args:
+            threshold_imprecise (int): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
+            threshold_skipped_genes (int): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
+        Populates the following class attributes:
+            self.codon_dict (str: int): Counts of each unique codon across all genes in the GeneSet.
+            self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
+            self.skipped_imprecise_genes (List(str)): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
+        """
+        self.codon_dict = dict.fromkeys(CODON_LIST, 0)
+        self.imprecise_codons: int = 0
+        self.skipped_imprecise_genes: List[str] = []
+
+        counter = 0
+        for gene in self.genes:
+            counter += 1
+            print(f"Analyzing gene {counter} of {len(self.genes)}")
+            gene.calculate_codon_counts()
+            self.imprecise_codons += gene.number_imprecise_codons
+            if gene.percent_imprecise_codons <= threshold_imprecise:
+                for key, val in gene.codon_dict.items():
+                    self.codon_dict[key] += val
+            else:
+                self.skipped_imprecise_genes.append(gene.gene_id)
+
+        if (
+            len(self.skipped_imprecise_genes) / len(self.genes)
+            > threshold_skipped_genes
+        ):
+            raise Exception(
+                f"Too many skipped genes. {len(self.skipped_imprecise_genes)} genes have > {threshold_imprecise} imprecise codons."
             )
-            for out in range(len(readout[0]))
-        ]
+        elif len(self.skipped_imprecise_genes) > 0:
+            print(
+                f"Skipped {len(self.skipped_imprecise_genes)} genes with too many imprecise codons"
+            )
