@@ -283,7 +283,6 @@ class GeneSet:
                 aa = CODON_TABLE[codon]
                 self.aa_dict[aa] += self.codon_dict[codon]
 
-
     def amino_acid_frequency(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
     ) -> None:
