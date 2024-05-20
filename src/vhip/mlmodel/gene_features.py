@@ -253,3 +253,32 @@ class GeneSet:
         if hasattr(self, "codon_dict"):
             total = sum(self.codon_dict.values())
             self.codon_frq = {k: (v / total) for k, v in self.codon_dict.items()}
+
+    def amino_acid_counts(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ) -> None:
+        """Calculate the counts of each unique amino acid encoded by an entire GeneSet.
+
+        Args:
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
+        Populates the following class attributes:
+            self.aa_dict (str: int): Counts of each unique amino acid across all genes in the GeneSet.
+        If not populated previously by running codon_counts():
+            self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
+            self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
+        """
+        self.aa_dict: dict[str, int] = {}
+
+        if not hasattr(self, "codon_dict"):
+            # If aggregate codon counts have not already been calculated, runs codon_counts()
+            self.codon_counts(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+        if hasattr(self, "codon_dict"):
+            for codon in self.codon_dict.keys():
+                aa = CODON_TABLE[codon]
+                self.aa_dict[aa] = self.codon_dict[codon]
+
