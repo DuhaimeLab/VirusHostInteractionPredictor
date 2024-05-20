@@ -236,7 +236,7 @@ class GeneSet:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
         Populates the following class attributes:
-            self.codon_frq (str: int): Frequency of each unique codon across all genes in the GeneSet.
+            self.codon_frq (str: float): Frequency of each unique codon across all genes in the GeneSet.
         If not populated previously by running codon_counts():
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
@@ -281,4 +281,3 @@ class GeneSet:
             for codon in self.codon_dict.keys():
                 aa = CODON_TABLE[codon]
                 self.aa_dict[aa] = self.codon_dict[codon]
-
