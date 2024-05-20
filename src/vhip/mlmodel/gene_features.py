@@ -245,8 +245,11 @@ class GeneSet:
 
         if not hasattr(self, "codon_dict"):
             # If aggregate codon counts have not already been calculated, runs codon_counts()
-            self.codon_counts(threshold_imprecise=threshold_imprecise,threshold_skipped_genes=threshold_skipped_genes)
+            self.codon_counts(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
 
-        if hasattr(self, 'codon_dict'):
+        if hasattr(self, "codon_dict"):
             total = sum(self.codon_dict.values())
             self.codon_frq = {k: (v / total) for k, v in self.codon_dict.items()}

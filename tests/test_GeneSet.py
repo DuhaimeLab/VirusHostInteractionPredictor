@@ -184,7 +184,7 @@ def test_GeneSet_codon_frequency():
     """Test code to calculate codon frequency across all genes in a GeneSet object."""
     test_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
 
-    test_GeneSet.codon_frequency() # using default thresholds for tolerable imprecise codons and skipped genes
+    test_GeneSet.codon_frequency()  # using default thresholds for tolerable imprecise codons and skipped genes
     assert test_GeneSet.imprecise_codons == 1
     assert len(test_GeneSet.skipped_genes) == 1
     assert len(test_GeneSet.skipped_imprecise_genes) == 1
@@ -192,7 +192,7 @@ def test_GeneSet_codon_frequency():
         "ATA": 0.0,
         "ATC": 0.0,
         "ATT": 0.0,
-        "ATG": 1/3,
+        "ATG": 1 / 3,
         "ACA": 0.0,
         "ACC": 0.0,
         "ACG": 0.0,
@@ -231,13 +231,13 @@ def test_GeneSet_codon_frequency():
         "GCT": 0.0,
         "GAC": 0.0,
         "GAT": 0.0,
-        "GAA": 1/3,
+        "GAA": 1 / 3,
         "GAG": 0.0,
         "GGA": 0.0,
         "GGC": 0.0,
         "GGG": 0.0,
         "GGT": 0.0,
-        "TCA": 1/3,
+        "TCA": 1 / 3,
         "TCC": 0.0,
         "TCG": 0.0,
         "TCT": 0.0,
@@ -253,4 +253,4 @@ def test_GeneSet_codon_frequency():
         "TGT": 0.0,
         "TGA": 0.0,
         "TGG": 0.0,
-        }
+    }
