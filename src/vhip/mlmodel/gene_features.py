@@ -321,7 +321,7 @@ class GeneSet:
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
         Definitions:
             Synonymous codons: codons that encode the same amino acid
-            RSCU: codon frequency / expected frequency (given assumption of equally used synonymous codons)
+            RSCU: codon count / expected frequency (given assumption of equally used synonymous codons)
         Populates the following class attributes:
             self.RSCU (str: float): RSCU of each codon across all genes in the GeneSet.
         If not populated previously by running codon_counts() or codon_frequency():
@@ -329,4 +329,3 @@ class GeneSet:
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
         """
-
