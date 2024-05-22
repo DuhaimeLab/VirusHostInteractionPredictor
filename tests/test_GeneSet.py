@@ -321,6 +321,7 @@ def test_GeneSet_amino_acid_frequency():
         "W": 0.0,
     }
 
+
 def test_GeneSet_RSCU():
     """Test code to calculate relative synonymous codon usage (RSCU) across all genes in a GeneSet object."""
     test_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
