@@ -321,7 +321,7 @@ class GeneSet:
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
         Definitions:
             Synonymous codons: codons that encode the same amino acid
-            RSCU: codon count / expected frequency (given assumption of equally used synonymous codons)
+            RSCU_dict: codon count / expected frequency (given assumption of equally used synonymous codons)
         Populates the following class attributes:
             self.RSCU (str: float): RSCU of each codon across all genes in the GeneSet.
         If not populated previously by running codon_counts() or codon_frequency():
@@ -329,7 +329,7 @@ class GeneSet:
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
         """
-        self.RSCU: dict[str, float] = dict.fromkeys(CODON_LIST, 0.0)
+        self.RSCU_dict: dict[str, float] = dict.fromkeys(CODON_LIST, 0.0)
 
         if not hasattr(self, "codon_dict"):
             # If aggregate codon counts have not already been calculated, runs codon_counts()
@@ -343,12 +343,12 @@ class GeneSet:
                 if count != 0.0:
                     aa = CODON_TABLE[codon]  # aa encoded by current codon iteration
                     synonymous_codons = [
-                        key
-                        for key, value in CODON_TABLE.items()
-                        if value == aa
-                    ] # list of other codons encoding the same aa
+                        key for key, value in CODON_TABLE.items() if value == aa
+                    ]  # list of other codons encoding the same aa
                     synonymous_total_count = sum(
                         [self.codon_dict[syn_codon] for syn_codon in synonymous_codons]
-                    ) # total number of synonymous codons present in GeneSet
-                    expected_frequency = synonymous_total_count / len(synonymous_codons) # expected frequency of current codon given all assumption all synonymous codons are equally likely to encode the aa
-                    self.RSCU[codon] = self.codon_dict[codon] / expected_frequency
+                    )  # total number of synonymous codons present in GeneSet
+                    expected_frequency = (
+                        synonymous_total_count / len(synonymous_codons)
+                    )  # expected frequency of current codon given all assumption all synonymous codons are equally likely to encode the aa
+                    self.RSCU_dict[codon] = self.codon_dict[codon] / expected_frequency
