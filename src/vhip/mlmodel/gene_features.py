@@ -329,3 +329,26 @@ class GeneSet:
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
         """
+        self.RSCU: dict[str, float] = dict.fromkeys(CODON_LIST, 0.0)
+
+        if not hasattr(self, "codon_dict"):
+            # If aggregate codon counts have not already been calculated, runs codon_counts()
+            self.codon_counts(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+        if hasattr(self, "codon_dict"):
+            for codon, count in self.codon_dict.items():
+                if count != 0.0:
+                    aa = CODON_TABLE[codon]  # aa encoded by current codon iteration
+                    synonymous_codons = [
+                        key
+                        for key, value in CODON_TABLE.items()
+                        if value == aa
+                    ] # list of other codons encoding the same aa
+                    synonymous_total_count = sum(
+                        [self.codon_dict[syn_codon] for syn_codon in synonymous_codons]
+                    ) # total number of synonymous codons present in GeneSet
+                    expected_frequency = synonymous_total_count / len(synonymous_codons) # expected frequency of current codon given all assumption all synonymous codons are equally likely to encode the aa
+                    self.RSCU[codon] = self.codon_dict[codon] / expected_frequency
