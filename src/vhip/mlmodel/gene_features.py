@@ -310,3 +310,23 @@ class GeneSet:
         if hasattr(self, "aa_dict"):
             total = sum(self.aa_dict.values())
             self.aa_frq = {k: (v / total) for k, v in self.aa_dict.items()}
+
+    def RSCU(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ) -> None:
+        """Calculate the relative synonymous codon usage (RSCU) of each codon in entire genome.
+
+        Args:
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
+        Definitions:
+            Synonymous codons: codons that encode the same amino acid
+            RSCU: codon frequency / expected frequency (given assumption of equally used synonymous codons)
+        Populates the following class attributes:
+            self.RSCU (str: float): RSCU of each codon across all genes in the GeneSet.
+        If not populated previously by running codon_counts() or codon_frequency():
+            self.codon_dict (str: int): Counts of each unique codon across all genes in the GeneSet.
+            self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
+            self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
+        """
+
