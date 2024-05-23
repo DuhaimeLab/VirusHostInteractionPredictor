@@ -27,3 +27,8 @@ def test_CodonBiasComparison_init():
     test_comparison_1 = CodonBiasComparison(test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict)
     assert len(test_comparison_1.host_list) == 64
     assert len(test_comparison_1.virus_list) == 64
+
+    # test 2 - test CodonBiasComparsion initializes with input codon frequency (GeneSet.codon_frq)
+    test_comparison_2 = CodonBiasComparison(test_host_GeneSet.codon_frq, test_virus_GeneSet.codon_frq)
+    assert len(test_comparison_2.host_list) == 64
+    assert len(test_comparison_2.virus_list) == 64
