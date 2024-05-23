@@ -40,8 +40,8 @@ def test_CodonBiasComparison_init():
 
     # test 4 - test CodonBiasComparsion initializes with input amino acid frequency (GeneSet.aa_frq)
     test_comparison_4 = CodonBiasComparison(test_host_GeneSet.aa_frq, test_virus_GeneSet.aa_frq)
-    assert len(test_comparison_4.host_list) == 20
-    assert len(test_comparison_4.virus_list) == 20
+    assert len(test_comparison_4.host_list) == 21
+    assert len(test_comparison_4.virus_list) == 21
 
     # test 5 - test CodonBiasComparsion initializes with input RSCU (GeneSet.RSCU_dict)
     test_comparison_5 = CodonBiasComparison(test_host_GeneSet.RSCU_dict, test_virus_GeneSet.RSCU_dict)
@@ -215,6 +215,10 @@ def test_CodonBiasComparison_methods():
             "TGG": 0,
         }
     expected_host_list = list(expected_host_codon_dict.values())
+
+
+    assert test_host_GeneSet.codon_dict == expected_host_codon_dict
+    assert test_virus_GeneSet.codon_dict == expected_virus_codon_dict
 
     assert test_comparison.slope == scipy.stats.linregress(expected_host_list, expected_virus_list)[0]
     assert test_comparison.R2 == scipy.stats.linregress(expected_host_list, expected_virus_list)[2] ** 2
