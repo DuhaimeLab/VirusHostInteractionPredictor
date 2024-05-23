@@ -9,6 +9,8 @@ This module provides:
 import os
 from typing import List
 
+import scipy
+
 from .read_sequence import read_annotated_genes
 
 # Set up Codon Table with each codon's encoded amino acid (1 letter abbreviation)
@@ -368,3 +370,7 @@ class CodonBiasComparison:
         self.host_list = list(self.host_dict.values())
         self.virus_dict = virus_dict
         self.virus_list = list(self.virus_dict.values())
+
+    def slope(self) -> None:
+        '''Compute slope between host and virus codon bias using linear regression.'''
+        self.slope = scipy.stats.linregress(self.host_list, self.virus_list)[0]
