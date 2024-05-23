@@ -25,7 +25,7 @@ def test_CodonBiasComparison_init():
 
     # test 1 - test CodonBiasComparsion initializes with input codon counts (GeneSet.codon_dict)
     test_comparison_1 = CodonBiasComparison(test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict)
-    assert len(test_comparison_1.host_list) == 64
+    assert len(test_comparison_1.host_list) == 64 
     assert len(test_comparison_1.virus_list) == 64
 
     # test 2 - test CodonBiasComparsion initializes with input codon frequency (GeneSet.codon_frq)
@@ -35,8 +35,8 @@ def test_CodonBiasComparison_init():
 
     # test 3 - test CodonBiasComparsion initializes with input amino acid counts (GeneSet.aa_dict)
     test_comparison_3 = CodonBiasComparison(test_host_GeneSet.aa_dict, test_virus_GeneSet.aa_dict)
-    assert len(test_comparison_3.host_list) == 20
-    assert len(test_comparison_3.virus_list) == 20
+    assert len(test_comparison_3.host_list) == 21 
+    assert len(test_comparison_3.virus_list) == 21
 
     # test 4 - test CodonBiasComparsion initializes with input amino acid frequency (GeneSet.aa_frq)
     test_comparison_4 = CodonBiasComparison(test_host_GeneSet.aa_frq, test_virus_GeneSet.aa_frq)
@@ -59,15 +59,27 @@ def test_CodonBiasComparison_methods():
     test_host_GeneSet.codon_counts()
     test_virus_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
     test_virus_GeneSet.codon_counts()
+
     test_comparison = CodonBiasComparison(test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict)
-    assert test_comparison.slope() == 1
+    test_comparison.slope()
+    test_comparison.R2()
+    test_comparison.cosine_similarity()
+
+    assert test_comparison.slope == 1
+    assert test_comparison.R2 == 1
+    assert test_comparison.cosine_similarity == 1
+
 
     # test 2 - test metrics calculation when virus and host inputs have differences
     test_host_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
     test_host_GeneSet.codon_counts()
     test_virus_GeneSet = GeneSet("tests/datatests/test_virus_short_genes_file.ffn")
     test_virus_GeneSet.codon_counts()
+
     test_comparison = CodonBiasComparison(test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict)
+    test_comparison.slope()
+    test_comparison.R2()
+    test_comparison.cosine_similarity()
 
     expected_virus_codon_dict = {
             "ATA": 0,
@@ -204,6 +216,6 @@ def test_CodonBiasComparison_methods():
         }
     expected_host_list = list(expected_host_codon_dict.values())
 
-    assert test_comparison.slope() == scipy.stats.linregress(expected_host_list, expected_virus_list)[0]
-    assert test_comparison.R2() == scipy.stats.linregress(expected_host_list, expected_virus_list)[2] ** 2
+    assert test_comparison.slope == scipy.stats.linregress(expected_host_list, expected_virus_list)[0]
+    assert test_comparison.R2 == scipy.stats.linregress(expected_host_list, expected_virus_list)[2] ** 2
     assert test_comparison.cosine_similarity == 1 - scipy.spatial.distance.cosine(expected_host_list, expected_virus_list)
