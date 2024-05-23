@@ -48,9 +48,13 @@ def test_CodonBiasComparison_init():
     assert len(test_comparison_5.host_list) == 64
     assert len(test_comparison_5.virus_list) == 64
 
-def test_CodonBiasComparison_slope():
-    """Test code to calculate slope between codon biases of a virus GeneSet and host GeneSet."""
-    # test 1 - test that slope = 1 when virus and host inputs are exactly the same
+
+def test_CodonBiasComparison_methods():
+    """Test code to calculate slope, R2, and cosine_similarity between codon biases of a virus GeneSet and host GeneSet.
+
+    Here we use GeneSet.codon_dict (codon counts) dictionaries as the test inputs.
+    """
+    # test 1 - test that metrics all = 1 when virus and host inputs are exactly the same
     test_host_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
     test_host_GeneSet.codon_counts()
     test_virus_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
@@ -58,7 +62,7 @@ def test_CodonBiasComparison_slope():
     test_comparison = CodonBiasComparison(test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict)
     assert test_comparison.slope() == 1
 
-    # test 2 - test slope calculation when virus and host inputs have differences
+    # test 2 - test metrics calculation when virus and host inputs have differences
     test_host_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
     test_host_GeneSet.codon_counts()
     test_virus_GeneSet = GeneSet("tests/datatests/test_virus_short_genes_file.ffn")
@@ -66,6 +70,7 @@ def test_CodonBiasComparison_slope():
     test_comparison = CodonBiasComparison(test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict)
     expected_host_list = [1] * 4 + [0] * 60
     expected_virus_list = [2] * 2 + [1] * 3 + [0] * 59
+
     assert test_comparison.slope() == scipy.stats.linregress(expected_host_list, expected_virus_list)[0]
-
-
+    assert test_comparison.R2() == scipy.stats.linregress(expected_host_list, expected_virus_list)[2] ** 2
+    assert test_comparison.cosine_similarity == 1 - scipy.spatial.distance.cosine(expected_host_list, expected_virus_list)
