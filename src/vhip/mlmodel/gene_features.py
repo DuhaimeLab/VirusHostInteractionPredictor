@@ -364,7 +364,11 @@ class CodonBiasComparison:
         virus_dict: Dictionary of codons/amino acids and their counts/frequencies/RSCUs in a virus GeneSet.
     """
 
-    def __init__(self, host_dict: Union[dict[str, int], dict[str, float]], virus_dict: Union[dict[str, int], dict[str, float]]) -> None:
+    def __init__(
+        self,
+        host_dict: Union[dict[str, int], dict[str, float]],
+        virus_dict: Union[dict[str, int], dict[str, float]],
+    ) -> None:
         """Initialize class variables and read in an annotated genes file, storing Gene objects and metadata in lists."""
         self.host_dict = host_dict
         self.host_list = list(self.host_dict.values())
@@ -372,14 +376,16 @@ class CodonBiasComparison:
         self.virus_list = list(self.virus_dict.values())
 
     def slope(self) -> None:
-        '''Compute slope between host and virus codon bias using linear regression.'''
+        """Compute slope between host and virus codon bias using linear regression."""
         self.slope = scipy.stats.linregress(self.host_list, self.virus_list)[0]
 
     def R2(self) -> None:
-        '''Compute R^2 value between host and virus codon bias using linear regression.'''
+        """Compute R^2 value between host and virus codon bias using linear regression."""
         r_value = scipy.stats.linregress(self.host_list, self.virus_list)[2]
-        self.R2 = r_value ** 2
+        self.R2 = r_value**2
 
     def cosine_similarity(self):
-        '''Compute cosine similarity metric between host and virus codon bias.'''
-        self.cosine_similarity = 1 - scipy.spatial.distance.cosine(self.host_list, self.virus_list)
+        """Compute cosine similarity metric between host and virus codon bias."""
+        self.cosine_similarity = 1 - scipy.spatial.distance.cosine(
+            self.host_list, self.virus_list
+        )
