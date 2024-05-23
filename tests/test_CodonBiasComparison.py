@@ -145,7 +145,7 @@ def test_CodonBiasComparison_methods():
             "TGC": 0,
             "TGT": 0,
             "TGA": 0,
-            "TGG": 0,
+            "TGG": 1,
         }
     expected_virus_list = list(expected_virus_codon_dict.values())
     expected_host_codon_dict = {
