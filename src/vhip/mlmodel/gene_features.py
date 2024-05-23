@@ -7,7 +7,7 @@ This module provides:
 """
 
 import os
-from typing import List
+from typing import List, Union
 
 import scipy
 
@@ -364,7 +364,7 @@ class CodonBiasComparison:
         virus_dict: Dictionary of codons/amino acids and their counts/frequencies/RSCUs in a virus GeneSet.
     """
 
-    def __init__(self, host_dict: dict[str, float|int], virus_dict: dict[str, float|int]) -> None:
+    def __init__(self, host_dict: Union[dict[str, int], dict[str, float]], virus_dict: Union[dict[str, int], dict[str, float]]) -> None:
         """Initialize class variables and read in an annotated genes file, storing Gene objects and metadata in lists."""
         self.host_dict = host_dict
         self.host_list = list(self.host_dict.values())
