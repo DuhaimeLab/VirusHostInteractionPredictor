@@ -46,3 +46,16 @@ def test_CodonBiasComparison_init():
     assert len(test_comparison_5.host_list) == 64
     assert len(test_comparison_5.virus_list) == 64
 
+def test_CodonBiasComparison_slope():
+    """Test code to calculate slope between codon biases of a virus GeneSet and host GeneSet."""
+    # test 1 - test that slope = 1 when virus and host inputs are exactly the same
+    test_host_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
+    test_host_GeneSet.codon_counts()
+    test_virus_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
+    test_virus_GeneSet.codon_counts()
+    test_comparison = CodonBiasComparison(test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict)
+    assert test_comparison.slope() == 1
+
+
+
+
