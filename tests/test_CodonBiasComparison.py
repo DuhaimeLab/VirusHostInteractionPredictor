@@ -38,3 +38,8 @@ def test_CodonBiasComparison_init():
     assert len(test_comparison_3.host_list) == 20
     assert len(test_comparison_3.virus_list) == 20
 
+    # test 4 - test CodonBiasComparsion initializes with input amino acid frequency (GeneSet.aa_frq)
+    test_comparison_4 = CodonBiasComparison(test_host_GeneSet.aa_frq, test_virus_GeneSet.aa_frq)
+    assert len(test_comparison_4.host_list) == 20
+    assert len(test_comparison_4.virus_list) == 20
+
