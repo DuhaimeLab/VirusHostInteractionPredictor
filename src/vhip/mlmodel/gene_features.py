@@ -352,3 +352,19 @@ class GeneSet:
                         synonymous_total_count / len(synonymous_codons)
                     )  # expected frequency of current codon given all assumption all synonymous codons are equally likely to encode the aa
                     self.RSCU_dict[codon] = self.codon_dict[codon] / expected_frequency
+
+
+class CodonBiasComparison:
+    """Class for calculating codon bias differences between a virus GeneSet and a host GeneSet.
+
+    Args:
+        host_dict: Dictionary of codons/amino acids and their counts/frequencies/RSCUs in a host GeneSet.
+        virus_dict: Dictionary of codons/amino acids and their counts/frequencies/RSCUs in a virus GeneSet.
+    """
+
+    def __init__(self, host_dict: dict[str, float|int], virus_dict: dict[str, float|int]) -> None:
+        """Initialize class variables and read in an annotated genes file, storing Gene objects and metadata in lists."""
+        self.host_dict = host_dict
+        self.host_list = list(self.host_dict.values())
+        self.virus_dict = virus_dict
+        self.virus_list = list(self.virus_dict.values())
