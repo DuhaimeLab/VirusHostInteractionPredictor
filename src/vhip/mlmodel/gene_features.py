@@ -201,7 +201,7 @@ class GeneSet:
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List(str)): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
         """
-        self.codon_dict = dict.fromkeys(CODON_LIST, 0)
+        self.codon_dict: dict[str, int] = dict.fromkeys(CODON_LIST, 0)
         self.imprecise_codons: int = 0
         self.skipped_imprecise_genes: List[str] = []
 
