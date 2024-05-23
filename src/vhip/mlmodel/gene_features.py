@@ -357,7 +357,7 @@ class GeneSet:
 
 
 class CodonBiasComparison:
-    """Class for calculating codon bias differences between a virus GeneSet and a host GeneSet.
+    """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
 
     Args:
         host_dict: Dictionary of codons/amino acids and their counts/frequencies/RSCUs in a host GeneSet.
@@ -379,3 +379,7 @@ class CodonBiasComparison:
         '''Compute R^2 value between host and virus codon bias using linear regression.'''
         r_value = scipy.stats.linregress(self.host_list, self.virus_list)[2]
         self.R2 = r_value ** 2
+
+    def cosine_similarity(self):
+        '''Compute cosine similarity metric between host and virus codon bias.'''
+        self.cosine_similarity = 1 - scipy.spatial.distance.cosine(self.host_list, self.virus_list)
