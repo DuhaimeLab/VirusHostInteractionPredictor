@@ -1,6 +1,6 @@
 """Pytest for CodonBiasComparison methods in gene_features module."""
 
-import scipy
+import scipy  # type: ignore
 
 from vhip.mlmodel.gene_features import CodonBiasComparison, GeneSet
 

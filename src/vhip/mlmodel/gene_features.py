@@ -9,7 +9,7 @@ This module provides:
 import os
 from typing import List, Union
 
-import scipy
+import scipy  # type: ignore
 
 from .read_sequence import read_annotated_genes
 
