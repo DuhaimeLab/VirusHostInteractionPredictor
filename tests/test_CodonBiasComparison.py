@@ -25,7 +25,7 @@ def test_CodonBiasComparison_init():
 
     # test 1 - test CodonBiasComparsion initializes with input codon counts (GeneSet.codon_dict)
     test_comparison_1 = CodonBiasComparison(test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict)
-    assert len(test_comparison_1.host_list) == 64 
+    assert len(test_comparison_1.host_list) == 64 # there are 64 possible unique codons
     assert len(test_comparison_1.virus_list) == 64
 
     # test 2 - test CodonBiasComparsion initializes with input codon frequency (GeneSet.codon_frq)
@@ -35,7 +35,7 @@ def test_CodonBiasComparison_init():
 
     # test 3 - test CodonBiasComparsion initializes with input amino acid counts (GeneSet.aa_dict)
     test_comparison_3 = CodonBiasComparison(test_host_GeneSet.aa_dict, test_virus_GeneSet.aa_dict)
-    assert len(test_comparison_3.host_list) == 21 
+    assert len(test_comparison_3.host_list) == 21 # there are 20 possible unique amino acids plus a stop signal
     assert len(test_comparison_3.virus_list) == 21
 
     # test 4 - test CodonBiasComparsion initializes with input amino acid frequency (GeneSet.aa_frq)
