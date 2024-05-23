@@ -1,5 +1,7 @@
 """Pytest for CodonBiasComparison methods in gene_features module."""
 
+import scipy
+
 from vhip.mlmodel.gene_features import CodonBiasComparison, GeneSet
 
 
@@ -56,6 +58,14 @@ def test_CodonBiasComparison_slope():
     test_comparison = CodonBiasComparison(test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict)
     assert test_comparison.slope() == 1
 
-
+    # test 2 - test slope calculation when virus and host inputs have differences
+    test_host_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
+    test_host_GeneSet.codon_counts()
+    test_virus_GeneSet = GeneSet("tests/datatests/test_virus_short_genes_file.ffn")
+    test_virus_GeneSet.codon_counts()
+    test_comparison = CodonBiasComparison(test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict)
+    expected_host_list = [1] * 4 + [0] * 60
+    expected_virus_list = [2] * 2 + [1] * 3 + [0] * 59
+    assert test_comparison.slope() == scipy.stats.linregress(expected_host_list, expected_virus_list)[0]
 
 
