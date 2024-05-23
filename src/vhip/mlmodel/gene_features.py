@@ -82,8 +82,8 @@ CODON_TABLE = {
 }
 
 # Separate CODON_TABLE dictionary into lists of codons and amino acids
-CODON_LIST = CODON_TABLE.keys()
-AA_LIST = set(CODON_TABLE.values())
+CODON_LIST = list(CODON_TABLE.keys())
+AA_LIST = list(CODON_TABLE.values())
 
 
 # Define Gene class
