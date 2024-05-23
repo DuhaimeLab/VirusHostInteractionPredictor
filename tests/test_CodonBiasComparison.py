@@ -2,7 +2,7 @@
 
 import pytest
 
-from vhip.mlmodel.gene_features import CodonBiasComparison
+from vhip.mlmodel.gene_features import CodonBiasComparison, GeneSet
 
 
 def test_CodonBiasComparison_init():
@@ -23,3 +23,7 @@ def test_CodonBiasComparison_init():
     test_virus_GeneSet.amino_acid_frequency()
     test_virus_GeneSet.RSCU()
 
+    # test 1 - test CodonBiasComparsion initializes with input codon counts (GeneSet.codon_dict)
+    test_comparison_1 = CodonBiasComparison(test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict)
+    assert len(test_comparison_1.host_list) == 64
+    assert len(test_comparison_1.virus_list) == 64
