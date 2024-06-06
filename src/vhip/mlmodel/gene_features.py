@@ -375,6 +375,10 @@ class CodonBiasComparison:
         self.virus_dict = virus_dict
         self.virus_list = list(self.virus_dict.values())
 
+    def lin_regress(self) -> None:
+        """Compute linear regression between host and virus codon bias."""
+        self.lin_regress = scipy.stats.linregress(self.host_list, self.virus_list)
+
     def slope(self) -> None:
         """Compute slope between host and virus codon bias using linear regression."""
         self.slope = scipy.stats.linregress(self.host_list, self.virus_list)[0]
