@@ -389,8 +389,11 @@ class CodonBiasComparison:
 
     def R2(self) -> None:
         """Compute R^2 value between host and virus codon bias using linear regression."""
-        r_value = scipy.stats.linregress(self.host_list, self.virus_list)[2]
-        self.R2 = r_value**2
+        if not hasattr(self, "lin_regress"):
+            self.lin_regress()
+
+        if hasattr(self, "lin_regress"):
+            self.R2 = self.lin_regress[2] ** 2 # the second value from the output of scipy.stats.linregress is the r-value
 
     def cosine_similarity(self):
         """Compute cosine similarity metric between host and virus codon bias."""
