@@ -375,11 +375,11 @@ class CodonBiasComparison:
         self.virus_dict: Union[dict[str, int], dict[str, float]] = virus_dict
         self.virus_list: Union[List[int], List[float]] = list(self.virus_dict.values())
 
-    def lin_regress(self) -> None:
+    def linear_regress(self) -> None:
         """Compute linear regression between host and virus codon bias."""
         self.lin_regress: scipy.stats._stats_mstats_common.LinregressResult = scipy.stats.linregress(self.host_list, self.virus_list)
 
-    def slope(self) -> None:
+    def calculate_slope(self) -> None:
         """Compute slope between host and virus codon bias using linear regression."""
         if not hasattr(self, "lin_regress"):
             self.lin_regress()
@@ -387,7 +387,7 @@ class CodonBiasComparison:
         if hasattr(self, "lin_regress"):
             self.slope: float = float(self.lin_regress[0]) # the first value from the output of scipy.stats.linregress is slope
 
-    def R2(self) -> None:
+    def calculate_R2(self) -> None:
         """Compute R^2 value between host and virus codon bias using linear regression."""
         if not hasattr(self, "lin_regress"):
             self.lin_regress()
@@ -397,6 +397,6 @@ class CodonBiasComparison:
 
     def cosine_similarity(self):
         """Compute cosine similarity metric between host and virus codon bias."""
-        self.cosine_similarity: float = float(1 - scipy.spatial.distance.cosine(
+        self.cos_similarity: float = float(1 - scipy.spatial.distance.cosine(
             self.host_list, self.virus_list
         ))
