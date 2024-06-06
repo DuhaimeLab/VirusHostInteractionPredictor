@@ -392,7 +392,7 @@ class CodonBiasComparison:
             self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
         """
         if not hasattr(self, "lin_regress"):
-            self.lin_regress()
+            self.linear_regress()
 
         if hasattr(self, "lin_regress"):
             self.slope: float = float(self.lin_regress[0]) # the first value from the output of scipy.stats.linregress is slope
@@ -406,7 +406,7 @@ class CodonBiasComparison:
             self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
         """
         if not hasattr(self, "lin_regress"):
-            self.lin_regress()
+            self.linear_regress()
 
         if hasattr(self, "lin_regress"):
             self.R2: float = float(self.lin_regress[2] ** 2) # the second value from the output of scipy.stats.linregress is the r-value
