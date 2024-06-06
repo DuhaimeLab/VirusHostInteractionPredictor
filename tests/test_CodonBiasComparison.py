@@ -75,13 +75,13 @@ def test_CodonBiasComparison_methods():
     test_comparison = CodonBiasComparison(
         test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict
     )
-    test_comparison.slope()
-    test_comparison.R2()
+    test_comparison.calculate_slope()
+    test_comparison.calculate_R2()
     test_comparison.cosine_similarity()
 
     assert test_comparison.slope == 1
     assert test_comparison.R2 == 1
-    assert test_comparison.cosine_similarity == 1
+    assert test_comparison.cos_similarity == 1
 
     # test 2 - test metrics calculation when virus and host inputs have differences
     test_host_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
@@ -92,8 +92,8 @@ def test_CodonBiasComparison_methods():
     test_comparison = CodonBiasComparison(
         test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict
     )
-    test_comparison.slope()
-    test_comparison.R2()
+    test_comparison.calculate_slope()
+    test_comparison.calculate_R2()
     test_comparison.cosine_similarity()
 
     expected_virus_codon_dict = {
@@ -242,6 +242,6 @@ def test_CodonBiasComparison_methods():
         test_comparison.R2
         == scipy.stats.linregress(expected_host_list, expected_virus_list)[2] ** 2
     )
-    assert test_comparison.cosine_similarity == 1 - scipy.spatial.distance.cosine(
+    assert test_comparison.cos_similarity == 1 - scipy.spatial.distance.cosine(
         expected_host_list, expected_virus_list
     )
