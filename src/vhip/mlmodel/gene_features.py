@@ -381,7 +381,9 @@ class CodonBiasComparison:
         Populates the following class attributes:
             self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
         """
-        self.lin_regress: scipy.stats._stats_mstats_common.LinregressResult = scipy.stats.linregress(self.host_list, self.virus_list)
+        self.lin_regress: scipy.stats._stats_mstats_common.LinregressResult = (
+            scipy.stats.linregress(self.host_list, self.virus_list)
+        )
 
     def calculate_slope(self) -> None:
         """Compute slope between host and virus codon bias using linear regression.
@@ -395,7 +397,9 @@ class CodonBiasComparison:
             self.linear_regress()
 
         if hasattr(self, "lin_regress"):
-            self.slope: float = float(self.lin_regress[0]) # the first value from the output of scipy.stats.linregress is slope
+            self.slope: float = float(
+                self.lin_regress[0]
+            )  # the first value from the output of scipy.stats.linregress is slope
 
     def calculate_R2(self) -> None:
         """Compute R^2 value between host and virus codon bias using linear regression.
@@ -409,7 +413,9 @@ class CodonBiasComparison:
             self.linear_regress()
 
         if hasattr(self, "lin_regress"):
-            self.R2: float = float(self.lin_regress[2] ** 2) # the second value from the output of scipy.stats.linregress is the r-value
+            self.R2: float = float(
+                self.lin_regress[2] ** 2
+            )  # the third value from the output of scipy.stats.linregress is the r-value
 
     def cosine_similarity(self):
         """Compute cosine similarity metric between host and virus codon bias.
@@ -417,6 +423,6 @@ class CodonBiasComparison:
         Populates the following class attributes:
             self.cos_similarity (float): calculates the cosine similarity between values from input host_dict and virus_dict
         """
-        self.cos_similarity: float = float(1 - scipy.spatial.distance.cosine(
-            self.host_list, self.virus_list
-        ))
+        self.cos_similarity: float = float(
+            1 - scipy.spatial.distance.cosine(self.host_list, self.virus_list)
+        )
