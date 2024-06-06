@@ -7,7 +7,9 @@ This module provides:
 """
 
 import os
-from typing import List
+from typing import List, Union
+
+import scipy  # pyright: ignore[reportMissingTypeStubs]
 
 from .read_sequence import read_annotated_genes
 
@@ -80,8 +82,8 @@ CODON_TABLE = {
 }
 
 # Separate CODON_TABLE dictionary into lists of codons and amino acids
-CODON_LIST = CODON_TABLE.keys()
-AA_LIST = set(CODON_TABLE.values())
+CODON_LIST = list(CODON_TABLE.keys())
+AA_LIST = list(CODON_TABLE.values())
 
 
 # Define Gene class
@@ -199,7 +201,7 @@ class GeneSet:
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List(str)): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
         """
-        self.codon_dict = dict.fromkeys(CODON_LIST, 0)
+        self.codon_dict: dict[str, int] = dict.fromkeys(CODON_LIST, 0)
         self.imprecise_codons: int = 0
         self.skipped_imprecise_genes: List[str] = []
 
@@ -352,3 +354,75 @@ class GeneSet:
                         synonymous_total_count / len(synonymous_codons)
                     )  # expected frequency of current codon given all assumption all synonymous codons are equally likely to encode the aa
                     self.RSCU_dict[codon] = self.codon_dict[codon] / expected_frequency
+
+
+class CodonBiasComparison:
+    """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
+
+    Args:
+        host_dict (str: int or str: float): Dictionary of codons/amino acids and their counts/frequencies/RSCUs in a host GeneSet.
+        virus_dict (str: int or str: float): Dictionary of codons/amino acids and their counts/frequencies/RSCUs in a virus GeneSet.
+    """
+
+    def __init__(
+        self,
+        host_dict: Union[dict[str, int], dict[str, float]],
+        virus_dict: Union[dict[str, int], dict[str, float]],
+    ) -> None:
+        """Initialize class variables and read in an annotated genes file, storing Gene objects and metadata in lists."""
+        self.host_dict: Union[dict[str, int], dict[str, float]] = host_dict
+        self.host_list: Union[List[int], List[float]] = list(self.host_dict.values())
+        self.virus_dict: Union[dict[str, int], dict[str, float]] = virus_dict
+        self.virus_list: Union[List[int], List[float]] = list(self.virus_dict.values())
+
+    def linear_regress(self) -> None:
+        """Compute linear regression between host and virus codon bias.
+
+        Populates the following class attributes:
+            self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
+        """
+        self.lin_regress: scipy.stats._stats_mstats_common.LinregressResult = (
+            scipy.stats.linregress(self.host_list, self.virus_list)
+        )
+
+    def calculate_slope(self) -> None:
+        """Compute slope between host and virus codon bias using linear regression.
+
+        Populates the following class attributes:
+            self.slope (float): extracts slope from linear regression calculation on values from input host_dict and virus_dict
+        If not populated previously by running linear_regress():
+            self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
+        """
+        if not hasattr(self, "lin_regress"):
+            self.linear_regress()
+
+        if hasattr(self, "lin_regress"):
+            self.slope: float = float(
+                self.lin_regress[0]
+            )  # the first value from the output of scipy.stats.linregress is slope
+
+    def calculate_R2(self) -> None:
+        """Compute R^2 value between host and virus codon bias using linear regression.
+
+        Populates the following class attributes:
+            self.R2 (float): extracts and calculates the R^2 value from linear regression calculation on values from input host_dict and virus_dict
+        If not populated previously by running linear_regress():
+            self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
+        """
+        if not hasattr(self, "lin_regress"):
+            self.linear_regress()
+
+        if hasattr(self, "lin_regress"):
+            self.R2: float = float(
+                self.lin_regress[2] ** 2
+            )  # the third value from the output of scipy.stats.linregress is the r-value
+
+    def cosine_similarity(self):
+        """Compute cosine similarity metric between host and virus codon bias.
+
+        Populates the following class attributes:
+            self.cos_similarity (float): calculates the cosine similarity between values from input host_dict and virus_dict
+        """
+        self.cos_similarity: float = float(
+            1 - scipy.spatial.distance.cosine(self.host_list, self.virus_list)
+        )
