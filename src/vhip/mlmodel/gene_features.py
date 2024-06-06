@@ -9,7 +9,7 @@ This module provides:
 import os
 from typing import List, Union
 
-import scipy  # type: ignore
+import scipy  # pyright: ignore[reportMissingTypeStubs]
 
 from .read_sequence import read_annotated_genes
 
