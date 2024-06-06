@@ -360,8 +360,8 @@ class CodonBiasComparison:
     """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
 
     Args:
-        host_dict: Dictionary of codons/amino acids and their counts/frequencies/RSCUs in a host GeneSet.
-        virus_dict: Dictionary of codons/amino acids and their counts/frequencies/RSCUs in a virus GeneSet.
+        host_dict (str: int or str: float): Dictionary of codons/amino acids and their counts/frequencies/RSCUs in a host GeneSet.
+        virus_dict (str: int or str: float): Dictionary of codons/amino acids and their counts/frequencies/RSCUs in a virus GeneSet.
     """
 
     def __init__(
@@ -376,11 +376,21 @@ class CodonBiasComparison:
         self.virus_list: Union[List[int], List[float]] = list(self.virus_dict.values())
 
     def linear_regress(self) -> None:
-        """Compute linear regression between host and virus codon bias."""
+        """Compute linear regression between host and virus codon bias.
+
+        Populates the following class attributes:
+            self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
+        """
         self.lin_regress: scipy.stats._stats_mstats_common.LinregressResult = scipy.stats.linregress(self.host_list, self.virus_list)
 
     def calculate_slope(self) -> None:
-        """Compute slope between host and virus codon bias using linear regression."""
+        """Compute slope between host and virus codon bias using linear regression.
+
+        Populates the following class attributes:
+            self.slope (float): extracts slope from linear regression calculation on values from input host_dict and virus_dict
+        If not populated previously by running linear_regress():
+            self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
+        """
         if not hasattr(self, "lin_regress"):
             self.lin_regress()
 
@@ -388,7 +398,13 @@ class CodonBiasComparison:
             self.slope: float = float(self.lin_regress[0]) # the first value from the output of scipy.stats.linregress is slope
 
     def calculate_R2(self) -> None:
-        """Compute R^2 value between host and virus codon bias using linear regression."""
+        """Compute R^2 value between host and virus codon bias using linear regression.
+
+        Populates the following class attributes:
+            self.R2 (float): extracts and calculates the R^2 value from linear regression calculation on values from input host_dict and virus_dict
+        If not populated previously by running linear_regress():
+            self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
+        """
         if not hasattr(self, "lin_regress"):
             self.lin_regress()
 
@@ -396,7 +412,11 @@ class CodonBiasComparison:
             self.R2: float = float(self.lin_regress[2] ** 2) # the second value from the output of scipy.stats.linregress is the r-value
 
     def cosine_similarity(self):
-        """Compute cosine similarity metric between host and virus codon bias."""
+        """Compute cosine similarity metric between host and virus codon bias.
+
+        Populates the following class attributes:
+            self.cos_similarity (float): calculates the cosine similarity between values from input host_dict and virus_dict
+        """
         self.cos_similarity: float = float(1 - scipy.spatial.distance.cosine(
             self.host_list, self.virus_list
         ))
