@@ -11,10 +11,20 @@ You can find more information about the philosophy and performance of VHIP here:
 
 ## Installation 
 
-This module will be made available as a conda environment. To be updated once it is up on conda. 
+This python package can be installed with PyPI
 
-Also will be available with `pip install virushostinteractionpredictor`. 
+```
+pip install virushostinteractionpredictor
+```
 
+It is also available through conda-forge.
+
+```
+conda config --add channels conda-forge
+conda install virushostinteractionpredictor
+```
+
+Once installed, you can the vhip python module. See the `example` folder on how to run the tool.
 
 ## Inputs
 
