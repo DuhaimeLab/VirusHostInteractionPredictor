@@ -24,7 +24,7 @@ conda config --add channels conda-forge
 conda install virushostinteractionpredictor
 ```
 
-Once installed, you can the vhip python module. See the `example` folder on how to run the tool.
+Once installed, you can import the vhip python module. See the `example` folder on how to run the tool.
 
 ## Inputs
 
