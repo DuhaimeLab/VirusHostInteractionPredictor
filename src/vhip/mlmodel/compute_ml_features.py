@@ -39,19 +39,19 @@ class ComputeFeatures:
     """Class organizing all methods to compute all virus-host coevolution signals.
 
     Args:
-        virus_directory (str): Path to the directory containing viruses fasta files. Each file should contain an unique virus.
-        host_directory (str): Path to the directory containing host fasta files.  Each file should contain an unique host species/OTUs.
-        ext (str): Extension used for fasta files. Default is "fasta".
+        virus_genome_dir (str): Path to the directory containing viruses genome fasta files. Each file should contain an unique virus.
+        host_genome_dir (str): Path to the directory containing host genome fasta files.  Each file should contain an unique host species/OTUs.
+        genome_ext (str): Extension used for genome fasta files. Default is "fasta".
         pairs_of_interest (str): Pathway to file containing virus-host pairs of interest. Optional.
     """
 
     def __init__(
-        self, virus_directory: str, host_directory: str, ext: str = "fasta"
+        self, virus_genome_dir: str, host_genome_dir: str, genome_ext: str = "fasta"
     ) -> None:
         """Initialize class variables."""
-        self.virus_directory = virus_directory
-        self.host_directory = host_directory
-        self.ext = ext
+        self.virus_genome_dir = virus_genome_dir
+        self.host_genome_dir = host_genome_dir
+        self.genome_ext = genome_ext
         self.pairs_of_interest = None
 
         self.features_df = None
