@@ -5,11 +5,11 @@ import pandas as pd
 from vhip.mlmodel.compute_ml_features import ComputeFeatures, Pairs
 from vhip.mlmodel.genomes_features import KmerProfile
 
-test_virus_directory = "tests/datatests/sequences/virus_seqs/"
-test_host_directory = "tests/datatests/sequences/host_seqs/"
+test_virus_genome_dir = "tests/datatests/sequences/virus_genomes/"
+test_host_genome_dir = "tests/datatests/sequences/host_genomes/"
 
 
-def test_ComputeFeatures_list_files():
+def test_ComputeFeatures_list_genome_files():
     """Test that listed files are correct."""
     all_filenames = [
         "GCA_003931015.1_ASM393101v1_genomic.fasta",
@@ -22,19 +22,19 @@ def test_ComputeFeatures_list_files():
     ]
 
     all_filenames.sort()
-    test = ComputeFeatures(test_virus_directory, test_host_directory)
-    test.list_files()
-    test.all_files.sort()
-    assert len(test.all_files) == 7
-    assert len(test.virus_filenames) == 4
-    assert len(test.host_filenames) == 3
-    assert test.all_files == all_filenames
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test.list_genome_files()
+    test.all_genome_files.sort()
+    assert len(test.all_genome_files) == 7
+    assert len(test.virus_genome_filenames) == 4
+    assert len(test.host_genome_filenames) == 3
+    assert test.all_genome_files == all_filenames
 
 
 def test_ComputeFeatures_pairs():
     """Test all pairs are generated correctly."""
-    test = ComputeFeatures(test_virus_directory, test_host_directory)
-    test.list_files()
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test.list_genome_files()
     test.determine_pairs()
     assert len(test.pairs) == 12
     assert all(isinstance(pair, Pairs) for pair in test.pairs)
@@ -42,8 +42,8 @@ def test_ComputeFeatures_pairs():
 
 def test_ComputeFeatures_get_headers():
     """Test that headers are retrieved correctly."""
-    test = ComputeFeatures(test_virus_directory, test_host_directory)
-    test.list_files()
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test.list_genome_files()
     test.get_headers()
 
     assert test.headers["MG592522.1"] == "GCA_003344205.1_ASM334420v1_genomic.fasta"
@@ -63,7 +63,7 @@ def test_ComputeFeatures_get_headers():
 
 def test_ComputeFeatures_add_blastn_files():
     """Test that blastn files are added correctly."""
-    test = ComputeFeatures(test_virus_directory, test_host_directory)
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
     blastn_filename = "tests/datatests/blastn.tsv"
     spacer_filename = "tests/datatests/spacer.tsv"
     test.add_blastn_files(blastn_filename, spacer_filename)
@@ -82,8 +82,8 @@ def test_ComputeFeatures_process_blastn():
             "GCA_003931015.1_ASM393101v1_genomic.fasta",
         ],
     }
-    test = ComputeFeatures(test_virus_directory, test_host_directory)
-    test.list_files()
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test.list_genome_files()
     test.get_headers()
     test.add_blastn_files("tests/datatests/blastn_phagevhost.tsv", "")
     test.process_blastn()
@@ -103,8 +103,8 @@ def test_ComputeFeatures_process_spacers():
             "GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
         ],
     }
-    test = ComputeFeatures(test_virus_directory, test_host_directory)
-    test.list_files()
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test.list_genome_files()
     test.get_headers()
     test.add_blastn_files("", "tests/datatests/blastn_phagevspacer.tsv")
     test.process_spacers()
@@ -113,8 +113,8 @@ def test_ComputeFeatures_process_spacers():
 
 def test_ComputeFeatures_generate_kmer_profiles():
     """Test the kmer profiles are properly generated."""
-    test = ComputeFeatures(test_virus_directory, test_host_directory)
-    test.list_files()
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test.list_genome_files()
     test.determine_pairs()
     test.generate_kmer_profiles()
     assert isinstance(test.k6profiles, dict)
@@ -125,7 +125,7 @@ def test_ComputeFeatures_generate_kmer_profiles():
 
 def test_ComputeFeatures_complete_pipeline():
     """Check the complete pipeline for ComputeFeatures is working as intended."""
-    test = ComputeFeatures(test_virus_directory, test_host_directory)
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
     test.add_blastn_files(
         "tests/datatests/blastn_phagevhost.tsv",
         "tests/datatests/blastn_phagevspacer.tsv",
@@ -139,8 +139,8 @@ def test_ComputeFeatures_complete_pipeline():
 
 
 if __name__ == "__main__":
-    test = ComputeFeatures(test_virus_directory, test_host_directory)
-    test.list_files()
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test.list_genome_files()
     test.determine_pairs()
     test.generate_kmer_profiles()
     print(test.k6profiles["GCA_003344205.1_ASM334420v1_genomic.fasta"])
