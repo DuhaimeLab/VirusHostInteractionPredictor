@@ -41,17 +41,23 @@ class ComputeFeatures:
     Args:
         virus_genome_dir (str): Path to the directory containing viruses genome fasta files. Each file should contain an unique virus.
         host_genome_dir (str): Path to the directory containing host genome fasta files.  Each file should contain an unique host species/OTUs.
+        virus_gene_dir (str): Path to the directory containing viruses gene fasta files. Each file should contain annotated genes for a unique virus.
+        host_gene_dir (str): Path to the directory containing host gene fasta files.  Each file should contain annotated genes for a unique host species/OTUs.
         genome_ext (str): Extension used for genome fasta files. Default is "fasta".
+        gene_ext (str): Extension used for gene fasta files. Default is "ffn".
         pairs_of_interest (str): Pathway to file containing virus-host pairs of interest. Optional.
     """
 
     def __init__(
-        self, virus_genome_dir: str, host_genome_dir: str, genome_ext: str = "fasta"
+        self, virus_genome_dir: str, host_genome_dir: str, virus_gene_dir: str, host_gene_dir: str, genome_ext: str = "fasta", gene_ext: str = "ffn",
     ) -> None:
         """Initialize class variables."""
         self.virus_genome_dir = virus_genome_dir
         self.host_genome_dir = host_genome_dir
         self.genome_ext = genome_ext
+        self.virus_gene_dir = virus_gene_dir
+        self.host_gene_dir = host_gene_dir
+        self.gene_ext = gene_ext
         self.pairs_of_interest = None
 
         self.features_df = None
