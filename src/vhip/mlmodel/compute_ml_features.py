@@ -98,7 +98,7 @@ class ComputeFeatures:
         self.generate_kmer_profiles()
 
     def list_genome_files(self):
-        """List all genome fasta file in the virus and host directories."""
+        """List all genome fasta file in the virus and host genome directories."""
         self.virus_genome_filenames = [
             f for f in os.listdir(self.virus_genome_dir) if f.endswith("." + self.genome_ext)
         ]
@@ -106,6 +106,16 @@ class ComputeFeatures:
             f for f in os.listdir(self.host_genome_dir) if f.endswith("." + self.genome_ext)
         ]
         self.all_genome_files = self.virus_genome_filenames + self.host_genome_filenames
+
+    def list_gene_files(self):
+        """List all gene fasta file in the virus and host annotated gene file directories."""
+        self.virus_gene_filenames = [
+            f for f in os.listdir(self.virus_gene_dir) if f.endswith("." + self.gene_ext)
+        ]
+        self.host_gene_filenames = [
+            f for f in os.listdir(self.host_gene_dir) if f.endswith("." + self.gene_ext)
+        ]
+        self.all_gene_files = self.virus_gene_filenames + self.host_gene_filenames
 
     def determine_pairs(self):
         """Determine all possible virus-host pairs.
