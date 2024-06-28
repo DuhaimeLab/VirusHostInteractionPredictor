@@ -3,8 +3,8 @@
 from vhip.mlmodel.build import BuildModel
 from vhip.predict_interactions import PredictInteractions
 
-test_virus_directory = "tests/datatests/sequences/virus_seqs/"
-test_host_directory = "tests/datatests/sequences/host_seqs/"
+test_virus_genome_dir = "tests/datatests/sequences/virus_genomes/"
+test_host_genome_dir = "tests/datatests/sequences/host_genomes/"
 ml_training = "tests/datatests/ml_input.csv"
 
 
@@ -13,7 +13,7 @@ def test_PredictInteractions_complete_pipeline():
     model = BuildModel(ml_training)
     VHIP = model.build()
 
-    test = PredictInteractions(test_virus_directory, test_host_directory)
+    test = PredictInteractions(test_virus_genome_dir, test_host_genome_dir)
     test.model = VHIP
     test.add_blastn_files(
         "tests/datatests/blastn_phagevhost.tsv",
