@@ -12,8 +12,8 @@ test_host_gene_dir = "tests/datatests/sequences/host_genes"
 
 
 def test_ComputeFeatures_list_genome_files():
-    """Test that listed files are correct."""
-    all_filenames = [
+    """Test that listed genome files are correct."""
+    all_genome_filenames = [
         "GCA_003931015.1_ASM393101v1_genomic.fasta",
         "GCA_003927235.1_ASM392723v1_genomic.fasta",
         "GCA_003931415.1_ASM393141v1_genomic.fasta",
@@ -23,14 +23,36 @@ def test_ComputeFeatures_list_genome_files():
         "GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
     ]
 
-    all_filenames.sort()
+    all_genome_filenames.sort()
     test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
     test.list_genome_files()
     test.all_genome_files.sort()
     assert len(test.all_genome_files) == 7
     assert len(test.virus_genome_filenames) == 4
     assert len(test.host_genome_filenames) == 3
-    assert test.all_genome_files == all_filenames
+    assert test.all_genome_files == all_genome_filenames
+
+
+def test_ComputeFeatures_list_gene_files():
+    """Test that listed gene files are correct."""
+    all_gene_filenames = [
+        "GCA_003931015.1_ASM393101v1_genomic.ffn",
+        "GCA_003927235.1_ASM392723v1_genomic.ffn",
+        "GCA_003931415.1_ASM393141v1_genomic.ffn",
+        "GCA_003344205.1_ASM334420v1_genomic.ffn",
+        "GCA_005146815.1_ASM514681v1_genomic.fna.ffn",
+        "GCA_001974575.1_ASM197457v1_genomic.fna.ffn",
+        "GCA_002875995.1_ASM287599v1_genomic.fna.ffn",
+    ]
+
+    all_gene_filenames.sort()
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
+    test.list_gene_files()
+    test.all_gene_files.sort()
+    assert len(test.all_gene_files) == 7
+    assert len(test.virus_gene_filenames) == 4
+    assert len(test.host_gene_filenames) == 3
+    assert test.all_gene_files == all_gene_filenames
 
 
 def test_ComputeFeatures_pairs():
