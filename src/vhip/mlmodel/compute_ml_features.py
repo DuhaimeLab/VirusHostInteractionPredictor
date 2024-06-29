@@ -170,7 +170,7 @@ class ComputeFeatures:
                     )
 
     def get_headers(self):
-        """Retrieve headers from fasta files.
+        """Retrieve headers from genome fasta files.
 
         This is used to map where each blast hit came from between viruses and hosts.
         """
