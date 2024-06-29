@@ -13,15 +13,18 @@ class PredictInteractions(ComputeFeatures):
     Args:
         virus_genome_dir (str): Pathway to the virus genomes directory
         host_genome_dir (str): Pathway to the host genomes directory
-        genome_ext (str): Extension used for the fasta file. Default to fasta
+        virus_gene_dir (str): Pathway to the virus annotated gene files directory
+        host_gene_dir (str): Pathway to the host annotated gene files directory
+        genome_ext (str): Extension used for the fasta file. Default is fasta.
+        gene_ext (str): Extension used for the annotated gene file. Default is ffn.
         model (str): Pathway to model to be loaded
     """
 
     def __init__(
-        self, virus_genome_dir: str, host_genome_dir: str, genome_ext: str = "fasta"
+        self, virus_genome_dir: str, host_genome_dir: str, virus_gene_dir: str, host_gene_dir: str, genome_ext: str = "fasta", gene_ext: str = "ffn"
     ) -> None:
         """Initialize class variables."""
-        super().__init__(virus_genome_dir, host_genome_dir, genome_ext)
+        super().__init__(virus_genome_dir, host_genome_dir, virus_gene_dir, host_gene_dir, genome_ext, gene_ext)
         self.model: GradientBoostingClassifier
 
     def predict(self) -> None:
