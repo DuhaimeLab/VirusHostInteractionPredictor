@@ -7,6 +7,8 @@ from vhip.mlmodel.genomes_features import KmerProfile
 
 test_virus_genome_dir = "tests/datatests/sequences/virus_genomes/"
 test_host_genome_dir = "tests/datatests/sequences/host_genomes/"
+test_virus_gene_dir = "tests/datatests/sequences/virus_genes"
+test_host_gene_dir = "tests/datatests/sequences/host_genes"
 
 
 def test_ComputeFeatures_list_genome_files():
@@ -22,7 +24,7 @@ def test_ComputeFeatures_list_genome_files():
     ]
 
     all_filenames.sort()
-    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
     test.list_genome_files()
     test.all_genome_files.sort()
     assert len(test.all_genome_files) == 7
@@ -33,7 +35,7 @@ def test_ComputeFeatures_list_genome_files():
 
 def test_ComputeFeatures_pairs():
     """Test all pairs are generated correctly."""
-    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
     test.list_genome_files()
     test.determine_pairs()
     assert len(test.pairs) == 12
@@ -42,7 +44,7 @@ def test_ComputeFeatures_pairs():
 
 def test_ComputeFeatures_get_headers():
     """Test that headers are retrieved correctly."""
-    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
     test.list_genome_files()
     test.get_headers()
 
@@ -63,7 +65,7 @@ def test_ComputeFeatures_get_headers():
 
 def test_ComputeFeatures_add_blastn_files():
     """Test that blastn files are added correctly."""
-    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
     blastn_filename = "tests/datatests/blastn.tsv"
     spacer_filename = "tests/datatests/spacer.tsv"
     test.add_blastn_files(blastn_filename, spacer_filename)
@@ -82,7 +84,7 @@ def test_ComputeFeatures_process_blastn():
             "GCA_003931015.1_ASM393101v1_genomic.fasta",
         ],
     }
-    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
     test.list_genome_files()
     test.get_headers()
     test.add_blastn_files("tests/datatests/blastn_phagevhost.tsv", "")
@@ -103,7 +105,7 @@ def test_ComputeFeatures_process_spacers():
             "GCA_002875995.1_ASM287599v1_genomic.fna.fasta",
         ],
     }
-    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
     test.list_genome_files()
     test.get_headers()
     test.add_blastn_files("", "tests/datatests/blastn_phagevspacer.tsv")
@@ -113,7 +115,7 @@ def test_ComputeFeatures_process_spacers():
 
 def test_ComputeFeatures_generate_kmer_profiles():
     """Test the kmer profiles are properly generated."""
-    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
     test.list_genome_files()
     test.determine_pairs()
     test.generate_kmer_profiles()
@@ -125,7 +127,7 @@ def test_ComputeFeatures_generate_kmer_profiles():
 
 def test_ComputeFeatures_complete_pipeline():
     """Check the complete pipeline for ComputeFeatures is working as intended."""
-    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
     test.add_blastn_files(
         "tests/datatests/blastn_phagevhost.tsv",
         "tests/datatests/blastn_phagevspacer.tsv",
@@ -139,7 +141,7 @@ def test_ComputeFeatures_complete_pipeline():
 
 
 if __name__ == "__main__":
-    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir)
+    test = ComputeFeatures(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
     test.list_genome_files()
     test.determine_pairs()
     test.generate_kmer_profiles()
