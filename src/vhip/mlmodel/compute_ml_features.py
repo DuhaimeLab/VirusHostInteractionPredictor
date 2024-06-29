@@ -77,8 +77,11 @@ class ComputeFeatures:
 
         The setup process includes determining all possible virus-host pairs, get fasta headers, read and process blastn_output, and compute GC content and k-mer profiles.
         """
-        print("SETUP - ...indexing fasta filenames for viruses and hosts...")
+        print("SETUP - ...indexing genome fasta filenames for viruses and hosts...")
         self.list_genome_files()
+
+        print("SETUP - ...indexing annotated gene fasta filenames for viruses and hosts...")
+        self.list_gene_files()
 
         print("SETUP - ...initialize all pairs...")
         if self.pairs_of_interest:
