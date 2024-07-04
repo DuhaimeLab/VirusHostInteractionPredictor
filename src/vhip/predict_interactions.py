@@ -21,10 +21,23 @@ class PredictInteractions(ComputeFeatures):
     """
 
     def __init__(
-        self, virus_genome_dir: str, host_genome_dir: str, virus_gene_dir: str, host_gene_dir: str, genome_ext: str = "fasta", gene_ext: str = "ffn"
+        self,
+        virus_genome_dir: str,
+        host_genome_dir: str,
+        virus_gene_dir: str,
+        host_gene_dir: str,
+        genome_ext: str = "fasta",
+        gene_ext: str = "ffn",
     ) -> None:
         """Initialize class variables."""
-        super().__init__(virus_genome_dir, host_genome_dir, virus_gene_dir, host_gene_dir, genome_ext, gene_ext)
+        super().__init__(
+            virus_genome_dir,
+            host_genome_dir,
+            virus_gene_dir,
+            host_gene_dir,
+            genome_ext,
+            gene_ext,
+        )
         self.model: GradientBoostingClassifier
 
     def predict(self) -> None:

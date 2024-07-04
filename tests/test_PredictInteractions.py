@@ -15,7 +15,12 @@ def test_PredictInteractions_complete_pipeline():
     model = BuildModel(ml_training)
     VHIP = model.build()
 
-    test = PredictInteractions(test_virus_genome_dir, test_host_genome_dir, test_virus_gene_dir, test_host_gene_dir)
+    test = PredictInteractions(
+        test_virus_genome_dir,
+        test_host_genome_dir,
+        test_virus_gene_dir,
+        test_host_gene_dir,
+    )
     test.model = VHIP
     test.add_blastn_files(
         "tests/datatests/blastn_phagevhost.tsv",

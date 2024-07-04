@@ -49,7 +49,13 @@ class ComputeFeatures:
     """
 
     def __init__(
-        self, virus_genome_dir: str, host_genome_dir: str, virus_gene_dir: str, host_gene_dir: str, genome_ext: str = "fasta", gene_ext: str = "ffn",
+        self,
+        virus_genome_dir: str,
+        host_genome_dir: str,
+        virus_gene_dir: str,
+        host_gene_dir: str,
+        genome_ext: str = "fasta",
+        gene_ext: str = "ffn",
     ) -> None:
         """Initialize class variables."""
         self.virus_genome_dir = virus_genome_dir
@@ -80,7 +86,9 @@ class ComputeFeatures:
         print("SETUP - ...indexing genome fasta filenames for viruses and hosts...")
         self.list_genome_files()
 
-        print("SETUP - ...indexing annotated gene fasta filenames for viruses and hosts...")
+        print(
+            "SETUP - ...indexing annotated gene fasta filenames for viruses and hosts..."
+        )
         self.list_gene_files()
 
         print("SETUP - ...initialize all pairs...")
@@ -103,17 +111,23 @@ class ComputeFeatures:
     def list_genome_files(self):
         """List all genome fasta file in the virus and host genome directories."""
         self.virus_genome_filenames = [
-            f for f in os.listdir(self.virus_genome_dir) if f.endswith("." + self.genome_ext)
+            f
+            for f in os.listdir(self.virus_genome_dir)
+            if f.endswith("." + self.genome_ext)
         ]
         self.host_genome_filenames = [
-            f for f in os.listdir(self.host_genome_dir) if f.endswith("." + self.genome_ext)
+            f
+            for f in os.listdir(self.host_genome_dir)
+            if f.endswith("." + self.genome_ext)
         ]
         self.all_genome_files = self.virus_genome_filenames + self.host_genome_filenames
 
     def list_gene_files(self):
         """List all gene fasta file in the virus and host annotated gene file directories."""
         self.virus_gene_filenames = [
-            f for f in os.listdir(self.virus_gene_dir) if f.endswith("." + self.gene_ext)
+            f
+            for f in os.listdir(self.virus_gene_dir)
+            if f.endswith("." + self.gene_ext)
         ]
         self.host_gene_filenames = [
             f for f in os.listdir(self.host_gene_dir) if f.endswith("." + self.gene_ext)
@@ -125,7 +139,9 @@ class ComputeFeatures:
 
         This assume that each virus should be tested against each host.
         """
-        total_interactions = len(self.virus_genome_filenames) * len(self.host_genome_filenames)
+        total_interactions = len(self.virus_genome_filenames) * len(
+            self.host_genome_filenames
+        )
         print(f"-------> There are {len(self.virus_genome_filenames)} viral sequences")
         print(f"-------> There are {len(self.host_genome_filenames)} host sequences")
         print(f"-------> Total number of interactions: {total_interactions}")
@@ -158,7 +174,10 @@ class ComputeFeatures:
                 virus = split[0]
                 host = split[1]
 
-                if virus in self.virus_genome_filenames and host in self.host_genome_filenames:
+                if (
+                    virus in self.virus_genome_filenames
+                    and host in self.host_genome_filenames
+                ):
                     self.pairs.append(Pairs(virus, host))
                 else:
                     print(
@@ -231,7 +250,9 @@ class ComputeFeatures:
                 tmp = split[1].split("_")
                 host_partial = tmp[0] + "_" + tmp[1]
                 host = list(
-                    filter(lambda x: x.startswith(host_partial), self.host_genome_filenames)
+                    filter(
+                        lambda x: x.startswith(host_partial), self.host_genome_filenames
+                    )
                 )
                 if virus not in self.spacers:
                     self.spacers[virus] = host
