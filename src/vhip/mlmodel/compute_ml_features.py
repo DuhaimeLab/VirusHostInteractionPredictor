@@ -39,19 +39,31 @@ class ComputeFeatures:
     """Class organizing all methods to compute all virus-host coevolution signals.
 
     Args:
-        virus_directory (str): Path to the directory containing viruses fasta files. Each file should contain an unique virus.
-        host_directory (str): Path to the directory containing host fasta files.  Each file should contain an unique host species/OTUs.
-        ext (str): Extension used for fasta files. Default is "fasta".
+        virus_genome_dir (str): Path to the directory containing viruses genome fasta files. Each file should contain an unique virus.
+        host_genome_dir (str): Path to the directory containing host genome fasta files.  Each file should contain an unique host species/OTUs.
+        virus_gene_dir (str): Path to the directory containing viruses gene fasta files. Each file should contain annotated genes for a unique virus.
+        host_gene_dir (str): Path to the directory containing host gene fasta files.  Each file should contain annotated genes for a unique host species/OTUs.
+        genome_ext (str): Extension used for genome fasta files. Default is "fasta".
+        gene_ext (str): Extension used for gene fasta files. Default is "ffn".
         pairs_of_interest (str): Pathway to file containing virus-host pairs of interest. Optional.
     """
 
     def __init__(
-        self, virus_directory: str, host_directory: str, ext: str = "fasta"
+        self,
+        virus_genome_dir: str,
+        host_genome_dir: str,
+        virus_gene_dir: str,
+        host_gene_dir: str,
+        genome_ext: str = "fasta",
+        gene_ext: str = "ffn",
     ) -> None:
         """Initialize class variables."""
-        self.virus_directory = virus_directory
-        self.host_directory = host_directory
-        self.ext = ext
+        self.virus_genome_dir = virus_genome_dir
+        self.host_genome_dir = host_genome_dir
+        self.genome_ext = genome_ext
+        self.virus_gene_dir = virus_gene_dir
+        self.host_gene_dir = host_gene_dir
+        self.gene_ext = gene_ext
         self.pairs_of_interest = None
 
         self.features_df = None
@@ -71,8 +83,13 @@ class ComputeFeatures:
 
         The setup process includes determining all possible virus-host pairs, get fasta headers, read and process blastn_output, and compute GC content and k-mer profiles.
         """
-        print("SETUP - ...indexing fasta filenames for viruses and hosts...")
-        self.list_files()
+        print("SETUP - ...indexing genome fasta filenames for viruses and hosts...")
+        self.list_genome_files()
+
+        print(
+            "SETUP - ...indexing annotated gene fasta filenames for viruses and hosts..."
+        )
+        self.list_gene_files()
 
         print("SETUP - ...initialize all pairs...")
         if self.pairs_of_interest:
@@ -91,34 +108,52 @@ class ComputeFeatures:
         print("SETUP - ...calculate GC content and k-mer profiles...")
         self.generate_kmer_profiles()
 
-    def list_files(self):
-        """List all fasta file in the virus and host directories."""
-        self.virus_filenames = [
-            f for f in os.listdir(self.virus_directory) if f.endswith("." + self.ext)
+    def list_genome_files(self):
+        """List all genome fasta file in the virus and host genome directories."""
+        self.virus_genome_filenames = [
+            f
+            for f in os.listdir(self.virus_genome_dir)
+            if f.endswith("." + self.genome_ext)
         ]
-        self.host_filenames = [
-            f for f in os.listdir(self.host_directory) if f.endswith("." + self.ext)
+        self.host_genome_filenames = [
+            f
+            for f in os.listdir(self.host_genome_dir)
+            if f.endswith("." + self.genome_ext)
         ]
-        self.all_files = self.virus_filenames + self.host_filenames
+        self.all_genome_files = self.virus_genome_filenames + self.host_genome_filenames
+
+    def list_gene_files(self):
+        """List all gene fasta file in the virus and host annotated gene file directories."""
+        self.virus_gene_filenames = [
+            f
+            for f in os.listdir(self.virus_gene_dir)
+            if f.endswith("." + self.gene_ext)
+        ]
+        self.host_gene_filenames = [
+            f for f in os.listdir(self.host_gene_dir) if f.endswith("." + self.gene_ext)
+        ]
+        self.all_gene_files = self.virus_gene_filenames + self.host_gene_filenames
 
     def determine_pairs(self):
         """Determine all possible virus-host pairs.
 
         This assume that each virus should be tested against each host.
         """
-        total_interactions = len(self.virus_filenames) * len(self.host_filenames)
-        print(f"-------> There are {len(self.virus_filenames)} viral sequences")
-        print(f"-------> There are {len(self.host_filenames)} host sequences")
+        total_interactions = len(self.virus_genome_filenames) * len(
+            self.host_genome_filenames
+        )
+        print(f"-------> There are {len(self.virus_genome_filenames)} viral sequences")
+        print(f"-------> There are {len(self.host_genome_filenames)} host sequences")
         print(f"-------> Total number of interactions: {total_interactions}")
 
         # determine all virus-host pair possible (every host is going to be considered for every virus of interest)
         virus_inter: List[str] = list(
             itertools.chain.from_iterable(
-                itertools.repeat(x, len(self.host_filenames))
-                for x in self.virus_filenames
+                itertools.repeat(x, len(self.host_genome_filenames))
+                for x in self.virus_genome_filenames
             )
         )
-        host_inter = self.host_filenames * len(self.virus_filenames)
+        host_inter = self.host_genome_filenames * len(self.virus_genome_filenames)
 
         # create list of Pairs
         self.pairs = []
@@ -139,7 +174,10 @@ class ComputeFeatures:
                 virus = split[0]
                 host = split[1]
 
-                if virus in self.virus_filenames and host in self.host_filenames:
+                if (
+                    virus in self.virus_genome_filenames
+                    and host in self.host_genome_filenames
+                ):
                     self.pairs.append(Pairs(virus, host))
                 else:
                     print(
@@ -151,20 +189,20 @@ class ComputeFeatures:
                     )
 
     def get_headers(self):
-        """Retrieve headers from fasta files.
+        """Retrieve headers from genome fasta files.
 
         This is used to map where each blast hit came from between viruses and hosts.
         """
         header_filename: dict[str, str] = {}
 
-        for virus in self.virus_filenames:
-            path = self.virus_directory + virus
+        for virus in self.virus_genome_filenames:
+            path = self.virus_genome_dir + virus
             headers = read_headers(path)
             for header in headers:
                 header_filename[header] = virus
 
-        for host in self.host_filenames:
-            path = self.host_directory + host
+        for host in self.host_genome_filenames:
+            path = self.host_genome_dir + host
             headers = read_headers(path)
             for header in headers:
                 header_filename[header] = host
@@ -212,7 +250,9 @@ class ComputeFeatures:
                 tmp = split[1].split("_")
                 host_partial = tmp[0] + "_" + tmp[1]
                 host = list(
-                    filter(lambda x: x.startswith(host_partial), self.host_filenames)
+                    filter(
+                        lambda x: x.startswith(host_partial), self.host_genome_filenames
+                    )
                 )
                 if virus not in self.spacers:
                     self.spacers[virus] = host
@@ -224,12 +264,12 @@ class ComputeFeatures:
 
         This will be done for each fasta files in the virus and host directories.
         """
-        self.GCcontent = dict.fromkeys(self.all_files)
-        self.k3profiles = dict.fromkeys(self.all_files)
-        self.k6profiles = dict.fromkeys(self.all_files)
+        self.GCcontent = dict.fromkeys(self.all_genome_files)
+        self.k3profiles = dict.fromkeys(self.all_genome_files)
+        self.k6profiles = dict.fromkeys(self.all_genome_files)
 
-        for virus in self.virus_filenames:
-            path = self.virus_directory + virus
+        for virus in self.virus_genome_filenames:
+            path = self.virus_genome_dir + virus
             seq = read_sequence(path)
 
             seq_profile = KmerProfile(seq, k=1)
@@ -244,8 +284,8 @@ class ComputeFeatures:
             seq_profile.generate_profile()
             self.k6profiles[virus] = seq_profile
 
-        for host in self.host_filenames:
-            path = self.host_directory + host
+        for host in self.host_genome_filenames:
+            path = self.host_genome_dir + host
             seq = read_sequence(path)
 
             seq_profile = KmerProfile(seq, k=1)
