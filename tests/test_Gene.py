@@ -120,3 +120,14 @@ def test_Gene_calculate_aa_counts():
         "T": 0,
         "P": 1,
     }
+
+
+def test_Gene_calculate_GCn():
+    """Test code to calculate GCn content for a given gene."""
+    test_gene = Gene("CTGAATCGAACT")
+    test_gene.calculate_GCn()
+    assert test_gene.GC1 == 0.5
+    assert test_gene.GC2 == 0.5
+    assert test_gene.GC3 == 0.25
+    
+
