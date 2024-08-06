@@ -23,10 +23,10 @@ matplotlib = "*"
 seaborn = "*"
 
 [tool.poetry.group.test.dependencies]
-coverage = { version = "==7.6.0", extras = ["toml"] }
+coverage = { version = "==7.6.1", extras = ["toml"] }
 pytest = "==8.3.2"
-pyright = "==1.1.373"
-ruff = "==0.5.5"
+pyright = "==1.1.374"
+ruff = "==0.5.6"
 pandas-stubs = "==2.2.2.240603"
 
 [build-system]
