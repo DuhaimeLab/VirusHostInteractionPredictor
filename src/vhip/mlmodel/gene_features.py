@@ -152,6 +152,33 @@ class Gene:
                 aa = CODON_TABLE[codon]
                 self.aa_dict[aa] += self.codon_dict[codon]
 
+    def calculate_GCn(self) -> None:
+        """Calculate GC content at position 1, 2, and 3 of a gene.
+
+        Populates the following class attributes:
+            self.GC1 (float): GC content of the gene at position 1.
+            self.GC2 (float): GC content of the gene at position 2.
+            self.GC3 (float): GC content of the gene at position 3.
+        """
+        gc1: int = 0
+        gc2: int = 0
+        gc3: int = 0
+
+        for i in range(0, len(self.seq), self.codon_length):
+            codon = self.seq[i : i + self.codon_length]
+            for j in range(self.codon_length):
+                if codon[j] == "G" or codon[j] == "C":
+                    if j == 0:
+                        gc1 += 1
+                    elif j == 1:
+                        gc2 += 1
+                    elif j == 2:
+                        gc3 += 1
+
+        self.GC1 = gc1 / self.n_codons
+        self.GC2 = gc2 / self.n_codons
+        self.GC3 = gc3 / self.n_codons
+
 
 # Define GeneSet class
 class GeneSet:
