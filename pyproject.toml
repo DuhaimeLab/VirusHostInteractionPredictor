@@ -3,7 +3,7 @@
 # Some configuration options here could be moved to [project] once Poetry adds full
 # support for PEP 621.
 name = "virushostinteractionpredictor"
-version = "0.0.2"
+version = "1.0.0"
 description = ""
 packages = [{ include = "vhip", from = "src" }]
 authors = ["Eric Bastien <gbastien@umich.edu>"]
@@ -23,11 +23,11 @@ matplotlib = "*"
 seaborn = "*"
 
 [tool.poetry.group.test.dependencies]
-coverage = { version = "==7.4.3", extras = ["toml"] }
-pytest = "==8.0.2"
-pyright = "==1.1.351"
-ruff = "==0.2.2"
-pandas-stubs = "==2.2.0.240218"
+coverage = { version = "==7.6.1", extras = ["toml"] }
+pytest = "==8.3.2"
+pyright = "==1.1.374"
+ruff = "==0.5.6"
+pandas-stubs = "==2.2.2.240603"
 
 [build-system]
 requires = ["poetry-core"]

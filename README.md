@@ -1,4 +1,4 @@
-# Virus Host Infection Predictor (VHIP)
+# Virus Host Interaction Predictor (VHIP)
 
 [![Test](https://github.com/DuhaimeLab/VirusHostInteractionPredictor/actions/workflows/test.yml/badge.svg?branch=main&event=push)](https://github.com/DuhaimeLab/VirusHostInteractionPredictor/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/DuhaimeLab/VirusHostInteractionPredictor/badge.svg?branch=main)](https://coveralls.io/github/DuhaimeLab/VirusHostInteractionPredictor?branch=main)
@@ -11,10 +11,20 @@ You can find more information about the philosophy and performance of VHIP here:
 
 ## Installation 
 
-This module will be made available as a conda environment. To be updated once it is up on conda. 
+This python package can be installed with PyPI
 
-Also will be available with `pip install virushostinteractionpredictor`. 
+```
+pip install virushostinteractionpredictor
+```
 
+It is also available through conda-forge.
+
+```
+conda config --add channels conda-forge
+conda install virushostinteractionpredictor
+```
+
+Once installed, you can import the vhip python module. See the `example` folder on how to run the tool.
 
 ## Inputs
 
