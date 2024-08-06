@@ -129,5 +129,5 @@ def test_Gene_calculate_GCn():
     assert test_gene.GC1 == 0.5
     assert test_gene.GC2 == 0.5
     assert test_gene.GC3 == 0.25
-    
+
 
