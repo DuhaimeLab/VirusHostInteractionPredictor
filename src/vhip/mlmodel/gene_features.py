@@ -160,9 +160,9 @@ class Gene:
             self.GC2 (float): GC content of the gene at position 2.
             self.GC3 (float): GC content of the gene at position 3.
         """
-        gc1:int = 0
-        gc2:int = 0
-        gc3:int = 0
+        gc1: int = 0
+        gc2: int = 0
+        gc3: int = 0
 
         for i in range(0, len(self.seq), self.codon_length):
             codon = self.seq[i : i + self.codon_length]
