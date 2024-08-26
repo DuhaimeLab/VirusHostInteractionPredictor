@@ -323,6 +323,14 @@ class ComputeFeatures:
             self.codon_frqs[virus] = virus_GeneSet.codon_frq
             self.codon_counts[virus] = virus_GeneSet.codon_dict
 
+        for host in self.host_gene_filenames:
+            path = self.host_gene_dir + host
+            host_GeneSet = GeneSet(path)
+            host_GeneSet.codon_frequency(threshold_imprecise = threshold_imprecise, threshold_skipped_genes = threshold_skipped_genes)
+
+            self.codon_frqs[host] = host_GeneSet.codon_frq
+            self.codon_counts[host] = host_GeneSet.codon_dict
+
 
     def run_parallel(self, num_procs: int = 6):
         """Run multiple process of the compute_feature method.
