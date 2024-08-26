@@ -304,7 +304,14 @@ class ComputeFeatures:
         """Generate profile of the frequency of each unique codon in every virus and host GeneSet.
 
         This will be done for each .ffn files in the virus and host genes files directories.
+
         """
+        self.codon_frqs = dict.fromkeys(self.all_gene_files)
+        self.codon_counts = dict.fromkeys(self.all_gene_files)
+
+        for virus in self.virus_gene_filenames:
+            path = self.virus_gene_dir + virus
+            virus_GeneSet = GeneSet(path)
 
 
     def run_parallel(self, num_procs: int = 6):
