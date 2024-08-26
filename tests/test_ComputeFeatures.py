@@ -4,6 +4,7 @@ import pandas as pd
 
 from vhip.mlmodel.compute_ml_features import ComputeFeatures, Pairs
 from vhip.mlmodel.genomes_features import KmerProfile
+from vhip.mlmodel.gene_features import GeneSet
 
 test_virus_genome_dir = "tests/datatests/sequences/virus_genomes/"
 test_host_genome_dir = "tests/datatests/sequences/host_genomes/"
