@@ -23,11 +23,11 @@ matplotlib = "*"
 seaborn = "*"
 
 [tool.poetry.group.test.dependencies]
-coverage = { version = "==7.5.4", extras = ["toml"] }
-pytest = "==8.2.2"
-pyright = "==1.1.368"
-ruff = "==0.4.10"
-pandas-stubs = "==2.2.2.240603"
+coverage = { version = "==7.6.1", extras = ["toml"] }
+pytest = "==8.3.2"
+pyright = "==1.1.374"
+ruff = "==0.5.6"
+pandas-stubs = "==2.2.2.240807"
 
 [build-system]
 requires = ["poetry-core"]
