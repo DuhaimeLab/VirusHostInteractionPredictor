@@ -320,6 +320,8 @@ class ComputeFeatures:
             virus_GeneSet = GeneSet(path)
             virus_GeneSet.codon_frequency(threshold_imprecise = threshold_imprecise, threshold_skipped_genes = threshold_skipped_genes)
 
+            self.codon_frqs[virus] = virus_GeneSet.codon_frq
+            self.codon_counts[virus] = virus_GeneSet.codon_dict
 
 
     def run_parallel(self, num_procs: int = 6):
