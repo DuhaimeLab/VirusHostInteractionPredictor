@@ -199,7 +199,12 @@ def test_ComputeFeatures_generate_codon_frq():
     test.generate_codon_frq()
     assert isinstance(test.codon_frqs, dict)
     assert isinstance(test.codon_counts, dict)
-
+    assert isinstance(
+        test.codon_frqs["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict
+    )
+    assert isinstance(
+        test.codon_counts["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict
+    )
 
 def test_ComputeFeatures_complete_pipeline():
     """Check the complete pipeline for ComputeFeatures is working as intended."""
