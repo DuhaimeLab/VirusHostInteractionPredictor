@@ -187,6 +187,15 @@ def test_ComputeFeatures_generate_kmer_profiles():
         test.k6profiles["GCA_003344205.1_ASM334420v1_genomic.fasta"], KmerProfile
     )
 
+def test_ComputeFeatures_generate_codon_frq():
+    """Test the codon frequency profiles are properly generated."""
+    test = ComputeFeatures(
+        test_virus_genome_dir,
+        test_host_genome_dir,
+        test_virus_gene_dir,
+        test_host_gene_dir,
+    )
+
 
 def test_ComputeFeatures_complete_pipeline():
     """Check the complete pipeline for ComputeFeatures is working as intended."""
