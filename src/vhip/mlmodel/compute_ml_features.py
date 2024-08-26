@@ -300,6 +300,13 @@ class ComputeFeatures:
             seq_profile.generate_profile()
             self.k6profiles[host] = seq_profile
 
+    def generate_codon_frq(self):
+        """Generate profile of the frequency of each unique codon in every virus and host GeneSet.
+
+        This will be done for each .ffn files in the virus and host genes files directories.
+        """
+
+
     def run_parallel(self, num_procs: int = 6):
         """Run multiple process of the compute_feature method.
 
