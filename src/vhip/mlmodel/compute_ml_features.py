@@ -10,6 +10,7 @@ from typing import List
 
 import pandas as pd  # pyright: ignore[reportMissingTypeStubs]
 
+from .gene_features import GeneSet
 from .genomes_features import HomologyMatch, KmerProfile, d2Distance
 from .read_sequence import read_headers, read_sequence
 
@@ -300,11 +301,16 @@ class ComputeFeatures:
             seq_profile.generate_profile()
             self.k6profiles[host] = seq_profile
 
-    def generate_codon_frq(self):
+    def generate_codon_frq(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ) -> None:
         """Generate profile of the frequency of each unique codon in every virus and host GeneSet.
 
         This will be done for each .ffn files in the virus and host genes files directories.
 
+        Args:
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
         """
         self.codon_frqs = dict.fromkeys(self.all_gene_files)
         self.codon_counts = dict.fromkeys(self.all_gene_files)
@@ -312,6 +318,8 @@ class ComputeFeatures:
         for virus in self.virus_gene_filenames:
             path = self.virus_gene_dir + virus
             virus_GeneSet = GeneSet(path)
+            virus_GeneSet.codon_frequency(threshold_imprecise = threshold_imprecise, threshold_skipped_genes = threshold_skipped_genes)
+
 
 
     def run_parallel(self, num_procs: int = 6):
