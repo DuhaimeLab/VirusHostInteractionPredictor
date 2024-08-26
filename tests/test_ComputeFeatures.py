@@ -8,8 +8,8 @@ from vhip.mlmodel.gene_features import GeneSet
 
 test_virus_genome_dir = "tests/datatests/sequences/virus_genomes/"
 test_host_genome_dir = "tests/datatests/sequences/host_genomes/"
-test_virus_gene_dir = "tests/datatests/sequences/virus_genes"
-test_host_gene_dir = "tests/datatests/sequences/host_genes"
+test_virus_gene_dir = "tests/datatests/sequences/virus_genes/"
+test_host_gene_dir = "tests/datatests/sequences/host_genes/"
 
 
 def test_ComputeFeatures_list_genome_files():
