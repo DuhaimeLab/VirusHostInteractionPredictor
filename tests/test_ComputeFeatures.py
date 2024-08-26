@@ -195,7 +195,8 @@ def test_ComputeFeatures_generate_codon_frq():
         test_virus_gene_dir,
         test_host_gene_dir,
     )
-
+    test.list_gene_files()
+    test.generate_codon_frq()
 
 def test_ComputeFeatures_complete_pipeline():
     """Check the complete pipeline for ComputeFeatures is working as intended."""
