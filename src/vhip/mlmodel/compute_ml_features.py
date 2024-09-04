@@ -306,7 +306,7 @@ class ComputeFeatures:
     ) -> None:
         """Generate profile of the frequency of each unique codon in every virus and host GeneSet.
 
-        This will be done for each .ffn files in the virus and host genes files directories.
+        This will be compiled from all genes in each .ffn files in the virus and host genes files directories.
 
         Args:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
