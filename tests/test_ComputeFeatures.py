@@ -225,7 +225,6 @@ def test_ComputeFeatures_complete_pipeline():
     assert test.features_df.shape[0] == 12
     assert test.features_df.shape[1] == 4
 
-
 if __name__ == "__main__":
     test = ComputeFeatures(
         test_virus_genome_dir,
