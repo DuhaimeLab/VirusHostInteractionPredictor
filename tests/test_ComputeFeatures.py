@@ -48,7 +48,7 @@ def test_ComputeFeatures_list_gene_files():
         "GCA_005146815.1_ASM514681v1_genomic.fna.ffn",
         "GCA_001974575.1_ASM197457v1_genomic.fna.ffn",
         "GCA_002875995.1_ASM287599v1_genomic.fna.ffn",
-        "test_short_genes_file.ffn"
+        "test_short_genes_file.ffn",
     ]
 
     all_gene_filenames.sort()
@@ -290,4 +290,3 @@ def test_ComputeFeatures_complete_pipeline():
     assert isinstance(test.features_df, pd.DataFrame)
     assert test.features_df.shape[0] == 12
     assert test.features_df.shape[1] == 4
-
