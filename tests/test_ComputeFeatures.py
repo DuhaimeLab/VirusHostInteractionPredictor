@@ -48,6 +48,7 @@ def test_ComputeFeatures_list_gene_files():
         "GCA_005146815.1_ASM514681v1_genomic.fna.ffn",
         "GCA_001974575.1_ASM197457v1_genomic.fna.ffn",
         "GCA_002875995.1_ASM287599v1_genomic.fna.ffn",
+        "test_short_genes_file.ffn"
     ]
 
     all_gene_filenames.sort()
@@ -59,9 +60,9 @@ def test_ComputeFeatures_list_gene_files():
     )
     test.list_gene_files()
     test.all_gene_files.sort()
-    assert len(test.all_gene_files) == 7
+    assert len(test.all_gene_files) == 8
     assert len(test.virus_gene_filenames) == 4
-    assert len(test.host_gene_filenames) == 3
+    assert len(test.host_gene_filenames) == 4
     assert test.all_gene_files == all_gene_filenames
 
 
