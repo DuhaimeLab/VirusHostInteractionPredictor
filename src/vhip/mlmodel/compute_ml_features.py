@@ -386,6 +386,16 @@ class ComputeFeatures:
         """
         self.RSCU = dict.fromkeys(self.all_gene_files)
 
+        for virus in self.virus_gene_filenames:
+            path = self.virus_gene_dir + virus
+            virus_GeneSet = GeneSet(path)
+            virus_GeneSet.RSCU(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+            self.RSCU[virus] = virus_GeneSet.RSCU_dict
+
     def run_parallel(self, num_procs: int = 6):
         """Run multiple process of the compute_feature method.
 
