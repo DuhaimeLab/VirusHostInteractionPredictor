@@ -271,6 +271,47 @@ def test_ComputeFeatures_generate_codon_frq():
         "TGG": 0.0,
     }
 
+def test_ComputeFeatures_generate_aa_frq():
+    """Test the amino acid frequency profiles are properly generated with expected values."""
+    test = ComputeFeatures(
+        test_virus_genome_dir,
+        test_host_genome_dir,
+        test_virus_gene_dir,
+        test_host_gene_dir,
+    )
+    test.list_gene_files()
+    test.generate_aa_frq()
+    assert isinstance(test.aa_frqs, dict)
+    assert isinstance(test.aa_counts, dict)
+    assert isinstance(test.aa_frqs["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict)
+    assert isinstance(
+        test.aa_counts["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict
+    )
+    assert test.aa_frqs["test_short_genes_file.ffn"] == {
+        "I": 0.0,
+        "M": 1 / 4,
+        "T": 0.0,
+        "N": 0.0,
+        "K": 0.0,
+        "S": 2 / 4,
+        "R": 0.0,
+        "L": 0.0,
+        "P": 0.0,
+        "H": 0.0,
+        "Q": 0.0,
+        "V": 0.0,
+        "A": 0.0,
+        "D": 0.0,
+        "E": 1 / 4,
+        "G": 0.0,
+        "F": 0.0,
+        "Y": 0.0,
+        "_": 0.0,
+        "C": 0.0,
+        "W": 0.0,
+    }
+
+
 
 def test_ComputeFeatures_complete_pipeline():
     """Check the complete pipeline for ComputeFeatures is working as intended."""
