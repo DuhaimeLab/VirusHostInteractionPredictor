@@ -396,6 +396,16 @@ class ComputeFeatures:
 
             self.RSCU[virus] = virus_GeneSet.RSCU_dict
 
+        for host in self.host_gene_filenames:
+            path = self.host_gene_dir + host
+            host_GeneSet = GeneSet(path)
+            host_GeneSet.RSCU(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+            self.RSCU[host] = host_GeneSet.RSCU_dict
+
     def run_parallel(self, num_procs: int = 6):
         """Run multiple process of the compute_feature method.
 
