@@ -351,6 +351,16 @@ class ComputeFeatures:
         self.aa_frqs = dict.fromkeys(self.all_gene_files)
         self.aa_counts = dict.fromkeys(self.all_gene_files)
 
+        for virus in self.virus_gene_filenames:
+            path = self.virus_gene_dir + virus
+            virus_GeneSet = GeneSet(path)
+            virus_GeneSet.amino_acid_frequency(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+            self.aa_frqs[virus] = virus_GeneSet.aa_frq
+            self.aa_counts[virus] = virus_GeneSet.aa_dict
 
     def run_parallel(self, num_procs: int = 6):
         """Run multiple process of the compute_feature method.
