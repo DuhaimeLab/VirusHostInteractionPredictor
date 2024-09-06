@@ -348,6 +348,9 @@ class ComputeFeatures:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
+        self.aa_frqs = dict.fromkeys(self.all_gene_files)
+        self.aa_counts = dict.fromkeys(self.all_gene_files)
+
 
     def run_parallel(self, num_procs: int = 6):
         """Run multiple process of the compute_feature method.
