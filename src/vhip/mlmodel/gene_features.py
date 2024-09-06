@@ -345,7 +345,7 @@ class GeneSet:
     def RSCU(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
     ) -> None:
-        """Calculate the relative synonymous codon usage (RSCU) of each codon in entire genome.
+        """Calculate the relative synonymous codon usage (RSCU) of each codon in entire GeneSet.
 
         Args:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
