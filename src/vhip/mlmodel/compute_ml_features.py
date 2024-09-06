@@ -373,6 +373,18 @@ class ComputeFeatures:
             self.aa_frqs[host] = host_GeneSet.aa_frq
             self.aa_counts[host] = host_GeneSet.aa_dict
 
+    def generate_RSCU(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+        ) -> None:
+        """Generate profile of the relative synonymous codon usage (RSCU) of each codon in every virus and host GeneSet.
+
+        This will be compiled from all genes in each .ffn file in the virus and host genes files directories.
+
+        Args:
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
+        """
+
     def run_parallel(self, num_procs: int = 6):
         """Run multiple process of the compute_feature method.
 
