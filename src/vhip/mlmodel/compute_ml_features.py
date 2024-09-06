@@ -339,7 +339,7 @@ class ComputeFeatures:
 
     def generate_aa_frq(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
-        ) -> None:
+    ) -> None:
         """Generate profile of the frequency of each unique amino acid in every virus and host GeneSet.
 
         This will be compiled from all genes in each .ffn file in the virus and host genes files directories.
@@ -375,7 +375,7 @@ class ComputeFeatures:
 
     def generate_RSCU(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
-        ) -> None:
+    ) -> None:
         """Generate profile of the relative synonymous codon usage (RSCU) of each codon in every virus and host GeneSet.
 
         This will be compiled from all genes in each .ffn file in the virus and host genes files directories.
