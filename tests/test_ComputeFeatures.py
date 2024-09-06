@@ -320,7 +320,7 @@ def test_ComputeFeatures_generate_RSCU():
         test_host_gene_dir,
     )
     test.list_gene_files()
-    test.generate_codon_frq()
+    test.generate_RSCU()
     assert isinstance(test.RSCU, dict)
     assert isinstance(test.RSCU["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict)
     assert test.RSCU["test_short_genes_file.ffn"] == {
