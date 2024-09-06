@@ -325,6 +325,7 @@ class GeneSet:
             self.aa_frq (str: float): Frequency of each unique amino acid across all genes in the GeneSet.
         If not populated previously by running amino_acid_counts() and codon_counts():
             self.aa_dict (str: int): Counts of each unique amino acid across all genes in the GeneSet.
+            self.codon_dict (str: int): Counts of each unique codon across all genes in the GeneSet.
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
         """
