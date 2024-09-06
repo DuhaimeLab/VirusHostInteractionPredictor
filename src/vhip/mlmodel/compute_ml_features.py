@@ -362,6 +362,17 @@ class ComputeFeatures:
             self.aa_frqs[virus] = virus_GeneSet.aa_frq
             self.aa_counts[virus] = virus_GeneSet.aa_dict
 
+        for host in self.host_gene_filenames:
+            path = self.host_gene_dir + host
+            host_GeneSet = GeneSet(path)
+            host_GeneSet.amino_acid_frequency(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+            self.aa_frqs[host] = host_GeneSet.aa_frq
+            self.aa_counts[host] = host_GeneSet.aa_dict
+
     def run_parallel(self, num_procs: int = 6):
         """Run multiple process of the compute_feature method.
 
