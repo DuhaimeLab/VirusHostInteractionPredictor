@@ -333,7 +333,10 @@ class ComputeFeatures:
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
         self.codon_frqs = dict.fromkeys(self.all_gene_files)
-        self.codon_counts = dict.fromkeys(self.all_gene_files)
+
+        if not hasattr(self, "codon_counts"):
+            # If aggregate codon counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
+            self.generate_codon_aa_counts(threshold_imprecise,threshold_skipped_genes)
 
         for virus in self.virus_gene_filenames:
             path = self.virus_gene_dir + virus
