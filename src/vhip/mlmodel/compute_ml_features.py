@@ -373,27 +373,22 @@ class ComputeFeatures:
             # If aggregate amino acid counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
             self.generate_codon_aa_counts(threshold_imprecise,threshold_skipped_genes)
 
-        for virus in self.virus_gene_filenames:
-            path = self.virus_gene_dir + virus
-            virus_GeneSet = GeneSet(path)
+        for virus, virus_GeneSet in self.virus_GeneSets.items():
             virus_GeneSet.amino_acid_frequency(
                 threshold_imprecise=threshold_imprecise,
                 threshold_skipped_genes=threshold_skipped_genes,
             )
 
             self.aa_frqs[virus] = virus_GeneSet.aa_frq
-            self.aa_counts[virus] = virus_GeneSet.aa_dict
 
-        for host in self.host_gene_filenames:
-            path = self.host_gene_dir + host
-            host_GeneSet = GeneSet(path)
+
+        for host, host_GeneSet in self.host_GeneSets.items():
             host_GeneSet.amino_acid_frequency(
                 threshold_imprecise=threshold_imprecise,
                 threshold_skipped_genes=threshold_skipped_genes,
             )
 
             self.aa_frqs[host] = host_GeneSet.aa_frq
-            self.aa_counts[host] = host_GeneSet.aa_dict
 
     def generate_RSCU(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
