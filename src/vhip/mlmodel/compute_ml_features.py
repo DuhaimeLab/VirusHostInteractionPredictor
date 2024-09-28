@@ -403,9 +403,11 @@ class ComputeFeatures:
         """
         self.RSCU = dict.fromkeys(self.all_gene_files)
 
-        for virus in self.virus_gene_filenames:
-            path = self.virus_gene_dir + virus
-            virus_GeneSet = GeneSet(path)
+        if not hasattr(self, "codon_counts"):
+            # If aggregate codon counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
+            self.generate_codon_aa_counts(threshold_imprecise,threshold_skipped_genes)
+
+        for virus, virus_GeneSet in self.virus_GeneSets.items():
             virus_GeneSet.RSCU(
                 threshold_imprecise=threshold_imprecise,
                 threshold_skipped_genes=threshold_skipped_genes,
@@ -413,15 +415,15 @@ class ComputeFeatures:
 
             self.RSCU[virus] = virus_GeneSet.RSCU_dict
 
-        for host in self.host_gene_filenames:
-            path = self.host_gene_dir + host
-            host_GeneSet = GeneSet(path)
+
+        for host, host_GeneSet in self.host_GeneSets.items():
             host_GeneSet.RSCU(
                 threshold_imprecise=threshold_imprecise,
                 threshold_skipped_genes=threshold_skipped_genes,
             )
 
             self.RSCU[host] = host_GeneSet.RSCU_dict
+
 
     def run_parallel(self, num_procs: int = 6):
         """Run multiple process of the compute_feature method.
