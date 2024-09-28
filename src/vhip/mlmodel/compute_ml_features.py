@@ -310,6 +310,17 @@ class ComputeFeatures:
         self.codon_counts = dict.fromkeys(self.all_gene_files)
         self.aa_counts = dict.fromkeys(self.all_gene_files)
 
+        for virus, virus_GeneSet in self.virus_GeneSets.items():
+            virus_GeneSet.amino_acid_counts(threshold_imprecise, threshold_skipped_genes)
+            self.codon_counts[virus] = virus_GeneSet.codon_dict
+            self.aa_counts[virus] = virus_GeneSet.aa_dict
+
+        for host, host_GeneSet in self.host_GeneSets.items():
+            host_GeneSet.amino_acid_counts(threshold_imprecise, threshold_skipped_genes)
+            self.codon_counts[host] = host_GeneSet.codon_dict
+            self.aa_counts[host] = host_GeneSet.aa_dict
+
+
     def generate_codon_frq(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
     ) -> None:
