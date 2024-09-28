@@ -301,6 +301,10 @@ class ComputeFeatures:
             seq_profile.generate_profile()
             self.k6profiles[host] = seq_profile
 
+    def generate_codon_aa_counts(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ) -> None:
+        """Set up GeneSet objects for each virus and host gene files, populate their codon_dict and aa_dict (counts) variables, and store those dictionaries in ComputeFeatures variables."""
     def generate_codon_frq(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
     ) -> None:
