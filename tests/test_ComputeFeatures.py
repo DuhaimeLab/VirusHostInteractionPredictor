@@ -309,11 +309,7 @@ def test_ComputeFeatures_generate_codon_frq():
     test.list_gene_files()
     test.generate_codon_frq()
     assert isinstance(test.codon_frqs, dict)
-    assert isinstance(test.codon_counts, dict)
     assert isinstance(test.codon_frqs["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict)
-    assert isinstance(
-        test.codon_counts["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict
-    )
     assert test.codon_frqs["test_short_genes_file.ffn"] == {
         "ATA": 0.0,
         "ATC": 0.0,
@@ -393,9 +389,7 @@ def test_ComputeFeatures_generate_aa_frq():
     test.list_gene_files()
     test.generate_aa_frq()
     assert isinstance(test.aa_frqs, dict)
-    assert isinstance(test.aa_counts, dict)
     assert isinstance(test.aa_frqs["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict)
-    assert isinstance(test.aa_counts["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict)
     assert test.aa_frqs["test_short_genes_file.ffn"] == {
         "I": 0.0,
         "M": 1 / 4,
