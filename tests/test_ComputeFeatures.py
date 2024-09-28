@@ -203,9 +203,7 @@ def test_ComputeFeatures_generate_codon_aa_counts():
     assert isinstance(
         test.codon_counts["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict
     )
-    assert isinstance(
-        test.aa_counts["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict
-    )
+    assert isinstance(test.aa_counts["GCA_003344205.1_ASM334420v1_genomic.ffn"], dict)
     assert test.codon_counts["test_short_genes_file.ffn"] == {
         "ATA": 0,
         "ATC": 0,
