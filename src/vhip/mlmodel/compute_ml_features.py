@@ -10,6 +10,7 @@ from typing import List
 
 import pandas as pd  # pyright: ignore[reportMissingTypeStubs]
 
+from .gene_features import GeneSet
 from .genomes_features import HomologyMatch, KmerProfile, d2Distance
 from .read_sequence import read_headers, read_sequence
 
@@ -299,6 +300,132 @@ class ComputeFeatures:
             seq_profile = KmerProfile(seq, k=6)
             seq_profile.generate_profile()
             self.k6profiles[host] = seq_profile
+
+    def generate_codon_aa_counts(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ) -> None:
+        """Set up GeneSet objects for each virus and host gene files, populate their codon_dict and aa_dict (counts) variables, and store those dictionaries in ComputeFeatures variables."""
+        self.virus_GeneSets = {
+            virus: GeneSet(self.virus_gene_dir + virus)
+            for virus in self.virus_gene_filenames
+        }
+        self.host_GeneSets = {
+            host: GeneSet(self.host_gene_dir + host)
+            for host in self.host_gene_filenames
+        }
+        self.codon_counts = dict.fromkeys(self.all_gene_files)
+        self.aa_counts = dict.fromkeys(self.all_gene_files)
+
+        for virus, virus_GeneSet in self.virus_GeneSets.items():
+            virus_GeneSet.amino_acid_counts(
+                threshold_imprecise, threshold_skipped_genes
+            )
+            self.codon_counts[virus] = virus_GeneSet.codon_dict
+            self.aa_counts[virus] = virus_GeneSet.aa_dict
+
+        for host, host_GeneSet in self.host_GeneSets.items():
+            host_GeneSet.amino_acid_counts(threshold_imprecise, threshold_skipped_genes)
+            self.codon_counts[host] = host_GeneSet.codon_dict
+            self.aa_counts[host] = host_GeneSet.aa_dict
+
+    def generate_codon_frq(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ) -> None:
+        """Generate profile of the frequency of each unique codon in every virus and host GeneSet.
+
+        This will be compiled from all genes in each .ffn file in the virus and host genes files directories.
+
+        Args:
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
+        """
+        self.codon_frqs = dict.fromkeys(self.all_gene_files)
+
+        if not hasattr(self, "codon_counts"):
+            # If aggregate codon counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
+            self.generate_codon_aa_counts(threshold_imprecise, threshold_skipped_genes)
+
+        for virus, virus_GeneSet in self.virus_GeneSets.items():
+            virus_GeneSet.codon_frequency(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+            self.codon_frqs[virus] = virus_GeneSet.codon_frq
+
+        for host, host_GeneSet in self.host_GeneSets.items():
+            host_GeneSet.codon_frequency(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+            self.codon_frqs[host] = host_GeneSet.codon_frq
+
+    def generate_aa_frq(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ) -> None:
+        """Generate profile of the frequency of each unique amino acid in every virus and host GeneSet.
+
+        This will be compiled from all genes in each .ffn file in the virus and host genes files directories.
+
+        Args:
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
+        """
+        self.aa_frqs = dict.fromkeys(self.all_gene_files)
+
+        if not hasattr(self, "aa_counts"):
+            # If aggregate amino acid counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
+            self.generate_codon_aa_counts(threshold_imprecise, threshold_skipped_genes)
+
+        for virus, virus_GeneSet in self.virus_GeneSets.items():
+            virus_GeneSet.amino_acid_frequency(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+            self.aa_frqs[virus] = virus_GeneSet.aa_frq
+
+        for host, host_GeneSet in self.host_GeneSets.items():
+            host_GeneSet.amino_acid_frequency(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+            self.aa_frqs[host] = host_GeneSet.aa_frq
+
+    def generate_RSCU(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ) -> None:
+        """Generate profile of the relative synonymous codon usage (RSCU) of each codon in every virus and host GeneSet.
+
+        This will be compiled from all genes in each .ffn file in the virus and host genes files directories.
+
+        Args:
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
+        """
+        self.RSCU = dict.fromkeys(self.all_gene_files)
+
+        if not hasattr(self, "codon_counts"):
+            # If aggregate codon counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
+            self.generate_codon_aa_counts(threshold_imprecise, threshold_skipped_genes)
+
+        for virus, virus_GeneSet in self.virus_GeneSets.items():
+            virus_GeneSet.RSCU(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+            self.RSCU[virus] = virus_GeneSet.RSCU_dict
+
+        for host, host_GeneSet in self.host_GeneSets.items():
+            host_GeneSet.RSCU(
+                threshold_imprecise=threshold_imprecise,
+                threshold_skipped_genes=threshold_skipped_genes,
+            )
+
+            self.RSCU[host] = host_GeneSet.RSCU_dict
 
     def run_parallel(self, num_procs: int = 6):
         """Run multiple process of the compute_feature method.
