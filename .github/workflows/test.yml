@@ -50,7 +50,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
     steps:
       - uses: actions/checkout@v4
 
@@ -78,7 +78,7 @@ jobs:
       # Upload coverage reports to Coveralls
       - name: Upload coverage reports to Coveralls
         uses: coverallsapp/github-action@v2
-        if: matrix.python-version == '3.12'
+        if: matrix.python-version == '3.13'
 
   # This job does nothing and is only used for branch protection
   # https://github.com/marketplace/actions/alls-green#why
