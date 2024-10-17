@@ -5,7 +5,7 @@ on:
   merge_group:
 
 env:
-  poetry_version: 1.7.1
+  poetry_version: 1.8.4
 
 jobs:
   lint:
