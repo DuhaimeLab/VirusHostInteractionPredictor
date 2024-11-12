@@ -85,7 +85,9 @@ class ComputeFeatures:
         self.blastn_path = blastn_path
         self.spacer_path = spacer_path
 
-    def do_setup(self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5):
+    def do_setup(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ):
         """Calls other methods to setup.
 
         The setup process includes determining all possible virus-host pairs, get fasta headers, read and process blastn_output, compute GC content and k-mer profiles, and generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
@@ -475,11 +477,21 @@ class ComputeFeatures:
         pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]  # pyright: ignore
 
         # Create CodonBiasComparison objects for the pair
-        pair.codons_comparison = CodonBiasComparison(self.codon_frqs[pair.virus], self.codon_frqs[pair.host]) # pyright: ignore
-        pair.aa_comparison = CodonBiasComparison(self.aa_frqs[pair.virus], self.aa_frqs[pair.host]) # pyright: ignore
-        pair.RSCU_comparison = CodonBiasComparison(self.RSCU[pair.virus], self.RSCU[pair.host]) # pyright: ignore
+        pair.codons_comparison = CodonBiasComparison(
+            self.codon_frqs[pair.virus], self.codon_frqs[pair.host]
+        )  # pyright: ignore
+        pair.aa_comparison = CodonBiasComparison(
+            self.aa_frqs[pair.virus], self.aa_frqs[pair.host]
+        )  # pyright: ignore
+        pair.RSCU_comparison = CodonBiasComparison(
+            self.RSCU[pair.virus], self.RSCU[pair.host]
+        )  # pyright: ignore
         # for each of the above CodonBiasComparison objects, compute all comparisons (R2, slope, cosine similarity)
-        for comparison in [pair.codons_comparison, pair.aa_comparison, pair.RSCU_comparison]:
+        for comparison in [
+            pair.codons_comparison,
+            pair.aa_comparison,
+            pair.RSCU_comparison,
+        ]:
             comparison.calculate_slope()
             comparison.calculate_R2()
             comparison.cosine_similarity()

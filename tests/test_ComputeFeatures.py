@@ -502,8 +502,10 @@ def test_ComputeFeatures_compute_feature():
         test_virus_gene_dir,
         test_host_gene_dir,
     )
-    test_CF.do_setup() # determining all possible virus-host pairs, gets fasta headers, read and process blastn_output, computes GC content and k-mer profiles, and for each organism: generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
-    test_CF.compute_feature(test_CF.pairs[0]) # computes comparisons (e.g. distances) between profiles generated in do_setup for a single virus and single host
+    test_CF.do_setup()  # determining all possible virus-host pairs, gets fasta headers, read and process blastn_output, computes GC content and k-mer profiles, and for each organism: generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
+    test_CF.compute_feature(
+        test_CF.pairs[0]
+    )  # computes comparisons (e.g. distances) between profiles generated in do_setup for a single virus and single host
 
     # Genome-level features
     assert isinstance(test_CF.pairs[0].GCdifference, float)
