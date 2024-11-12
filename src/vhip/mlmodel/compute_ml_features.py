@@ -115,6 +115,11 @@ class ComputeFeatures:
         print("SETUP - ...calculate GC content and k-mer profiles...")
         self.generate_kmer_profiles()
 
+        print("SETUP - ...calculate codon and amino acid profiles...")
+        self.generate_codon_frq(threshold_imprecise, threshold_skipped_genes)
+        self.generate_aa_frq(threshold_imprecise, threshold_skipped_genes)
+        self.generate_RSCU(threshold_imprecise, threshold_skipped_genes)
+
     def list_genome_files(self):
         """List all genome fasta file in the virus and host genome directories."""
         self.virus_genome_filenames = [
