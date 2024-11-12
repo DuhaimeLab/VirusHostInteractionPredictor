@@ -327,7 +327,7 @@ class ComputeFeatures:
             for virus in self.virus_gene_filenames
         }
         self.host_GeneSets = {
-            host: GeneSet(os.path.join(self.host_gene_dir,host))
+            host: GeneSet(os.path.join(self.host_gene_dir, host))
             for host in self.host_gene_filenames
         }
         self.codon_counts = dict.fromkeys(self.all_gene_files)
@@ -477,16 +477,23 @@ class ComputeFeatures:
         pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]  # pyright: ignore
 
         # Create CodonBiasComparison objects for the pair
-        virus = pair.virus.replace(self.genome_ext, self.gene_ext) # first get the correct key based on genes file name (virus)
-        host = pair.host.replace(self.genome_ext, self.gene_ext) # first get the correct key based on genes file name (host)
+        virus = pair.virus.replace(
+            self.genome_ext, self.gene_ext
+        )  # first get the correct key based on genes file name (virus)
+        host = pair.host.replace(
+            self.genome_ext, self.gene_ext
+        )  # first get the correct key based on genes file name (host)
         pair.codons_comparison = CodonBiasComparison(
-            self.codon_frqs[virus], self.codon_frqs[host] # pyright: ignore
+            self.codon_frqs[virus],
+            self.codon_frqs[host],  # pyright: ignore
         )  # pyright: ignore
         pair.aa_comparison = CodonBiasComparison(
-            self.aa_frqs[virus], self.aa_frqs[host] # pyright: ignore
+            self.aa_frqs[virus],
+            self.aa_frqs[host],  # pyright: ignore
         )  # pyright: ignore
         pair.RSCU_comparison = CodonBiasComparison(
-            self.RSCU[virus], self.RSCU[host] # pyright: ignore
+            self.RSCU[virus],
+            self.RSCU[host],  # pyright: ignore
         )  # pyright: ignore
         # for each of the above CodonBiasComparison objects, compute all comparisons (R2, slope, cosine similarity)
         for comparison in [
