@@ -474,6 +474,10 @@ class ComputeFeatures:
 
         pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]  # pyright: ignore
 
+        # Create CodonBiasComparison objects for the pair
+        pair.codons_comparison = CodonBiasComparison(self.codon_frqs[pair.virus], self.codon_frqs[pair.host]) # pyright: ignore
+        pair.aa_comparison = CodonBiasComparison(self.aa_frqs[pair.virus], self.aa_frqs[pair.host]) # pyright: ignore
+        pair.RSCU_comparison = CodonBiasComparison(self.RSCU[pair.virus], self.RSCU[pair.host]) # pyright: ignore
         return pair
 
     def convert_to_dataframe(self):
