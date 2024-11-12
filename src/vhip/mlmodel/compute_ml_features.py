@@ -478,6 +478,12 @@ class ComputeFeatures:
         pair.codons_comparison = CodonBiasComparison(self.codon_frqs[pair.virus], self.codon_frqs[pair.host]) # pyright: ignore
         pair.aa_comparison = CodonBiasComparison(self.aa_frqs[pair.virus], self.aa_frqs[pair.host]) # pyright: ignore
         pair.RSCU_comparison = CodonBiasComparison(self.RSCU[pair.virus], self.RSCU[pair.host]) # pyright: ignore
+        # for each of the above CodonBiasComparison objects, compute all comparisons (R2, slope, cosine similarity)
+        for comparison in [pair.codons_comparison, pair.aa_comparison, pair.RSCU_comparison]:
+            comparison.calculate_slope()
+            comparison.calculate_R2()
+            comparison.cosine_similarity()
+
         return pair
 
     def convert_to_dataframe(self):
