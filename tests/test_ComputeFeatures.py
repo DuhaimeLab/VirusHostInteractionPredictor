@@ -502,6 +502,10 @@ def test_ComputeFeatures_compute_feature():
         test_virus_gene_dir,
         test_host_gene_dir,
     )
+    test_CF.add_blastn_files(
+        "tests/datatests/blastn_phagevhost.tsv",
+        "tests/datatests/blastn_phagevspacer.tsv",
+    )
     test_CF.do_setup()  # determining all possible virus-host pairs, gets fasta headers, read and process blastn_output, computes GC content and k-mer profiles, and for each organism: generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
     test_CF.compute_feature(
         test_CF.pairs[0]
