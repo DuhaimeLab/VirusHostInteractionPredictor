@@ -85,10 +85,14 @@ class ComputeFeatures:
         self.blastn_path = blastn_path
         self.spacer_path = spacer_path
 
-    def do_setup(self):
+    def do_setup(self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5):
         """Calls other methods to setup.
 
-        The setup process includes determining all possible virus-host pairs, get fasta headers, read and process blastn_output, and compute GC content and k-mer profiles.
+        The setup process includes determining all possible virus-host pairs, get fasta headers, read and process blastn_output, compute GC content and k-mer profiles, and generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
+
+        Args:
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
         print("SETUP - ...indexing genome fasta filenames for viruses and hosts...")
         self.list_genome_files()
