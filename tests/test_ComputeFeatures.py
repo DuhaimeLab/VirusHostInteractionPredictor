@@ -494,6 +494,15 @@ def test_ComputeFeatures_generate_RSCU():
     }
 
 
+def test_ComputeFeatures_compute_feature():
+    """Test all pair properties are populated correctly from running compute_feature()."""
+    test_CF = ComputeFeatures(
+        test_virus_genome_dir,
+        test_host_genome_dir,
+        test_virus_gene_dir,
+        test_host_gene_dir,
+    )
+
 def test_ComputeFeatures_complete_pipeline():
     """Check the complete pipeline for ComputeFeatures is working as intended."""
     test = ComputeFeatures(
