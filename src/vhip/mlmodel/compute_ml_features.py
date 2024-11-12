@@ -323,11 +323,11 @@ class ComputeFeatures:
     ) -> None:
         """Set up GeneSet objects for each virus and host gene files, populate their codon_dict and aa_dict (counts) variables, and store those dictionaries in ComputeFeatures variables."""
         self.virus_GeneSets = {
-            virus: GeneSet(self.virus_gene_dir + virus)
+            virus: GeneSet(os.path.join(self.virus_gene_dir, virus))
             for virus in self.virus_gene_filenames
         }
         self.host_GeneSets = {
-            host: GeneSet(self.host_gene_dir + host)
+            host: GeneSet(os.path.join(self.host_gene_dir,host))
             for host in self.host_gene_filenames
         }
         self.codon_counts = dict.fromkeys(self.all_gene_files)
