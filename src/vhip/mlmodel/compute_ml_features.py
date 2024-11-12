@@ -10,7 +10,7 @@ from typing import List
 
 import pandas as pd  # pyright: ignore[reportMissingTypeStubs]
 
-from .gene_features import GeneSet
+from .gene_features import CodonBiasComparison, GeneSet
 from .genomes_features import HomologyMatch, KmerProfile, d2Distance
 from .read_sequence import read_headers, read_sequence
 
