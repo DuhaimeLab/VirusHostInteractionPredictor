@@ -3,6 +3,7 @@
 import pandas as pd
 
 from vhip.mlmodel.compute_ml_features import ComputeFeatures, Pairs
+from vhip.mlmodel.gene_features import CodonBiasComparison
 from vhip.mlmodel.genomes_features import KmerProfile
 
 test_virus_genome_dir = "tests/datatests/sequences/virus_genomes/"
