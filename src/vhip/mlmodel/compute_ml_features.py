@@ -28,10 +28,16 @@ class Pairs:
         self.virus = virus
         self.host = host
 
+        # Genome-level features
         self.GCdifference: float
         self.k3dist: float
         self.k6dist: float
         self.homology_hit: bool
+
+        # Gene-level features
+        self.codons_comparison: CodonBiasComparison
+        self.aa_comparison: CodonBiasComparison
+        self.RSCU_comparison: CodonBiasComparison
 
         self.interaction: int
 
