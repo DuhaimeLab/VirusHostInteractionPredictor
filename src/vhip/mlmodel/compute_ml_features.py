@@ -356,7 +356,9 @@ class ComputeFeatures:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
-        self.codon_frqs: dict[str,dict[str,float]] = {key: {} for key in self.all_gene_files}
+        self.codon_frqs: dict[str, dict[str, float]] = {
+            key: {} for key in self.all_gene_files
+        }
 
         if not hasattr(self, "codon_counts"):
             # If aggregate codon counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
@@ -389,7 +391,9 @@ class ComputeFeatures:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
-        self.aa_frqs: dict[str,dict[str,float]] = {key: {} for key in self.all_gene_files}
+        self.aa_frqs: dict[str, dict[str, float]] = {
+            key: {} for key in self.all_gene_files
+        }
 
         if not hasattr(self, "aa_counts"):
             # If aggregate amino acid counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
@@ -422,7 +426,9 @@ class ComputeFeatures:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
-        self.RSCU: dict[str,dict[str,float]] = {key: {} for key in self.all_gene_files}
+        self.RSCU: dict[str, dict[str, float]] = {
+            key: {} for key in self.all_gene_files
+        }
 
         if not hasattr(self, "codon_counts"):
             # If aggregate codon counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
