@@ -484,17 +484,17 @@ class ComputeFeatures:
             self.genome_ext, self.gene_ext
         )  # first get the correct key based on genes file name (host)
         pair.codons_comparison = CodonBiasComparison(
-            self.codon_frqs[virus],  # pyright: ignore
-            self.codon_frqs[host],  # pyright: ignore
-        )  # pyright: ignore
+            self.codon_frqs[virus],
+            self.codon_frqs[host],
+        )
         pair.aa_comparison = CodonBiasComparison(
-            self.aa_frqs[virus],  # pyright: ignore
-            self.aa_frqs[host],  # pyright: ignore
-        )  # pyright: ignore
+            self.aa_frqs[virus],
+            self.aa_frqs[host],
+        )
         pair.RSCU_comparison = CodonBiasComparison(
-            self.RSCU[virus],  # pyright: ignore
-            self.RSCU[host],  # pyright: ignore
-        )  # pyright: ignore
+            self.RSCU[virus],
+            self.RSCU[host],
+        )
         # for each of the above CodonBiasComparison objects, compute all comparisons (R2, slope, cosine similarity)
         for comparison in [
             pair.codons_comparison,
