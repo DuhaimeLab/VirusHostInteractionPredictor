@@ -575,7 +575,12 @@ def test_ComputeFeatures_compute_feature():
     assert math.isclose(test_CF.pairs[0].codons_comparison.R2, 0.7600436385499312, rel_tol=1e-6)
     assert math.isclose(test_CF.pairs[0].codons_comparison.cos_similarity, 0.9633005174278912, rel_tol=1e-6)
 
+    # Amino acid bias comparison
     assert isinstance(test_CF.pairs[0].aa_comparison, CodonBiasComparison)
+    assert math.isclose(test_CF.pairs[0].aa_comparison.slope, 0.9217570072905424, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].aa_comparison.R2, 0.892927619409021, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].aa_comparison.cos_similarity, 0.9888136471180646, rel_tol=1e-6)
+
     assert isinstance(test_CF.pairs[0].RSCU_comparison, CodonBiasComparison)
 
 
