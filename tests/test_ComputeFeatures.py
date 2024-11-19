@@ -550,13 +550,14 @@ def test_ComputeFeatures_compute_feature():
         test_host_genome_dir,
         test_virus_gene_dir,
         test_host_gene_dir,
+        pairs_of_interest= "GCA_003344205.1_ASM334420v1_genomic.fasta\tGCA_001974575.1_ASM197457v1_genomic.fna.fasta"
     )
     test_CF.add_blastn_files(
         "tests/datatests/blastn_phagevhost.tsv",
         "tests/datatests/blastn_phagevspacer.tsv",
     )
-    test_CF.do_setup()  # determining all possible virus-host pairs, gets fasta headers, read and process blastn_output, computes GC content and k-mer profiles, and for each organism: generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
-    test_CF.compute_feature(
+    test_CF.do_setup()  # determining virus-host pairs (in this case, initialize one custom pair), gets fasta headers, read and process blastn_output, compute GC content and k-mer profiles, and for each organism: generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
+    test_CF.compute_feature(test_CF.pairs[0]) # computes comparisons (e.g. distances) between profiles generated in do_setup for this single virus and single host pair
         test_CF.pairs[0]
     )  # computes comparisons (e.g. distances) between profiles generated in do_setup for a single virus and single host
 
