@@ -555,7 +555,7 @@ def test_ComputeFeatures_compute_feature():
         test_host_genome_dir,
         test_virus_gene_dir,
         test_host_gene_dir,
-        pairs_of_interest="GCA_003344205.1_ASM334420v1_genomic.fasta\tGCA_001974575.1_ASM197457v1_genomic.fna.fasta",
+        pairs_of_interest="tests/datatests/custom_pairs_1.csv",
     )
     test_CF.add_blastn_files(
         "tests/datatests/blastn_phagevhost.tsv",
