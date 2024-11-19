@@ -43,7 +43,7 @@ class Pairs:
 
 
 class ComputeFeatures:
-    """Class organizing all methods to compute all virus-host coevolution signals.
+    r"""Class organizing all methods to compute all virus-host coevolution signals.
 
     Args:
         virus_genome_dir (str): Path to the directory containing viruses genome fasta files. Each file should contain an unique virus.
@@ -52,7 +52,7 @@ class ComputeFeatures:
         host_gene_dir (str): Path to the directory containing host gene fasta files.  Each file should contain annotated genes for a unique host species/OTUs.
         genome_ext (str): Extension used for genome fasta files. Default is "fasta".
         gene_ext (str): Extension used for gene fasta files. Default is "ffn".
-        pairs_of_interest (str): Pathway to file containing virus-host pairs of interest. Optional.
+        pairs_of_interest (str): Optional. Instead of computing all possible pairs, compute custom pairs. The input string needs to be virus file first then a host file. Must be separated by tabs (\t). If interested in multiple pairs, separate by newline (\n).
     """
 
     def __init__(
@@ -183,7 +183,7 @@ class ComputeFeatures:
             self.pairs.append(Pairs(virus, host))
 
     def determine_custom_pairs(self, custom_pairs: str):
-        """The input pair file needs to be virus first then host. Must be separated by tabs."""
+        r"""Instead of computing all possible pairs, compute custom pairs. The input string needs to be virus file first then a host file. Must be separated by tabs (\t). If interested in multiple pairs, separate by newline (\n)."""
         self.pairs: List[Pairs] = []
         print("reading pairs file")
 
