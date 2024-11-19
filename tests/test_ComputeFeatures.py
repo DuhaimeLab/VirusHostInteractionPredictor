@@ -512,6 +512,21 @@ def test_ComputeFeatures_determine_custom_pairs():
     assert test_one_pair.pairs[0].virus == "GCA_003344205.1_ASM334420v1_genomic.fasta"
     assert test_one_pair.pairs[0].host == "GCA_001974575.1_ASM197457v1_genomic.fna.fasta"
 
+    # test 2 - multiple custom pairs
+    test_two_pairs = ComputeFeatures(
+        test_virus_genome_dir,
+        test_host_genome_dir,
+        test_virus_gene_dir,
+        test_host_gene_dir,
+        pairs_of_interest= "GCA_003344205.1_ASM334420v1_genomic.fasta\tGCA_001974575.1_ASM197457v1_genomic.fna.fasta\nGCA_003344205.1_ASM334420v1_genomic\tGCA_002875995.1_ASM287599v1_genomic.fna.fasta"
+    )
+    test_two_pairs.list_genome_files()
+    if test_two_pairs.pairs_of_interest:
+        test_two_pairs.determine_custom_pairs(test_two_pairs.pairs_of_interest)
+    assert len(test_two_pairs.pairs) == 2
+    assert all(isinstance(pair, Pairs) for pair in test_two_pairs.pairs)
+    assert test_two_pairs.pairs[1].virus == "GCA_003344205.1_ASM334420v1_genomic.fasta"
+    assert test_two_pairs.pairs[1].host == "GCA_002875995.1_ASM287599v1_genomic.fna.fasta"
 
 def test_ComputeFeatures_compute_feature():
     """Test all pair properties are populated correctly from running compute_feature()."""
