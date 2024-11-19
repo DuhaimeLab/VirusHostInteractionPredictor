@@ -560,14 +560,13 @@ def test_ComputeFeatures_compute_feature():
     )
     test_CF.do_setup()  # determining virus-host pairs (in this case, initialize one custom pair), gets fasta headers, read and process blastn_output, compute GC content and k-mer profiles, and for each organism: generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
     test_CF.compute_feature(test_CF.pairs[0]) # computes comparisons (e.g. distances) between profiles generated in do_setup for this single virus and single host pair
-        test_CF.pairs[0]
-    )  # computes comparisons (e.g. distances) between profiles generated in do_setup for a single virus and single host
 
     # Genome-level features
-    assert isinstance(test_CF.pairs[0].GCdifference, float)
-    assert isinstance(test_CF.pairs[0].k3dist, float)
-    assert isinstance(test_CF.pairs[0].k6dist, float)
-    assert isinstance(test_CF.pairs[0].homology_hit, bool)
+    assert math.isclose(test_CF.pairs[0].GCdifference, -1.7559344991201087, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].GCdifference, -1.7559344991201087, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].k3dist, 0.07392896302485052, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].k6dist, 0.18284169630469121, rel_tol=1e-6)
+    assert test_CF.pairs[0].homology_hit is False
 
     # Gene-level features
     assert isinstance(test_CF.pairs[0].codons_comparison, CodonBiasComparison)
