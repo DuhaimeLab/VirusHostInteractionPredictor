@@ -504,7 +504,7 @@ def test_ComputeFeatures_determine_custom_pairs():
         test_host_genome_dir,
         test_virus_gene_dir,
         test_host_gene_dir,
-        pairs_of_interest="GCA_003344205.1_ASM334420v1_genomic.fasta\tGCA_001974575.1_ASM197457v1_genomic.fna.fasta",
+        pairs_of_interest="tests/datatests/custom_pairs_1.csv",
     )
     test_one_pair.list_genome_files()
     if test_one_pair.pairs_of_interest:
@@ -522,7 +522,7 @@ def test_ComputeFeatures_determine_custom_pairs():
         test_host_genome_dir,
         test_virus_gene_dir,
         test_host_gene_dir,
-        pairs_of_interest="GCA_003344205.1_ASM334420v1_genomic.fasta\tGCA_001974575.1_ASM197457v1_genomic.fna.fasta\nGCA_003344205.1_ASM334420v1_genomic\tGCA_002875995.1_ASM287599v1_genomic.fna.fasta",
+        pairs_of_interest="tests/datatests/custom_pairs_2.csv",
     )
     test_two_pairs.list_genome_files()
     if test_two_pairs.pairs_of_interest:
@@ -540,7 +540,7 @@ def test_ComputeFeatures_determine_custom_pairs():
         test_host_genome_dir,
         test_virus_gene_dir,
         test_host_gene_dir,
-        pairs_of_interest="GCA_003344205.1_ASM334420v1_genomic.fasta\tnot_a_host.fasta",
+        pairs_of_interest="tests/datatests/custom_pairs_3.csv",
     )
     test_bad_pair.list_genome_files()
     if test_bad_pair.pairs_of_interest:
