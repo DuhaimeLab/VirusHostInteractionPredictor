@@ -1,5 +1,7 @@
 """Test suite for the ComputeFeatures module."""
 
+import math
+
 import pandas as pd
 
 from vhip.mlmodel.compute_ml_features import ComputeFeatures, Pairs
