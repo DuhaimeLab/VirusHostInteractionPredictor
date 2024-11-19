@@ -581,7 +581,11 @@ def test_ComputeFeatures_compute_feature():
     assert math.isclose(test_CF.pairs[0].aa_comparison.R2, 0.892927619409021, rel_tol=1e-6)
     assert math.isclose(test_CF.pairs[0].aa_comparison.cos_similarity, 0.9888136471180646, rel_tol=1e-6)
 
+    # RSCU comparison
     assert isinstance(test_CF.pairs[0].RSCU_comparison, CodonBiasComparison)
+    assert math.isclose(test_CF.pairs[0].RSCU_comparison.slope, 0.6007715111770386, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].RSCU_comparison.R2, 0.41062586470716667, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].RSCU_comparison.cos_similarity, 0.9482532527887059, rel_tol=1e-6)
 
 
 def test_ComputeFeatures_complete_pipeline():
