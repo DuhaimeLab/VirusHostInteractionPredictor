@@ -43,7 +43,7 @@ class Pairs:
 
 
 class ComputeFeatures:
-    r"""Class organizing all methods to compute all virus-host coevolution signals.
+    """Class organizing all methods to compute all virus-host coevolution signals.
 
     Args:
         virus_genome_dir (str): Path to the directory containing viruses genome fasta files. Each file should contain an unique virus.
@@ -52,7 +52,7 @@ class ComputeFeatures:
         host_gene_dir (str): Path to the directory containing host gene fasta files.  Each file should contain annotated genes for a unique host species/OTUs.
         genome_ext (str): Extension used for genome fasta files. Default is "fasta".
         gene_ext (str): Extension used for gene fasta files. Default is "ffn".
-        pairs_of_interest (str): Optional. Instead of computing all possible pairs, compute custom pairs. The input string needs to be virus file first then a host file. Must be separated by tabs (\t). If interested in multiple pairs, separate by newline (\n).
+        pairs_of_interest (str): Optional. File path to custom pairs, instead of computing all possible pairs. The input file needs to have a virus file first then a host file. Must be separated by commas (,). If interested in multiple pairs, separate by newline.
     """
 
     def __init__(
@@ -182,14 +182,14 @@ class ComputeFeatures:
             self.pairs.append(Pairs(virus, host))
 
     def determine_custom_pairs(self, custom_pairs: str):
-        r"""Instead of computing all possible pairs, compute custom pairs. The input string needs to be virus file first then a host file. Must be separated by tabs (\t). If interested in multiple pairs, separate by newline (\n)."""
+        """Instead of computing all possible pairs, compute custom pairs. The input file needs to have a virus file first then a host file. Must be separated by commas (,). If interested in multiple pairs, separate by newline."""
         self.pairs: List[Pairs] = []
         print("reading pairs file")
 
         with open(custom_pairs, "r") as f:
             lines = [line.rstrip() for line in f if line.strip()]
             for pair in lines:
-                split = pair.split("\t")
+                split = pair.split(',')
                 virus = split[0]
                 host = split[1]
 
