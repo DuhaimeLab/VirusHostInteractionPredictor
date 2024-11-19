@@ -63,6 +63,8 @@ class ComputeFeatures:
         host_gene_dir: str,
         genome_ext: str = "fasta",
         gene_ext: str = "ffn",
+        pairs_of_interest: Optional[str] = None,
+
     ) -> None:
         """Initialize class variables."""
         self.virus_genome_dir = virus_genome_dir
@@ -71,7 +73,7 @@ class ComputeFeatures:
         self.virus_gene_dir = virus_gene_dir
         self.host_gene_dir = host_gene_dir
         self.gene_ext = gene_ext
-        self.pairs_of_interest = None
+        self.pairs_of_interest = pairs_of_interest
 
         self.features_df = None
 
