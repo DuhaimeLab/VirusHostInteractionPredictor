@@ -6,7 +6,7 @@ Those signals are necessary for virus-host predictions.
 import itertools
 import os
 from multiprocessing import Pool
-from typing import List
+from typing import List, Optional
 
 import pandas as pd  # pyright: ignore[reportMissingTypeStubs]
 
