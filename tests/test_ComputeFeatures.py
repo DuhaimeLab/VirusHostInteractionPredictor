@@ -569,7 +569,12 @@ def test_ComputeFeatures_compute_feature():
     assert test_CF.pairs[0].homology_hit is False
 
     # Gene-level features
+    # Codon bias comparison
     assert isinstance(test_CF.pairs[0].codons_comparison, CodonBiasComparison)
+    assert math.isclose(test_CF.pairs[0].codons_comparison.slope, 0.9714433430563576, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].codons_comparison.R2, 0.7600436385499312, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].codons_comparison.cos_similarity, 0.9633005174278912, rel_tol=1e-6)
+
     assert isinstance(test_CF.pairs[0].aa_comparison, CodonBiasComparison)
     assert isinstance(test_CF.pairs[0].RSCU_comparison, CodonBiasComparison)
 
