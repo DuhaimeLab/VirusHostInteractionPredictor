@@ -494,6 +494,25 @@ def test_ComputeFeatures_generate_RSCU():
     }
 
 
+def test_ComputeFeatures_determine_custom_pairs():
+    """Test that custom pairs are generated correctly."""
+    # test 1 - one custom pair
+    test_one_pair = ComputeFeatures(
+        test_virus_genome_dir,
+        test_host_genome_dir,
+        test_virus_gene_dir,
+        test_host_gene_dir,
+        pairs_of_interest= "GCA_003344205.1_ASM334420v1_genomic.fasta\tGCA_001974575.1_ASM197457v1_genomic.fna.fasta"
+    )
+    test_one_pair.list_genome_files()
+    if test_one_pair.pairs_of_interest:
+        test_one_pair.determine_custom_pairs(test_one_pair.pairs_of_interest)
+    assert len(test_one_pair.pairs) == 1
+    assert all(isinstance(pair, Pairs) for pair in test_one_pair.pairs)
+    assert test_one_pair.pairs[0].virus == "GCA_003344205.1_ASM334420v1_genomic.fasta"
+    assert test_one_pair.pairs[0].host == "GCA_001974575.1_ASM197457v1_genomic.fna.fasta"
+
+
 def test_ComputeFeatures_compute_feature():
     """Test all pair properties are populated correctly from running compute_feature()."""
     test_CF = ComputeFeatures(
