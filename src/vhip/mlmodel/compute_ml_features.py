@@ -187,7 +187,7 @@ class ComputeFeatures:
         print("reading pairs file")
 
         with open(custom_pairs, "r") as f:
-            lines = [line.rstrip() for line in f]
+            lines = [line.rstrip() for line in f if line.strip()]
             for pair in lines:
                 split = pair.split("\t")
                 virus = split[0]
