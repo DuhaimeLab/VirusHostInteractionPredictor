@@ -427,7 +427,7 @@ class CodonBiasComparison:
 
         if hasattr(self, "lin_regress"):
             self.slope: float = float(
-                self.lin_regress[0]
+                self.lin_regress.slope
             )  # the first value from the output of scipy.stats.linregress is slope
 
     def calculate_R2(self) -> None:
@@ -443,7 +443,7 @@ class CodonBiasComparison:
 
         if hasattr(self, "lin_regress"):
             self.R2: float = float(
-                self.lin_regress[2] ** 2
+                self.lin_regress.rvalue**2
             )  # the third value from the output of scipy.stats.linregress is the r-value
 
     def cosine_similarity(self):
