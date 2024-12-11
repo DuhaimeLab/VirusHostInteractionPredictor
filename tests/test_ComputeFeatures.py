@@ -1,8 +1,11 @@
 """Test suite for the ComputeFeatures module."""
 
+import math
+
 import pandas as pd
 
 from vhip.mlmodel.compute_ml_features import ComputeFeatures, Pairs
+from vhip.mlmodel.gene_features import CodonBiasComparison
 from vhip.mlmodel.genomes_features import KmerProfile
 
 test_virus_genome_dir = "tests/datatests/sequences/virus_genomes/"
@@ -491,6 +494,129 @@ def test_ComputeFeatures_generate_RSCU():
         "TGA": 0.0,
         "TGG": 0.0,
     }
+
+
+def test_ComputeFeatures_determine_custom_pairs():
+    """Test that custom pairs are generated correctly."""
+    # test 1 - one custom pair
+    test_one_pair = ComputeFeatures(
+        test_virus_genome_dir,
+        test_host_genome_dir,
+        test_virus_gene_dir,
+        test_host_gene_dir,
+        pairs_of_interest="tests/datatests/custom_pairs_1.csv",
+    )
+    test_one_pair.list_genome_files()
+    if test_one_pair.pairs_of_interest:
+        test_one_pair.determine_custom_pairs(test_one_pair.pairs_of_interest)
+    assert len(test_one_pair.pairs) == 1
+    assert all(isinstance(pair, Pairs) for pair in test_one_pair.pairs)
+    assert test_one_pair.pairs[0].virus == "GCA_003344205.1_ASM334420v1_genomic.fasta"
+    assert (
+        test_one_pair.pairs[0].host == "GCA_001974575.1_ASM197457v1_genomic.fna.fasta"
+    )
+
+    # test 2 - multiple custom pairs
+    test_two_pairs = ComputeFeatures(
+        test_virus_genome_dir,
+        test_host_genome_dir,
+        test_virus_gene_dir,
+        test_host_gene_dir,
+        pairs_of_interest="tests/datatests/custom_pairs_2.csv",
+    )
+    test_two_pairs.list_genome_files()
+    if test_two_pairs.pairs_of_interest:
+        test_two_pairs.determine_custom_pairs(test_two_pairs.pairs_of_interest)
+    assert len(test_two_pairs.pairs) == 2
+    assert all(isinstance(pair, Pairs) for pair in test_two_pairs.pairs)
+    assert test_two_pairs.pairs[1].virus == "GCA_003344205.1_ASM334420v1_genomic.fasta"
+    assert (
+        test_two_pairs.pairs[1].host == "GCA_002875995.1_ASM287599v1_genomic.fna.fasta"
+    )
+
+    # test 3 - unavailable pair (missing virus or host)
+    test_bad_pair = ComputeFeatures(
+        test_virus_genome_dir,
+        test_host_genome_dir,
+        test_virus_gene_dir,
+        test_host_gene_dir,
+        pairs_of_interest="tests/datatests/custom_pairs_3.csv",
+    )
+    test_bad_pair.list_genome_files()
+    if test_bad_pair.pairs_of_interest:
+        test_bad_pair.determine_custom_pairs(test_bad_pair.pairs_of_interest)
+    assert len(test_bad_pair.pairs) == 0
+
+
+def test_ComputeFeatures_compute_feature():
+    """Test all pair properties are populated correctly from running compute_feature()."""
+    test_CF = ComputeFeatures(
+        test_virus_genome_dir,
+        test_host_genome_dir,
+        test_virus_gene_dir,
+        test_host_gene_dir,
+        pairs_of_interest="tests/datatests/custom_pairs_1.csv",
+    )
+    test_CF.add_blastn_files(
+        "tests/datatests/blastn_phagevhost.tsv",
+        "tests/datatests/blastn_phagevspacer.tsv",
+    )
+    test_CF.do_setup()  # determining virus-host pairs (in this case, initialize one custom pair), gets fasta headers, read and process blastn_output, compute GC content and k-mer profiles, and for each organism: generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
+    test_CF.compute_feature(
+        test_CF.pairs[0]
+    )  # computes comparisons (e.g. distances) between profiles generated in do_setup for this single virus and single host pair
+
+    # Genome-level features
+    assert math.isclose(
+        test_CF.pairs[0].GCdifference, -1.7559344991201087, rel_tol=1e-6
+    )
+    assert math.isclose(
+        test_CF.pairs[0].GCdifference, -1.7559344991201087, rel_tol=1e-6
+    )
+    assert math.isclose(test_CF.pairs[0].k3dist, 0.07392896302485052, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].k6dist, 0.18284169630469121, rel_tol=1e-6)
+    assert test_CF.pairs[0].homology_hit is False
+
+    # Gene-level features
+    # Codon bias comparison
+    assert isinstance(test_CF.pairs[0].codons_comparison, CodonBiasComparison)
+    assert math.isclose(
+        test_CF.pairs[0].codons_comparison.slope, 0.9714433430563576, rel_tol=1e-6
+    )
+    assert math.isclose(
+        test_CF.pairs[0].codons_comparison.R2, 0.7600436385499312, rel_tol=1e-6
+    )
+    assert math.isclose(
+        test_CF.pairs[0].codons_comparison.cos_similarity,
+        0.9633005174278912,
+        rel_tol=1e-6,
+    )
+
+    # Amino acid bias comparison
+    assert isinstance(test_CF.pairs[0].aa_comparison, CodonBiasComparison)
+    assert math.isclose(
+        test_CF.pairs[0].aa_comparison.slope, 0.9217570072905424, rel_tol=1e-6
+    )
+    assert math.isclose(
+        test_CF.pairs[0].aa_comparison.R2, 0.892927619409021, rel_tol=1e-6
+    )
+    assert math.isclose(
+        test_CF.pairs[0].aa_comparison.cos_similarity, 0.9888136471180646, rel_tol=1e-6
+    )
+
+    # RSCU comparison
+    assert isinstance(test_CF.pairs[0].RSCU_comparison, CodonBiasComparison)
+    assert math.isclose(
+        test_CF.pairs[0].RSCU_comparison.slope, 0.6007715111770386, rel_tol=1e-6
+    )
+    assert math.isclose(
+        test_CF.pairs[0].RSCU_comparison.R2, 0.41062586470716667, rel_tol=1e-6
+    )
+    assert math.isclose(
+        test_CF.pairs[0].RSCU_comparison.cos_similarity,
+        0.9482532527887059,
+        rel_tol=1e-6,
+    )
 
 
 def test_ComputeFeatures_complete_pipeline():

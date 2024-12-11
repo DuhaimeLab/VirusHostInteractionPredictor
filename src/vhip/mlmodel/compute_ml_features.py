@@ -6,11 +6,11 @@ Those signals are necessary for virus-host predictions.
 import itertools
 import os
 from multiprocessing import Pool
-from typing import List
+from typing import List, Optional
 
 import pandas as pd  # pyright: ignore[reportMissingTypeStubs]
 
-from .gene_features import GeneSet
+from .gene_features import CodonBiasComparison, GeneSet
 from .genomes_features import HomologyMatch, KmerProfile, d2Distance
 from .read_sequence import read_headers, read_sequence
 
@@ -28,10 +28,16 @@ class Pairs:
         self.virus = virus
         self.host = host
 
+        # Genome-level features
         self.GCdifference: float
         self.k3dist: float
         self.k6dist: float
         self.homology_hit: bool
+
+        # Gene-level features
+        self.codons_comparison: CodonBiasComparison
+        self.aa_comparison: CodonBiasComparison
+        self.RSCU_comparison: CodonBiasComparison
 
         self.interaction: int
 
@@ -46,7 +52,7 @@ class ComputeFeatures:
         host_gene_dir (str): Path to the directory containing host gene fasta files.  Each file should contain annotated genes for a unique host species/OTUs.
         genome_ext (str): Extension used for genome fasta files. Default is "fasta".
         gene_ext (str): Extension used for gene fasta files. Default is "ffn".
-        pairs_of_interest (str): Pathway to file containing virus-host pairs of interest. Optional.
+        pairs_of_interest (str): Optional. File path to custom pairs, instead of computing all possible pairs. The input file needs to have a virus file first then a host file. Must be separated by commas (,). If interested in multiple pairs, separate by newline.
     """
 
     def __init__(
@@ -57,6 +63,7 @@ class ComputeFeatures:
         host_gene_dir: str,
         genome_ext: str = "fasta",
         gene_ext: str = "ffn",
+        pairs_of_interest: Optional[str] = None,
     ) -> None:
         """Initialize class variables."""
         self.virus_genome_dir = virus_genome_dir
@@ -65,7 +72,7 @@ class ComputeFeatures:
         self.virus_gene_dir = virus_gene_dir
         self.host_gene_dir = host_gene_dir
         self.gene_ext = gene_ext
-        self.pairs_of_interest = None
+        self.pairs_of_interest = pairs_of_interest
 
         self.features_df = None
 
@@ -79,10 +86,16 @@ class ComputeFeatures:
         self.blastn_path = blastn_path
         self.spacer_path = spacer_path
 
-    def do_setup(self):
+    def do_setup(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ):
         """Calls other methods to setup.
 
-        The setup process includes determining all possible virus-host pairs, get fasta headers, read and process blastn_output, and compute GC content and k-mer profiles.
+        The setup process includes determining all possible virus-host pairs, get fasta headers, read and process blastn_output, compute GC content and k-mer profiles, and generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
+
+        Args:
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
         print("SETUP - ...indexing genome fasta filenames for viruses and hosts...")
         self.list_genome_files()
@@ -108,6 +121,11 @@ class ComputeFeatures:
 
         print("SETUP - ...calculate GC content and k-mer profiles...")
         self.generate_kmer_profiles()
+
+        print("SETUP - ...calculate codon and amino acid profiles...")
+        self.generate_codon_frq(threshold_imprecise, threshold_skipped_genes)
+        self.generate_aa_frq(threshold_imprecise, threshold_skipped_genes)
+        self.generate_RSCU(threshold_imprecise, threshold_skipped_genes)
 
     def list_genome_files(self):
         """List all genome fasta file in the virus and host genome directories."""
@@ -164,14 +182,14 @@ class ComputeFeatures:
             self.pairs.append(Pairs(virus, host))
 
     def determine_custom_pairs(self, custom_pairs: str):
-        """The input pair file needs to be virus first then host. Must be separated by tabs."""
+        """Instead of computing all possible pairs, compute custom pairs. The input file needs to have a virus file first then a host file. Must be separated by commas (,). If interested in multiple pairs, separate by newline."""
         self.pairs: List[Pairs] = []
         print("reading pairs file")
 
         with open(custom_pairs, "r") as f:
-            lines = [line.rstrip() for line in f]
+            lines = [line.rstrip() for line in f if line.strip()]
             for pair in lines:
-                split = pair.split("\t")
+                split = pair.split(",")
                 virus = split[0]
                 host = split[1]
 
@@ -306,11 +324,11 @@ class ComputeFeatures:
     ) -> None:
         """Set up GeneSet objects for each virus and host gene files, populate their codon_dict and aa_dict (counts) variables, and store those dictionaries in ComputeFeatures variables."""
         self.virus_GeneSets = {
-            virus: GeneSet(self.virus_gene_dir + virus)
+            virus: GeneSet(os.path.join(self.virus_gene_dir, virus))
             for virus in self.virus_gene_filenames
         }
         self.host_GeneSets = {
-            host: GeneSet(self.host_gene_dir + host)
+            host: GeneSet(os.path.join(self.host_gene_dir, host))
             for host in self.host_gene_filenames
         }
         self.codon_counts = dict.fromkeys(self.all_gene_files)
@@ -339,7 +357,9 @@ class ComputeFeatures:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
-        self.codon_frqs = dict.fromkeys(self.all_gene_files)
+        self.codon_frqs: dict[str, dict[str, float]] = {
+            key: {} for key in self.all_gene_files
+        }
 
         if not hasattr(self, "codon_counts"):
             # If aggregate codon counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
@@ -372,7 +392,9 @@ class ComputeFeatures:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
-        self.aa_frqs = dict.fromkeys(self.all_gene_files)
+        self.aa_frqs: dict[str, dict[str, float]] = {
+            key: {} for key in self.all_gene_files
+        }
 
         if not hasattr(self, "aa_counts"):
             # If aggregate amino acid counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
@@ -405,7 +427,9 @@ class ComputeFeatures:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
-        self.RSCU = dict.fromkeys(self.all_gene_files)
+        self.RSCU: dict[str, dict[str, float]] = {
+            key: {} for key in self.all_gene_files
+        }
 
         if not hasattr(self, "codon_counts"):
             # If aggregate codon counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
@@ -458,6 +482,35 @@ class ComputeFeatures:
         pair.k6dist = k6distance.dist  # pyright: ignore
 
         pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]  # pyright: ignore
+
+        # Create CodonBiasComparison objects for the pair
+        virus = pair.virus.replace(
+            self.genome_ext, self.gene_ext
+        )  # first get the correct key based on genes file name (virus)
+        host = pair.host.replace(
+            self.genome_ext, self.gene_ext
+        )  # first get the correct key based on genes file name (host)
+        pair.codons_comparison = CodonBiasComparison(
+            host_dict=self.codon_frqs[host],
+            virus_dict=self.codon_frqs[virus],
+        )
+        pair.aa_comparison = CodonBiasComparison(
+            host_dict=self.aa_frqs[host],
+            virus_dict=self.aa_frqs[virus],
+        )
+        pair.RSCU_comparison = CodonBiasComparison(
+            host_dict=self.RSCU[host],
+            virus_dict=self.RSCU[virus],
+        )
+        # for each of the above CodonBiasComparison objects, compute all comparisons (R2, slope, cosine similarity)
+        for comparison in [
+            pair.codons_comparison,
+            pair.aa_comparison,
+            pair.RSCU_comparison,
+        ]:
+            comparison.calculate_slope()
+            comparison.calculate_R2()
+            comparison.cosine_similarity()
 
         return pair
 
