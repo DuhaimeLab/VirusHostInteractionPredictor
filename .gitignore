@@ -390,3 +390,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,macos,windows,linux,pycharm
+
+# Gene-level feature example information
+example/host_genes
+example/host_genomes
+example/test_gene_features_example.ipynb
