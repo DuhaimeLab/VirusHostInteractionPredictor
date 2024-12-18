@@ -87,6 +87,30 @@ AA_LIST = list(CODON_TABLE.values())
 stop_codons = [codon for codon, aa in CODON_TABLE.items() if aa == "_"]
 non_degenerate_codons = [codon for codon, aa in CODON_TABLE.items() if list(CODON_TABLE.values()).count(aa) == 1]
 
+# Amino acid abbreviations conversions
+AA_CONVERSIONS = {
+    'Ala': 'A',
+    'Arg': 'R',
+    'Asn': 'N',
+    'Asp': 'D',
+    'Cys': 'C',
+    'Gln': 'Q',
+    'Glu': 'E',
+    'Gly': 'G',
+    'His': 'H',
+    'Ile': 'I',
+    'Leu': 'L',
+    'Lys': 'K',
+    'Met': 'M',
+    'Phe': 'F',
+    'Pro': 'P',
+    'Ser': 'S',
+    'Thr': 'T',
+    'Trp': 'W',
+    'Tyr': 'Y',
+    'Val': 'V'
+}
+
 
 # Define Gene class
 class Gene:
