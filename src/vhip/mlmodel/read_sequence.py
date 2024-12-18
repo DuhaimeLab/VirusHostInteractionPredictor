@@ -63,3 +63,13 @@ def read_annotated_genes(path: str) -> list[list[str]]:
         else:
             gene_ids.append(record.id)  # pyright: ignore
     return result
+
+def reverse_complement(sequence: str) -> str:
+    """Get reverse complement of a sequence (for work with anticodons).
+
+    Args:
+        sequence (str): nucleotide sequence of any length, with upper or lower case letters
+
+    Returns:
+        reverse_complement_sequence: reverse complement of the input sequence, in upper case letters
+    """
