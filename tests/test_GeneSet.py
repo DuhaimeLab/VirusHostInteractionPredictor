@@ -401,3 +401,25 @@ def test_tRNA_counts():
     """Test code to calculate tRNA gene copy counts across a GeneSet."""
     test_GeneSet = GeneSet("tests/datatests/test_tRNA_genes.ffn")
 
+    # test 1 - test tRNA counts in a Gene Set with default option skipping non-degenerate codons
+    test_GeneSet.tRNA_counts()
+    assert test_GeneSet.tRNA_dict_aa == {
+        "I": 0,
+        "T": 0,
+        "N": 0,
+        "K": 0,
+        "S": 3,
+        "R": 2,
+        "L": 0,
+        "P": 0,
+        "H": 0,
+        "Q": 0,
+        "V": 0,
+        "A": 0,
+        "D": 0,
+        "E": 0,
+        "G": 0,
+        "F": 0,
+        "Y": 0,
+        "C": 0,
+    }
