@@ -578,3 +578,23 @@ def test_tRNA_frequency():
     test_GeneSet = GeneSet("tests/datatests/test_tRNA_genes.ffn")
     test_GeneSet.tRNA_frequency()
     assert test_GeneSet.total_tRNA == 5
+    assert test_GeneSet.tRNA_frq_aa == {
+        "I": 0,
+        "T": 0,
+        "N": 0,
+        "K": 0,
+        "S": 3 / 5,
+        "R": 2 / 5,
+        "L": 0,
+        "P": 0,
+        "H": 0,
+        "Q": 0,
+        "V": 0,
+        "A": 0,
+        "D": 0,
+        "E": 0,
+        "G": 0,
+        "F": 0,
+        "Y": 0,
+        "C": 0,
+    }
