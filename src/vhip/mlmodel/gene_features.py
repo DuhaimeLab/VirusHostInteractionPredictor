@@ -81,9 +81,11 @@ CODON_TABLE = {
     "TGG": "W",
 }
 
-# Separate CODON_TABLE dictionary into lists of codons and amino acids
+# Separate CODON_TABLE dictionary into lists of codons, amino acids, stop codons, and non-degenerate codons (encoded amino acid is specific to one codon alone)
 CODON_LIST = list(CODON_TABLE.keys())
 AA_LIST = list(CODON_TABLE.values())
+stop_codons = [codon for codon, aa in CODON_TABLE.items() if aa == "_"]
+non_degenerate_codons = [codon for codon, aa in CODON_TABLE.items() if list(CODON_TABLE.values()).count(aa) == 1]
 
 
 # Define Gene class
