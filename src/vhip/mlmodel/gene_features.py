@@ -12,6 +12,7 @@ from typing import List, Union
 import scipy  # pyright: ignore[reportMissingTypeStubs]
 
 from .read_sequence import read_annotated_genes
+import re
 
 # Set up Codon Table with each codon's encoded amino acid (1 letter abbreviation)
 CODON_TABLE = {
@@ -427,6 +428,7 @@ class GeneSet:
         self.tRNA_dict_aa: dict[str, int] = {aa: 0 for aa in AA_LIST if aa not in irrelevant_aas}
         self.tRNA_dict_tcc: dict[str, int] = {tcc: 0 for tcc in CODON_LIST if tcc not in irrelevant_codons}
 
+        gene_product_pattern = re.compile(r"tRNA-\w{3}\(\w{3}\)")
 class CodonBiasComparison:
     """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
 
