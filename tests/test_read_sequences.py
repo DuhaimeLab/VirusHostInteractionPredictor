@@ -1,6 +1,6 @@
 """Pytest to read sequence."""
 
-from vhip.mlmodel.read_sequence import read_annotated_genes, read_headers, read_sequence
+from vhip.mlmodel.read_sequence import read_annotated_genes, read_headers, read_sequence, reverse_complement
 
 seq = """AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
 CTCGCTGAAGTACTATTAGATGTAGACGTGCTTGCGCTTATCGATTCAGAAGTACTTGTACTTTCTGAAC
