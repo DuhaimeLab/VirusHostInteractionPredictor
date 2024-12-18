@@ -436,11 +436,11 @@ class GeneSet:
                 has_tRNAs = True
                 aa_3 = gene.gene_product.split('-')[1].split('(')[0]
                 aa_1 = AA_CONVERSIONS[aa_3]
-                self.tRNA_dict_aa[aa_1] += 1
-
-                anticodon = gene.gene_product.split('(')[1].split(')')[0]
-                tcc = reverse_complement(anticodon)
-                self.tRNA_dict_tcc[tcc] += 1
+                if aa_1 not in irrelevant_aas:
+                    self.tRNA_dict_aa[aa_1] += 1
+                    anticodon = gene.gene_product.split('(')[1].split(')')[0]
+                    tcc = reverse_complement(anticodon)
+                    self.tRNA_dict_tcc[tcc] += 1
 
         if not has_tRNAs:
             print("No tRNA genes found in the GeneSet.")
