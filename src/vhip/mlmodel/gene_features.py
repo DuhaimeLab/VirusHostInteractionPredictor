@@ -444,6 +444,19 @@ class GeneSet:
 
         if not has_tRNAs:
             print("No tRNA genes found in the GeneSet.")
+
+
+    def tRNA_frequency(self, skip_nondeg_codons: bool = True) -> None:
+        """Calculate the frequency of individual tRNA genes (by their associated amino acids and (anti)codons) out of all tRNA genes in the GeneSet.
+
+        Args:
+            skip_nondeg_codons (bool): Whether to include non-degenerate codons (codons whose encoded amino acid is specific to one codon alone) in the list of codons to skip (default is True). Note stop codons are automatically skipped because they have no associated amino acid/tRNA.
+
+        Populates the following class attributes:
+            self.total_tRNA (int): Total number of tRNA genes (not-unique) in the GeneSet.
+            self.tRNA_frq_aa (str: int): Frequencies of tRNA genes by amino acid out of all tRNA genes in the GeneSet.
+            self.tRNA_frq_tcc (str: int): Frequencies of tRNA genes by their 'tcc' (tRNA complementary codons) out of all tRNA genes in the GeneSet.
+        """
 class CodonBiasComparison:
     """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
 
