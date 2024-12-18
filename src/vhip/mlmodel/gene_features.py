@@ -457,6 +457,10 @@ class GeneSet:
             self.tRNA_frq_aa (str: int): Frequencies of tRNA genes by amino acid out of all tRNA genes in the GeneSet.
             self.tRNA_frq_tcc (str: int): Frequencies of tRNA genes by their 'tcc' (tRNA complementary codons) out of all tRNA genes in the GeneSet.
         """
+        if not hasattr(self, "tRNA_dict_aa") or not hasattr(self, "tRNA_dict_tcc"):
+            # If tRNA gene counts have not already been calculated, runs tRNA_counts()
+            self.tRNA_counts(skip_nondeg_codons=skip_nondeg_codons)
+
 class CodonBiasComparison:
     """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
 
