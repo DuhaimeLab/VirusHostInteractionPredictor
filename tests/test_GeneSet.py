@@ -577,3 +577,4 @@ def test_tRNA_frequency():
     """Test code to calculate tRNA gene copy frequency out of total tRNA genes in a GeneSet."""
     test_GeneSet = GeneSet("tests/datatests/test_tRNA_genes.ffn")
     test_GeneSet.tRNA_frequency()
+    assert test_GeneSet.total_tRNA == 5
