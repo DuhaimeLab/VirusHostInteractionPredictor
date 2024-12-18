@@ -461,6 +461,8 @@ class GeneSet:
             # If tRNA gene counts have not already been calculated, runs tRNA_counts()
             self.tRNA_counts(skip_nondeg_codons=skip_nondeg_codons)
 
+        if hasattr(self, "tRNA_dict_tcc") and hasattr(self, "tRNA_dict_aa"):
+            self.total_tRNA: int = sum(self.tRNA_dict_tcc.values())
 class CodonBiasComparison:
     """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
 
