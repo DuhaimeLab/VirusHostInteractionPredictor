@@ -1,6 +1,11 @@
 """Pytest to read sequence."""
 
-from vhip.mlmodel.read_sequence import read_annotated_genes, read_headers, read_sequence, reverse_complement
+from vhip.mlmodel.read_sequence import (
+    read_annotated_genes,
+    read_headers,
+    read_sequence,
+    reverse_complement,
+)
 
 seq = """AGTACTTGTTGATGCTGATGCACTAGTTGATTCAGATGTGCTCGTACTTGTTGATTCAGACGCACTTGTG
 CTCGCTGAAGTACTATTAGATGTAGACGTGCTTGCGCTTATCGATTCAGAAGTACTTGTACTTTCTGAAC
@@ -28,6 +33,7 @@ gene2_seq = "ATGGAATTCACAATTAGAAGAGATTATTTTATAAATCAATTAAATGACACTTTAAAAGCCATCTCCC
 gene3_seq = "TTGGTTGAAGAAGTAGTTGTAGATGGCGACATCACATTAGGACAATTTCTAAAGACGGAAGGTATTATCGAATCTGGCGGGCAAGCGAAATGGTTCTTAAATGAGTTTGAAGTATTGTTAAACAATACGCGTGAAACACGCCGTGGTAAAAAGTTAAGCCATCGTGACACAATTGAGATACCAGAAATACCTGAAGTGGGTTCATTTGTGATTTTGCATCAAGGTGAAGAATGA"
 
 short_seq = "AtCgaTcG"
+
 
 def test_read_sequence():
     """Test to check if reading fasta file is working as intended."""
@@ -83,6 +89,7 @@ def test_read_annotated_genes():
     filename = "tests/datatests/test_annotated_genes.ffn"
     res = read_annotated_genes(filename)  # type: ignore
     assert res == [sequences, ids, products]
+
 
 def test_reverse_complement():
     """Test to get reverse complement of a sequence."""

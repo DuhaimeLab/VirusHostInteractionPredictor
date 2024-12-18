@@ -397,6 +397,7 @@ def test_GeneSet_RSCU():
         "TGG": 0.0,
     }
 
+
 def test_tRNA_counts():
     """Test code to calculate tRNA gene copy counts across a GeneSet."""
     test_GeneSet = GeneSet("tests/datatests/test_tRNA_genes.ffn")
@@ -435,7 +436,7 @@ def test_tRNA_counts():
         "AAT": 0,
         "AAA": 0,
         "AAG": 0,
-        "AGC": 2, # Serine
+        "AGC": 2,  # Serine
         "AGT": 0,
         "AGA": 0,
         "AGG": 0,
@@ -454,7 +455,7 @@ def test_tRNA_counts():
         "CGA": 0,
         "CGC": 0,
         "CGG": 0,
-        "CGT": 2, # Arginine
+        "CGT": 2,  # Arginine
         "GTA": 0,
         "GTC": 0,
         "GTG": 0,
@@ -472,7 +473,7 @@ def test_tRNA_counts():
         "GGG": 0,
         "GGT": 0,
         "TCA": 0,
-        "TCC": 1, # Serine
+        "TCC": 1,  # Serine
         "TCG": 0,
         "TCT": 0,
         "TTC": 0,
@@ -488,8 +489,8 @@ def test_tRNA_counts():
     # test 2 - test tRNA counts ine a Gene Set and including non-degenerate codons
     test_GeneSet.tRNA_counts(skip_nondeg_codons=False)
     assert test_GeneSet.tRNA_dict_aa == {
-        "M": 1, # now including Methionine
-        "W": 0, # now including Tryptophan
+        "M": 1,  # now including Methionine
+        "W": 0,  # now including Tryptophan
         "I": 0,
         "T": 0,
         "N": 0,
@@ -510,8 +511,8 @@ def test_tRNA_counts():
         "C": 0,
     }
     assert test_GeneSet.tRNA_dict_tcc == {
-        "ATG": 1, # Now including Methionine
-        "TGG": 0, # Now including Tryptophan
+        "ATG": 1,  # Now including Methionine
+        "TGG": 0,  # Now including Tryptophan
         "ATA": 0,
         "ATC": 0,
         "ATT": 0,
@@ -573,6 +574,7 @@ def test_tRNA_counts():
         "TGT": 0,
     }
 
+
 def test_tRNA_frequency():
     """Test code to calculate tRNA gene copy frequency out of total tRNA genes in a GeneSet."""
     test_GeneSet = GeneSet("tests/datatests/test_tRNA_genes.ffn")
@@ -610,7 +612,7 @@ def test_tRNA_frequency():
         "AAT": 0,
         "AAA": 0,
         "AAG": 0,
-        "AGC": 2 / 5, # Serine
+        "AGC": 2 / 5,  # Serine
         "AGT": 0,
         "AGA": 0,
         "AGG": 0,
@@ -629,7 +631,7 @@ def test_tRNA_frequency():
         "CGA": 0,
         "CGC": 0,
         "CGG": 0,
-        "CGT": 2 / 5, # Arginine
+        "CGT": 2 / 5,  # Arginine
         "GTA": 0,
         "GTC": 0,
         "GTG": 0,
@@ -647,7 +649,7 @@ def test_tRNA_frequency():
         "GGG": 0,
         "GGT": 0,
         "TCA": 0,
-        "TCC": 1 / 5, # Serine
+        "TCC": 1 / 5,  # Serine
         "TCG": 0,
         "TCT": 0,
         "TTC": 0,
@@ -659,4 +661,3 @@ def test_tRNA_frequency():
         "TGC": 0,
         "TGT": 0,
     }
-
