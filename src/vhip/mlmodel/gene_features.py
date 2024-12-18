@@ -119,6 +119,8 @@ class Gene:
     Args:
         gene_seq (str): The nucleotide sequence of the gene.
         codon_length (int): Length of 1 codon (default is 3).
+        gene_id (str): The gene ID from annotations (default is an empty string).
+        gene_product (str): The product of the gene from annotations (default is an empty string).
     """
 
     def __init__(
