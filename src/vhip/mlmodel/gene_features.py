@@ -7,11 +7,12 @@ This module provides:
 """
 
 import os
+import re
 from typing import List, Union
 
 import scipy  # pyright: ignore[reportMissingTypeStubs]
 
-from .read_sequence import read_annotated_genes
+from .read_sequence import read_annotated_genes, reverse_complement
 
 # Set up Codon Table with each codon's encoded amino acid (1 letter abbreviation)
 CODON_TABLE = {
@@ -81,9 +82,39 @@ CODON_TABLE = {
     "TGG": "W",
 }
 
-# Separate CODON_TABLE dictionary into lists of codons and amino acids
+# Separate CODON_TABLE dictionary into lists of codons, amino acids, stop codons, and non-degenerate codons (encoded amino acid is specific to one codon alone)
 CODON_LIST = list(CODON_TABLE.keys())
 AA_LIST = list(CODON_TABLE.values())
+stop_codons = [codon for codon, aa in CODON_TABLE.items() if aa == "_"]
+non_degenerate_codons = [
+    codon
+    for codon, aa in CODON_TABLE.items()
+    if list(CODON_TABLE.values()).count(aa) == 1
+]
+
+# Amino acid abbreviations conversions
+AA_CONVERSIONS = {
+    "Ala": "A",
+    "Arg": "R",
+    "Asn": "N",
+    "Asp": "D",
+    "Cys": "C",
+    "Gln": "Q",
+    "Glu": "E",
+    "Gly": "G",
+    "His": "H",
+    "Ile": "I",
+    "Leu": "L",
+    "Lys": "K",
+    "Met": "M",
+    "Phe": "F",
+    "Pro": "P",
+    "Ser": "S",
+    "Thr": "T",
+    "Trp": "W",
+    "Tyr": "Y",
+    "Val": "V",
+}
 
 
 # Define Gene class
@@ -93,6 +124,8 @@ class Gene:
     Args:
         gene_seq (str): The nucleotide sequence of the gene.
         codon_length (int): Length of 1 codon (default is 3).
+        gene_id (str): The gene ID from annotations (default is an empty string).
+        gene_product (str): The product of the gene from annotations (default is an empty string).
     """
 
     def __init__(
@@ -383,6 +416,68 @@ class GeneSet:
                         synonymous_total_count / len(synonymous_codons)
                     )  # expected frequency of current codon given all assumption all synonymous codons are equally likely to encode the aa
                     self.RSCU_dict[codon] = self.codon_dict[codon] / expected_frequency
+
+    def tRNA_counts(self, skip_nondeg_codons: bool = True) -> None:
+        """Calculate the copy numbers of individual tRNA genes by their associated amino acids and (anti)codons.
+
+        Args:
+            skip_nondeg_codons (bool): Whether to include non-degenerate codons (codons whose encoded amino acid is specific to one codon alone) in the list of codons to skip (default is True). Note stop codons are automatically skipped because they have no associated amino acid/tRNA.
+
+        Populates the following class attributes:
+            self.tRNA_dict_aa (str: int): Counts of tRNA genes by amino acid across all genes in the GeneSet.
+            self.tRNA_dict_tcc (str: int): Counts of tRNA genes by their 'tcc' (tRNA complementary codons) across all genes in the GeneSet.
+        """
+        irrelevant_codons = stop_codons + (
+            non_degenerate_codons if skip_nondeg_codons else []
+        )
+        irrelevant_aas = [CODON_TABLE[codon] for codon in irrelevant_codons]
+        self.tRNA_dict_aa: dict[str, int] = {
+            aa: 0 for aa in AA_LIST if aa not in irrelevant_aas
+        }
+        self.tRNA_dict_tcc: dict[str, int] = {
+            tcc: 0 for tcc in CODON_LIST if tcc not in irrelevant_codons
+        }
+
+        gene_product_pattern = re.compile(r"tRNA-\w{3}\(\w{3}\)")
+
+        has_tRNAs = False
+        for gene in self.genes:
+            if gene_product_pattern.match(gene.gene_product):
+                has_tRNAs = True
+                aa_3 = gene.gene_product.split("-")[1].split("(")[0]
+                aa_1 = AA_CONVERSIONS[aa_3]
+                if aa_1 not in irrelevant_aas:
+                    self.tRNA_dict_aa[aa_1] += 1
+                    anticodon = gene.gene_product.split("(")[1].split(")")[0]
+                    tcc = reverse_complement(anticodon)
+                    self.tRNA_dict_tcc[tcc] += 1
+
+        if not has_tRNAs:
+            print("No tRNA genes found in the GeneSet.")
+
+    def tRNA_frequency(self, skip_nondeg_codons: bool = True) -> None:
+        """Calculate the frequency of individual tRNA genes (by their associated amino acids and (anti)codons) out of all tRNA genes in the GeneSet.
+
+        Args:
+            skip_nondeg_codons (bool): Whether to include non-degenerate codons (codons whose encoded amino acid is specific to one codon alone) in the list of codons to skip (default is True). Note stop codons are automatically skipped because they have no associated amino acid/tRNA.
+
+        Populates the following class attributes:
+            self.total_tRNA (int): Total number of tRNA genes (not-unique) in the GeneSet.
+            self.tRNA_frq_aa (str: int): Frequencies of tRNA genes by amino acid out of all tRNA genes in the GeneSet.
+            self.tRNA_frq_tcc (str: int): Frequencies of tRNA genes by their 'tcc' (tRNA complementary codons) out of all tRNA genes in the GeneSet.
+        """
+        if not hasattr(self, "tRNA_dict_aa") or not hasattr(self, "tRNA_dict_tcc"):
+            # If tRNA gene counts have not already been calculated, runs tRNA_counts()
+            self.tRNA_counts(skip_nondeg_codons=skip_nondeg_codons)
+
+        if hasattr(self, "tRNA_dict_tcc") and hasattr(self, "tRNA_dict_aa"):
+            self.total_tRNA: int = sum(self.tRNA_dict_tcc.values())
+            self.tRNA_frq_aa = {
+                k: (v / self.total_tRNA) for k, v in self.tRNA_dict_aa.items()
+            }
+            self.tRNA_frq_tcc = {
+                k: (v / self.total_tRNA) for k, v in self.tRNA_dict_tcc.items()
+            }
 
 
 class CodonBiasComparison:
