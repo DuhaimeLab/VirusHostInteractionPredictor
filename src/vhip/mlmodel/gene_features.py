@@ -424,6 +424,9 @@ class GeneSet:
         """
         irrelevant_codons = stop_codons + (non_degenerate_codons if skip_nondeg_codons else [])
         irrelevant_aas = [CODON_TABLE[codon] for codon in irrelevant_codons]
+        self.tRNA_dict_aa: dict[str, int] = {aa: 0 for aa in AA_LIST if aa not in irrelevant_aas}
+        self.tRNA_dict_tcc: dict[str, int] = {tcc: 0 for tcc in CODON_LIST if tcc not in irrelevant_codons}
+
 class CodonBiasComparison:
     """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
 
