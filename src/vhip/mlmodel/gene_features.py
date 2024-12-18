@@ -429,8 +429,11 @@ class GeneSet:
         self.tRNA_dict_tcc: dict[str, int] = {tcc: 0 for tcc in CODON_LIST if tcc not in irrelevant_codons}
 
         gene_product_pattern = re.compile(r"tRNA-\w{3}\(\w{3}\)")
+
+        has_tRNAs = False
         for gene in self.genes:
             if gene_product_pattern.match(gene.gene_product):
+                has_tRNAs = True
                 aa_3 = gene.gene_product.split('-')[1].split('(')[0]
                 aa_1 = AA_CONVERSIONS[aa_3]
                 self.tRNA_dict_aa[aa_1] += 1
@@ -438,6 +441,9 @@ class GeneSet:
                 anticodon = gene.gene_product.split('(')[1].split(')')[0]
                 tcc = reverse_complement(anticodon)
                 self.tRNA_dict_tcc[tcc] += 1
+
+        if not has_tRNAs:
+            print("No tRNA genes found in the GeneSet.")
 class CodonBiasComparison:
     """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
 
