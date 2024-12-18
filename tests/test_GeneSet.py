@@ -485,3 +485,27 @@ def test_tRNA_counts():
         "TGT": 0,
     }
 
+    # test 2 - test tRNA counts ine a Gene Set and including non-degenerate codons
+    test_GeneSet.tRNA_counts(skip_nondeg_codons=False)
+    assert test_GeneSet.tRNA_dict_aa == {
+        "M": 1, # now including Methionine
+        "W": 0, # now including Tryptophan
+        "I": 0,
+        "T": 0,
+        "N": 0,
+        "K": 0,
+        "S": 3,
+        "R": 2,
+        "L": 0,
+        "P": 0,
+        "H": 0,
+        "Q": 0,
+        "V": 0,
+        "A": 0,
+        "D": 0,
+        "E": 0,
+        "G": 0,
+        "F": 0,
+        "Y": 0,
+        "C": 0,
+    }
