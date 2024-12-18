@@ -9,6 +9,7 @@ from typing import List
 
 from Bio import SeqIO  # pyright: ignore[reportMissingTypeStubs]
 
+complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C', 'a': 't', 't': 'a', 'c': 'g', 'g': 'c'}
 
 def read_sequence(path: str) -> list[str]:
     """Return the sequence in a fasta file as a string.
