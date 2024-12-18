@@ -412,7 +412,16 @@ class GeneSet:
                     )  # expected frequency of current codon given all assumption all synonymous codons are equally likely to encode the aa
                     self.RSCU_dict[codon] = self.codon_dict[codon] / expected_frequency
 
+    def tRNA_counts(self, skip_nondeg_codons: bool = True) -> None:
+        """Calculate the copy numbers of individual tRNA genes by their associated amino acids and (anti)codons.
 
+        Args:
+            skip_nondeg_codons (bool): Whether to include non-degenerate codons (codons whose encoded amino acid is specific to one codon alone) in the list of codons to skip (default is True). Note stop codons are automatically skipped because they have no associated amino acid/tRNA.
+
+        Populates the following class attributes:
+            self.tRNA_dict_aa (str: int): Counts of tRNA genes by amino acid across all genes in the GeneSet.
+            self.tRNA_dict_tcc (str: int): Counts of tRNA genes by their 'tcc' (tRNA complementary codons) across all genes in the GeneSet.
+        """
 class CodonBiasComparison:
     """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
 
