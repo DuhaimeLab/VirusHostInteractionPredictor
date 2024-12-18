@@ -83,3 +83,9 @@ def test_read_annotated_genes():
     filename = "tests/datatests/test_annotated_genes.ffn"
     res = read_annotated_genes(filename)  # type: ignore
     assert res == [sequences, ids, products]
+
+def test_reverse_complement():
+    """Test to get reverse complement of a sequence."""
+    sequence = short_seq
+    revc = reverse_complement(sequence)
+    assert revc == "CGATCGAT"
