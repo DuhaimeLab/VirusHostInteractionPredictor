@@ -463,6 +463,10 @@ class GeneSet:
 
         if hasattr(self, "tRNA_dict_tcc") and hasattr(self, "tRNA_dict_aa"):
             self.total_tRNA: int = sum(self.tRNA_dict_tcc.values())
+            self.tRNA_frq_aa = {k: (v / self.total_tRNA) for k, v in self.tRNA_dict_aa.items()}
+            self.tRNA_frq_tcc = {k: (v / self.total_tRNA) for k, v in self.tRNA_dict_tcc.items()}
+
+
 class CodonBiasComparison:
     """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
 
