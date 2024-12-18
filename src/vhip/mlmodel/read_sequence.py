@@ -75,3 +75,4 @@ def reverse_complement(sequence: str) -> str:
     """
     reverse_sequence = sequence[::-1]
     reverse_complement_sequence = ''.join(complement.get(base, base) for base in reverse_sequence)
+    return reverse_complement_sequence.upper()
