@@ -73,3 +73,5 @@ def reverse_complement(sequence: str) -> str:
     Returns:
         reverse_complement_sequence: reverse complement of the input sequence, in upper case letters
     """
+    reverse_sequence = sequence[::-1]
+    reverse_complement_sequence = ''.join(complement.get(base, base) for base in reverse_sequence)
