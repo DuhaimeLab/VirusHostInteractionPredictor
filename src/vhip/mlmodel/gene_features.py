@@ -422,6 +422,8 @@ class GeneSet:
             self.tRNA_dict_aa (str: int): Counts of tRNA genes by amino acid across all genes in the GeneSet.
             self.tRNA_dict_tcc (str: int): Counts of tRNA genes by their 'tcc' (tRNA complementary codons) across all genes in the GeneSet.
         """
+        irrelevant_codons = stop_codons + (non_degenerate_codons if skip_nondeg_codons else [])
+        irrelevant_aas = [CODON_TABLE[codon] for codon in irrelevant_codons]
 class CodonBiasComparison:
     """Class for calculating codon bias similarity between a virus GeneSet and a host GeneSet.
 
