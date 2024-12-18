@@ -11,7 +11,7 @@ from typing import List, Union
 
 import scipy  # pyright: ignore[reportMissingTypeStubs]
 
-from .read_sequence import read_annotated_genes
+from .read_sequence import read_annotated_genes, reverse_complement
 import re
 
 # Set up Codon Table with each codon's encoded amino acid (1 letter abbreviation)
