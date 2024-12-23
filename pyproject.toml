@@ -25,8 +25,8 @@ seaborn = "*"
 [tool.poetry.group.test.dependencies]
 coverage = { version = "==7.6.9", extras = ["toml"] }
 pytest = "==8.3.4"
-pyright = "==1.1.390"
-ruff = "==0.8.3"
+pyright = "==1.1.391"
+ruff = "==0.8.4"
 pandas-stubs = "==2.2.2.240807"
 
 [build-system]
