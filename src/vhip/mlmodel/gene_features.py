@@ -550,3 +550,13 @@ class CodonBiasComparison:
         self.cos_similarity: float = float(
             1 - scipy.spatial.distance.cosine(self.host_list, self.virus_list)
         )
+
+class tRNAMetrics:
+    """Class for calculating metrics involving tRNA availability.
+
+    Args:
+        virus_dict (str: float): Dictionary of codon or amino acid frequencies in a virus GeneSet. For tRNA accordance metrics, keys must match provided tRNA dictionaries.
+        host_tRNA_dict (str: float): Optional. Dictionary of tRNA counts by either amino acid or 'tcc' (tRNA complementary codons) in a host GeneSet. For tRNA accordance metrics using virus_dict, keys must match. Note that at least one tRNA dictionary (either virus or host or both) for tRNA accordance metrics and FOP (frequency of optimal codons).
+        virus_tRNA_dict (str: float): Optional. Dictionary of tRNA counts by either amino acid or 'tcc' (tRNA complementary codons) in a virus GeneSet. For tRNA accordance metrics using virus_dict, keys must match. Note that at least one tRNA dictionary (either virus or host or both) for tRNA accordance metrics and FOP (frequency of optimal codons).
+        host_dict (str: float): Optional. Used in tRCI metric. Dictionary of codon or amino acid frequencies in a host GeneSet.
+    """
