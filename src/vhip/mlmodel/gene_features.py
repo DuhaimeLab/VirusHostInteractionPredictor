@@ -8,7 +8,7 @@ This module provides:
 
 import os
 import re
-from typing import List, Union
+from typing import List, Union, Optional
 
 import scipy  # pyright: ignore[reportMissingTypeStubs]
 
@@ -560,3 +560,15 @@ class tRNAMetrics:
         virus_tRNA_dict (str: float): Optional. Dictionary of tRNA counts by either amino acid or 'tcc' (tRNA complementary codons) in a virus GeneSet. For tRNA accordance metrics using virus_dict, keys must match. Note that at least one tRNA dictionary (either virus or host or both) for tRNA accordance metrics and FOP (frequency of optimal codons).
         host_dict (str: float): Optional. Used in tRCI metric. Dictionary of codon or amino acid frequencies in a host GeneSet.
     """
+    def __init__(
+        self,
+        virus_dict: dict[str, float],
+        host_tRNA_dict: Optional[dict[str, float]],
+        virus_tRNA_dict: Optional[dict[str, float]],
+        host_dict: Optional[dict[str, float]],
+    ) -> None:
+        """Initialize class variables."""
+        self.virus_dict = virus_dict
+        self.host_tRNA_dict = host_tRNA_dict if host_tRNA_dict is not None else None
+        self.virus_tRNA_dict = virus_tRNA_dict if virus_tRNA_dict is not None else None
+        self.host_dict = host_dict if host_dict is not None else None
