@@ -575,3 +575,13 @@ class tRNAMetrics:
         elif virus_dict.keys != virus_tRNA_dict.keys if virus_tRNA_dict is not None else False:
             raise Exception("Virus dictionary and virus tRNA dictionary do not have the same keys. Check that both are either codons or amino acids.")
 
+    def tRNA_aa_accordance(self) -> None:
+        """Calculate accordance index between virus amino acid or codon frequency and tRNA availability.
+
+        Populates the following class attributes:
+            self.host_tRNA_accordance (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral amino acid or codon frequencies.
+            self.total_tRNA_accordance (float): Attribute populated unless no virus_tRNA_dict provided for class object. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral amino acid or codon frequencies.
+        """
+        self.host_tRNA_accordance: float = scipy.stats.spearmanr(list(self.virus_dict.values()), list(self.host_tRNA_dict.values()))
+        if self.virus_tRNA_dict is not None:
+            self.total_tRNA_accordance: float = scipy.stats.spearmanr(list(self.virus_dict.values()), list(self.host_tRNA_dict.values()) + list(self.virus_tRNA_dict.values()))
