@@ -9,6 +9,7 @@ This module provides:
 import os
 import re
 from typing import List, Union, Optional
+from collections import Counter
 
 import scipy  # pyright: ignore[reportMissingTypeStubs]
 
