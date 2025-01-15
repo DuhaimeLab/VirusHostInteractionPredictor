@@ -600,3 +600,11 @@ class tRNAMetrics:
             host_tRNA_frq_tcc = self.host_GeneSet.tRNA_frq_tcc
             virus_tRNA_dict_tcc = self.virus_GeneSet.tRNA_frq_tcc if include_virus_tRNA else None
             host_tRNA_dict_tcc = self.host_GeneSet.tRNA_dict_tcc if include_virus_tRNA else None
+
+        # Calculate accordance index between virus codon frequency and host tRNA availability
+        self.virusTCAI_hosttRNA: float = scipy.stats.spearmanr(list(self.virus_GeneSet.codon_frq.values()), list(host_tRNA_frq_tcc.values()))
+        if include_virus_tRNA is True:
+            total_tRNA_dict_tcc: dict[str, int] = dict(Counter(host_tRNA_dict_tcc) + Counter(virus_tRNA_dict_tcc))
+            total_virocell_tRNA: int = sum(total_tRNA_dict_tcc.values())
+            total_tRNA_frq_tcc: dict[str, float] = {k: (v / total_virocell_tRNA) for k, v in total_tRNA_dict_tcc.items()}
+            self.virusTCAI_totaltRNA: float = scipy.stats.spearmanr(list(self.virus_GeneSet.codon_frq.values()), list(total_tRNA_frq_tcc.values()))
