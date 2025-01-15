@@ -570,7 +570,11 @@ class tRNAMetrics:
             self.virusTAAI_hosttRNA (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral amino acid frequencies.
             self.virusTAAI_totaltRNA (float): Attribute created and populated only if include_virus_tRNA argument is set to True. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral amino acid frequencies.
         """
-        self.virus_GeneSet.amino_acid_frequency()
+        # Generate amino acid frequencies for virus GeneSet if not already existent
+        if not hasattr(self.virus_GeneSet, "aa_frq"):
+            self.virus_GeneSet.amino_acid_frequency()
+
+        # Calculate accordance index between virus amino acid frequency and host tRNA availability
         self.virusTAAI_hosttRNA: float = scipy.stats.spearmanr(list(self.virus_GeneSet.aa_frq.values()), list(self.host_GeneSet.tRNA_frq_aa.values()))
         if include_virus_tRNA is True:
             total_tRNA_dict_aa: dict[str, int] = dict(Counter(self.host_GeneSet.tRNA_dict_aa) + Counter(self.virus_GeneSet.tRNA_dict_aa))
@@ -589,7 +593,9 @@ class tRNAMetrics:
             self.virusTCAI_hosttRNA (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral codon frequencies.
             self.virusTCAI_totaltRNA (float): Attribute created and populated only if include_virus_tRNA argument is set to True. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral codon frequencies.
         """
-        self.virus_GeneSet.codon_frequency() # generate codon frequency for virus GeneSet if not already existent
+        # Generate amino acid frequencies for virus GeneSet if not already existent
+        if not hasattr(self.virus_GeneSet, "codon_frq"):
+            self.virus_GeneSet.codon_frequency()
 
         # Skip non-degenerate codons as specified
         if skip_nondeg_codons is True:
@@ -608,3 +614,4 @@ class tRNAMetrics:
             total_virocell_tRNA: int = sum(total_tRNA_dict_tcc.values())
             total_tRNA_frq_tcc: dict[str, float] = {k: (v / total_virocell_tRNA) for k, v in total_tRNA_dict_tcc.items()}
             self.virusTCAI_totaltRNA: float = scipy.stats.spearmanr(list(self.virus_GeneSet.codon_frq.values()), list(total_tRNA_frq_tcc.values()))
+
