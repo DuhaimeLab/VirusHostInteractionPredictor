@@ -560,11 +560,11 @@ class tRNAMetrics:
         self.virus_GeneSet.tRNA_frequency()
         self.host_GeneSet.tRNA_frequency()
 
-    def virus_TAAI(self, include_virus_tRNA: bool = True) -> None:
+    def virus_TAAI(self, include_virus_tRNA: bool = False) -> None:
         """Calculate accordance index between virus amino acid frequency and corresponding tRNA availability. Note that all amino acids are included in the correlation.
 
         Args:
-            include_virus_tRNA (bool): Whether to additionally calculate an accordance metric that accounts for tRNA gene counts from virus, in addition to that of host (default is True).
+            include_virus_tRNA (bool): Whether to additionally calculate an accordance metric that accounts for tRNA gene counts from virus, in addition to that of host (default is False).
 
         Populates the following class attributes:
             self.virusTAAI_hosttRNA (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral amino acid frequencies.
@@ -578,12 +578,12 @@ class tRNAMetrics:
             total_tRNA_frq_aa: dict[str, float] = {k: (v / total_virocell_tRNA) for k, v in total_tRNA_dict_aa.items()}
             self.virusTAAI_totaltRNA: float = scipy.stats.spearmanr(list(self.virus_GeneSet.aa_frq.values()), list(total_tRNA_frq_aa.values()))
 
-    def virus_TCAI(self, skip_nondeg_codons: bool = True, include_virus_tRNA: bool = True) -> None:
+    def virus_TCAI(self, skip_nondeg_codons: bool = True, include_virus_tRNA: bool = False) -> None:
         """Calculate accordance index between virus codon frequency and corresponding tRNA availability.
 
         Args:
             skip_nondeg_codons (bool): Whether to omit non-degenerate codons (codons whose encoded amino acid is specific to one codon alone) from the accordance calculation (default is True). Note stop codons are inherently skipped because they have no associated tRNA.
-            include_virus_tRNA (bool): Whether to additionally calculate an accordance metric that accounts for tRNA gene counts from virus, in addition to that of host (default is True).
+            include_virus_tRNA (bool): Whether to additionally calculate an accordance metric that accounts for tRNA gene counts from virus, in addition to that of host (default is False).
 
         Populates the following class attributes:
             self.virusTCAI_hosttRNA (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral codon frequencies.
