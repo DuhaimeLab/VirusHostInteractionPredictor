@@ -572,17 +572,21 @@ class tRNAMetrics:
         """Calculate tRNA counts, totals, and frequencies for both virus and host GeneSets."""
         self.virus_GeneSet.tRNA_frequency()
         self.host_GeneSet.tRNA_frequency()
-            raise Exception("Virus dictionary and host tRNA dictionary do not have the same keys. Check that both are either codons or amino acids.")
-        elif virus_dict.keys != virus_tRNA_dict.keys if virus_tRNA_dict is not None else False:
-            raise Exception("Virus dictionary and virus tRNA dictionary do not have the same keys. Check that both are either codons or amino acids.")
 
-    def tRNA_aa_accordance(self) -> None:
-        """Calculate accordance index between virus amino acid or codon frequency and tRNA availability.
+    def virus_TAAI(self, include_virus_tRNA: bool = True) -> None:
+        """Calculate accordance index between virus amino acid frequency and tRNA availability. Note that all amino acids are included in the correlation.
+
+        Args:
+            include_virus_tRNA (bool): Whether to additionally calculate an accordance metric that accounts for tRNA gene counts from virus, in addition to that of host (default is True).
 
         Populates the following class attributes:
-            self.host_tRNA_accordance (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral amino acid or codon frequencies.
-            self.total_tRNA_accordance (float): Attribute populated unless no virus_tRNA_dict provided for class object. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral amino acid or codon frequencies.
+            self.virusTAAI_host (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral amino acid frequencies.
+            self.virusTAAI_total (float): Attribute created and populated only if include_virus_tRNA argument is set to True. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral amino acid frequencies.
         """
-        self.host_tRNA_accordance: float = scipy.stats.spearmanr(list(self.virus_dict.values()), list(self.host_tRNA_dict.values()))
-        if self.virus_tRNA_dict is not None:
-            self.total_tRNA_accordance: float = scipy.stats.spearmanr(list(self.virus_dict.values()), list(self.host_tRNA_dict.values()) + list(self.virus_tRNA_dict.values()))
+        self.virus_GeneSet.amino_acid_frequency()
+        self.virusTAAI_host: float = scipy.stats.spearmanr(list(self.virus_GeneSet.aa_frq.values()), list(self.host_GeneSet.tRNA_frq_aa.values()))
+        if include_virus_tRNA is True:
+            total_tRNA_dict_aa: dict[str, int] = dict(Counter(self.host_GeneSet.tRNA_dict_aa) + Counter(self.virus_GeneSet.tRNA_dict_aa))
+            total_virocell_tRNA: int = sum(total_tRNA_dict_aa.values())
+            total_tRNA_frq_aa: dict[str, float] = {k: (v / total_virocell_tRNA) for k, v in total_tRNA_dict_aa.items()}
+            self.virusTAAI_total: float = scipy.stats.spearmanr(list(self.virus_GeneSet.aa_frq.values()), list(total_tRNA_frq_aa.values()))
