@@ -589,3 +589,14 @@ class tRNAMetrics:
             self.virusTCAI_hosttRNA (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral codon frequencies.
             self.virusTCAI_totaltRNA (float): Attribute created and populated only if include_virus_tRNA argument is set to True. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral codon frequencies.
         """
+        self.virus_GeneSet.codon_frequency() # generate codon frequency for virus GeneSet if not already existent
+
+        # Skip non-degenerate codons as specified
+        if skip_nondeg_codons is True:
+            host_tRNA_frq_tcc: dict[str, float] = {k: v for k, v in self.host_GeneSet.tRNA_frq_tcc.items() if k not in non_degenerate_codons}
+            virus_tRNA_dict_tcc = {k: v for k, v in self.virus_GeneSet.tRNA_dict_tcc.items() if k not in non_degenerate_codons} if include_virus_tRNA else None
+            host_tRNA_dict_tcc = {k: v for k, v in self.host_GeneSet.tRNA_dict_tcc.items() if k not in non_degenerate_codons} if include_virus_tRNA else None
+        else:
+            host_tRNA_frq_tcc = self.host_GeneSet.tRNA_frq_tcc
+            virus_tRNA_dict_tcc = self.virus_GeneSet.tRNA_frq_tcc if include_virus_tRNA else None
+            host_tRNA_dict_tcc = self.host_GeneSet.tRNA_dict_tcc if include_virus_tRNA else None
