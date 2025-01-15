@@ -551,26 +551,27 @@ class CodonBiasComparison:
             1 - scipy.spatial.distance.cosine(self.host_list, self.virus_list)
         )
 
+
 class tRNAMetrics:
     """Class for calculating metrics involving tRNA availability.
 
     Args:
-        virus_dict (str: float): Dictionary of codon or amino acid frequencies in a virus GeneSet. For tRNA accordance metrics, keys must match provided tRNA dictionaries. Codon keys required for FOP metric.
-        host_tRNA_dict (str: float): Dictionary of tRNA counts by either amino acid or 'tcc' (tRNA complementary codons) in a host GeneSet. For tRNA accordance metrics using virus_dict, keys must match.
+        virus_GeneSet (GeneSet): GeneSet object representing the virus.
+        host_GeneSet (GeneSet): GeneSet object representing the host.
         virus_tRNA_dict (str: float): Optional. Dictionary of tRNA counts by either amino acid or 'tcc' (tRNA complementary codons) in a virus GeneSet. For tRNA accordance metrics using virus_dict, keys must match.
     """
-    def __init__(
+    def __init__(self, virus_GeneSet, host_GeneSet) -> None:
         self,
         virus_dict: dict[str, float],
         host_tRNA_dict: dict[str, float],
         virus_tRNA_dict: Optional[dict[str, float]],
     ) -> None:
         """Initialize class variables."""
-        if virus_dict.keys == host_tRNA_dict.keys and virus_dict.keys == virus_tRNA_dict.keys if virus_tRNA_dict is not None else True:
-            self.virus_dict = virus_dict
-            self.host_tRNA_dict = host_tRNA_dict
-            self.virus_tRNA_dict = virus_tRNA_dict if virus_tRNA_dict is not None else None
-        elif virus_dict.keys != host_tRNA_dict.keys:
+        self.virus_GeneSet: GeneSet = virus_GeneSet
+        self.host_GeneSet: GeneSet = host_GeneSet
+        """Calculate tRNA counts, totals, and frequencies for both virus and host GeneSets."""
+        self.virus_GeneSet.tRNA_frequency()
+        self.host_GeneSet.tRNA_frequency()
             raise Exception("Virus dictionary and host tRNA dictionary do not have the same keys. Check that both are either codons or amino acids.")
         elif virus_dict.keys != virus_tRNA_dict.keys if virus_tRNA_dict is not None else False:
             raise Exception("Virus dictionary and virus tRNA dictionary do not have the same keys. Check that both are either codons or amino acids.")
