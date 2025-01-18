@@ -401,8 +401,8 @@ def test_GeneSet_RSCU():
 def test_tRNA_counts():
     """Test code to calculate tRNA gene copy counts across a GeneSet."""
     test_GeneSet = GeneSet("tests/datatests/test_tRNA_genes.ffn")
-
     test_GeneSet.tRNA_counts()
+    assert test_GeneSet.total_tRNA == 5
     assert test_GeneSet.tRNA_dict_aa == {
         "M": 1,
         "W": 0,
