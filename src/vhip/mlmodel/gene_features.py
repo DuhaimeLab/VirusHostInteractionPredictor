@@ -552,13 +552,15 @@ class tRNAMetrics:
         virus_GeneSet (GeneSet): GeneSet object representing the virus.
         host_GeneSet (GeneSet): GeneSet object representing the host.
     """
-    def __init__(self, virus_GeneSet, host_GeneSet) -> None:
+    def __init__(self, virus_GeneSet: GeneSet, host_GeneSet: GeneSet) -> None:
         """Initialize class variables."""
         self.virus_GeneSet: GeneSet = virus_GeneSet
         self.host_GeneSet: GeneSet = host_GeneSet
         """Calculate tRNA counts, totals, and frequencies for both virus and host GeneSets."""
-        self.virus_GeneSet.tRNA_frequency()
-        self.host_GeneSet.tRNA_frequency()
+        if not hasattr(self.virus_GeneSet, "tRNA_dict_aa"):
+            self.virus_GeneSet.tRNA_frequency()
+        if not hasattr(self.host_GeneSet, "tRNA_dict_aa"):
+            self.host_GeneSet.tRNA_frequency()
 
     def virus_TAAI(self, include_virus_tRNA: bool = False) -> None:
         """Calculate accordance index between virus amino acid frequency and corresponding tRNA availability. Note that all amino acids are included in the correlation.
