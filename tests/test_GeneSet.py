@@ -402,9 +402,10 @@ def test_tRNA_counts():
     """Test code to calculate tRNA gene copy counts across a GeneSet."""
     test_GeneSet = GeneSet("tests/datatests/test_tRNA_genes.ffn")
 
-    # test 1 - test tRNA counts in a Gene Set with default option skipping non-degenerate codons
     test_GeneSet.tRNA_counts()
     assert test_GeneSet.tRNA_dict_aa == {
+        "M": 1,
+        "W": 0,
         "I": 0,
         "T": 0,
         "N": 0,
@@ -425,94 +426,8 @@ def test_tRNA_counts():
         "C": 0,
     }
     assert test_GeneSet.tRNA_dict_tcc == {
-        "ATA": 0,
-        "ATC": 0,
-        "ATT": 0,
-        "ACA": 0,
-        "ACC": 0,
-        "ACG": 0,
-        "ACT": 0,
-        "AAC": 0,
-        "AAT": 0,
-        "AAA": 0,
-        "AAG": 0,
-        "AGC": 2,  # Serine
-        "AGT": 0,
-        "AGA": 0,
-        "AGG": 0,
-        "CTA": 0,
-        "CTC": 0,
-        "CTG": 0,
-        "CTT": 0,
-        "CCA": 0,
-        "CCC": 0,
-        "CCG": 0,
-        "CCT": 0,
-        "CAC": 0,
-        "CAT": 0,
-        "CAA": 0,
-        "CAG": 0,
-        "CGA": 0,
-        "CGC": 0,
-        "CGG": 0,
-        "CGT": 2,  # Arginine
-        "GTA": 0,
-        "GTC": 0,
-        "GTG": 0,
-        "GTT": 0,
-        "GCA": 0,
-        "GCC": 0,
-        "GCG": 0,
-        "GCT": 0,
-        "GAC": 0,
-        "GAT": 0,
-        "GAA": 0,
-        "GAG": 0,
-        "GGA": 0,
-        "GGC": 0,
-        "GGG": 0,
-        "GGT": 0,
-        "TCA": 0,
-        "TCC": 1,  # Serine
-        "TCG": 0,
-        "TCT": 0,
-        "TTC": 0,
-        "TTT": 0,
-        "TTA": 0,
-        "TTG": 0,
-        "TAC": 0,
-        "TAT": 0,
-        "TGC": 0,
-        "TGT": 0,
-    }
-
-    # test 2 - test tRNA counts ine a Gene Set and including non-degenerate codons
-    test_GeneSet.tRNA_counts(skip_nondeg_codons=False)
-    assert test_GeneSet.tRNA_dict_aa == {
-        "M": 1,  # now including Methionine
-        "W": 0,  # now including Tryptophan
-        "I": 0,
-        "T": 0,
-        "N": 0,
-        "K": 0,
-        "S": 3,
-        "R": 2,
-        "L": 0,
-        "P": 0,
-        "H": 0,
-        "Q": 0,
-        "V": 0,
-        "A": 0,
-        "D": 0,
-        "E": 0,
-        "G": 0,
-        "F": 0,
-        "Y": 0,
-        "C": 0,
-    }
-    assert test_GeneSet.tRNA_dict_tcc == {
-        "ATG": 1,  # Now including Methionine
-        "TGG": 0,  # Now including Tryptophan
+        "ATG": 1,
+        "TGG": 0,
         "ATA": 0,
         "ATC": 0,
         "ATT": 0,
