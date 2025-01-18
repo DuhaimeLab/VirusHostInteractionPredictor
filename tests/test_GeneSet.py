@@ -496,6 +496,8 @@ def test_tRNA_frequency():
     test_GeneSet.tRNA_frequency()
     assert test_GeneSet.total_tRNA == 5
     assert test_GeneSet.tRNA_frq_aa == {
+        "M": 1 / 5,
+        "W": 0,
         "I": 0,
         "T": 0,
         "N": 0,
@@ -516,6 +518,8 @@ def test_tRNA_frequency():
         "C": 0,
     }
     assert test_GeneSet.tRNA_frq_tcc == {
+        "ATG": 1 / 5, # Methionine
+        "TGG": 0,
         "ATA": 0,
         "ATC": 0,
         "ATT": 0,
