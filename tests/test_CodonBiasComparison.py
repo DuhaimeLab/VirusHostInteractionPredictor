@@ -42,9 +42,9 @@ def test_CodonBiasComparison_init():
         test_host_GeneSet.aa_dict, test_virus_GeneSet.aa_dict
     )
     assert (
-        len(test_comparison_3.host_list) == 21
-    )  # there are 20 possible unique amino acids plus a stop signal
-    assert len(test_comparison_3.virus_list) == 21
+        len(test_comparison_3.host_list) == 20
+    )  # there are 20 possible unique amino acids
+    assert len(test_comparison_3.virus_list) == 20
 
     # test 4 - test CodonBiasComparsion initializes with input amino acid frequency (GeneSet.aa_frq)
     test_comparison_4 = CodonBiasComparison(
