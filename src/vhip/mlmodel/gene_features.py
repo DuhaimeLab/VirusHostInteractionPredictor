@@ -85,7 +85,7 @@ CODON_TABLE = {
 
 # Separate CODON_TABLE dictionary into lists of codons, amino acids, stop codons, and non-degenerate codons (encoded amino acid is specific to one codon alone)
 CODON_LIST = list(CODON_TABLE.keys())
-AA_LIST = list(CODON_TABLE.values())
+AA_LIST = [aa for aa in CODON_TABLE.values() if aa != "_"]
 stop_codons = [codon for codon, aa in CODON_TABLE.items() if aa == "_"]
 non_degenerate_codons = [
     codon
@@ -429,7 +429,7 @@ class GeneSet:
         """
         # Initialize tRNA count dictionaries, skipping stop codons
         self.tRNA_dict_aa: dict[str, int] = {
-            aa: 0 for aa in AA_LIST if aa != "_"
+            aa: 0 for aa in AA_LIST
         }
         self.tRNA_dict_tcc: dict[str, int] = {
             tcc: 0 for tcc in CODON_LIST if tcc not in stop_codons
