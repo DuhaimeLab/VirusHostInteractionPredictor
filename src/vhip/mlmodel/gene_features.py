@@ -219,7 +219,7 @@ class GeneSet:
     """Class representing a gene set, usually the genes predicted from a genome sequence.
 
     Args:
-        gene_file (str): Path of annotated genes file containing gene set of interest.
+        gene_file (str): Path of annotated genes file containing gene set of interest. Bakta .ffn output format.
     """
 
     def __init__(self, gene_file: str) -> None:
@@ -426,17 +426,18 @@ class GeneSet:
             self.tRNA_dict_tcc (str: int): Counts of tRNA genes by their 'tcc' (tRNA complementary codons) across all genes in the GeneSet.
             self.total_tRNA (int): Total number of tRNA genes (not unique) in the GeneSet.
         """
-        irrelevant_aas = [CODON_TABLE[codon] for codon in stop_codons]
-
+        # Initialize tRNA count dictionaries, skipping stop codons
         self.tRNA_dict_aa: dict[str, int] = {
-            aa: 0 for aa in AA_LIST if aa not in irrelevant_aas
+            aa: 0 for aa in AA_LIST if aa != "_"
         }
         self.tRNA_dict_tcc: dict[str, int] = {
             tcc: 0 for tcc in CODON_LIST if tcc not in stop_codons
         }
 
+        # Define RegEx pattern for BAKTA-output tRNA gene products
         gene_product_pattern = re.compile(r"tRNA-\w{3}\(\w{3}\)")
 
+        # Populate tRNA count dictionaries by looping through all gene products in GeneSet
         has_tRNAs = False
         for gene in self.genes:
             if gene_product_pattern.match(gene.gene_product):
@@ -448,7 +449,9 @@ class GeneSet:
                 tcc = reverse_complement(anticodon)
                 self.tRNA_dict_tcc[tcc] += 1
 
+        # Calculate total tRNA count
         self.total_tRNA: int = sum(self.tRNA_dict_tcc.values())
+
         if not has_tRNAs:
             print("No tRNA genes found in the GeneSet.")
 
