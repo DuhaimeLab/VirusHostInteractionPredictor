@@ -344,8 +344,9 @@ class GeneSet:
 
         if hasattr(self, "codon_dict"):
             for codon in self.codon_dict.keys():
-                aa = CODON_TABLE[codon]
-                self.aa_dict[aa] += self.codon_dict[codon]
+                if codon not in stop_codons:
+                    aa = CODON_TABLE[codon]
+                    self.aa_dict[aa] += self.codon_dict[codon]
 
     def amino_acid_frequency(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
