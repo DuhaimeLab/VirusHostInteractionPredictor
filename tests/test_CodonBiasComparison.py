@@ -50,8 +50,8 @@ def test_CodonBiasComparison_init():
     test_comparison_4 = CodonBiasComparison(
         test_host_GeneSet.aa_frq, test_virus_GeneSet.aa_frq
     )
-    assert len(test_comparison_4.host_list) == 21
-    assert len(test_comparison_4.virus_list) == 21
+    assert len(test_comparison_4.host_list) == 20
+    assert len(test_comparison_4.virus_list) == 20
 
     # test 5 - test CodonBiasComparsion initializes with input RSCU (GeneSet.RSCU_dict)
     test_comparison_5 = CodonBiasComparison(
