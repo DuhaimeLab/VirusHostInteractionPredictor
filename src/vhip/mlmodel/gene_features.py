@@ -463,10 +463,11 @@ class GeneSet:
             self.tRNA_frq_aa (str: int): Frequencies of tRNA genes by amino acid out of all tRNA genes in the GeneSet.
             self.tRNA_frq_tcc (str: int): Frequencies of tRNA genes by their 'tcc' (tRNA complementary codons) out of all tRNA genes in the GeneSet.
         """
+        # If tRNA gene counts have not already been calculated, runs tRNA_counts()
         if not hasattr(self, "tRNA_dict_aa") or not hasattr(self, "tRNA_dict_tcc") or not hasattr(self, "total_tRNA"):
-            # If tRNA gene counts have not already been calculated, runs tRNA_counts()
             self.tRNA_counts()
 
+        # Calculate frequency of tRNA genes out of total tRNA counts for the GeneSet
         if hasattr(self, "tRNA_dict_tcc") and hasattr(self, "tRNA_dict_aa") and hasattr(self, "total_tRNA"):
             self.tRNA_frq_aa = {
                 k: (v / self.total_tRNA) for k, v in self.tRNA_dict_aa.items()
