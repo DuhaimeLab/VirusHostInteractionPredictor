@@ -8,7 +8,6 @@ This module provides:
 
 import os
 import re
-from typing import List, Union, Optional
 from collections import Counter
 from typing import List, Union
 
@@ -610,24 +609,28 @@ class tRNAMetrics:
         # Generate amino acid frequencies for virus GeneSet if not already existent
         if not hasattr(self.virus_GeneSet, "codon_frq"):
             self.virus_GeneSet.codon_frequency()
+        sorted_keys = sorted(self.virus_GeneSet.codon_frq)
+        irrelevant_codons = non_degenerate_codons + stop_codons
 
         # Define tRNA dictionaries, skipping non-degenerate codons and including virus tRNAs as specified
         if skip_nondeg_codons is True:
-            host_tRNA_frq_tcc: dict[str, float] = {k: v for k, v in self.host_GeneSet.tRNA_frq_tcc.items() if k not in non_degenerate_codons}
-            virus_tRNA_dict_tcc = {k: v for k, v in self.virus_GeneSet.tRNA_dict_tcc.items() if k not in non_degenerate_codons} if include_virus_tRNA else None
-            host_tRNA_dict_tcc = {k: v for k, v in self.host_GeneSet.tRNA_dict_tcc.items() if k not in non_degenerate_codons} if include_virus_tRNA else None
+            virus_codon_frq_values = [self.virus_GeneSet.codon_frq[key] for key in sorted_keys if key not in irrelevant_codons]
+            host_tRNA_frq_tcc_values = [self.host_GeneSet.tRNA_frq_tcc[key] for key in sorted_keys if key not in irrelevant_codons]
+            virus_tRNA_dict_tcc = {k: v for k, v in self.virus_GeneSet.tRNA_dict_tcc.items() if k not in irrelevant_codons} if include_virus_tRNA else None
+            host_tRNA_dict_tcc = {k: v for k, v in self.host_GeneSet.tRNA_dict_tcc.items() if k not in irrelevant_codons} if include_virus_tRNA else None
         else:
-            host_tRNA_frq_tcc: dict[str, float] = self.host_GeneSet.tRNA_frq_tcc
+            virus_codon_frq_values = [self.virus_GeneSet.codon_frq[key] for key in sorted_keys]
+            host_tRNA_frq_tcc_values = [self.host_GeneSet.tRNA_frq_tcc[key] for key in sorted_keys]
             virus_tRNA_dict_tcc = self.virus_GeneSet.tRNA_frq_tcc if include_virus_tRNA else None
             host_tRNA_dict_tcc = self.host_GeneSet.tRNA_dict_tcc if include_virus_tRNA else None
 
         # Perform Spearman Rank correlation between virus codon frequency and host tRNA availability
-        self.virusTCAI_hosttRNA: float = scipy.stats.spearmanr(list(self.virus_GeneSet.codon_frq.values()), list(host_tRNA_frq_tcc.values()))
+        self.virusTCAI_hosttRNA: float = scipy.stats.spearmanr(virus_codon_frq_values, host_tRNA_frq_tcc_values)
 
         # If specified, perform Spearman Rank correlation between virus codon frequency and total tRNA availability
         if include_virus_tRNA is True:
-            total_tRNA_dict_tcc: dict[str, int] = dict(Counter(host_tRNA_dict_tcc) + Counter(virus_tRNA_dict_tcc))
-            total_virocell_tRNA: int = sum(total_tRNA_dict_tcc.values())
-            total_tRNA_frq_tcc: dict[str, float] = {k: (v / total_virocell_tRNA) for k, v in total_tRNA_dict_tcc.items()}
-            self.virusTCAI_totaltRNA: float = scipy.stats.spearmanr(list(self.virus_GeneSet.codon_frq.values()), list(total_tRNA_frq_tcc.values()))
+            total_tRNA_dict_tcc = dict(Counter(host_tRNA_dict_tcc) + Counter(virus_tRNA_dict_tcc))
+            total_virocell_tRNA = sum(total_tRNA_dict_tcc.values())
+            total_tRNA_frq_tcc_values = [total_tRNA_dict_tcc[key]/total_virocell_tRNA for key in sorted_keys]
+            self.virusTCAI_totaltRNA: float = scipy.stats.spearmanr(virus_codon_frq_values, total_tRNA_frq_tcc_values)
 
