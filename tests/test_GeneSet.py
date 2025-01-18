@@ -283,7 +283,6 @@ def test_GeneSet_amino_acid_counts():
         "G": 0,
         "F": 0,
         "Y": 0,
-        "_": 0,
         "C": 0,
         "W": 0,
     }
@@ -316,7 +315,6 @@ def test_GeneSet_amino_acid_frequency():
         "G": 0.0,
         "F": 0.0,
         "Y": 0.0,
-        "_": 0.0,
         "C": 0.0,
         "W": 0.0,
     }
