@@ -580,8 +580,10 @@ class tRNAMetrics:
         if not hasattr(self.virus_GeneSet, "aa_frq"):
             self.virus_GeneSet.amino_acid_frequency()
 
-        # Calculate accordance index between virus amino acid frequency and host tRNA availability
+        # Perform Spearman Rank correlation between virus amino acid frequency and host tRNA availability
         self.virusTAAI_hosttRNA: float = scipy.stats.spearmanr(list(self.virus_GeneSet.aa_frq.values()), list(self.host_GeneSet.tRNA_frq_aa.values()))
+
+        # If specified, perform Spearman Rank correlation between virus amino acid frequency and total tRNA availability
         if include_virus_tRNA is True:
             total_tRNA_dict_aa: dict[str, int] = dict(Counter(self.host_GeneSet.tRNA_dict_aa) + Counter(self.virus_GeneSet.tRNA_dict_aa))
             total_virocell_tRNA: int = sum(total_tRNA_dict_aa.values())
@@ -603,7 +605,7 @@ class tRNAMetrics:
         if not hasattr(self.virus_GeneSet, "codon_frq"):
             self.virus_GeneSet.codon_frequency()
 
-        # Skip non-degenerate codons as specified
+        # Define tRNA dictionaries, skipping non-degenerate codons and including virus tRNAs as specified
         if skip_nondeg_codons is True:
             host_tRNA_frq_tcc: dict[str, float] = {k: v for k, v in self.host_GeneSet.tRNA_frq_tcc.items() if k not in non_degenerate_codons}
             virus_tRNA_dict_tcc = {k: v for k, v in self.virus_GeneSet.tRNA_dict_tcc.items() if k not in non_degenerate_codons} if include_virus_tRNA else None
@@ -613,8 +615,10 @@ class tRNAMetrics:
             virus_tRNA_dict_tcc = self.virus_GeneSet.tRNA_frq_tcc if include_virus_tRNA else None
             host_tRNA_dict_tcc = self.host_GeneSet.tRNA_dict_tcc if include_virus_tRNA else None
 
-        # Calculate accordance index between virus codon frequency and host tRNA availability
+        # Perform Spearman Rank correlation between virus codon frequency and host tRNA availability
         self.virusTCAI_hosttRNA: float = scipy.stats.spearmanr(list(self.virus_GeneSet.codon_frq.values()), list(host_tRNA_frq_tcc.values()))
+
+        # If specified, perform Spearman Rank correlation between virus codon frequency and total tRNA availability
         if include_virus_tRNA is True:
             total_tRNA_dict_tcc: dict[str, int] = dict(Counter(host_tRNA_dict_tcc) + Counter(virus_tRNA_dict_tcc))
             total_virocell_tRNA: int = sum(total_tRNA_dict_tcc.values())
