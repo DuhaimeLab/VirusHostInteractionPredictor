@@ -611,7 +611,7 @@ class tRNAMetrics:
             virus_tRNA_dict_tcc = {k: v for k, v in self.virus_GeneSet.tRNA_dict_tcc.items() if k not in non_degenerate_codons} if include_virus_tRNA else None
             host_tRNA_dict_tcc = {k: v for k, v in self.host_GeneSet.tRNA_dict_tcc.items() if k not in non_degenerate_codons} if include_virus_tRNA else None
         else:
-            host_tRNA_frq_tcc = self.host_GeneSet.tRNA_frq_tcc
+            host_tRNA_frq_tcc: dict[str, float] = self.host_GeneSet.tRNA_frq_tcc
             virus_tRNA_dict_tcc = self.virus_GeneSet.tRNA_frq_tcc if include_virus_tRNA else None
             host_tRNA_dict_tcc = self.host_GeneSet.tRNA_dict_tcc if include_virus_tRNA else None
 
