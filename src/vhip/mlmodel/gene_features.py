@@ -468,8 +468,12 @@ class GeneSet:
         if not hasattr(self, "tRNA_dict_aa") or not hasattr(self, "tRNA_dict_tcc") or not hasattr(self, "total_tRNA"):
             self.tRNA_counts()
 
+        # Initialize tRNA frequency dictionaries
+        self.tRNA_frq_aa: dict[str, float] = dict.fromkeys(self.tRNA_dict_aa.keys(), 0.0)
+        self.tRNA_frq_tcc: dict[str, float] = dict.fromkeys(self.tRNA_dict_tcc.keys(), 0.0)
+
         # Calculate frequency of tRNA genes out of total tRNA counts for the GeneSet
-        if hasattr(self, "tRNA_dict_tcc") and hasattr(self, "tRNA_dict_aa") and hasattr(self, "total_tRNA"):
+        if self.total_tRNA > 0:
             self.tRNA_frq_aa = {
                 k: (v / self.total_tRNA) for k, v in self.tRNA_dict_aa.items()
             }
