@@ -582,14 +582,18 @@ class tRNAMetrics:
             self.virus_GeneSet.amino_acid_frequency()
 
         # Perform Spearman Rank correlation between virus amino acid frequency and host tRNA availability
-        self.virusTAAI_hosttRNA: float = scipy.stats.spearmanr(list(self.virus_GeneSet.aa_frq.values()), list(self.host_GeneSet.tRNA_frq_aa.values()))
+        sorted_keys = sorted(self.virus_GeneSet.aa_frq)
+        virus_aa_frq_values = [self.virus_GeneSet.aa_frq[key] for key in sorted_keys]
+        host_tRNA_frq_aa_values = [self.host_GeneSet.tRNA_frq_aa[key] for key in sorted_keys]
+        self.virusTAAI_hosttRNA: float = scipy.stats.spearmanr(virus_aa_frq_values, host_tRNA_frq_aa_values)
 
         # If specified, perform Spearman Rank correlation between virus amino acid frequency and total tRNA availability
         if include_virus_tRNA is True:
             total_tRNA_dict_aa: dict[str, int] = dict(Counter(self.host_GeneSet.tRNA_dict_aa) + Counter(self.virus_GeneSet.tRNA_dict_aa))
             total_virocell_tRNA: int = sum(total_tRNA_dict_aa.values())
             total_tRNA_frq_aa: dict[str, float] = {k: (v / total_virocell_tRNA) for k, v in total_tRNA_dict_aa.items()}
-            self.virusTAAI_totaltRNA: float = scipy.stats.spearmanr(list(self.virus_GeneSet.aa_frq.values()), list(total_tRNA_frq_aa.values()))
+            total_tRNA_frq_aa_values = [total_tRNA_frq_aa[key] for key in sorted_keys]
+            self.virusTAAI_totaltRNA: float = scipy.stats.spearmanr(virus_aa_frq_values, total_tRNA_frq_aa_values)
 
     def virus_TCAI(self, skip_nondeg_codons: bool = True, include_virus_tRNA: bool = False) -> None:
         """Calculate accordance index between virus codon frequency and corresponding tRNA availability.
