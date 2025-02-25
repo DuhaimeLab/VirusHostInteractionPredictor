@@ -182,7 +182,7 @@ class Gene:
             self.calculate_codon_counts()
 
         for codon in self.codon_dict:
-            if self.codon_dict[codon] != 0:
+            if self.codon_dict[codon] != 0 and codon not in stop_codons:
                 aa = CODON_TABLE[codon]
                 self.aa_dict[aa] += self.codon_dict[codon]
 
@@ -610,7 +610,7 @@ class tRNAMetrics:
             self.virusTCAI_hosttRNA (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral codon frequencies.
             self.virusTCAI_totaltRNA (float): Attribute created and populated only if include_virus_tRNA argument is set to True. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral codon frequencies.
         """
-        # Generate amino acid frequencies for virus GeneSet if not already existent
+        # Generate codon frequencies for virus GeneSet if not already existent
         if not hasattr(self.virus_GeneSet, "codon_frq"):
             self.virus_GeneSet.codon_frequency()
         sorted_keys = sorted(self.virus_GeneSet.codon_frq)
