@@ -12,6 +12,7 @@ from collections import Counter
 from typing import List, Union
 
 import scipy  # pyright: ignore[reportMissingTypeStubs]
+import numpy as np
 
 from .read_sequence import read_annotated_genes, reverse_complement
 
@@ -505,27 +506,16 @@ class CodonBiasComparison:
         """Compute linear regression between host and virus codon bias.
 
         Populates the following class attributes:
-            self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
+            self.slope (float): Slope of the linear regression line between values from input host_dict and virus_dict
+            self.intercept (float): Intercept of the linear regression line between values from input host_dict and virus_dict
         """
-        self.lin_regress: scipy.stats._stats_mstats_common.LinregressResult = (
-            scipy.stats.linregress(self.host_list, self.virus_list)
-        )
-
-    def calculate_slope(self) -> None:
-        """Compute slope between host and virus codon bias using linear regression.
-
-        Populates the following class attributes:
-            self.slope (float): extracts slope from linear regression calculation on values from input host_dict and virus_dict
-        If not populated previously by running linear_regress():
-            self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
-        """
-        if not hasattr(self, "lin_regress"):
-            self.linear_regress()
-
-        if hasattr(self, "lin_regress"):
-            self.slope: float = float(
-                self.lin_regress.slope
-            )  # the first value from the output of scipy.stats.linregress is slope
+        lin_regress = np.polyfit(np.array(self.host_list), np.array(self.virus_list), 1) # degree is 1 for linear regression
+        self.slope: float = float(
+                lin_regress[0]
+            )
+        self.intercept: float = float(
+                lin_regress[1]
+            )
 
     def calculate_R2(self) -> None:
         """Compute R^2 value between host and virus codon bias using linear regression.
@@ -533,15 +523,21 @@ class CodonBiasComparison:
         Populates the following class attributes:
             self.R2 (float): extracts and calculates the R^2 value from linear regression calculation on values from input host_dict and virus_dict
         If not populated previously by running linear_regress():
-            self.lin_regress (LinregresResult class from scipy.stats._stats_mstats_common): output of running linear regression between the values from input host_dict and virus_dict
+            self.slope (float): Slope of the linear regression line between values from input host_dict and virus_dict
+            self.intercept (float): Intercept of the linear regression line between values from input host_dict and virus_dict
         """
-        if not hasattr(self, "lin_regress"):
+        if not hasattr(self, "slope") and not hasattr(self, "intercept"):
             self.linear_regress()
 
-        if hasattr(self, "lin_regress"):
+        if hasattr(self, "slope") and hasattr(self, "intercept"):
+            x = np.array(self.host_list)
+            y = np.array(self.virus_list)
+            y_predicted = self.slope * x + self.intercept
+            residuals_sum_sq = np.sum((y - y_predicted) ** 2)
+            total_sum_sq = np.sum((y - np.mean(y)) ** 2)
             self.R2: float = float(
-                self.lin_regress.rvalue**2
-            )  # the third value from the output of scipy.stats.linregress is the r-value
+                1 - (residuals_sum_sq / total_sum_sq)
+            )
 
     def cosine_similarity(self):
         """Compute cosine similarity metric between host and virus codon bias.
