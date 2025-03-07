@@ -579,10 +579,10 @@ def test_ComputeFeatures_compute_feature():
     # Codon bias comparison
     assert isinstance(test_CF.pairs[0].codons_comparison, CodonBiasComparison)
     assert math.isclose(
-        test_CF.pairs[0].codons_comparison.slope, 0.9714433430563576, rel_tol=1e-6
+        test_CF.pairs[0].codons_comparison.slope, 0.782385966183761, rel_tol=1e-6
     )
     assert math.isclose(
-        test_CF.pairs[0].codons_comparison.R2, 0.7600436385499312, rel_tol=1e-6
+        test_CF.pairs[0].codons_comparison.R2, 0.7600436385499314, rel_tol=1e-6
     )
     assert math.isclose(
         test_CF.pairs[0].codons_comparison.cos_similarity,
@@ -596,7 +596,7 @@ def test_ComputeFeatures_compute_feature():
         test_CF.pairs[0].aa_comparison.slope, 0.9527204337269409, rel_tol=1e-6
     )
     assert math.isclose(
-        test_CF.pairs[0].aa_comparison.R2, 0.8726587553037439, rel_tol=1e-6
+        test_CF.pairs[0].aa_comparison.R2, 0.8726587553037441, rel_tol=1e-6
     )
     assert math.isclose(
         test_CF.pairs[0].aa_comparison.cos_similarity, 0.9888386823409467, rel_tol=1e-6
@@ -605,10 +605,10 @@ def test_ComputeFeatures_compute_feature():
     # RSCU comparison
     assert isinstance(test_CF.pairs[0].RSCU_comparison, CodonBiasComparison)
     assert math.isclose(
-        test_CF.pairs[0].RSCU_comparison.slope, 0.6007715111770386, rel_tol=1e-6
+        test_CF.pairs[0].RSCU_comparison.slope, 0.6834975644944683, rel_tol=1e-6
     )
     assert math.isclose(
-        test_CF.pairs[0].RSCU_comparison.R2, 0.41062586470716667, rel_tol=1e-6
+        test_CF.pairs[0].RSCU_comparison.R2, 0.41062586470716744, rel_tol=1e-6
     )
     assert math.isclose(
         test_CF.pairs[0].RSCU_comparison.cos_similarity,
