@@ -53,12 +53,12 @@ def test_tRNAMetrics_virus_TAAI():
 def test_tRNAMetrics_virus_TCAI():
     """Test code to calculate virus codon accordance with tRNA availability."""
     test_tRNAMetrics = tRNAMetrics(virus_geneset, host_geneset)
-    test_tRNAMetrics.virus_TCAI()
+    test_tRNAMetrics.virus_TCAI(skip_nondeg_codons=True)
 
     # test 1: check that codon frequency has been calculated for virus GeneSet attribute
     assert hasattr(test_tRNAMetrics.virus_GeneSet, "codon_frq")
 
-    # test 2: defaults (skip non-degenerate codons)
+    # test 2: skip non-degenerate codons
     assert math.isclose(
         test_tRNAMetrics.virusTCAI_hosttRNA, 0.5719110045885629, rel_tol=1e-6
     )
