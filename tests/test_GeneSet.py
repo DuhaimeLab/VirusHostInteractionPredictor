@@ -396,7 +396,7 @@ def test_GeneSet_RSCU():
     }
 
 
-def test_tRNA_counts():
+def test_GeneSet_tRNA_counts():
     """Test code to calculate tRNA gene copy counts across a GeneSet."""
     test_GeneSet = GeneSet("tests/datatests/test_host_tRNA_genes.ffn")
     test_GeneSet.tRNA_counts()
@@ -488,7 +488,7 @@ def test_tRNA_counts():
     }
 
 
-def test_tRNA_frequency():
+def test_GeneSet_tRNA_frequency():
     """Test code to calculate tRNA gene copy frequency out of total tRNA genes in a GeneSet."""
     test_GeneSet = GeneSet("tests/datatests/test_host_tRNA_genes.ffn")
     test_GeneSet.tRNA_frequency()
