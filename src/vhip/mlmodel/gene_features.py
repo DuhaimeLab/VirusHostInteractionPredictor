@@ -590,7 +590,7 @@ class tRNAMetrics:
 
         # If specified, perform Spearman Rank correlation between virus amino acid frequency and total tRNA availability
         if include_virus_tRNA is True:
-            total_tRNA_dict_aa = dict(Counter(self.host_GeneSet.tRNA_dict_aa) + Counter(self.virus_GeneSet.tRNA_dict_aa))
+            total_tRNA_dict_aa = {key: self.host_GeneSet.tRNA_dict_aa.get(key, 0) + self.virus_GeneSet.tRNA_dict_aa.get(key, 0) for key in set(self.host_GeneSet.tRNA_dict_aa) | set(self.virus_GeneSet.tRNA_dict_aa)}
             total_virocell_tRNA = sum(total_tRNA_dict_aa.values())
             total_tRNA_frq_aa = {k: (v / total_virocell_tRNA) for k, v in total_tRNA_dict_aa.items()}
             total_tRNA_frq_aa_values = [total_tRNA_frq_aa[key] for key in sorted_keys]
@@ -638,8 +638,8 @@ class tRNAMetrics:
         self.virusTCAI_hosttRNA: float = res.statistic
 
         # If specified, perform Spearman Rank correlation between virus codon frequency and total tRNA availability
-        if include_virus_tRNA is True:
-            total_tRNA_dict_tcc = dict(Counter(host_tRNA_dict_tcc) + Counter(virus_tRNA_dict_tcc))
+        if include_virus_tRNA is True and host_tRNA_dict_tcc is not None and virus_tRNA_dict_tcc is not None:
+            total_tRNA_dict_tcc = {key: host_tRNA_dict_tcc.get(key, 0) + virus_tRNA_dict_tcc.get(key, 0) for key in set(host_tRNA_dict_tcc) | set(virus_tRNA_dict_tcc)}
             total_virocell_tRNA = sum(total_tRNA_dict_tcc.values())
             total_tRNA_frq_tcc_values = [total_tRNA_dict_tcc[key]/total_virocell_tRNA for key in sorted_keys]
             res = scipy.stats.spearmanr(virus_codon_frq_values, total_tRNA_frq_tcc_values)
