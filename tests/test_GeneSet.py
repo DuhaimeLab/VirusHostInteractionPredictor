@@ -516,7 +516,7 @@ def test_GeneSet_tRNA_frequency():
         "C": 0,
     }
     assert test_GeneSet.tRNA_frq_tcc == {
-        "ATG": 1 / 6, # Methionine
+        "ATG": 1 / 6,  # Methionine
         "TGG": 0,
         "ATA": 0,
         "ATC": 0,

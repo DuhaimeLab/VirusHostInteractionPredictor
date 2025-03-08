@@ -1,7 +1,7 @@
 """Pytest for CodonBiasComparison methods in gene_features module."""
 
-import scipy  # pyright: ignore[reportMissingTypeStubs]
 import numpy as np
+import scipy  # pyright: ignore[reportMissingTypeStubs]
 
 from vhip.mlmodel.gene_features import CodonBiasComparison, GeneSet
 
@@ -242,15 +242,9 @@ def test_CodonBiasComparison_methods():
     total_sum_sq = np.sum((y - np.mean(y)) ** 2)
     R2 = 1 - (residuals_sum_sq / total_sum_sq)
 
-    assert (
-        test_comparison.slope
-        == slope
-    )
+    assert test_comparison.slope == slope
 
-    assert (
-        test_comparison.R2
-        == R2
-    )
+    assert test_comparison.R2 == R2
 
     assert test_comparison.cos_similarity == 1 - scipy.spatial.distance.cosine(
         expected_host_list, expected_virus_list
