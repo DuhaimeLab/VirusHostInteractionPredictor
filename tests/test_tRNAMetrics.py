@@ -32,3 +32,5 @@ def test_tRNAMetrics_virus_TAAI_defaults():
     res2 = scipy.stats.spearmanr(list(data), list(data)[::-1])
     assert math.isclose(res2.statistic, -1.0, rel_tol=1e-6)
 
+    # test 3: check correct correlation coefficient between virus amino acid frequency and host tRNA frequency
+    assert math.isclose(test_tRNAMetrics.virusTAAI_hosttRNA, 0.7814187052403264, rel_tol=1e-6)
