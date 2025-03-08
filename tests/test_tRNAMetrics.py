@@ -34,3 +34,8 @@ def test_tRNAMetrics_virus_TAAI_defaults():
 
     # test 3: check correct correlation coefficient between virus amino acid frequency and host tRNA frequency
     assert math.isclose(test_tRNAMetrics.virusTAAI_hosttRNA, 0.7814187052403264, rel_tol=1e-6)
+
+    # test 4: check correc correlation coefficient between virus amino acid frequency and TOTAL tRNA frequency
+    assert math.isclose(test_tRNAMetrics.virusTAAI_totaltRNA, 0.7814187052403264, rel_tol=1e-6)
+
+
