@@ -17,8 +17,8 @@ def test_tRNAMetrics_init():
     assert hasattr(test_tRNAMetrics.virus_GeneSet, "tRNA_frq_aa")
     assert hasattr(test_tRNAMetrics.host_GeneSet, "tRNA_frq_aa")
 
-def test_tRNAMetrics_virus_TAAI_defaults():
-    """Test code to calculate virus amino acid accordance with tRNA availability, using default setting (include virus tRNA genes)."""
+def test_tRNAMetrics_virus_TAAI():
+    """Test code to calculate virus amino acid accordance with tRNA availability."""
     test_tRNAMetrics = tRNAMetrics(virus_geneset, host_geneset)
     test_tRNAMetrics.virus_TAAI()
 
@@ -35,7 +35,10 @@ def test_tRNAMetrics_virus_TAAI_defaults():
     # test 3: check correct correlation coefficient between virus amino acid frequency and host tRNA frequency
     assert math.isclose(test_tRNAMetrics.virusTAAI_hosttRNA, 0.7814187052403264, rel_tol=1e-6)
 
-    # test 4: check correc correlation coefficient between virus amino acid frequency and TOTAL tRNA frequency
+    # test 4: check correct correlation coefficient between virus amino acid frequency and TOTAL tRNA frequency
     assert math.isclose(test_tRNAMetrics.virusTAAI_totaltRNA, 0.7814187052403264, rel_tol=1e-6)
 
+    # test 5: check no total tRNA comparison metric is generated if parameter specified as false
+    test2_tRNAMetrics = test_tRNAMetrics.virus_TAAI(include_virus_tRNA = False)
+    assert not hasattr(test2_tRNAMetrics, "virusTAAI_totaltRNA")
 
