@@ -22,3 +22,6 @@ def test_tRNAMetrics_virus_TAAI_defaults():
     test_tRNAMetrics = tRNAMetrics(virus_geneset, host_geneset)
     test_tRNAMetrics.virus_TAAI()
 
+    # test 1: check that amino acid frequency has been calculated for virus GeneSet attribute
+    assert hasattr(test_tRNAMetrics.virus_GeneSet, "aa_frq")
+
