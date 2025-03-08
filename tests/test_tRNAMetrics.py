@@ -60,3 +60,8 @@ def test_tRNAMetrics_virus_TCAI():
     test3_tRNAMetrics.virus_TCAI(skip_nondeg_codons = False)
     assert math.isclose(test3_tRNAMetrics.virusTCAI_hosttRNA, 0.6676379024704918, rel_tol=1e-6)
     assert math.isclose(test3_tRNAMetrics.virusTCAI_totaltRNA, 0.6679138744756812, rel_tol=1e-6)
+
+    # test 4: # test 5: check no total tRNA comparison metric is generated if parameter specified as false
+    test4_tRNAMetrics = tRNAMetrics(virus_geneset, host_geneset)
+    test4_tRNAMetrics.virus_TCAI(include_virus_tRNA = False)
+    assert not hasattr(test4_tRNAMetrics, "virusTCAI_totaltRNA")
