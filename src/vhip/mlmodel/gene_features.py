@@ -8,7 +8,6 @@ This module provides:
 
 import os
 import re
-from collections import Counter
 from typing import List, Union
 
 import numpy as np
