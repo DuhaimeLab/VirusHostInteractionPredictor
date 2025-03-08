@@ -1,8 +1,10 @@
 """Pytest for tRNAMetrics methods in gene_features module."""
 
-import pytest
+import math
 
-from vhip.mlmodel.gene_features import GeneSet,tRNAMetrics
+import scipy  # pyright: ignore[reportMissingTypeStubs]
+
+from vhip.mlmodel.gene_features import GeneSet, tRNAMetrics
 
 virus_geneset = GeneSet("tests/datatests/test_virus_tRNA_genes.ffn")
 host_geneset = GeneSet("tests/datatests/test_host_tRNA_genes.ffn")
