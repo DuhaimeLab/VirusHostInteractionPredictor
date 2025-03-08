@@ -42,3 +42,10 @@ def test_tRNAMetrics_virus_TAAI():
     test2_tRNAMetrics = test_tRNAMetrics.virus_TAAI(include_virus_tRNA = False)
     assert not hasattr(test2_tRNAMetrics, "virusTAAI_totaltRNA")
 
+def test_tRNAMetrics_virus_TCAI():
+    """Test code to calculate virus codon accordance with tRNA availability."""
+    test_tRNAMetrics = tRNAMetrics(virus_geneset, host_geneset)
+    test_tRNAMetrics.virus_TCAI()
+
+    # test 1: check that codon frequency has been calculated for virus GeneSet attribute
+    assert hasattr(test_tRNAMetrics.virus_GeneSet, "codon_frq")
