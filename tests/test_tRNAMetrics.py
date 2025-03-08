@@ -16,3 +16,9 @@ def test_tRNAMetrics_init():
     assert hasattr(test_tRNAMetrics, "host_GeneSet")
     assert hasattr(test_tRNAMetrics.virus_GeneSet, "tRNA_frq_aa")
     assert hasattr(test_tRNAMetrics.host_GeneSet, "tRNA_frq_aa")
+
+def test_tRNAMetrics_virus_TAAI_defaults():
+    """Test code to calculate virus amino acid accordance with tRNA availability, using default setting (include virus tRNA genes)."""
+    test_tRNAMetrics = tRNAMetrics(virus_geneset, host_geneset)
+    test_tRNAMetrics.virus_TAAI()
+
