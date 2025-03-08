@@ -631,7 +631,7 @@ class tRNAMetrics:
             host_tRNA_frq_tcc_values = [self.host_GeneSet.tRNA_frq_tcc[key] for key in sorted_keys if key not in stop_codons]
             # Prepare tRNA dictionaries for total tRNA accordance metric if specified
             virus_tRNA_dict_tcc = {k: v for k, v in self.virus_GeneSet.tRNA_dict_tcc.items() if k not in stop_codons} if include_virus_tRNA else None
-            host_tRNA_dict_tcc = {k: v for k, v in self.virus_GeneSet.tRNA_dict_tcc.items() if k not in stop_codons} if include_virus_tRNA else None
+            host_tRNA_dict_tcc = {k: v for k, v in self.host_GeneSet.tRNA_dict_tcc.items() if k not in stop_codons} if include_virus_tRNA else None
 
         # Perform Spearman Rank correlation between virus codon frequency and host tRNA availability
         res = scipy.stats.spearmanr(virus_codon_frq_values, host_tRNA_frq_tcc_values)
