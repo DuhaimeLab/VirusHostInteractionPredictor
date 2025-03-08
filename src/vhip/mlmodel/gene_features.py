@@ -618,8 +618,8 @@ class tRNAMetrics:
             irrelevant_codons = non_degenerate_codons + stop_codons
             sorted_keys = [key for key in sorted(self.virus_GeneSet.codon_frq) if key not in irrelevant_codons]
             # Prepare codon and tRNA lists for spearman rank
-            virus_codon_frq_values = [self.virus_GeneSet.codon_frq[key] for key in sorted_keys if key not in irrelevant_codons]
-            host_tRNA_frq_tcc_values = [self.host_GeneSet.tRNA_frq_tcc[key] for key in sorted_keys if key not in irrelevant_codons]
+            virus_codon_frq_values = [self.virus_GeneSet.codon_frq[key] for key in sorted_keys]
+            host_tRNA_frq_tcc_values = [self.host_GeneSet.tRNA_frq_tcc[key] for key in sorted_keys]
             # Prepare tRNA dictionaries for total tRNA accordance metric if specified
             virus_tRNA_dict_tcc = {k: v for k, v in self.virus_GeneSet.tRNA_dict_tcc.items() if k not in irrelevant_codons} if include_virus_tRNA else None
             host_tRNA_dict_tcc = {k: v for k, v in self.host_GeneSet.tRNA_dict_tcc.items() if k not in irrelevant_codons} if include_virus_tRNA else None
@@ -627,8 +627,8 @@ class tRNAMetrics:
             # Sort and remove stop codon keys only
             sorted_keys = [key for key in sorted(self.virus_GeneSet.codon_frq) if key not in stop_codons]
             # Prepare codon and tRNA lists for spearman rank
-            virus_codon_frq_values = [self.virus_GeneSet.codon_frq[key] for key in sorted_keys if key not in stop_codons]
-            host_tRNA_frq_tcc_values = [self.host_GeneSet.tRNA_frq_tcc[key] for key in sorted_keys if key not in stop_codons]
+            virus_codon_frq_values = [self.virus_GeneSet.codon_frq[key] for key in sorted_keys]
+            host_tRNA_frq_tcc_values = [self.host_GeneSet.tRNA_frq_tcc[key] for key in sorted_keys]
             # Prepare tRNA dictionaries for total tRNA accordance metric if specified
             virus_tRNA_dict_tcc = {k: v for k, v in self.virus_GeneSet.tRNA_dict_tcc.items() if k not in stop_codons} if include_virus_tRNA else None
             host_tRNA_dict_tcc = {k: v for k, v in self.host_GeneSet.tRNA_dict_tcc.items() if k not in stop_codons} if include_virus_tRNA else None
