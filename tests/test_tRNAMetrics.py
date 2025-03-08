@@ -25,3 +25,10 @@ def test_tRNAMetrics_virus_TAAI_defaults():
     # test 1: check that amino acid frequency has been calculated for virus GeneSet attribute
     assert hasattr(test_tRNAMetrics.virus_GeneSet, "aa_frq")
 
+    # test 2: check TAAI logic (spearman rank between identical data should be 1, and between opposite data should be -1)
+    data = test_tRNAMetrics.host_GeneSet.tRNA_frq_aa.values()
+    res1 = scipy.stats.spearmanr(list(data), list(data))
+    assert math.isclose(res1.statistic, 1.0, rel_tol=1e-6)
+    res2 = scipy.stats.spearmanr(list(data), list(data)[::-1])
+    assert math.isclose(res2.statistic, -1.0, rel_tol=1e-6)
+
