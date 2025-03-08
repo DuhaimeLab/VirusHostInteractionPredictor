@@ -608,12 +608,12 @@ class tRNAMetrics:
             self.virusTAAI_totaltRNA: float = res.statistic
 
     def virus_TCAI(
-        self, skip_nondeg_codons: bool = True, include_virus_tRNA: bool = True
+        self, skip_nondeg_codons: bool = False, include_virus_tRNA: bool = True
     ) -> None:
         """Calculate accordance index between virus codon frequency and corresponding tRNA availability.
 
         Args:
-            skip_nondeg_codons (bool): Whether to omit non-degenerate codons (codons whose encoded amino acid is specific to one codon alone) from the accordance calculation (default is True). Note stop codons are inherently skipped because they have no associated tRNA.
+            skip_nondeg_codons (bool): Whether to omit non-degenerate codons (codons whose encoded amino acid is specific to one codon alone) from the accordance calculation (default is False). Note stop codons are inherently skipped because they have no associated tRNA.
             include_virus_tRNA (bool): Whether to additionally calculate an accordance metric that accounts for tRNA gene counts from virus, in addition to that of host (default is True).
 
         Populates the following class attributes:
