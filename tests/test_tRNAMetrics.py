@@ -39,8 +39,9 @@ def test_tRNAMetrics_virus_TAAI():
     assert math.isclose(test_tRNAMetrics.virusTAAI_totaltRNA, 0.7814187052403264, rel_tol=1e-6)
 
     # test 5: check no total tRNA comparison metric is generated if parameter specified as false
-    test2_tRNAMetrics = test_tRNAMetrics.virus_TAAI(include_virus_tRNA = False)
-    assert not hasattr(test2_tRNAMetrics, "virusTAAI_totaltRNA")
+    test5_tRNAMetrics = tRNAMetrics(virus_geneset, host_geneset)
+    test5_tRNAMetrics.virus_TAAI(include_virus_tRNA = False)
+    assert not hasattr(test5_tRNAMetrics, "virusTAAI_totaltRNA")
 
 def test_tRNAMetrics_virus_TCAI():
     """Test code to calculate virus codon accordance with tRNA availability."""
