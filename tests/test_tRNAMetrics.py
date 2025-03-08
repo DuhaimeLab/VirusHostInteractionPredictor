@@ -50,3 +50,7 @@ def test_tRNAMetrics_virus_TCAI():
 
     # test 1: check that codon frequency has been calculated for virus GeneSet attribute
     assert hasattr(test_tRNAMetrics.virus_GeneSet, "codon_frq")
+
+    # test 2: defaults (skip non-degenerate codons)
+    assert math.isclose(test_tRNAMetrics.virusTCAI_hosttRNA, 0.5719110045885629, rel_tol=1e-6)
+    assert math.isclose(test_tRNAMetrics.virusTCAI_totaltRNA, 0.5722056927702744, rel_tol=1e-6)
