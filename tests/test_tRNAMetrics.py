@@ -54,3 +54,9 @@ def test_tRNAMetrics_virus_TCAI():
     # test 2: defaults (skip non-degenerate codons)
     assert math.isclose(test_tRNAMetrics.virusTCAI_hosttRNA, 0.5719110045885629, rel_tol=1e-6)
     assert math.isclose(test_tRNAMetrics.virusTCAI_totaltRNA, 0.5722056927702744, rel_tol=1e-6)
+
+    # test 3: do not skip non-degenerate codons
+    test3_tRNAMetrics = tRNAMetrics(virus_geneset, host_geneset)
+    test3_tRNAMetrics.virus_TCAI(skip_nondeg_codons = False)
+    assert math.isclose(test3_tRNAMetrics.virusTCAI_hosttRNA, 0.6676379024704918, rel_tol=1e-6)
+    assert math.isclose(test3_tRNAMetrics.virusTCAI_totaltRNA, 0.6679138744756812, rel_tol=1e-6)
