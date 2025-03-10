@@ -1,5 +1,6 @@
 """Pytest for CodonBiasComparison methods in gene_features module."""
 
+import numpy as np
 import scipy  # pyright: ignore[reportMissingTypeStubs]
 
 from vhip.mlmodel.gene_features import CodonBiasComparison, GeneSet
@@ -42,16 +43,16 @@ def test_CodonBiasComparison_init():
         test_host_GeneSet.aa_dict, test_virus_GeneSet.aa_dict
     )
     assert (
-        len(test_comparison_3.host_list) == 21
-    )  # there are 20 possible unique amino acids plus a stop signal
-    assert len(test_comparison_3.virus_list) == 21
+        len(test_comparison_3.host_list) == 20
+    )  # there are 20 possible unique amino acids
+    assert len(test_comparison_3.virus_list) == 20
 
     # test 4 - test CodonBiasComparsion initializes with input amino acid frequency (GeneSet.aa_frq)
     test_comparison_4 = CodonBiasComparison(
         test_host_GeneSet.aa_frq, test_virus_GeneSet.aa_frq
     )
-    assert len(test_comparison_4.host_list) == 21
-    assert len(test_comparison_4.virus_list) == 21
+    assert len(test_comparison_4.host_list) == 20
+    assert len(test_comparison_4.virus_list) == 20
 
     # test 5 - test CodonBiasComparsion initializes with input RSCU (GeneSet.RSCU_dict)
     test_comparison_5 = CodonBiasComparison(
@@ -75,7 +76,6 @@ def test_CodonBiasComparison_methods():
     test_comparison = CodonBiasComparison(
         test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict
     )
-    test_comparison.calculate_slope()
     test_comparison.calculate_R2()
     test_comparison.cosine_similarity()
 
@@ -92,7 +92,6 @@ def test_CodonBiasComparison_methods():
     test_comparison = CodonBiasComparison(
         test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict
     )
-    test_comparison.calculate_slope()
     test_comparison.calculate_R2()
     test_comparison.cosine_similarity()
 
@@ -234,14 +233,19 @@ def test_CodonBiasComparison_methods():
     assert test_host_GeneSet.codon_dict == expected_host_codon_dict
     assert test_virus_GeneSet.codon_dict == expected_virus_codon_dict
 
-    assert (
-        test_comparison.slope
-        == scipy.stats.linregress(expected_host_list, expected_virus_list)[0]
-    )
-    assert (
-        test_comparison.R2
-        == scipy.stats.linregress(expected_host_list, expected_virus_list)[2] ** 2
-    )
+    # (perform the expected linear regression calculations)
+    x = np.array(expected_host_list)
+    y = np.array(expected_virus_list)
+    slope, intercept = np.polyfit(x, y, 1)
+    y_predicted = slope * x + intercept
+    residuals_sum_sq = np.sum((y - y_predicted) ** 2)
+    total_sum_sq = np.sum((y - np.mean(y)) ** 2)
+    R2 = 1 - (residuals_sum_sq / total_sum_sq)
+
+    assert test_comparison.slope == slope
+
+    assert test_comparison.R2 == R2
+
     assert test_comparison.cos_similarity == 1 - scipy.spatial.distance.cosine(
         expected_host_list, expected_virus_list
     )
