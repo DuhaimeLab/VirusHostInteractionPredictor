@@ -542,6 +542,19 @@ class ComputeFeatures:
         k6dist: List[float] = []
         GCdiff: List[float] = []
         Homology: List[int] = []
+        Codon_Frq_Slope: List[float] = []
+        Codon_Frq_R2: List[float] = []
+        Codon_Frq_Cosine: List[float] = []
+        AA_Frq_Slope: List[float] = []
+        AA_Frq_R2: List[float] = []
+        AA_Frq_Cosine: List[float] = []
+        RSCU_Slope: List[float] = []
+        RSCU_R2: List[float] = []
+        RSCU_Cosine: List[float] = []
+        virus_TAAI_hosttRNA: List[float] = []
+        virus_TAAI_totaltRNA: List[float] = []
+        virus_TCAI_hosttRNA: List[float] = []
+        virus_TCAI_totaltRNA: List[float] = []
 
         for pair in self.computed_pairs:
             virus_host = str(pair.virus + ":" + pair.host)
@@ -551,12 +564,26 @@ class ComputeFeatures:
             k6dist.append(pair.k6dist)
             GCdiff.append(pair.GCdifference)
             Homology.append(int(pair.homology_hit))
+            Codon_Frq_Slope.append(pair.codons_comparison.slope)
+            Codon_Frq_R2.append(pair.codons_comparison.R2)
+            Codon_Frq_Cosine.append(pair.codons_comparison.cos_similarity)
+            AA_Frq_Slope.append(pair.aa_comparison.slope)
+            AA_Frq_R2.append(pair.aa_comparison.R2)
+            AA_Frq_Cosine.append(pair.aa_comparison.cos_similarity)
+            RSCU_Slope.append(pair.RSCU_comparison.slope)
+            RSCU_R2.append(pair.RSCU_comparison.R2)
+            RSCU_Cosine.append(pair.RSCU_comparison.cos_similarity)
+            virus_TAAI_hosttRNA.append(pair.tRNAMetrics.virusTAAI_hosttRNA)
+            virus_TAAI_totaltRNA.append(pair.tRNAMetrics.virusTAAI_totaltRNA)
+            virus_TCAI_hosttRNA.append(pair.tRNAMetrics.virusTCAI_hosttRNA)
+            virus_TCAI_totaltRNA.append(pair.tRNAMetrics.virusTCAI_totaltRNA)
 
         self.features_df = pd.DataFrame(
-            list(zip(pairs, GCdiff, k3dist, k6dist, Homology)),
-            columns=["pairs", "GCdiff", "k3dist", "k6dist", "Homology"],
+            list(zip(pairs, GCdiff, k3dist, k6dist, Homology, Codon_Frq_Slope, Codon_Frq_R2, Codon_Frq_Cosine, AA_Frq_Slope, AA_Frq_R2, AA_Frq_Cosine, RSCU_Slope, RSCU_R2, RSCU_Cosine, virus_TAAI_hosttRNA, virus_TAAI_totaltRNA, virus_TCAI_hosttRNA, virus_TCAI_totaltRNA)),
+            columns=["pairs", "GCdiff", "k3dist", "k6dist", "Homology", "Codon_Frq_Slope", "Codon_Frq_R2", "Codon_Frq_Cosine", "AA_Frq_Slope", "AA_Frq_R2", "AA_Frq_Cosine", "RSCU_Slope", "RSCU_R2", "RSCU_Cosine", "virus_TAAI_hosttRNA", "virus_TAAI_totaltRNA", "virus_TCAI_hosttRNA", "virus_TCAI_totaltRNA"],
         )
         self.features_df = self.features_df.set_index("pairs")  # pyright: ignore[reportUnknownMemberType]
+
 
     def save_features(self, filename: str):
         """Save computed features as a tsv file.
