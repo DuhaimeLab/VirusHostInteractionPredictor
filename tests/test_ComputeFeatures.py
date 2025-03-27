@@ -628,4 +628,4 @@ def test_ComputeFeatures_complete_pipeline():
     test.convert_to_dataframe()
     assert isinstance(test.features_df, pd.DataFrame)
     assert test.features_df.shape[0] == 12
-    assert test.features_df.shape[1] == 4
+    assert test.features_df.shape[1] == 17
