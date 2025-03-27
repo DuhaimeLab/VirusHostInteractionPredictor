@@ -320,10 +320,8 @@ class ComputeFeatures:
             seq_profile.generate_profile()
             self.k6profiles[host] = seq_profile
 
-    def generate_codon_aa_counts(
-        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
-    ) -> None:
-        """Set up GeneSet objects for each virus and host gene files, populate their codon_dict and aa_dict (counts) variables, and store those dictionaries in ComputeFeatures variables."""
+    def generate_GeneSets(self) -> None:
+        """Set up GeneSet objects for each virus and host gene files."""
         self.virus_GeneSets = {
             virus: GeneSet(os.path.join(self.virus_gene_dir, virus))
             for virus in self.virus_gene_filenames
@@ -332,6 +330,22 @@ class ComputeFeatures:
             host: GeneSet(os.path.join(self.host_gene_dir, host))
             for host in self.host_gene_filenames
         }
+
+    def generate_codon_aa_counts(
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    ) -> None:
+        """Generate profile of the counts of each unique codon in every virus and host GeneSet.
+
+        This will be compiled from all genes in each .ffn file in the virus and host genes files directories.
+
+        Args:
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
+            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
+        """
+        if not hasattr(self, "virus_GeneSets") and not hasattr(self, "host_GeneSets"):
+            # If GeneSets have not already been created, runs generate_GeneSets()
+            self.generate_GeneSets()
+
         self.codon_counts = dict.fromkeys(self.all_gene_files)
         self.aa_counts = dict.fromkeys(self.all_gene_files)
 
