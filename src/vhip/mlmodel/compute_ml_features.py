@@ -216,13 +216,13 @@ class ComputeFeatures:
         header_filename: dict[str, str] = {}
 
         for virus in self.virus_genome_filenames:
-            path = self.virus_genome_dir + virus
+            path = os.path.join(self.virus_genome_dir, virus)
             headers = read_headers(path)
             for header in headers:
                 header_filename[header] = virus
 
         for host in self.host_genome_filenames:
-            path = self.host_genome_dir + host
+            path = os.path.join(self.host_genome_dir, host)
             headers = read_headers(path)
             for header in headers:
                 header_filename[header] = host
