@@ -443,11 +443,12 @@ class GeneSet:
                 has_tRNAs = True
                 aa_3 = gene.gene_product.split("-")[1].split("(")[0]
                 if aa_3 in AA_CONVERSIONS.keys():
-                    aa_1 = AA_CONVERSIONS[aa_3] #new
+                    aa_1 = AA_CONVERSIONS[aa_3] #new (SeC)
                     self.tRNA_dict_aa[aa_1] += 1
                     anticodon = gene.gene_product.split("(")[1].split(")")[0]
                     tcc = reverse_complement(anticodon)
-                    self.tRNA_dict_tcc[tcc] += 1
+                    if tcc in self.tRNA_dict_tcc.keys(): #new (UGG)
+                        self.tRNA_dict_tcc[tcc] += 1
 
         # Calculate total tRNA count
         self.total_tRNA: int = sum(self.tRNA_dict_tcc.values())
