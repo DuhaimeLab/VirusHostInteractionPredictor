@@ -10,7 +10,7 @@ from typing import List, Optional
 
 import pandas as pd  # pyright: ignore[reportMissingTypeStubs]
 
-from .gene_features import CodonBiasComparison, GeneSet
+from .gene_features import CodonBiasComparison, GeneSet, tRNAMetrics
 from .genomes_features import HomologyMatch, KmerProfile, d2Distance
 from .read_sequence import read_headers, read_sequence
 
@@ -38,6 +38,7 @@ class Pairs:
         self.codons_comparison: CodonBiasComparison
         self.aa_comparison: CodonBiasComparison
         self.RSCU_comparison: CodonBiasComparison
+        self.tRNAMetrics: tRNAMetrics
 
         self.interaction: int
 
