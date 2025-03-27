@@ -508,7 +508,6 @@ class ComputeFeatures:
             pair.aa_comparison,
             pair.RSCU_comparison,
         ]:
-            comparison.calculate_slope()
             comparison.calculate_R2()
             comparison.cosine_similarity()
 

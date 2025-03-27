@@ -98,7 +98,6 @@ def test_Gene_calculate_aa_counts():
     test_gene = Gene("NTGCCGATT")
     test_gene.calculate_aa_counts()
     assert test_gene.aa_dict == {
-        "_": 0,
         "C": 0,
         "Y": 0,
         "W": 0,

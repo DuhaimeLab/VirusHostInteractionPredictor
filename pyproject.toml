@@ -11,11 +11,12 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.9"
+python = ">3.9,<3.13"
 biopython = "*"
 numpy = "*"
 pandas = "*"
 scikit-learn = "*"
+scipy = "*"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "*"
