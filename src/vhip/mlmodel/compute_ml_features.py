@@ -480,7 +480,7 @@ class ComputeFeatures:
         self.computed_pairs = results
 
     def compute_feature(self, pair: Pairs) -> Pairs:
-        """Compute all virus-host coevolution signals needed to predict interaction.
+        """Compute all virus-host coevolution signals (for one pair) needed to predict interaction.
 
         Args:
             pair (Dataclass): virus-host Pairs dataclass.
@@ -525,6 +525,12 @@ class ComputeFeatures:
         ]:
             comparison.calculate_R2()
             comparison.cosine_similarity()
+
+        # calculate tRNA-based metrics for the pair
+        pair.tRNAMetrics = tRNAMetrics(virus_GeneSet=self.virus_GeneSets[virus], host_GeneSet=self.host_GeneSets[host])
+        pair.tRNAMetrics.virus_TAAI() # defaults
+        pair.tRNAMetrics.virus_TCAI() # defaults
+
 
         return pair
 
