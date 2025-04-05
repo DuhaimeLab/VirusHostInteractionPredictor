@@ -128,7 +128,7 @@ class Gene:
             - id (str): Gene ID.
             - gene (str): Gene name.
             - product (str): Gene product name.
-            - nt (str): Nucleotide sequence of the gene. If a CDS gene, this string should be divisible by the codon length (default 3).
+            - nt (str): Nucleotide sequence of the gene. If a CDS gene, this string should be divisible by the codon length (default 3). Note that degenerate codons will be skipped.
             - aa (str): Required only if gene type is 'cds.' Amino acid sequence of the gene.
         codon_length (int): Length of 1 codon (default is 3).
 
@@ -140,9 +140,8 @@ class Gene:
         self.nt (str),
         self.aa (str): Populated if a CDS gene,
         self.codon_length (int): Populated if a CDS gene. Length of 1 codon (default is 3).
-    If input dictionary does not contain expected information, will flag issue by instead populating the following class attributes:
-        self.input_error (bool): True if input dictionary does not contain all expected keys.
-        self.cds_len_error (bool): True if the length of the nucleotide sequence of a CDS is not divisible by the codon length.
+        self.input_error (bool): True if input dictionary does not contain all expected keys (expect False).
+        self.cds_len_error (bool): True if the length of the nucleotide sequence of a CDS is not divisible by the codon length (expect False).
     """
 
     def __init__(
@@ -151,14 +150,15 @@ class Gene:
         codon_length: int = 3,
     ) -> None:
         """Initialize class variables."""
+        self.input_error = False
+        self.cds_len_error = False
         if not all(key in json_dict.keys() for key in ["type", "id", "gene", "product", "nt"]): # confirm all required keys present in input dictionary
             print("Input dictionary does not contain 'type', 'id', 'gene', 'product', 'nt' keys. See documentation for Gene class initialization.")
             self.input_error: bool = True
             return
         else:
-            self.input_error: bool = False
             if json_dict["type"] == "cds": # confirm gene length divisible by 3 if a CDS gene
-                if not json_dict["aa"]:
+                if "aa" not in json_dict.keys():
                     print("Input dictionary does not contain 'aa' key for cds gene. See documentation for Gene class initialization.")
                     self.input_error: bool = True
                     return
@@ -167,7 +167,6 @@ class Gene:
                     self.cds_len_error: bool = True
                     return
                 else:
-                    self.cds_len_error: bool = False
                     self.codon_length: int = codon_length
                     self.n_codons: int = len(json_dict["nt"]) // self.codon_length
                     self.aa: str = json_dict["aa"]
