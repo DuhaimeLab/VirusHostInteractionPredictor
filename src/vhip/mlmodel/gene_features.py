@@ -138,7 +138,8 @@ class Gene:
         self.gene (str),
         self.product (str),
         self.nt (str),
-        self.aa (str)
+        self.aa (str),
+        self.codon_length (int): Populated if a CDS gene. Length of 1 codon (default is 3).
     If input dictionary does not contain expected information, will flag issue by instead populating the following class attributes:
         self.input_error (bool): True if input dictionary does not contain expected keys.
         self.cds_len_error (bool): True if the length of the nucleotide sequence of a CDS is not divisible by the codon length.
@@ -149,24 +150,27 @@ class Gene:
         json_dict: dict[str, str],
         codon_length: int = 3,
     ) -> None:
-        """Confirm input dictionary contains required elements."""
-        if not all(key in json_dict.keys() for key in ["type", "id", "gene", "product", "nt", "aa"]):
+        """Initialize class variables."""
+        if not all(key in json_dict.keys() for key in ["type", "id", "gene", "product", "nt", "aa"]): # confirm all required keys present in input dictionary
             print("Input dictionary does not contain 'type', 'id', 'gene', 'product', 'nt', 'aa' keys. See documentation for Gene class initialization.")
             self.input_error: bool = True
+            return
         else:
             self.input_error: bool = False
-            if json_dict["type"] == "cds":
+            if json_dict["type"] == "cds": # confirm gene length divisible by 3 if a CDS gene
                 if len(json_dict["nt"]) % codon_length != 0:
                     print("Length of nucleotide sequence is not divisible by codon length.")
                     self.cds_len_error: bool = True
+                    return
                 else:
                     self.cds_len_error: bool = False
-                    self.type: str = json_dict["type"]
-                    self.id: str = json_dict["id"]
-                    self.gene: str = json_dict["gene"]
-                    self.product: str = json_dict["product"]
-                    self.nt: str = json_dict["nt"]
-                    self.aa: str = json_dict["aa"]
+                    self.codon_length: int = codon_length
+            self.type: str = json_dict["type"]
+            self.id: str = json_dict["id"]
+            self.gene: str = json_dict["gene"]
+            self.product: str = json_dict["product"]
+            self.nt: str = json_dict["nt"]
+            self.aa: str = json_dict["aa"]
 
     def calculate_codon_counts(self) -> None:
         """Calculate counts of each unique codon in a gene.
@@ -178,7 +182,7 @@ class Gene:
         self.number_imprecise_codons: int = 0
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
 
-        for i in range(0, len(self.seq), self.codon_length):
+        for i in range(0, len(self.nt), self.codon_length):
             codon = self.seq[i : i + self.codon_length]
             if codon in self.codon_dict.keys():
                 self.codon_dict[codon] += 1
