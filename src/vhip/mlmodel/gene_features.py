@@ -123,7 +123,13 @@ class Gene:
     """Class representing a gene.
 
     Args:
-        gene_seq (str): The nucleotide sequence of the gene.
+        json_dict (dict): Dictionary containing gene information. Required keys are 'type', 'id', 'gene', 'product', 'nt', and 'aa'. Descriptions below:
+            - type (str): Type of gene ('cds' and 'tRNA' values will inform annotation parsing).
+            - id (str): Gene ID.
+            - gene (str): Gene name.
+            - product (str): Gene product name.
+            - nt (str): Nucleotide sequence of the gene. If a CDS gene, this string should be divisible by the codon length (default 3).
+            - aa (str): Amino acid sequence of the gene.
         codon_length (int): Length of 1 codon (default is 3).
         gene_id (str): The gene ID from annotations (default is an empty string).
         gene_product (str): The product of the gene from annotations (default is an empty string).
@@ -131,7 +137,7 @@ class Gene:
 
     def __init__(
         self,
-        gene_seq: str,
+        json_dict: dict[str, str],
         codon_length: int = 3,
         gene_id: str = "",
         gene_product: str = "",
