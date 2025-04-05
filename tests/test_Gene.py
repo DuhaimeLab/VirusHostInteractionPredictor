@@ -7,17 +7,29 @@ from vhip.mlmodel.gene_features import Gene
 
 def test_Gene_init():
     """Test code to create Gene object and initialize class attributes."""
-    test_gene_1 = Gene(
-        gene_seq="ATGCCGATT", gene_id="test_gene_1", gene_product="test_gene_product_1"
-    )
-    assert test_gene_1.seq == "ATGCCGATT"
-    assert test_gene_1.codon_length == 3
-    assert test_gene_1.gene_id == "test_gene_1"
-    assert test_gene_1.gene_product == "test_gene_product_1"
+    # Test 1: CDS gene with valid sequence and inputs
+    test_gene_1 = Gene({"type": "cds", "id": "1", "gene": "test_gene_1", "product": "test_gene_product_1", "nt": "ATGCCGATTTAG", "aa": "MPI"})
+    assert test_gene_1.input_error is False
+    assert test_gene_1.cds_len_error is False
+    assert test_gene_1.type == "cds"
+    assert test_gene_1.id == "1"
+    assert test_gene_1.gene == "test_gene_1"
+    assert test_gene_1.product == "test_gene_product_1"
+    assert test_gene_1.nt == "ATGCCGATTTAG"
+    assert test_gene_1.aa == "MPI"
 
-    # Test that Exception is raised when gene length not divisible by codon length
-    with pytest.raises(Exception):
-        Gene("ATGCCGATTA")
+    # Test 2: gene with missing arguments
+    test_gene_2 = Gene({"random": "random"})
+    assert test_gene_2.input_error is True
+
+    # Test 3: CDS gene with missing aa argument
+    test_gene_3 = Gene({"type": "cds", "id": "3", "gene": "test_gene_3", "product": "test_gene_product_3", "nt": "ATGCCGATTTAG"})
+    assert test_gene_3.input_error is True
+
+    # Test 4: CDS gene with invalid sequence (not divisible by 3)
+    test_gene_4 = Gene({"type": "cds", "id": "4", "gene": "test_gene_4", "product": "test_gene_product_4", "nt": "ATGCCGATTTAGG", "aa": "MPI"})
+    assert test_gene_4.input_error is False
+    assert test_gene_4.cds_len_error is True
 
 
 def test_Gene_calculate_codon_counts():
