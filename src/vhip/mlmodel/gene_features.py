@@ -131,6 +131,17 @@ class Gene:
             - nt (str): Nucleotide sequence of the gene. If a CDS gene, this string should be divisible by the codon length (default 3).
             - aa (str): Amino acid sequence of the gene.
         codon_length (int): Length of 1 codon (default is 3).
+
+    Populates the following class attributes:
+        self.type (str),
+        self.id (str),
+        self.gene (str),
+        self.product (str),
+        self.nt (str),
+        self.aa (str)
+    If input dictionary does not contain expected information, will flag issue by instead populating the following class attributes:
+        self.input_error (bool): True if input dictionary does not contain expected keys.
+        self.cds_len_error (bool): True if the length of the nucleotide sequence of a CDS is not divisible by the codon length.
     """
 
     def __init__(
@@ -139,22 +150,23 @@ class Gene:
         codon_length: int = 3,
     ) -> None:
         """Confirm input dictionary contains required elements."""
-        if not all(
-            key in json_dict for key in ["type", "id", "gene", "product", "nt", "aa"]
-        ):
-            raise Exception(
-                "Input dictionary must contain 'type', 'id', 'gene', 'product', 'nt', 'aa' keys. See documentation for Gene class initialization."
-            )
-
-        """Initialize class variables."""
-        if len(gene_seq) % codon_length == 0:
-            self.seq = gene_seq
-            self.codon_length = codon_length
-            self.n_codons = len(gene_seq) / codon_length
-            self.gene_id = gene_id
-            self.gene_product = gene_product
-        elif len(gene_seq) % codon_length != 0:
-            raise Exception("Gene length is not a multiple of codon length.")
+        if not all(key in json_dict.keys() for key in ["type", "id", "gene", "product", "nt", "aa"]):
+            print("Input dictionary does not contain 'type', 'id', 'gene', 'product', 'nt', 'aa' keys. See documentation for Gene class initialization.")
+            self.input_error: bool = True
+        else:
+            self.input_error: bool = False
+            if json_dict["type"] == "cds":
+                if len(json_dict["nt"]) % codon_length != 0:
+                    print("Length of nucleotide sequence is not divisible by codon length.")
+                    self.cds_len_error: bool = True
+                else:
+                    self.cds_len_error: bool = False
+                    self.type: str = json_dict["type"]
+                    self.id: str = json_dict["id"]
+                    self.gene: str = json_dict["gene"]
+                    self.product: str = json_dict["product"]
+                    self.nt: str = json_dict["nt"]
+                    self.aa: str = json_dict["aa"]
 
     def calculate_codon_counts(self) -> None:
         """Calculate counts of each unique codon in a gene.
