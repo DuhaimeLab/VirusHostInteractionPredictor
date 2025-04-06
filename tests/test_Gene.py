@@ -142,10 +142,10 @@ def test_CDSGene_calculate_codon_counts():
     assert len(test_gene_2.imprecise_codons) == 0
 
 
-def test_Gene_calculate_aa_counts():
+def test_CDSGene_calculate_aa_counts():
     """Test code to calculate amino acid counts for a given gene."""
     # Test 1: CDS gene with expected amino acids in input dict
-    test_gene = Gene({"type": "cds", "id": "1", "gene": "test_gene_1", "product": "test_gene_product_1", "nt": "ATGCCGATTTAG", "aa": "MPI"})
+    test_gene = CDSGene({"type": "cds", "id": "1", "gene": "test_gene_1", "product": "test_gene_product_1", "nt": "ATGCCGATTTAG", "aa": "MPI"})
     test_gene.calculate_aa_counts()
     assert test_gene.aa_dict == {
         "C": 0,
@@ -171,7 +171,7 @@ def test_Gene_calculate_aa_counts():
     }
 
     # Test 2: CDS gene with unexpected amino acids in input dict
-    test_gene_2 = Gene({"type": "cds", "id": "2", "gene": "test_gene_2", "product": "test_gene_product_2", "nt": "ATGCCGATTTAG", "aa": "MPIB"})
+    test_gene_2 = CDSGene({"type": "cds", "id": "2", "gene": "test_gene_2", "product": "test_gene_product_2", "nt": "ATGCCGATTTAG", "aa": "MPIB"})
     test_gene_2.calculate_aa_counts()
     assert test_gene_2.aa_dict == {
         "C": 0,
@@ -196,12 +196,6 @@ def test_Gene_calculate_aa_counts():
         "P": 1,
     }
     assert test_gene_2.unexpected_aa == ["B"]
-
-    # Test 3: non-CDS gene
-    test_gene_3 = Gene({"type": "tRNA", "id": "3", "gene": "test_gene_3", "product": "test_gene_product_3", "nt": "ATGCCGATTTAG"})
-    test_gene_3.calculate_aa_counts()
-    assert all(value == 0 for value in test_gene_3.aa_dict.values())
-
 
 def test_Gene_calculate_GCn():
     """Test code to calculate GCn content for a given gene."""
