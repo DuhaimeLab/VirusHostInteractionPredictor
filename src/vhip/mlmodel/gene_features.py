@@ -208,17 +208,18 @@ class Gene:
 
         Populates the following class attributes:
             self.aa_dict (str: int): Each key of dictionary is an unique amino acid, and values represent the number of times the associated amino acid (key) appears to be encoded by codons in the gene sequence.
-        If not previously calculated, method will also populate:
-            self.codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
-            self.number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
         """
         self.aa_dict = dict.fromkeys(AA_LIST, 0)
         self.unexpected_aa: List[str] = []
-        for aa in self.aa:
-            if aa not in self.aa_dict.keys():
-                self.unexpected_aa.append(aa)
-            elif aa in self.aa_dict.keys():
-                self.aa_dict[aa] += 1
+        if self.type != "cds":
+            print("Gene is not a CDS gene. Amino acid counts will not be calculated.")
+            return
+        elif self.type == "cds" and self.input_error is False and self.aa_input_error is False:
+            for aa in self.aa:
+                if aa in self.aa_dict.keys():
+                    self.aa_dict[aa] += 1
+                elif aa not in self.aa_dict.keys():
+                    self.unexpected_aa.append(aa)
 
     def calculate_GCn(self) -> None:
         """Calculate GC content at position 1, 2, and 3 of a gene.
