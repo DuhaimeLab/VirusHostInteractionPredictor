@@ -179,7 +179,7 @@ class Gene:
             self.nt: str = json_dict["nt"]
 
     def calculate_codon_counts(self) -> None:
-        """Calculate counts of each unique codon in a gene.
+        """Calculate counts of each unique codon in a cds gene.
 
         Populates the following class attributes:
             self.codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
@@ -191,7 +191,7 @@ class Gene:
         if self.type != "cds":
             print("Gene is not a CDS gene. Codon counts will not be calculated.")
             return
-        elif self.type == "cds" and self.nt_input_error is False:
+        elif self.type == "cds" and self.input_error is False:
             for i in range(0, len(self.nt), self.codon_length):
                 codon = self.nt[i : i + self.codon_length]
                 if codon in self.codon_dict.keys():
@@ -203,10 +203,8 @@ class Gene:
                 self.number_imprecise_codons / self.n_codons
             )
 
-
-
     def calculate_aa_counts(self) -> None:
-        """Calculate counts of each unique amino acid encoded by a gene.
+        """Calculate counts of each unique amino acid encoded by a cds gene.
 
         Populates the following class attributes:
             self.aa_dict (str: int): Each key of dictionary is an unique amino acid, and values represent the number of times the associated amino acid (key) appears to be encoded by codons in the gene sequence.
