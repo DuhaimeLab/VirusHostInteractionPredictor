@@ -2,7 +2,7 @@
 
 import pytest
 
-from vhip.mlmodel.gene_features import Gene
+from vhip.mlmodel.gene_features import CDSGene, Gene
 
 
 def test_Gene_init():
