@@ -37,7 +37,8 @@ def test_Gene_init():
 
 def test_Gene_calculate_codon_counts():
     """Test code to calculate codon counts for a given gene."""
-    test_gene = Gene("NTGCCGATT")
+    # Test 1: CDS gene with 1 imprecise codon
+    test_gene = Gene({"type": "cds", "id": "1", "gene": "test_gene_1", "product": "test_gene_product_1", "nt": "NTGCCGATTTAG", "aa": "PI"})
     test_gene.calculate_codon_counts()
     assert test_gene.codon_dict == {
         "ATA": 0,
@@ -99,13 +100,23 @@ def test_Gene_calculate_codon_counts():
         "TAC": 0,
         "TAT": 0,
         "TAA": 0,
-        "TAG": 0,
+        "TAG": 1,
         "TGC": 0,
         "TGT": 0,
         "TGA": 0,
         "TGG": 0,
     }
     assert test_gene.number_imprecise_codons == 1
+
+    # Test 2: CDS gene with no imprecise codons
+    test_gene_2 = Gene({"type": "cds", "id": "2", "gene": "test_gene_2", "product": "test_gene_product_2", "nt": "ATGCCGATTTAG", "aa": "MPI"})
+    test_gene_2.calculate_codon_counts()
+    assert test_gene_2.number_imprecise_codons == 0
+
+    # Test 3: non-CDS gene
+    test_gene_3 = Gene({"type": "tRNA", "id": "3", "gene": "test_gene_3", "product": "test_gene_product_3", "nt": "ATGCCGATTTAG"})
+    test_gene_3.calculate_codon_counts()
+    assert all(value == 0 for value in test_gene_3.codon_dict.values())
 
 
 def test_Gene_calculate_aa_counts():
