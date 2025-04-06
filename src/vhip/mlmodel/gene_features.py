@@ -168,7 +168,6 @@ class CDSGene(Gene):
             - product (str): Gene product name.
             - nt (str): Nucleotide sequence of the gene. If a CDS gene, this string should be divisible by the codon length (default 3). Note that degenerate codons will be skipped.
             - aa (str): Required only if gene type is 'cds.' Amino acid sequence of the gene.
-        codon_length (int): Length of 1 codon (default is 3).
 
     Populates the following class attributes:
         self.input_error (bool): True if input dictionary does not contain all expected keys, wherein method will exit (expect False).
@@ -179,12 +178,13 @@ class CDSGene(Gene):
         self.gene (str),
         self.product (str),
         self.nt (str),
-        self.codon_length (int): Length of 1 codon (default is 3).
+        self.codon_length (int): Length of 1 codon (default is 3 - if user specifies an alternative, custom codon dictionary must be provided in source code to compute codon counts).
         self.n_codons (int): Number of codons in the nucleotide sequence.
         self.aa (str): Populated if a CDS gene,
     """
-    def __init__(self, json_dict: dict[str, str], codon_length: int = 3) -> None:
+    def __init__(self, json_dict: dict[str, str]) -> None:
         """Initialize class variables."""
+        self.codon_length: int = 3
         self.aa_input_error: bool = False # will flag if amino acid sequence not provided in json input dict
         self.cds_len_error: bool = False # will flag if length of nucleotide sequence not divisible by codon length
         super().__init__(json_dict)
@@ -193,7 +193,7 @@ class CDSGene(Gene):
             return
         elif json_dict["type"] != "cds": # exit if input gene type is not 'cds'
             raise Exception("Gene is not a CDS gene (expected dictionary element 'type': 'cds'). This class is for CDS genes only.")
-        elif len(self.nt) % codon_length != 0: # exit if gene length not divisible by 3 for CDS gene
+        elif len(self.nt) % self.codon_length != 0: # exit if gene length not divisible by 3 for CDS gene
             print("Length of nucleotide sequence is not divisible by codon length.")
             self.cds_len_error: bool = True
             return
@@ -202,7 +202,6 @@ class CDSGene(Gene):
             self.aa_input_error: bool = True
             return
         else: # populate CDS gene attributes if provided
-            self.codon_length: int = codon_length
             self.n_codons: int = len(self.nt) // self.codon_length
             self.aa: str = json_dict["aa"]
 
