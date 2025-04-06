@@ -150,8 +150,10 @@ class Gene:
         codon_length: int = 3,
     ) -> None:
         """Initialize class variables."""
-        self.input_error = False
-        self.cds_len_error = False
+        self.input_error = False # to flag any missing generic keys from json input dict
+        self.aa_input_error = False # to flag missing amino acid sequence for cds genes
+        self.cds_len_error = False # to flag erroneous cds gene lengths
+
         if not all(key in json_dict.keys() for key in ["type", "id", "gene", "product", "nt"]): # confirm all required keys present in input dictionary
             print("Input dictionary does not contain 'type', 'id', 'gene', 'product', 'nt' keys. See documentation for Gene class initialization.")
             self.input_error: bool = True
@@ -160,7 +162,7 @@ class Gene:
             if json_dict["type"] == "cds": # confirm gene length divisible by 3 if a CDS gene
                 if "aa" not in json_dict.keys():
                     print("Input dictionary does not contain 'aa' key for cds gene. See documentation for Gene class initialization.")
-                    self.input_error: bool = True
+                    self.aa_input_error: bool = True
                     return
                 if len(json_dict["nt"]) % codon_length != 0:
                     print("Length of nucleotide sequence is not divisible by codon length.")
