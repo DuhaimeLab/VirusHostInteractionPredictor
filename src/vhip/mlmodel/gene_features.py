@@ -158,25 +158,25 @@ class Gene:
             print("Input dictionary does not contain 'type', 'id', 'gene', 'product', 'nt' keys. See documentation for Gene class initialization.")
             self.input_error: bool = True
             return
-        else:
-            if json_dict["type"] == "cds": # confirm gene length divisible by 3 if a CDS gene
-                if "aa" not in json_dict.keys():
-                    print("Input dictionary does not contain 'aa' key for cds gene. See documentation for Gene class initialization.")
-                    self.aa_input_error: bool = True
-                    return
-                if len(json_dict["nt"]) % codon_length != 0:
-                    print("Length of nucleotide sequence is not divisible by codon length.")
-                    self.cds_len_error: bool = True
-                    return
-                else:
-                    self.codon_length: int = codon_length
-                    self.n_codons: int = len(json_dict["nt"]) // self.codon_length
-                    self.aa: str = json_dict["aa"]
+        else: # populate basic class attributes if provided
             self.type: str = json_dict["type"]
             self.id: str = json_dict["id"]
             self.gene: str = json_dict["gene"]
             self.product: str = json_dict["product"]
             self.nt: str = json_dict["nt"]
+            if json_dict["type"] == "cds":
+                if "aa" not in json_dict.keys(): # exit if amino acid sequence not provided for a CDS gene
+                    print("Input dictionary does not contain 'aa' key for cds gene. See documentation for Gene class initialization.")
+                    self.aa_input_error: bool = True
+                    return
+                elif len(json_dict["nt"]) % codon_length != 0: # exit if gene length not divisible by 3 for a CDS gene
+                    print("Length of nucleotide sequence is not divisible by codon length.")
+                    self.cds_len_error: bool = True
+                    return
+                else: # populate CDS gene attributes if provided
+                    self.codon_length: int = codon_length
+                    self.n_codons: int = len(json_dict["nt"]) // self.codon_length
+                    self.aa: str = json_dict["aa"]
 
     def calculate_codon_counts(self) -> None:
         """Calculate counts of each unique codon in a cds gene.
