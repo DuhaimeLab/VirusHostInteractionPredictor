@@ -188,16 +188,22 @@ class Gene:
         self.number_imprecise_codons: int = 0
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
 
-        for i in range(0, len(self.nt), self.codon_length):
-            codon = self.nt[i : i + self.codon_length]
-            if codon in self.codon_dict.keys():
-                self.codon_dict[codon] += 1
-            else:
-                self.number_imprecise_codons += 1
+        if self.type != "cds":
+            print("Gene is not a CDS gene. Codon counts will not be calculated.")
+            return
+        elif self.type == "cds" and self.nt_input_error is False:
+            for i in range(0, len(self.nt), self.codon_length):
+                codon = self.nt[i : i + self.codon_length]
+                if codon in self.codon_dict.keys():
+                    self.codon_dict[codon] += 1
+                else:
+                    self.number_imprecise_codons += 1
 
-        self.percent_imprecise_codons: float = (
-            self.number_imprecise_codons / self.n_codons
-        )
+            self.percent_imprecise_codons: float = (
+                self.number_imprecise_codons / self.n_codons
+            )
+
+
 
     def calculate_aa_counts(self) -> None:
         """Calculate counts of each unique amino acid encoded by a gene.
