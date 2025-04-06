@@ -187,3 +187,36 @@ def test_Gene_calculate_GCn():
     assert test_gene.GC1 == 0.5
     assert test_gene.GC2 == 0.5
     assert test_gene.GC3 == 0.25
+###
+
+
+
+###
+def test_CDSGene_init():
+    # Test 1: CDS gene with all expected inputs
+    test_cds_1 = CDSGene(json_dict={"type": "cds", "id": "1", "gene": "test_gene_1", "product": "test_gene_product_1", "nt": "ATGCCGATTTAG", "aa": "MPI"},
+                       codon_length=3)
+    assert test_cds_1.input_error is False
+    assert test_cds_1.cds_len_error is False
+    assert test_cds_1.aa_input_error is False
+    assert test_cds_1.type == "cds"
+    assert test_cds_1.id == "1"
+    assert test_cds_1.gene == "test_gene_1"
+    assert test_cds_1.product == "test_gene_product_1"
+    assert test_cds_1.nt == "ATGCCGATTTAG"
+    assert test_cds_1.aa == "MPI"
+    assert test_cds_1.codon_length == 3
+
+    # Test 2: Gene with generic missing arguments
+    test_gene_2 = CDSGene({"random": "random"})
+    assert test_gene_2.input_error is True
+
+    # Test 3: Type not 'cds'
+    with pytest.raises(Exception):
+        CDSGene({"type": "tRNA", "id": "3", "gene": "test_gene_3", "product": "test_gene_product_3", "nt": "ATGCCGATTTAG"})
+
+    # Test 4: CDS gene with missing aa argument
+    test_gene_4 = CDSGene({"type": "cds", "id": "4", "gene": "test_gene_4", "product": "test_gene_product_4", "nt": "ATGCCGATTTAG"})
+    assert test_gene_4.aa_input_error is True
+
+
