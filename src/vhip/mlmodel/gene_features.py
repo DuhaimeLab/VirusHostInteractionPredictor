@@ -138,7 +138,6 @@ class Gene:
         self.product (str),
         self.nt (str),
     """
-
     def __init__(
         self,
         json_dict: dict[str, str]
@@ -156,75 +155,6 @@ class Gene:
             self.product: str = json_dict["product"]
             self.nt: str = json_dict["nt"]
 
-    def calculate_codon_counts(self) -> None:
-        """Calculate counts of each unique codon in a cds gene.
-
-        Populates the following class attributes:
-            self.codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
-            self.number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
-        """
-        self.number_imprecise_codons: int = 0
-        self.codon_dict = dict.fromkeys(CODON_LIST, 0)
-
-        if self.type != "cds":
-            print("Gene is not a CDS gene. Codon counts will not be calculated.")
-            return
-        elif self.type == "cds" and self.input_error is False:
-            for i in range(0, len(self.nt), self.codon_length):
-                codon = self.nt[i : i + self.codon_length]
-                if codon in self.codon_dict.keys():
-                    self.codon_dict[codon] += 1
-                else:
-                    self.number_imprecise_codons += 1
-
-            self.percent_imprecise_codons: float = (
-                self.number_imprecise_codons / self.n_codons
-            )
-
-    def calculate_aa_counts(self) -> None:
-        """Calculate counts of each unique amino acid encoded by a cds gene.
-
-        Populates the following class attributes:
-            self.aa_dict (str: int): Each key of dictionary is an unique amino acid, and values represent the number of times the associated amino acid (key) appears to be encoded by codons in the gene sequence.
-        """
-        self.aa_dict = dict.fromkeys(AA_LIST, 0)
-        self.unexpected_aa: List[str] = []
-        if self.type != "cds":
-            print("Gene is not a CDS gene. Amino acid counts will not be calculated.")
-            return
-        elif self.type == "cds" and self.input_error is False and self.aa_input_error is False:
-            for aa in self.aa:
-                if aa in self.aa_dict.keys():
-                    self.aa_dict[aa] += 1
-                elif aa not in self.aa_dict.keys():
-                    self.unexpected_aa.append(aa)
-
-    def calculate_GCn(self) -> None:
-        """Calculate GC content at position 1, 2, and 3 of a gene.
-
-        Populates the following class attributes:
-            self.GC1 (float): GC content of the gene at position 1.
-            self.GC2 (float): GC content of the gene at position 2.
-            self.GC3 (float): GC content of the gene at position 3.
-        """
-        gc1: int = 0
-        gc2: int = 0
-        gc3: int = 0
-
-        for i in range(0, len(self.nt), self.codon_length):
-            codon = self.nt[i : i + self.codon_length]
-            for j in range(self.codon_length):
-                if codon[j] == "G" or codon[j] == "C":
-                    if j == 0:
-                        gc1 += 1
-                    elif j == 1:
-                        gc2 += 1
-                    elif j == 2:
-                        gc3 += 1
-
-        self.GC1 = gc1 / self.n_codons
-        self.GC2 = gc2 / self.n_codons
-        self.GC3 = gc3 / self.n_codons
 
 # Define CDSGene subclass
 class CDSGene(Gene):
@@ -275,6 +205,72 @@ class CDSGene(Gene):
             self.codon_length: int = codon_length
             self.n_codons: int = len(self.nt) // self.codon_length
             self.aa: str = json_dict["aa"]
+
+    def calculate_codon_counts(self) -> None:
+        """Calculate counts of each unique codon in a cds gene.
+
+        Populates the following class attributes:
+            self.codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
+            self.number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
+        """
+        self.codon_dict = dict.fromkeys(CODON_LIST, 0)
+        self.imprecise_codons: List[str] = []
+
+        if self.input_error is False and self.cds_len_error is False and self.aa_input_error is False:
+            for i in range(0, len(self.nt), self.codon_length):
+                codon = self.nt[i : i + self.codon_length]
+                if codon in self.codon_dict.keys():
+                    self.codon_dict[codon] += 1
+                else:
+                    self.imprecise_codons.append(codon)
+
+            self.percent_imprecise_codons: float = (
+                len(self.imprecise_codons) / self.n_codons
+            )
+
+    def calculate_aa_counts(self) -> None:
+        """Calculate counts of each unique amino acid encoded by a cds gene.
+
+        Populates the following class attributes:
+            self.aa_dict (str: int): Each key of dictionary is an unique amino acid, and values represent the number of times the associated amino acid (key) appears to be encoded by codons in the gene sequence.
+        """
+        self.aa_dict = dict.fromkeys(AA_LIST, 0)
+        self.unexpected_aa: List[str] = []
+
+        if self.input_error is False and self.cds_len_error is False and self.aa_input_error is False:
+            for aa in self.aa:
+                if aa in self.aa_dict.keys():
+                    self.aa_dict[aa] += 1
+                elif aa not in self.aa_dict.keys():
+                    self.unexpected_aa.append(aa)
+
+    def calculate_GCn(self) -> None:
+        """Calculate GC content at position 1, 2, and 3 of a gene.
+
+        Populates the following class attributes:
+            self.GC1 (float): GC content of the gene at position 1.
+            self.GC2 (float): GC content of the gene at position 2.
+            self.GC3 (float): GC content of the gene at position 3.
+        """
+        gc1: int = 0
+        gc2: int = 0
+        gc3: int = 0
+
+        for i in range(0, len(self.nt), self.codon_length):
+            codon = self.nt[i : i + self.codon_length]
+            for j in range(self.codon_length):
+                if codon[j] == "G" or codon[j] == "C":
+                    if j == 0:
+                        gc1 += 1
+                    elif j == 1:
+                        gc2 += 1
+                    elif j == 2:
+                        gc3 += 1
+
+        self.GC1 = gc1 / self.n_codons
+        self.GC2 = gc2 / self.n_codons
+        self.GC3 = gc3 / self.n_codons
+
 
 # Define GeneSet class
 class GeneSet:
