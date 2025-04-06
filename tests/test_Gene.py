@@ -10,35 +10,21 @@ def test_Gene_init():
     # Test 1: CDS gene with valid sequence and inputs
     test_gene_1 = Gene({"type": "cds", "id": "1", "gene": "test_gene_1", "product": "test_gene_product_1", "nt": "ATGCCGATTTAG", "aa": "MPI"})
     assert test_gene_1.input_error is False
-    assert test_gene_1.aa_input_error is False
-    assert test_gene_1.cds_len_error is False
     assert test_gene_1.type == "cds"
     assert test_gene_1.id == "1"
     assert test_gene_1.gene == "test_gene_1"
     assert test_gene_1.product == "test_gene_product_1"
     assert test_gene_1.nt == "ATGCCGATTTAG"
-    assert test_gene_1.aa == "MPI"
 
     # Test 2: Gene with generic missing arguments
     test_gene_2 = Gene({"random": "random"})
     assert test_gene_2.input_error is True
 
-    # Test 3: CDS gene with missing aa argument
-    test_gene_3 = Gene({"type": "cds", "id": "3", "gene": "test_gene_3", "product": "test_gene_product_3", "nt": "ATGCCGATTTAG"})
-    assert test_gene_3.input_error is False
-    assert test_gene_3.aa_input_error is True
-
-    # Test 4: CDS gene with invalid sequence (not divisible by 3)
-    test_gene_4 = Gene({"type": "cds", "id": "4", "gene": "test_gene_4", "product": "test_gene_product_4", "nt": "ATGCCGATTTAGG", "aa": "MPI"})
-    assert test_gene_4.input_error is False
-    assert test_gene_4.aa_input_error is False
-    assert test_gene_4.cds_len_error is True
-
 
 def test_CDSGene_init():
+    """Test code to create CDSGene object and initialize class attributes."""
     # Test 1: CDS gene with all expected inputs
-    test_cds_1 = CDSGene(json_dict={"type": "cds", "id": "1", "gene": "test_gene_1", "product": "test_gene_product_1", "nt": "ATGCCGATTTAG", "aa": "MPI"},
-                       codon_length=3)
+    test_cds_1 = CDSGene(json_dict={"type": "cds", "id": "1", "gene": "test_gene_1", "product": "test_gene_product_1", "nt": "ATGCCGATTTAG", "aa": "MPI"})
     assert test_cds_1.input_error is False
     assert test_cds_1.cds_len_error is False
     assert test_cds_1.aa_input_error is False
@@ -56,12 +42,17 @@ def test_CDSGene_init():
 
     # Test 3: Type not 'cds'
     with pytest.raises(Exception):
-        CDSGene({"type": "tRNA", "id": "3", "gene": "test_gene_3", "product": "test_gene_product_3", "nt": "ATGCCGATTTAG"})
+        CDSGene({"type": "tRNA", "id": "3", "gene": "test_gene_3", "product": "test_gene_product_3", "nt": "ATGCCGATTTAG", "aa": "MPI"})
 
-    # Test 4: CDS gene with missing aa argument
-    test_gene_4 = CDSGene({"type": "cds", "id": "4", "gene": "test_gene_4", "product": "test_gene_product_4", "nt": "ATGCCGATTTAG"})
-    assert test_gene_4.aa_input_error is True
+    # Test 4: CDS gene with invalid sequence (not divisible by 3)
+    test_gene_4 = CDSGene({"type": "cds", "id": "4", "gene": "test_gene_4", "product": "test_gene_product_4", "nt": "ATGCCGATTTAGG", "aa": "MPI"})
+    assert test_gene_4.input_error is False
+    assert test_gene_4.aa_input_error is False
+    assert test_gene_4.cds_len_error is True
 
+    # Test 5: CDS gene with missing aa argument
+    test_gene_5 = CDSGene({"type": "cds", "id": "4", "gene": "test_gene_4", "product": "test_gene_product_4", "nt": "ATGCCGATTTAG"})
+    assert test_gene_5.aa_input_error is True
 
 def test_CDSGene_calculate_codon_counts():
     """Test code to calculate codon counts for a given CDS gene."""
