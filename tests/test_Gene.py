@@ -197,9 +197,9 @@ def test_CDSGene_calculate_aa_counts():
     }
     assert test_gene_2.unexpected_aa == ["B"]
 
-def test_Gene_calculate_GCn():
+def test_CDSGene_calculate_GCn():
     """Test code to calculate GCn content for a given gene."""
-    test_gene = Gene({"type": "any", "id": "1", "gene": "test_gene_1", "product": "test_gene_product_1", "nt": "CTGAATCGAACT"})
+    test_gene = CDSGene({"type": "cds", "id": "1", "gene": "test_gene_1", "product": "test_gene_product_1", "nt": "CTGAATCGAACT", "aa": "LNRT"})
     test_gene.calculate_GCn()
     assert test_gene.GC1 == 0.5
     assert test_gene.GC2 == 0.5
