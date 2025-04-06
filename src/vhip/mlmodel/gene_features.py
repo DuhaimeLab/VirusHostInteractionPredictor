@@ -213,14 +213,12 @@ class Gene:
             self.number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
         """
         self.aa_dict = dict.fromkeys(AA_LIST, 0)
-
-        if not hasattr(self, "codon_dict"):
-            self.calculate_codon_counts()
-
-        for codon in self.codon_dict:
-            if self.codon_dict[codon] != 0 and codon not in stop_codons:
-                aa = CODON_TABLE[codon]
-                self.aa_dict[aa] += self.codon_dict[codon]
+        self.unexpected_aa: List[str] = []
+        for aa in self.aa:
+            if aa not in self.aa_dict.keys():
+                self.unexpected_aa.append(aa)
+            elif aa in self.aa_dict.keys():
+                self.aa_dict[aa] += 1
 
     def calculate_GCn(self) -> None:
         """Calculate GC content at position 1, 2, and 3 of a gene.
