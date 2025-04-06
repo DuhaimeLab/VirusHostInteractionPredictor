@@ -233,8 +233,8 @@ class Gene:
         gc2: int = 0
         gc3: int = 0
 
-        for i in range(0, len(self.seq), self.codon_length):
-            codon = self.seq[i : i + self.codon_length]
+        for i in range(0, len(self.nt), self.codon_length):
+            codon = self.nt[i : i + self.codon_length]
             for j in range(self.codon_length):
                 if codon[j] == "G" or codon[j] == "C":
                     if j == 0:
