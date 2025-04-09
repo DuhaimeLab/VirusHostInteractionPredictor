@@ -5,6 +5,7 @@ This module provides:
 - read_headers: retrieve the headers for fasta path
 """
 
+import json
 from typing import List
 
 from Bio import SeqIO  # pyright: ignore[reportMissingTypeStubs]
@@ -52,13 +53,13 @@ def read_headers(path: str) -> list[str]:
 
 
 def read_annotated_genes(path: str) -> list[list[str]]:
-    """Return all gene sequences, gene ids, and gene products from an annotated fasta gene file as a list.
+    """Return all components of a .json fasta file output from bakta.
 
     Args:
-        path (str): path to annotated gene fasta file
+        path (str): path to annotated gene json file
 
     Returns:
-        list: list of all gene products for a given fasta file
+        dictionary of all gene products for a given fasta file
     """
     sequences: List[str] = []
     gene_ids: List[str] = []
