@@ -8,7 +8,7 @@ This module provides:
 
 import os
 import re
-from typing import List
+from typing import List, Union
 
 import numpy as np
 import scipy  # pyright: ignore[reportMissingTypeStubs]
@@ -169,6 +169,7 @@ class CDSGene(Gene):
     Populates the following class attributes:
         self.input_error (bool): True if input dictionary does not contain all expected keys, wherein method will exit (expect False).
         self.cds_len_error (bool): True if the length of the nucleotide sequence of a CDS is not divisible by the codon length, wherein method will exit (expect False).
+        self.nt_input_error (bool): True if the nucleotide sequence is not provided in the input dictionary, wherein method will exit (expect False).
         self.aa_input_error (bool): True if the amino acid sequence is not provided in the input dictionary, wherein method will exit (expect False).
         self.type (str),
         self.id (str),
@@ -181,8 +182,8 @@ class CDSGene(Gene):
     """
     def __init__(self, json_dict: dict[str, str]) -> None:
         """Initialize class variables."""
-        self.nt = json_dict["nt"]
         self.codon_length: int = 3
+        self.nt_input_error: bool = False # will flag if nucleotide sequence not provided in json input dict
         self.aa_input_error: bool = False # will flag if amino acid sequence not provided in json input dict
         self.cds_len_error: bool = False # will flag if length of nucleotide sequence not divisible by codon length
         super().__init__(json_dict)
@@ -191,7 +192,10 @@ class CDSGene(Gene):
             return
         elif json_dict["type"] != "cds": # exit if input gene type is not 'cds'
             raise Exception("Gene is not a CDS gene (expected dictionary element 'type': 'cds'). This class is for CDS genes only.")
-        elif len(self.nt) % self.codon_length != 0: # exit if gene length not divisible by 3 for CDS gene
+        elif "nt" not in json_dict.keys(): # exit if nucleotide sequence not provided for CDS gene
+            print("Input dictionary does not contain 'nt' key for cds gene. See documentation for Gene class initialization.")
+            self.nt_input_errorinput_error: bool = True
+        elif len(json_dict["nt"]) % self.codon_length != 0: # exit if gene length not divisible by 3 for CDS gene
             print("Length of nucleotide sequence is not divisible by codon length.")
             self.cds_len_error: bool = True
             return
@@ -200,6 +204,7 @@ class CDSGene(Gene):
             self.aa_input_error: bool = True
             return
         else: # populate CDS gene attributes if provided
+            self.nt = json_dict["nt"]
             self.n_codons: int = len(self.nt) // self.codon_length
             self.aa: str = json_dict["aa"]
 

@@ -7,14 +7,13 @@ from vhip.mlmodel.gene_features import CDSGene, Gene
 
 def test_Gene_init():
     """Test code to create Gene object and initialize class attributes."""
-    # Test 1: CDS gene with valid sequence and inputs
+    # Test 1: Gene with valid sequence and inputs
     test_gene_1 = Gene({"type": "cds", "id": "1", "gene": "test_gene_1", "product": "test_gene_product_1", "nt": "ATGCCGATTTAG", "aa": "MPI"})
     assert test_gene_1.input_error is False
     assert test_gene_1.type == "cds"
     assert test_gene_1.id == "1"
     assert test_gene_1.gene == "test_gene_1"
     assert test_gene_1.product == "test_gene_product_1"
-    assert test_gene_1.nt == "ATGCCGATTTAG"
 
     # Test 2: Gene with generic missing arguments
     test_gene_2 = Gene({"random": "random"})
