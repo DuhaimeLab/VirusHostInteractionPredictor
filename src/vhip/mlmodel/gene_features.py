@@ -8,7 +8,7 @@ This module provides:
 
 import os
 import re
-from typing import List, Union
+from typing import List
 
 import numpy as np
 import scipy  # pyright: ignore[reportMissingTypeStubs]
@@ -162,7 +162,7 @@ class CDSGene(Gene):
 
     Args:
         json_dict (dict): Dictionary containing gene information. Required keys are 'type', 'id', 'gene', 'product', 'nt', and 'aa'. Descriptions below:
-            - type (str): Type of gene ('cds' and 'tRNA' values will inform annotation parsing).
+            - type (str): Type of gene (must be 'cds', otherwise error).
             - id (str): Gene ID.
             - gene (str): Gene name.
             - product (str): Gene product name.
@@ -276,35 +276,60 @@ class GeneSet:
     """Class representing a gene set, usually the genes predicted from a genome sequence.
 
     Args:
-        gene_file (str): Path of annotated genes file containing gene set of interest. Bakta .ffn output format.
+        gene_file (str): Path of annotated genes file containing gene set of interest. .json output format from bakta.
     """
 
     def __init__(self, gene_file: str) -> None:
         """Initialize class variables and read in an annotated genes file, storing Gene objects and metadata in lists."""
+        # Raise exceptions if gene_file input is not expected
         if not gene_file or not os.path.getsize(gene_file):
             raise Exception(
                 "Genes file is not provided or empty. Please provide a valid gene file."
             )
-        self.id = gene_file
-        self.genes: List[Gene] = []
-        self.skipped_genes: List[str] = []
-        readout = read_annotated_genes(gene_file)
+        if not gene_file.endswith(".json"):
+            raise Exception(
+                "Gene file is not in .json format. Please provide a valid gene file."
+            )
+        # Initialize class variables
+        self.id = os.path.splitext(os.path.basename(gene_file))[0]
+        self.cds_genes: List[CDSGene] = []
+        self.tRNA_genes: List[Gene] = []
 
-        for out in range(len(readout[0])):
-            try:
-                self.genes.append(
-                    Gene(
-                        gene_seq=str(readout[0][out]),
-                        gene_id=str(readout[1][out]),
-                        gene_product=str(readout[2][out]),
-                    )
-                )
-            except Exception:
-                self.skipped_genes.append(str(readout[1][out]))
-        percent_skipped = len(self.skipped_genes) / len(readout[0]) * 100
-        print(
-            f"{percent_skipped}% ({len(self.skipped_genes)}/{len(readout[0])}) of genes skipped. Expect on average ~2% and ~3% of virus and host genes (respectively) to be skipped on the basis of non-divisibility by codon length."
-        )
+        # Separate genes
+        for gene in read_annotated_genes(gene_file):
+            if gene["type"] == "cds":
+                self.cds_genes.append(CDSGene(gene))
+            elif gene["type"] == "tRNA":
+                self.tRNA_genes.append(Gene(gene))
+
+        # Quality control: remove genes with unexpected or missing inputs
+        self.cds_input_errors: List[str] = []
+        self.cds_len_errors: List[str] = []
+        self.cds_aa_input_errors: List[str] = []
+        self.tRNA_input_errors: List[str] = []
+
+        if self.cds_genes: # prune cds genes
+            for gene in self.cds_genes:
+                if gene.input_error is True:
+                    self.cds_genes.remove(gene)
+                    self.cds_input_errors.append(gene.id)
+                elif gene.cds_len_error is True:
+                    self.cds_genes.remove(gene)
+                    self.cds_len_errors.append(gene.id)
+                elif gene.aa_input_error is True:
+                    self.cds_genes.remove(gene)
+                    self.cds_aa_input_errors.append(gene.id)
+            n_skipped_cds_genes = len(self.cds_input_errors) + len(self.cds_len_errors) + len(self.cds_aa_input_errors)
+            self.skipped_cds_genes: float = n_skipped_cds_genes / len(self.cds_genes)
+            print(f"{self.skipped_cds_genes} of CDS genes skipped due to missing info and/or lack of divisibility by codon length.")
+
+        if self.tRNA_genes: # prune tRNA genes
+            for gene in self.tRNA_genes:
+                if gene.input_error is True:
+                    self.tRNA_genes.remove(gene)
+                    self.tRNA_input_errors.append(gene.id)
+            self.skipped_tRNA_genes: float = len(self.tRNA_input_errors) / len(self.tRNA_genes)
+            print(f"{self.skipped_tRNA_genes} of tRNA genes skipped due to missing info.")
 
     def codon_counts(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
