@@ -128,7 +128,6 @@ class Gene:
             - id (str): Gene ID.
             - gene (str): Gene name.
             - product (str): Gene product name.
-            - nt (str): Nucleotide sequence of the gene. If a CDS gene, this string should be divisible by the codon length (default 3). Note that degenerate codons will be skipped.
 
     Populates the following class attributes:
         self.input_error (bool): True if input dictionary does not contain all expected keys, wherein method will exit (expect False).
@@ -136,7 +135,6 @@ class Gene:
         self.id (str),
         self.gene (str),
         self.product (str),
-        self.nt (str),
     """
     def __init__(
         self,
@@ -144,8 +142,8 @@ class Gene:
     ) -> None:
         """Initialize class variables."""
         self.input_error = False # to flag any missing generic keys from json input dict
-        if not all(key in json_dict.keys() for key in ["type", "id", "gene", "product", "nt"]): # confirm all required keys present in input dictionary
-            print("Input dictionary does not contain 'type', 'id', 'gene', 'product', 'nt' keys. See documentation for Gene class initialization.")
+        if not all(key in json_dict.keys() for key in ["type", "id", "gene", "product"]): # confirm all required keys present in input dictionary
+            print("Input dictionary does not contain 'type', 'id', 'gene', 'product' keys. See documentation for Gene class initialization.")
             self.input_error: bool = True
             return
         else: # populate basic class attributes if provided
@@ -153,7 +151,6 @@ class Gene:
             self.id: str = json_dict["id"]
             self.gene: str = json_dict["gene"]
             self.product: str = json_dict["product"]
-            self.nt: str = json_dict["nt"]
 
 
 # Define CDSGene subclass
@@ -166,8 +163,8 @@ class CDSGene(Gene):
             - id (str): Gene ID.
             - gene (str): Gene name.
             - product (str): Gene product name.
-            - nt (str): Nucleotide sequence of the gene. If a CDS gene, this string should be divisible by the codon length (default 3). Note that degenerate codons will be skipped.
-            - aa (str): Required only if gene type is 'cds.' Amino acid sequence of the gene.
+            - nt (str): Nucleotide sequence of the gene. This string should be divisible by the codon length (default 3). Note that degenerate codons will be skipped.
+            - aa (str): Amino acid sequence of the gene.
 
     Populates the following class attributes:
         self.input_error (bool): True if input dictionary does not contain all expected keys, wherein method will exit (expect False).
@@ -184,6 +181,7 @@ class CDSGene(Gene):
     """
     def __init__(self, json_dict: dict[str, str]) -> None:
         """Initialize class variables."""
+        self.nt = json_dict["nt"]
         self.codon_length: int = 3
         self.aa_input_error: bool = False # will flag if amino acid sequence not provided in json input dict
         self.cds_len_error: bool = False # will flag if length of nucleotide sequence not divisible by codon length
