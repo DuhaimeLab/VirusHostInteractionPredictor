@@ -5,8 +5,9 @@ This module provides:
 - read_headers: retrieve the headers for fasta path
 """
 
+
 import json
-from typing import List
+from typing import Any, Dict, List
 
 from Bio import SeqIO  # pyright: ignore[reportMissingTypeStubs]
 
@@ -52,28 +53,20 @@ def read_headers(path: str) -> list[str]:
     return result  # pyright: ignore[reportUnknownVariableType]
 
 
-def read_annotated_genes(path: str) -> list[list[str]]:
+def read_annotated_genes(path: str) -> List[Dict[str, Any]]:
     """Return all components of a .json fasta file output from bakta.
 
     Args:
         path (str): path to annotated gene json file
 
     Returns:
-        dictionary of all gene products for a given fasta file
+        List[Dict[str,Any]]: list of all features (i.e. genes) in the input .json file
     """
-    sequences: List[str] = []
-    gene_ids: List[str] = []
-    gene_products: List[str] = []
+    with open(path, 'r') as file:
+        annotations = json.load(file)
 
-    result = [sequences, gene_ids, gene_products]
-    for record in SeqIO.parse(path, "fasta"):  # pyright: ignore[reportUnknownVariableType, reportUnknownMemberType]
-        sequences.append(str(record.seq))  # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
-        gene_products.append(" ".join(record.description.split(" ")[1:]))  # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
-        if record.id is None:  # pyright: ignore
-            gene_ids.append("NA")
-        else:
-            gene_ids.append(record.id)  # pyright: ignore
-    return result
+    features: List[Dict[str, Any]] = annotations['features']
+    return features
 
 
 def reverse_complement(sequence: str) -> str:
