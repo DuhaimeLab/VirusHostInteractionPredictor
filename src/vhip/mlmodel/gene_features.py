@@ -170,7 +170,6 @@ class CDSGene(Gene):
         self.input_error (bool): True if input dictionary does not contain expected general info keys ('type', 'id', 'gene', 'product'), wherein method will exit (expect False).
         self.nt_input_error (bool): True if the nucleotide sequence is not provided in the input dictionary, wherein method will exit (expect False).
         self.cds_len_error (bool): True if the length of the nucleotide sequence of a CDS is not divisible by the codon length, wherein method will exit (expect False).
-        self.nt_input_error (bool): True if the nucleotide sequence is not provided in the input dictionary, wherein method will exit (expect False).
         self.aa_input_error (bool): True if the amino acid sequence is not provided in the input dictionary, wherein method will exit (expect False).
         self.type (str),
         self.id (str),
@@ -185,7 +184,6 @@ class CDSGene(Gene):
         """Initialize class variables."""
         self.codon_length: int = 3
         self.nt_input_error: bool = False # will flag if nucleotide sequence not provided in json input dict
-        self.aa_input_error: bool = False # will flag if amino acid sequence not provided in json input dict
         self.cds_len_error: bool = False # will flag if length of nucleotide sequence not divisible by codon length
         self.aa_input_error: bool = False # will flag if amino acid sequence not provided in json input dict
         super().__init__(json_dict)
