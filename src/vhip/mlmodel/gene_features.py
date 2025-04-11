@@ -308,37 +308,37 @@ class GeneSet:
         self.cds_aa_input_errors: List[Gene] = []
         self.tRNA_input_errors: List[Gene] = []
 
+        # Store tRNA/CDS genes, filtering out genes with unexpected or missing inputs
+        all_input_genes = read_annotated_genes(gene_file)
+        all_input_cds_genes = [gene for gene in all_input_genes if gene["type"] == "cds"]
+        all_input_tRNA_genes = [gene for gene in all_input_genes if gene["type"] == "tRNA"]
+        for gene in all_input_cds_genes:
+            current_gene = CDSGene(gene)
+            if current_gene.input_error is True:
+                self.cds_general_input_errors.append(current_gene)
+            elif current_gene.nt_input_error is True:
+                self.cds_nt_input_errors.append(current_gene)
+            elif current_gene.cds_len_error is True:
+                self.cds_len_errors.append(current_gene)
+            elif current_gene.aa_input_error is True:
+                self.cds_aa_input_errors.append(current_gene)
+            else:
                 self.cds_genes.append(CDSGene(gene))
-            elif gene["type"] == "tRNA":
+                print(f"Adding cds gene: {gene["id"]}")
+        for gene in all_input_tRNA_genes:
+            current_gene = Gene(gene)
+            if current_gene.input_error is True:
+                self.tRNA_input_errors.append(current_gene)
+            else:
                 self.tRNA_genes.append(Gene(gene))
 
-        # Quality control: remove genes with unexpected or missing inputs
-        self.cds_input_errors: List[str] = []
-        self.cds_len_errors: List[str] = []
-        self.cds_aa_input_errors: List[str] = []
-        self.tRNA_input_errors: List[str] = []
-
-        if self.cds_genes: # prune cds genes
-            for gene in self.cds_genes:
-                if gene.input_error is True:
-                    self.cds_genes.remove(gene)
-                    self.cds_input_errors.append(gene.id)
-                elif gene.cds_len_error is True:
-                    self.cds_genes.remove(gene)
-                    self.cds_len_errors.append(gene.id)
-                elif gene.aa_input_error is True:
-                    self.cds_genes.remove(gene)
-                    self.cds_aa_input_errors.append(gene.id)
-            n_skipped_cds_genes = len(self.cds_input_errors) + len(self.cds_len_errors) + len(self.cds_aa_input_errors)
-            self.skipped_cds_genes: float = n_skipped_cds_genes / len(self.cds_genes)
+        # Report skipped genes as a fraction of GeneSet (if no input genes, skip attributes will not reflect this...)
+        if len(all_input_cds_genes) > 0:
+            n_skipped_cds_genes = len(self.cds_general_input_errors) + len(self.cds_nt_input_errors)+ len(self.cds_len_errors) + len(self.cds_aa_input_errors)
+            self.skipped_cds_genes = n_skipped_cds_genes / len(all_input_cds_genes)
             print(f"{self.skipped_cds_genes} of CDS genes skipped due to missing info and/or lack of divisibility by codon length.")
-
-        if self.tRNA_genes: # prune tRNA genes
-            for gene in self.tRNA_genes:
-                if gene.input_error is True:
-                    self.tRNA_genes.remove(gene)
-                    self.tRNA_input_errors.append(gene.id)
-            self.skipped_tRNA_genes: float = len(self.tRNA_input_errors) / len(self.tRNA_genes)
+        if len(all_input_tRNA_genes) > 0:
+            self.skipped_tRNA_genes = len(self.tRNA_input_errors) / len(all_input_tRNA_genes)
             print(f"{self.skipped_tRNA_genes} of tRNA genes skipped due to missing info.")
 
     def codon_counts(
