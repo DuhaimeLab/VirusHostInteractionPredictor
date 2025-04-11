@@ -13,15 +13,13 @@ def test_GeneSet_init():
     assert len(test_GeneSet.cds_genes) == 1
     assert len(test_GeneSet.tRNA_genes) == 1
 
-        test_GeneSet.genes[2].seq
-        == "TTGGTTGAAGAAGTAGTTGTAGATGGCGACATCACATTAGGACAATTTCTAAAGACGGAAGGTATTATCGAATCTGGCGGGCAAGCGAAATGGTTCTTAAATGAGTTTGAAGTATTGTTAAACAATACGCGTGAAACACGCCGTGGTAAAAAGTTAAGCCATCGTGACACAATTGAGATACCAGAAATACCTGAAGTGGGTTCATTTGTGATTTTGCATCAAGGTGAAGAATGA"
-    )
-    assert test_GeneSet.genes[2].gene_id == "ABDEAL_00015"
-    assert test_GeneSet.genes[2].gene_product == "S4 domain-containing protein YaaA"
-
-    # test 3 - test Exception is raised if gene file is empty
+    # test 2 - test Exception is raised if gene file is empty
     with pytest.raises(Exception):
-        GeneSet("tests/datatests/test_empty_file.ffn")
+        GeneSet("tests/datatests/test_empty_file.json")
+
+    # test 3 - test Excpetion is raised if non-json file is provided
+    with pytest.raises(Exception):
+        GeneSet("tests/datatests/test_annotated_genes.ffn")
 
     # test 4 - test individual genes are skipped and exception is handled when gene length not divisible by codon length
     test_GeneSet2 = GeneSet("tests/datatests/test_short_genes_file.ffn")
