@@ -294,14 +294,20 @@ class GeneSet:
             raise Exception(
                 "Gene file is not in .json format. Please provide a valid gene file."
             )
-        # Initialize class variables
+        # Initialize class attributes
         self.id = os.path.splitext(os.path.basename(gene_file))[0]
         self.cds_genes: List[CDSGene] = []
         self.tRNA_genes: List[Gene] = []
+        self.skipped_cds_genes: Union[None, float] = None
+        self.skipped_tRNA_genes: Union[None, float] = None
 
-        # Separate genes
-        for gene in read_annotated_genes(gene_file):
-            if gene["type"] == "cds":
+        # Initialize Quality control attributes
+        self.cds_general_input_errors: List[Gene] = []
+        self.cds_nt_input_errors: List[Gene] = []
+        self.cds_len_errors: List[Gene] = []
+        self.cds_aa_input_errors: List[Gene] = []
+        self.tRNA_input_errors: List[Gene] = []
+
                 self.cds_genes.append(CDSGene(gene))
             elif gene["type"] == "tRNA":
                 self.tRNA_genes.append(Gene(gene))
