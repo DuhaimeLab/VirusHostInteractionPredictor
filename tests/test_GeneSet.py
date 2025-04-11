@@ -7,12 +7,12 @@ from vhip.mlmodel.gene_features import GeneSet
 
 def test_GeneSet_init():
     """Test code to create GeneSet object and initialize class attributes."""
-    # test 1 - test GeneSet object creation generates expected number of genes in genes attribute
-    test_GeneSet = GeneSet("tests/datatests/test_annotated_genes.ffn")
-    assert len(test_GeneSet.genes) == 3
+    # test 1 - test GeneSet object creation generates correct id and expected number of genes in genes attribute
+    test_GeneSet = GeneSet("tests/datatests/test_annotated_genes.json")
+    assert test_GeneSet.id == "test_annotated_genes"
+    assert len(test_GeneSet.cds_genes) == 1
+    assert len(test_GeneSet.tRNA_genes) == 1
 
-    # test 2 - test GeneSet object creation generates expected gene attributes for a gene
-    assert (
         test_GeneSet.genes[2].seq
         == "TTGGTTGAAGAAGTAGTTGTAGATGGCGACATCACATTAGGACAATTTCTAAAGACGGAAGGTATTATCGAATCTGGCGGGCAAGCGAAATGGTTCTTAAATGAGTTTGAAGTATTGTTAAACAATACGCGTGAAACACGCCGTGGTAAAAAGTTAAGCCATCGTGACACAATTGAGATACCAGAAATACCTGAAGTGGGTTCATTTGTGATTTTGCATCAAGGTGAAGAATGA"
     )
