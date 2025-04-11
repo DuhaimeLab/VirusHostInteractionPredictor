@@ -34,6 +34,12 @@ def test_GeneSet_init():
     assert test_GeneSet.cds_genes[0].aa == "VSLSLWQQCLARLQDELPATEFSMWIRPLQAELSDNTLALYAPNRFVLDWVRDKYLNNINGLLTSFCGADAPQLRFEVGTKPVTQTPQAAVTSNVAAPAQVAQTQPQRAAPSTRSGWDNVPAPAEPTYRSNVNVKHTFDNFVEGKSNQLARAAARQVADNPGGAYNPLFLYGGTGLGKTHLLHAVGNGIMARKPNAKVVYMHSERFVQDMVKALQNNAIEEFKRYYRSVDALLIDDIQFFANKERSQEEFFHTFNALLEGNQQIILTSDRYPKEINGVEDRLKSRFGWGLTVAIEPPELETRVAILMKKADENDIRLPGEVAFFIAKRLRSNVRELEGALNRVIANANFTGRAITIDFVREALRDLLALQEKLVTIDNIQKTVAEYYKIKVADLLSKRRSRSVARPRQMAMALAKELTNHSLPEIGDAFGGRDHTTVLHACRKIEQLREESHDIKEDFSNLIRTLSS"
     assert test_GeneSet.cds_genes[0].codon_length == 3
 
+    # test 5 - test GeneSet object creation generates expected gene attributes for a good tRNA gene
+    assert test_GeneSet.tRNA_genes[0].input_error is False
+    assert test_GeneSet.tRNA_genes[0].type == "tRNA"
+    assert test_GeneSet.tRNA_genes[0].id == "good_tRNA"
+    assert test_GeneSet.tRNA_genes[0].gene == "good_tRNA"
+    assert test_GeneSet.tRNA_genes[0].product == "tRNA-Met(tca)"
 
 def test_GeneSet_codon_counts():
     """Test code to calculate codon counts across all genes in a GeneSet object."""
