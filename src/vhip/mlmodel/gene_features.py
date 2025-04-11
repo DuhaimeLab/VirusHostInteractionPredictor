@@ -123,7 +123,7 @@ class Gene:
     """Class representing a gene.
 
     Args:
-        json_dict (dict): Dictionary containing gene information. Required keys are 'type', 'id', 'gene', 'product', 'nt'. Descriptions below:
+        json_dict (dict): Dictionary containing gene information. Required keys are 'type', 'id', 'gene', 'product'. Descriptions below:
             - type (str): Type of gene ('cds' and 'tRNA' values will inform annotation parsing).
             - id (str): Gene ID.
             - gene (str): Gene name.
@@ -141,10 +141,10 @@ class Gene:
         json_dict: dict[str, str]
     ) -> None:
         """Initialize class variables."""
-        self.input_error = False # to flag any missing generic keys from json input dict
+        self.input_error: bool = False # to flag any missing generic keys from json input dict
         if not all(key in json_dict.keys() for key in ["type", "id", "gene", "product"]): # confirm all required keys present in input dictionary
             print("Input dictionary does not contain 'type', 'id', 'gene', 'product' keys. See documentation for Gene class initialization.")
-            self.input_error: bool = True
+            self.input_error = True
             return
         else: # populate basic class attributes if provided
             self.type: str = json_dict["type"]
