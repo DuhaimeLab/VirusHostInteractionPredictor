@@ -41,6 +41,16 @@ def test_GeneSet_init():
     assert test_GeneSet.tRNA_genes[0].gene == "good_tRNA"
     assert test_GeneSet.tRNA_genes[0].product == "tRNA-Met(tca)"
 
+    # test 6 - test genes are skipped correctly
+    assert len(test_GeneSet.cds_general_input_errors) == 1
+    assert len(test_GeneSet.cds_nt_input_errors) == 1
+    assert len(test_GeneSet.cds_len_errors) == 1
+    assert len(test_GeneSet.cds_aa_input_errors) == 1
+    assert len(test_GeneSet.tRNA_input_errors) == 1
+    assert test_GeneSet.skipped_cds_genes == 4/5
+    assert test_GeneSet.skipped_tRNA_genes == 1/2
+
+
 def test_GeneSet_codon_counts():
     """Test code to calculate codon counts across all genes in a GeneSet object."""
     test_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
