@@ -167,7 +167,8 @@ class CDSGene(Gene):
             - aa (str): Amino acid sequence of the gene.
 
     Populates the following class attributes:
-        self.input_error (bool): True if input dictionary does not contain all expected keys, wherein method will exit (expect False).
+        self.input_error (bool): True if input dictionary does not contain expected general info keys ('type', 'id', 'gene', 'product'), wherein method will exit (expect False).
+        self.nt_input_error (bool): True if the nucleotide sequence is not provided in the input dictionary, wherein method will exit (expect False).
         self.cds_len_error (bool): True if the length of the nucleotide sequence of a CDS is not divisible by the codon length, wherein method will exit (expect False).
         self.nt_input_error (bool): True if the nucleotide sequence is not provided in the input dictionary, wherein method will exit (expect False).
         self.aa_input_error (bool): True if the amino acid sequence is not provided in the input dictionary, wherein method will exit (expect False).
@@ -186,6 +187,7 @@ class CDSGene(Gene):
         self.nt_input_error: bool = False # will flag if nucleotide sequence not provided in json input dict
         self.aa_input_error: bool = False # will flag if amino acid sequence not provided in json input dict
         self.cds_len_error: bool = False # will flag if length of nucleotide sequence not divisible by codon length
+        self.aa_input_error: bool = False # will flag if amino acid sequence not provided in json input dict
         super().__init__(json_dict)
 
         if self.input_error is True: # exit if input dictionary does not contain all required keys
@@ -193,14 +195,15 @@ class CDSGene(Gene):
         elif json_dict["type"] != "cds": # exit if input gene type is not 'cds'
             raise Exception("Gene is not a CDS gene (expected dictionary element 'type': 'cds'). This class is for CDS genes only.")
         elif "nt" not in json_dict.keys(): # exit if nucleotide sequence not provided for CDS gene
-            print("Input dictionary does not contain 'nt' key for cds gene. See documentation for Gene class initialization.")
-            self.nt_input_errorinput_error: bool = True
+            print(f"{json_dict["id"]}: Input dictionary does not contain 'nt' key for cds gene. See documentation for Gene class initialization.")
+            self.nt_input_error: bool = True
+            return
         elif len(json_dict["nt"]) % self.codon_length != 0: # exit if gene length not divisible by 3 for CDS gene
-            print("Length of nucleotide sequence is not divisible by codon length.")
+            print(f"{json_dict["id"]}: Length of nucleotide sequence is not divisible by codon length.")
             self.cds_len_error: bool = True
             return
         elif "aa" not in json_dict.keys(): # exit if amino acid sequence not provided for CDS gene
-            print("Input dictionary does not contain 'aa' key for cds gene. See documentation for Gene class initialization.")
+            print(f"{json_dict["id"]}: Input dictionary does not contain 'aa' key for cds gene. See documentation for Gene class initialization.")
             self.aa_input_error: bool = True
             return
         else: # populate CDS gene attributes if provided
@@ -218,7 +221,7 @@ class CDSGene(Gene):
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
         self.imprecise_codons: List[str] = []
 
-        if self.input_error is False and self.cds_len_error is False and self.aa_input_error is False:
+        if not (self.input_error or self.nt_input_error or self.cds_len_error or self.aa_input_error):
             for i in range(0, len(self.nt), self.codon_length):
                 codon = self.nt[i : i + self.codon_length]
                 if codon in self.codon_dict.keys():
@@ -239,7 +242,7 @@ class CDSGene(Gene):
         self.aa_dict = dict.fromkeys(AA_LIST, 0)
         self.unexpected_aa: List[str] = []
 
-        if self.input_error is False and self.cds_len_error is False and self.aa_input_error is False:
+        if not (self.input_error or self.nt_input_error or self.cds_len_error or self.aa_input_error):
             for aa in self.aa:
                 if aa in self.aa_dict.keys():
                     self.aa_dict[aa] += 1
