@@ -53,12 +53,12 @@ def test_GeneSet_init():
 
 def test_GeneSet_codon_counts():
     """Test code to calculate codon counts across all genes in a GeneSet object."""
-    test_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
+    test_GeneSet = GeneSet("tests/datatests/test_short_genes.json")
 
-    # test 1 - high threshold_imprecise and high threshold_skipped_genes
-    test_GeneSet.codon_counts(1000, 1000)
-    assert test_GeneSet.imprecise_codons == 1
-    assert len(test_GeneSet.skipped_imprecise_genes) == 0
+    # test 1 - test high threshold_imprecise (100)
+    test_GeneSet.codon_counts(threshold_imprecise = 100)
+    assert test_GeneSet.n_imprecise_codons == 1
+    assert len(test_GeneSet.skipped_imprecise_genes) == 0 # 100% of the codons would have to be ambiguous for the gene to be skipped
     assert test_GeneSet.codon_dict == {
         "ATA": 0,
         "ATC": 0,
@@ -126,10 +126,11 @@ def test_GeneSet_codon_counts():
         "TGG": 0,
     }
 
-    # test 2 - low threshold_imprecise and high threshold_skipped_genes
-    test_GeneSet.codon_counts(0, 1000)
-    assert test_GeneSet.imprecise_codons == 1
+    # test 2 - test low threshold_imprecise (default, 0)
+    test_GeneSet.codon_counts(threshold_imprecise = 0)
+    assert test_GeneSet.n_imprecise_codons == 1
     assert len(test_GeneSet.skipped_imprecise_genes) == 1
+
     assert test_GeneSet.codon_dict == {
         "ATA": 0,
         "ATC": 0,
@@ -196,10 +197,6 @@ def test_GeneSet_codon_counts():
         "TGA": 0,
         "TGG": 0,
     }
-
-    # test 3 - low threshold threshold_skipped_genes, raising error
-    with pytest.raises(Exception):
-        test_GeneSet.codon_counts(0, 0)
 
 
 def test_GeneSet_codon_frequency():
