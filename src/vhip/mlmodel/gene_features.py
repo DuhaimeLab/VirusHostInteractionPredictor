@@ -407,7 +407,7 @@ class GeneSet:
             self.skipped_ambiguous_peptides (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_ambiguous amino acids.
         """
         # Initialize attributes
-        self.aa_dict: dict[str, int] = dict.fromkeys(CODON_LIST, 0)
+        self.aa_dict: dict[str, int] = dict.fromkeys(AA_LIST, 0)
         self.n_ambiguous_aas: int = 0
         self.skipped_ambiguous_peptides: List[Gene] = []
 
@@ -415,10 +415,10 @@ class GeneSet:
         for gene in self.cds_genes:
             counter += 1
             print(f"Analyzing gene {counter} of {len(self.cds_genes)}")
-            gene.calculate_aa_counts() # calculate codon counts for the current gene
-            self.n_ambiguous_aas += len(gene.ambiguous_aas) # add to GeneSet count of imprecise codons
+            gene.calculate_aa_counts() # calculate amino acid counts for the current gene
+            self.n_ambiguous_aas += len(gene.ambiguous_aas) # add to GeneSet count of imprecise amino acids
 
-            # if percentage of codons in current gene is over threshold, skip the gene
+            # if percentage of amion acids in current gene is over threshold, skip the gene
             if len(gene.ambiguous_aas)/len(gene.aa) <= threshold_ambiguous:
                 for key, val in gene.aa_dict.items():
                     self.aa_dict[key] += val
