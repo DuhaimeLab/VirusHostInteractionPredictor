@@ -338,17 +338,15 @@ class GeneSet:
             print(f"{self.skipped_tRNA_genes} of tRNA genes skipped due to missing info.")
 
     def codon_counts(
-        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.0
+        self, threshold_imprecise: float = 0.0
     ) -> None:
         """Aggregate the counts for each unique codon and imprecise codons across an entire GeneSet.
 
         Args:
-            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
-            threshold_skipped_genes (float): Tolerated percentage of valid (expected inputs and codon-length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene included in the GeneSet (default 0.0 or 0%)
         Populates the following class attributes:
             self.codon_dict (str: int): Counts of each unique codon across all genes in the GeneSet.
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
-            self.skipped_imprecise_genes (List(str)): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
         """
         # Initialize attributes
         self.codon_dict: dict[str, int] = dict.fromkeys(CODON_LIST, 0)
