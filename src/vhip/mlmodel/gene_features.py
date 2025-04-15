@@ -234,14 +234,14 @@ class CDSGene(Gene):
             self.aa_dict (str: int): Each key of dictionary is an unique amino acid, and values represent the number of times the associated amino acid (key) appears to be encoded by codons in the gene sequence.
         """
         self.aa_dict = dict.fromkeys(AA_LIST, 0)
-        self.unexpected_aa: List[str] = []
+        self.ambiguous_aas: List[str] = []
 
         if not (self.input_error or self.nt_input_error or self.cds_len_error or self.aa_input_error):
             for aa in self.aa:
                 if aa in self.aa_dict.keys():
                     self.aa_dict[aa] += 1
                 elif aa not in self.aa_dict.keys():
-                    self.unexpected_aa.append(aa)
+                    self.ambiguous_aas.append(aa)
 
     def calculate_GCn(self) -> None:
         """Calculate GC content at position 1, 2, and 3 of a gene.
@@ -375,7 +375,6 @@ class GeneSet:
 
         Args:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
-            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
         Populates the following class attributes:
             self.codon_frq (str: float): Frequency of each unique codon across all CDS genes in the GeneSet.
         If not populated previously by running codon_counts():
@@ -389,7 +388,6 @@ class GeneSet:
             # If aggregate codon counts have not already been calculated, runs codon_counts()
             self.codon_counts(
                 threshold_imprecise=threshold_imprecise
-                threshold_skipped_genes=threshold_skipped_genes,
             )
 
         if hasattr(self, "codon_dict"):
@@ -397,58 +395,56 @@ class GeneSet:
             self.codon_frq = {k: (v / total) for k, v in self.codon_dict.items()}
 
     def amino_acid_counts(
-        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+        self, threshold_ambiguous: float = 0.0
     ) -> None:
-        """Calculate the counts of each unique amino acid encoded by an entire GeneSet.
+        """Aggregate the counts for each unique amion acid and ambiguous amino acid across all CDS genes in a GeneSet.
 
         Args:
-            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
-            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
+            threshold_ambiguous (float): Percentage of ambiguous (not in AA_LIST) amino acids tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
         Populates the following class attributes:
-            self.aa_dict (str: int): Counts of each unique amino acid across all genes in the GeneSet.
-        If not populated previously by running codon_counts():
-            self.codon_dict (str: int): Counts of each unique codon across all genes in the GeneSet.
-            self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
-            self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
+            self.aa_dict (str: int): Counts of each unique amino acid across all CDS genes in the GeneSet.
+            self.n_ambiguous_aas (int): Total number of ambiguous amino acids found in the GeneSet.
+            self.skipped_ambiguous_peptides (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_ambiguous amino acids.
         """
-        self.aa_dict: dict[str, int] = dict.fromkeys(AA_LIST, 0)
+        # Initialize attributes
+        self.aa_dict: dict[str, int] = dict.fromkeys(CODON_LIST, 0)
+        self.n_ambiguous_aas: int = 0
+        self.skipped_ambiguous_peptides: List[Gene] = []
 
-        if not hasattr(self, "codon_dict"):
-            # If aggregate codon counts have not already been calculated, runs codon_counts()
-            self.codon_counts(
-                threshold_imprecise=threshold_imprecise,
-                threshold_skipped_genes=threshold_skipped_genes,
-            )
+        counter = 0
+        for gene in self.cds_genes:
+            counter += 1
+            print(f"Analyzing gene {counter} of {len(self.cds_genes)}")
+            gene.calculate_aa_counts() # calculate codon counts for the current gene
+            self.n_ambiguous_aas += len(gene.ambiguous_aas) # add to GeneSet count of imprecise codons
 
-        if hasattr(self, "codon_dict"):
-            for codon in self.codon_dict.keys():
-                if codon not in stop_codons:
-                    aa = CODON_TABLE[codon]
-                    self.aa_dict[aa] += self.codon_dict[codon]
+            # if percentage of codons in current gene is over threshold, skip the gene
+            if len(gene.ambiguous_aas)/len(gene.aa) <= threshold_ambiguous:
+                for key, val in gene.aa_dict.items():
+                    self.aa_dict[key] += val
+            else:
+                self.skipped_ambiguous_peptides.append(gene)
 
     def amino_acid_frequency(
-        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+        self, threshold_ambiguous: float = 0.0
     ) -> None:
-        """Calculate the frequency of each unique amino acid encoded by an entire GeneSet.
+        """Calculate the frequency of each unique amino acid across all CDS genes in a GeneSet.
 
         Args:
-            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
-            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
+            threshold_ambiguous (float): Percentage of ambiguous (not in AA_LIST) amino acids tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
         Populates the following class attributes:
-            self.aa_frq (str: float): Frequency of each unique amino acid across all genes in the GeneSet.
-        If not populated previously by running amino_acid_counts() and codon_counts():
-            self.aa_dict (str: int): Counts of each unique amino acid across all genes in the GeneSet.
-            self.codon_dict (str: int): Counts of each unique codon across all genes in the GeneSet.
-            self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
-            self.skipped_imprecise_genes (List[str]): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
+            self.aa_frq (str: float): Frequency of each unique amino acid across all CDS genes in the GeneSet.
+        If not populated previously by running amino_acid_counts():
+            self.aa_dict (str: int): Counts of each unique amino acid across all CDS genes in the GeneSet.
+            self.n_ambiguous_aas (int): Total number of ambiguous amino acids found in the GeneSet.
+            self.skipped_ambiguous_peptides (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_ambiguous amino acids.
         """
         self.aa_frq: dict[str, float] = {}
 
         if not hasattr(self, "aa_dict"):
             # If aggregate amino acid counts have not already been calculated, runs amino_acid_counts()
             self.amino_acid_counts(
-                threshold_imprecise=threshold_imprecise,
-                threshold_skipped_genes=threshold_skipped_genes,
+                threshold_ambiguous=threshold_ambiguous
             )
 
         if hasattr(self, "aa_dict"):
