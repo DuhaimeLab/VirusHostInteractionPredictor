@@ -214,7 +214,7 @@ class CDSGene(Gene):
 
         Populates the following class attributes:
             self.codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
-            self.number_imprecise_codons (int): Number of codons that are not precise (i.e. are not found in expected CODON_LIST).
+            self.percent_imprecise_codons (int): Percentage of codons that are not precise (i.e. are not found in expected CODON_LIST and may contain degeneracies).
         """
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
         self.imprecise_codons: List[str] = []
@@ -226,10 +226,6 @@ class CDSGene(Gene):
                     self.codon_dict[codon] += 1
                 else:
                     self.imprecise_codons.append(codon)
-
-            self.percent_imprecise_codons: float = (
-                len(self.imprecise_codons) / self.n_codons
-            )
 
     def calculate_aa_counts(self) -> None:
         """Calculate counts of each unique amino acid encoded by a cds gene.
@@ -342,45 +338,36 @@ class GeneSet:
             print(f"{self.skipped_tRNA_genes} of tRNA genes skipped due to missing info.")
 
     def codon_counts(
-        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.0
     ) -> None:
         """Aggregate the counts for each unique codon and imprecise codons across an entire GeneSet.
 
         Args:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0%)
-            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
+            threshold_skipped_genes (float): Tolerated percentage of valid (expected inputs and codon-length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50%)
         Populates the following class attributes:
             self.codon_dict (str: int): Counts of each unique codon across all genes in the GeneSet.
             self.imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List(str)): IDs of genes in the GeneSet that have more than threshold_imprecise codons.
         """
+        # Initialize attributes
         self.codon_dict: dict[str, int] = dict.fromkeys(CODON_LIST, 0)
-        self.imprecise_codons: int = 0
-        self.skipped_imprecise_genes: List[str] = []
+        self.n_imprecise_codons: int = 0
+        self.skipped_imprecise_genes: List[Gene] = []
 
         counter = 0
-        for gene in self.genes:
+        for gene in self.cds_genes:
             counter += 1
-            print(f"Analyzing gene {counter} of {len(self.genes)}")
-            gene.calculate_codon_counts()
-            self.imprecise_codons += gene.number_imprecise_codons
-            if gene.percent_imprecise_codons <= threshold_imprecise:
+            print(f"Analyzing gene {counter} of {len(self.cds_genes)}")
+            gene.calculate_codon_counts() # calculate codon counts for the current gene
+            self.n_imprecise_codons += len(gene.imprecise_codons) # add to GeneSet count of imprecise codons
+
+            # if percentage of codons in current gene is over threshold, skip the gene
+            if len(gene.imprecise_codons)/gene.n_codons <= threshold_imprecise:
                 for key, val in gene.codon_dict.items():
                     self.codon_dict[key] += val
             else:
-                self.skipped_imprecise_genes.append(gene.gene_id)
-
-        if (
-            len(self.skipped_imprecise_genes) / len(self.genes)
-            > threshold_skipped_genes
-        ):
-            raise Exception(
-                f"Too many skipped genes. {len(self.skipped_imprecise_genes)} genes have > {threshold_imprecise} imprecise codons."
-            )
-        elif len(self.skipped_imprecise_genes) > 0:
-            print(
-                f"Skipped {len(self.skipped_imprecise_genes)} genes with too many imprecise codons"
-            )
+                self.skipped_imprecise_genes.append(gene)
 
     def codon_frequency(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
