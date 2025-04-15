@@ -52,7 +52,7 @@ def test_GeneSet_init():
 
 
 def test_GeneSet_codon_counts():
-    """Test code to calculate codon counts across all genes in a GeneSet object."""
+    """Test code to calculate codon counts across all CDS genes in a GeneSet object."""
     test_GeneSet = GeneSet("tests/datatests/test_short_genes.json")
 
     # test 1 - test high threshold_imprecise (100)
@@ -200,12 +200,11 @@ def test_GeneSet_codon_counts():
 
 
 def test_GeneSet_codon_frequency():
-    """Test code to calculate codon frequency across all genes in a GeneSet object."""
-    test_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
+    """Test code to calculate codon frequency across all CDS genes in a GeneSet object."""
+    test_GeneSet = GeneSet("tests/datatests/test_short_genes.json")
 
-    test_GeneSet.codon_frequency()  # using default thresholds for tolerable imprecise codons and skipped genes
-    assert test_GeneSet.imprecise_codons == 1
-    assert len(test_GeneSet.skipped_genes) == 1
+    test_GeneSet.codon_frequency()  # using default threshold for tolerable imprecise codons
+    assert test_GeneSet.n_imprecise_codons == 1
     assert len(test_GeneSet.skipped_imprecise_genes) == 1
     assert test_GeneSet.codon_frq == {
         "ATA": 0.0,
