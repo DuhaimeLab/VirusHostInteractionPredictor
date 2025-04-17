@@ -270,6 +270,87 @@ class CDSGene(Gene):
         self.GC2 = gc2 / self.n_codons
         self.GC3 = gc3 / self.n_codons
 
+# Define tRNAGene subclass
+class tRNAGene(Gene):
+    """Class representing a tRNA gene (sublass of Gene).
+
+    Args:
+        json_dict (dict): Dictionary containing gene information. Required keys are 'type', 'id', 'gene', 'product', 'score', 'amino_acid', and 'anti_codon'. Descriptions below:
+            - type (str): Type of gene (must be 'cds', otherwise error).
+            - id (str): Gene ID.
+            - gene (str): Gene name.
+            - product (str): Gene product name.
+            - score (float): Bakta output confidence score for the tRNA gene prediction.
+            - amino_acid (str): Required unless pseudogene. Amino acid associated with the tRNA gene. Only those in with an associated element in AA_CONVERSIONS will be counted in downstream methods.
+            - anti_codon (str): Required unlesss psueodgene. Anticodon sequence associated with the tRNA gene.
+
+    Populates the following class attributes:
+        self.input_error (bool): True if input dictionary does not contain expected general Gene info keys ('type', 'id', 'gene', 'product'), wherein method will exit (expect False).
+        self.no_score (bool): True if the score is not provided in the input dictionary, wherein method will exit (expect False).
+        self.pseudogene (bool): True if the tRNA gene is a pseudogene (output listed as tRNA-Xxx with no amino_acid and anti_codon keys).
+        self.no_aa (bool): True if the amino acid is not provided for a non-pseudogene, wherein method will exit (expect False).
+        self.no_anticodon (bool): True if the anticodon is not provided for a non-pseudogene, wherein method will exit (expect False).
+        self.unexpected_aa (List['str']): True if provided amino_acid value is not in AA_CONVERSIONS, wherein method will exit.
+        self.unexpected_anti_codon (List['str']): True if anticodon value does not only contain 'a','t','g','c' substrings, wherein method will exit.
+        self.type (str),
+        self.id (str),
+        self.gene (str),
+        self.product (str),
+        self.score (float),
+        self.amino_acid (str),
+        self.anti_codon (str)
+    """
+    def __init__(self, json_dict: dict[str, str]) -> None:
+        """Initialize class variables."""
+        self.no_score: bool = False # will flag if score not provided in json input dict
+        self.pseudogene: bool = False # will flag if tRNA gene is a pseudogene
+        self.no_aa: bool = False # will flag if amino acid value not provided for non-pseudogene
+        self.no_anticodon: bool = False # will flag if anticodon value not provided for non-pseudogene
+        self.unexpected_aa: bool = False # will flag if amino acid value is not in AA_CONVERSIONS
+        self.unexpected_anti_codon: bool = False # will flag if anticodon value does not only contain 'a','t','g','c' substrings
+
+        # Initialize superclass Gene attributes
+        super().__init__(json_dict)
+
+        # Check for required keys in input dictionary
+        if self.input_error is True: # exit if input dictionary does not contain all required general Gene keys
+            return
+        elif json_dict["type"] != "tRNA": # exit if input gene type is not 'cds'
+            raise Exception("Gene is not a tRNA gene (expected dictionary element 'type': 'tRNA'). This class is for CDS genes only.")
+        elif "score" not in json_dict.keys(): # exit if score not provided for tRNA gene
+            self.no_score = True
+            print(f"{json_dict["id"]}: Input dictionary does not contain 'score' key for tRNA gene.")
+            return
+        else:
+            self.score = json_dict["score"] # populate score attribute if provided
+
+        # Identify pseudogenes and populate tRNA gene attributes for non-pseudogenes
+        if "pseudogene" in json_dict.keys(): # flag pseudogenes
+            self.pseudogene = True
+            print(f"{json_dict["id"]}: tRNA gene is a pseudogene.")
+        elif "pseudogene" not in json_dict.keys(): # populate tRNA gene attributes appropriate for non-pseudogenes, flagging unexpected inputs
+            # Amino acid attributes:
+            if "amino_acid" not in json_dict.keys():
+                self.no_aa = True
+                print(f"{json_dict["id"]}: Input dictionary does not contain 'amino_acid' key for tRNA gene.")
+                return
+            elif json_dict["amino_acid"] not in AA_CONVERSIONS.keys():
+                self.unexpected_aa = True
+                print(f"{json_dict["id"]}: Unexpected amino acid provided for tRNA gene.")
+                return
+            else:
+                self.amino_acid = json_dict["amino_acid"]
+            # Anticodon attributes:
+            if "anti_codon" not in json_dict.keys():
+                self.no_anticodon = True
+                print(f"{json_dict["id"]}: Input dictionary does not contain 'anti_codon' key for tRNA gene.")
+                return
+            elif not all(base in "atgc" for base in json_dict["anti_codon"].lower()):
+                self.unexpected_anti_codon = True
+                print(f"{json_dict["id"]}: Unexpected anticodon provided for tRNA gene.")
+                return
+            else:
+                self.anti_codon = json_dict["anti_codon"].upper()
 
 # Define GeneSet class
 class GeneSet:
@@ -320,7 +401,6 @@ class GeneSet:
                 self.cds_aa_input_errors.append(current_gene)
             else:
                 self.cds_genes.append(CDSGene(gene))
-                print(f"Adding cds gene: {gene["id"]}")
         for gene in all_input_tRNA_genes:
             current_gene = Gene(gene)
             if current_gene.input_error is True:
