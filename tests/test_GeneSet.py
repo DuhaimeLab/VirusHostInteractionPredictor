@@ -57,7 +57,7 @@ def test_GeneSet_codon_counts():
 
     # test 1 - test high threshold_imprecise (100)
     test_GeneSet.codon_counts(threshold_imprecise = 100)
-    assert test_GeneSet.n_imprecise_codons == 1
+    assert len(test_GeneSet.imprecise_codons) == 1
     assert len(test_GeneSet.skipped_imprecise_genes) == 0 # 100% of the codons would have to be unexpected for the gene to be skipped
     assert test_GeneSet.codon_dict == {
         "ATA": 0,
@@ -128,7 +128,7 @@ def test_GeneSet_codon_counts():
 
     # test 2 - test low threshold_imprecise (default, 0)
     test_GeneSet.codon_counts(threshold_imprecise = 0)
-    assert test_GeneSet.n_imprecise_codons == 1
+    assert len(test_GeneSet.imprecise_codons) == 1
     assert len(test_GeneSet.skipped_imprecise_genes) == 1
     assert test_GeneSet.codon_dict == {
         "ATA": 0,
@@ -203,7 +203,7 @@ def test_GeneSet_codon_frequency():
     test_GeneSet = GeneSet("tests/datatests/test_short_genes.json")
 
     test_GeneSet.codon_frequency()  # using default threshold for tolerable imprecise codons
-    assert test_GeneSet.n_imprecise_codons == 1
+    assert len(test_GeneSet.imprecise_codons) == 1
     assert len(test_GeneSet.skipped_imprecise_genes) == 1
     assert test_GeneSet.codon_frq == {
         "ATA": 0.0,
@@ -278,7 +278,7 @@ def test_GeneSet_amino_acid_counts():
 
     # test 1 - test high threshold_unexpected (100)
     test_GeneSet.amino_acid_counts(threshold_unexpected = 100)
-    assert test_GeneSet.n_unexpected_aas == 1
+    assert len(test_GeneSet.unexpected_aas) == 1
     assert len(test_GeneSet.skipped_unexpected_peptides) == 0 # 100% of the amino acids would have to be unexpected for the gene to be skipped
     assert test_GeneSet.aa_dict == {
         "I": 0,
@@ -305,7 +305,7 @@ def test_GeneSet_amino_acid_counts():
 
     # test 2 - test low threshold_unexpected (default, 0)
     test_GeneSet.amino_acid_counts(threshold_unexpected = 0)
-    assert test_GeneSet.n_unexpected_aas == 1
+    assert len(test_GeneSet.unexpected_aas) == 1
     assert len(test_GeneSet.skipped_unexpected_peptides) == 1
     assert test_GeneSet.aa_dict =={
         "I": 0,
@@ -335,7 +335,7 @@ def test_GeneSet_amino_acid_frequency():
     test_GeneSet = GeneSet("tests/datatests/test_short_genes.json")
 
     test_GeneSet.amino_acid_frequency()  # using default threshold for tolerable unexpected aas
-    assert test_GeneSet.n_unexpected_aas == 1
+    assert len(test_GeneSet.unexpected_aas) == 1
     assert len(test_GeneSet.skipped_unexpected_peptides) == 1
     assert test_GeneSet.aa_frq == {
         "I": 0.0,
