@@ -266,9 +266,10 @@ class CDSGene(Gene):
                     elif j == 2:
                         gc3 += 1
 
-        self.GC1 = gc1 / self.n_codons
-        self.GC2 = gc2 / self.n_codons
-        self.GC3 = gc3 / self.n_codons
+        if self.n_codons > 0:
+            self.GC1 = gc1 / self.n_codons
+            self.GC2 = gc2 / self.n_codons
+            self.GC3 = gc3 / self.n_codons
 
 # Define tRNAGene subclass
 class tRNAGene(Gene):
@@ -375,8 +376,8 @@ class GeneSet:
         self.id = os.path.splitext(os.path.basename(gene_file))[0]
         self.cds_genes: List[CDSGene] = []
         self.tRNA_genes: List[Gene] = []
-        self.skipped_cds_genes: Union[None, float] = None
-        self.skipped_tRNA_genes: Union[None, float] = None
+        self.skipped_cds_genes: float = 0
+        self.skipped_tRNA_genes: float = 0
 
         # Initialize Quality control attributes
         self.cds_general_input_errors: List[Gene] = []
@@ -446,7 +447,10 @@ class GeneSet:
         counter = 0
         for gene in self.cds_genes:
             counter += 1
-            #print(f"Counting codons in gene {gene.id} ({counter}) of {self.id} ({len(self.cds_genes)})")
+            if gene.n_codons < 1:
+                print(f"{gene.id} of {self.id} has no codons. Skipping.")
+                continue
+
             gene.calculate_codon_counts() # calculate codon counts for the current gene
             self.imprecise_codons.extend(gene.imprecise_codons)  # add all elements of gene.imprecise_codons to GeneSet imprecise codons
 
@@ -456,7 +460,6 @@ class GeneSet:
                     self.codon_dict[key] += val
             else:
                 self.skipped_imprecise_genes.append(gene)
-                print(f"{len(self.skipped_imprecise_genes)/len(self.cds_genes)*100}% cds genes in {self.id} were skipped in codon counting due to imprecision.")
 
     def codon_frequency(
         self, threshold_imprecise: float = 0.0
@@ -472,6 +475,11 @@ class GeneSet:
             self.imprecise_codons (List(str)): list of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_imprecise codons.
         """
+        # Check if GeneSet has any CDS genes
+        if len(self.cds_genes) == 0:
+            print(f"No Valid CDS genes in {self.id}. Skipping codon frequency calculation.")
+            return
+
         print(f"Calculating codon frequencies in {self.id}.")
         self.codon_frq: dict[str, float] = {}
 
@@ -483,8 +491,10 @@ class GeneSet:
 
         if hasattr(self, "codon_dict") and len(self.skipped_imprecise_genes)/len(self.cds_genes) < 1:
             total = sum(self.codon_dict.values())
-            print(f"Total codon count in {self.id}: {total}")
-            self.codon_frq = {k: (v / total) for k, v in self.codon_dict.items()}
+            if total >= 1:
+                self.codon_frq = {k: (v / total) for k, v in self.codon_dict.items()}
+            elif total < 1:
+                print(f"No valid codons in {self.id}. Cannot calculate frequencies.")
         else:
             print(f"No valid and precise CDS genes in {self.id} to calculate codon frequencies.")
 
@@ -513,7 +523,10 @@ class GeneSet:
         counter = 0
         for gene in self.cds_genes:
             counter += 1
-            #print(f"Counting amino acids in gene {gene.id} ({counter}) of {self.id} ({len(self.cds_genes)})")
+            if len(gene.aa) < 1:
+                print(f"{gene.id} of {self.id} has no reported amino acids. Skipping.")
+                continue
+
             gene.calculate_aa_counts() # calculate amino acid counts for the current gene
             self.unexpected_aas.extend(gene.unexpected_aas)  # add all elements of gene.imprecise_codons to GeneSet imprecise codons
 
@@ -538,6 +551,11 @@ class GeneSet:
             self.unexpected_aas (list(str)): list of unexpected amino acids found in the GeneSet.
             self.skipped_unexpected_peptides (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_unexpected amino acids.
         """
+        # Check if GeneSet has any CDS genes
+        if len(self.cds_genes) == 0:
+            print(f"No Valid CDS genes in {self.id}. Skipping amino acid frequency calculation.")
+            return
+
         print(f"Calculating amino acid frequencies in {self.id}.")
         self.aa_frq: dict[str, float] = {}
 
@@ -549,8 +567,10 @@ class GeneSet:
 
         if hasattr(self, "aa_dict") and len(self.skipped_unexpected_peptides)/len(self.cds_genes) < 1:
             total = sum(self.aa_dict.values())
-            print(f"Total amino acid count in {self.id}: {total}")
-            self.aa_frq = {k: (v / total) for k, v in self.aa_dict.items()}
+            if total >= 1:
+                self.aa_frq = {k: (v / total) for k, v in self.aa_dict.items()}
+            elif total < 1:
+                print(f"No valid amino acids in {self.id}. Cannot calculate frequencies.")
         else:
             print(f"No valid and precise CDS genes in {self.id} to calculate amino acid frequencies.")
 
