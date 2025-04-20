@@ -64,9 +64,9 @@ def test_CodonBiasComparison_methods():
     Here we use GeneSet.codon_dict (codon counts) dictionaries as the test inputs.
     """
     # test 1 - test that metrics all = 1 when virus and host inputs are exactly the same
-    test_host_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
+    test_host_GeneSet = GeneSet("tests/datatests/test_short_genes.json")
     test_host_GeneSet.codon_counts()
-    test_virus_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
+    test_virus_GeneSet = GeneSet("tests/datatests/test_short_genes.json")
     test_virus_GeneSet.codon_counts()
 
     test_comparison = CodonBiasComparison(
@@ -80,9 +80,9 @@ def test_CodonBiasComparison_methods():
     assert test_comparison.cos_similarity == 1
 
     # test 2 - test metrics calculation when virus and host inputs have differences
-    test_host_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
+    test_host_GeneSet = GeneSet("tests/datatests/test_short_genes.json")
     test_host_GeneSet.codon_counts()
-    test_virus_GeneSet = GeneSet("tests/datatests/test_virus_short_genes_file.ffn")
+    test_virus_GeneSet = GeneSet("tests/datatests/test_virus_short_genes.json")
     test_virus_GeneSet.codon_counts()
 
     test_comparison = CodonBiasComparison(
