@@ -1,0 +1,40 @@
+
+{
+    "genome": {
+            "info": "info"
+        },
+        "features": [
+            {
+                "type": "cds",
+                "gene": "gene_1",
+                "product": "product_1",
+                "nt": "ATGTCAAAAGAA",
+                "aa": "MSSEZ",
+                "id": "gene_1"
+            },
+            {
+                "type": "cds",
+                "gene": "gene_2_cds_len_error",
+                "product": "product_2",
+                "nt": "ATGGAATT",
+                "aa": "M",
+                "id": "gene_2_cds_len_error"
+            },
+            {
+                "type": "cds",
+                "gene": "gene_3_imprecise",
+                "product": "product_3",
+                "nt": "TTGTCAGAR",
+                "aa": "LSE",
+                "id": "gene_3_imprecise"
+            },
+            {
+                "type": "cds",
+                "gene": "gene_4",
+                "product": "product_4",
+                "nt": "ATGTGGTCCGAA",
+                "aa": "M",
+                "id": "gene_4"
+            }
+        ]
+    }
