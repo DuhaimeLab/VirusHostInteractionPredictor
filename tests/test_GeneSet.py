@@ -363,11 +363,10 @@ def test_GeneSet_amino_acid_frequency():
 
 def test_GeneSet_RSCU():
     """Test code to calculate relative synonymous codon usage (RSCU) across all genes in a GeneSet object."""
-    test_GeneSet = GeneSet("tests/datatests/test_short_genes_file.ffn")
+    test_GeneSet = GeneSet("tests/datatests/test_short_genes.json")
 
-    test_GeneSet.RSCU()  # using default thresholds for tolerable imprecise codons and skipped genes
-    assert test_GeneSet.imprecise_codons == 1
-    assert len(test_GeneSet.skipped_genes) == 1
+    test_GeneSet.RSCU()  # using default threshold for tolerable imprecise codons
+    assert len(test_GeneSet.imprecise_codons) == 1
     assert len(test_GeneSet.skipped_imprecise_genes) == 1
     assert test_GeneSet.RSCU_dict == {
         "ATA": 0.0,
