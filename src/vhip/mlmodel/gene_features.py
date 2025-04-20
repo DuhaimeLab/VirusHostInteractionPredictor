@@ -600,19 +600,18 @@ class GeneSet:
             )
 
         if hasattr(self, "codon_dict"):
+            # create dictionary of the sum of synonymous codon counts for each aminon acid
+            expected_counts: dict[str, float] = dict.fromkeys(CODON_LIST, 0)
+            for aa in CODON_TABLE.values():
+                synonymous_codons = [key for key, value in CODON_TABLE.items() if value == aa]  # list of other codons encoding the same aa
+                synonymous_total_count= sum([self.codon_dict[syn_codon] for syn_codon in synonymous_codons])  # total number of synonymous codons present in GeneSet
+                expected_counts[aa] = synonymous_total_count / len(synonymous_codons) # expected frequency of codon family members given assumption that all synonymous codons are equally likely to encode the aa
+
+            # calculate the RSCU for each codon
             for codon, count in self.codon_dict.items():
-                if count != 0.0:
+                if count > 0:
                     aa = CODON_TABLE[codon]  # aa encoded by current codon iteration
-                    synonymous_codons = [
-                        key for key, value in CODON_TABLE.items() if value == aa
-                    ]  # list of other codons encoding the same aa
-                    synonymous_total_count = sum(
-                        [self.codon_dict[syn_codon] for syn_codon in synonymous_codons]
-                    )  # total number of synonymous codons present in GeneSet
-                    expected_frequency = (
-                        synonymous_total_count / len(synonymous_codons)
-                    )  # expected frequency of current codon given all assumption all synonymous codons are equally likely to encode the aa
-                    self.RSCU_dict[codon] = self.codon_dict[codon] / expected_frequency
+                    self.RSCU_dict[codon] = self.codon_dict[codon] / expected_counts[aa]
 
     def tRNA_counts(self) -> None:
         """Calculate the copy numbers of individual tRNA genes by their associated amino acids and (anti)codons.
