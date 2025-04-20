@@ -214,7 +214,7 @@ class CDSGene(Gene):
 
         Populates the following class attributes:
             self.codon_dict (str: int): Each key of dictionary is a unique codon, and the values represent the number of times the associated codon (key) appears in the provided gene sequence.
-            self.percent_imprecise_codons (int): Percentage of codons that are not precise (i.e. are not found in expected CODON_LIST and may contain degeneracies).
+            self.imprecise_codons (int): Percentage of codons that are not precise (i.e. are not found in expected CODON_LIST and may contain degeneracies).
         """
         self.codon_dict = dict.fromkeys(CODON_LIST, 0)
         self.imprecise_codons: List[str] = []
@@ -430,7 +430,7 @@ class GeneSet:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
         Populates the following class attributes:
             self.codon_dict (str: int): Counts of each unique codon across all CDS genes in the GeneSet.
-            self.n_imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
+            self.imprecise_codons (List(str)): list of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_imprecise codons.
         """
         # Check if GeneSet has any CDS genes
@@ -440,7 +440,7 @@ class GeneSet:
 
         # Initialize attributes
         self.codon_dict: dict[str, int] = dict.fromkeys(CODON_LIST, 0)
-        self.n_imprecise_codons: int = 0
+        self.imprecise_codons: List[str] = []
         self.skipped_imprecise_genes: List[Gene] = []
 
         counter = 0
@@ -448,7 +448,7 @@ class GeneSet:
             counter += 1
             #print(f"Counting codons in gene {gene.id} ({counter}) of {self.id} ({len(self.cds_genes)})")
             gene.calculate_codon_counts() # calculate codon counts for the current gene
-            self.n_imprecise_codons += len(gene.imprecise_codons) # add to GeneSet count of imprecise codons
+            self.imprecise_codons.extend(gene.imprecise_codons)  # add all elements of gene.imprecise_codons to GeneSet imprecise codons
 
             # if percentage of codons in current gene is over threshold, skip the gene
             if len(gene.imprecise_codons)/gene.n_codons <= threshold_imprecise:
@@ -469,7 +469,7 @@ class GeneSet:
             self.codon_frq (str: float): Frequency of each unique codon across all CDS genes in the GeneSet.
         If not populated previously by running codon_counts():
             self.codon_dict (str: int): Counts of each unique codon across all CDS genes in the GeneSet.
-            self.n_imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
+            self.imprecise_codons (List(str)): list of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_imprecise codons.
         """
         print(f"Calculating codon frequencies in {self.id}.")
@@ -497,7 +497,7 @@ class GeneSet:
             threshold_unexpected (float): Percentage of unexpected (not in AA_LIST) amino acids tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
         Populates the following class attributes:
             self.aa_dict (str: int): Counts of each unique amino acid across all CDS genes in the GeneSet.
-            self.n_unexpected_aas (int): Total number of unexpected amino acids found in the GeneSet.
+            self.unexpected_aas (list(str)): list of unexpected amino acids found in the GeneSet.
             self.skipped_unexpected_peptides (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_unexpected amino acids.
         """
         # Check if GeneSet has any CDS genes
@@ -507,7 +507,7 @@ class GeneSet:
 
         # Initialize attributes
         self.aa_dict: dict[str, int] = dict.fromkeys(AA_LIST, 0)
-        self.n_unexpected_aas: int = 0
+        self.unexpected_aas: List[str] = []
         self.skipped_unexpected_peptides: List[Gene] = []
 
         counter = 0
@@ -515,7 +515,7 @@ class GeneSet:
             counter += 1
             #print(f"Counting amino acids in gene {gene.id} ({counter}) of {self.id} ({len(self.cds_genes)})")
             gene.calculate_aa_counts() # calculate amino acid counts for the current gene
-            self.n_unexpected_aas += len(gene.unexpected_aas) # add to GeneSet count of imprecise amino acids
+            self.unexpected_aas.extend(gene.unexpected_aas)  # add all elements of gene.imprecise_codons to GeneSet imprecise codons
 
             # if percentage of amion acids in current gene is over threshold, skip the gene
             if len(gene.unexpected_aas)/len(gene.aa) <= threshold_unexpected:
@@ -535,7 +535,7 @@ class GeneSet:
             self.aa_frq (str: float): Frequency of each unique amino acid across all CDS genes in the GeneSet.
         If not populated previously by running amino_acid_counts():
             self.aa_dict (str: int): Counts of each unique amino acid across all CDS genes in the GeneSet.
-            self.n_unexpected_aas (int): Total number of unexpected amino acids found in the GeneSet.
+            self.unexpected_aas (list(str)): list of unexpected amino acids found in the GeneSet.
             self.skipped_unexpected_peptides (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_unexpected amino acids.
         """
         print(f"Calculating amino acid frequencies in {self.id}.")
@@ -568,7 +568,7 @@ class GeneSet:
             self.RSCU (str: float): RSCU of each codon across all CDS genes in the GeneSet.
         If not populated previously by running codon_counts() or codon_frequency():
             self.codon_dict (str: int): Counts of each unique codon across all CDS genes in the GeneSet.
-            self.n_imprecise_codons (int): Total number of imprecise codons found in the GeneSet.
+            self.imprecise_codons (list(str)): list of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_imprecise codons.
         """
         self.RSCU_dict: dict[str, float] = dict.fromkeys(CODON_LIST, 0.0)
