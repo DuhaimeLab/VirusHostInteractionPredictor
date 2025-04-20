@@ -185,7 +185,7 @@ def test_CDSGene_calculate_aa_counts():
         "T": 0,
         "P": 1,
     }
-    assert test_gene_2.unexpected_aa == ["B"]
+    assert test_gene_2.unexpected_aas == ["B"]
 
 def test_CDSGene_calculate_GCn():
     """Test code to calculate GCn content for a given gene."""
