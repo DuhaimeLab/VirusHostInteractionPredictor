@@ -234,14 +234,14 @@ class CDSGene(Gene):
             self.aa_dict (str: int): Each key of dictionary is an unique amino acid, and values represent the number of times the associated amino acid (key) appears to be encoded by codons in the gene sequence.
         """
         self.aa_dict = dict.fromkeys(AA_LIST, 0)
-        self.ambiguous_aas: List[str] = []
+        self.unexpected_aas: List[str] = []
 
         if not (self.input_error or self.nt_input_error or self.cds_len_error or self.aa_input_error):
             for aa in self.aa:
                 if aa in self.aa_dict.keys():
                     self.aa_dict[aa] += 1
                 elif aa not in self.aa_dict.keys():
-                    self.ambiguous_aas.append(aa)
+                    self.unexpected_aas.append(aa)
 
     def calculate_GCn(self) -> None:
         """Calculate GC content at position 1, 2, and 3 of a gene.
@@ -475,56 +475,56 @@ class GeneSet:
             self.codon_frq = {k: (v / total) for k, v in self.codon_dict.items()}
 
     def amino_acid_counts(
-        self, threshold_ambiguous: float = 0.0
+        self, threshold_unexpected: float = 0.0
     ) -> None:
-        """Aggregate the counts for each unique amion acid and ambiguous amino acid across all CDS genes in a GeneSet.
+        """Aggregate the counts for each unique amion acid and unexpected amino acid across all CDS genes in a GeneSet.
 
         Args:
-            threshold_ambiguous (float): Percentage of ambiguous (not in AA_LIST) amino acids tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
+            threshold_unexpected (float): Percentage of unexpected (not in AA_LIST) amino acids tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
         Populates the following class attributes:
             self.aa_dict (str: int): Counts of each unique amino acid across all CDS genes in the GeneSet.
-            self.n_ambiguous_aas (int): Total number of ambiguous amino acids found in the GeneSet.
-            self.skipped_ambiguous_peptides (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_ambiguous amino acids.
+            self.n_unexpected_aas (int): Total number of unexpected amino acids found in the GeneSet.
+            self.skipped_unexpected_peptides (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_unexpected amino acids.
         """
         # Initialize attributes
         self.aa_dict: dict[str, int] = dict.fromkeys(AA_LIST, 0)
-        self.n_ambiguous_aas: int = 0
-        self.skipped_ambiguous_peptides: List[Gene] = []
+        self.n_unexpected_aas: int = 0
+        self.skipped_unexpected_peptides: List[Gene] = []
 
         counter = 0
         for gene in self.cds_genes:
             counter += 1
             print(f"Analyzing gene {counter} of {len(self.cds_genes)}")
             gene.calculate_aa_counts() # calculate amino acid counts for the current gene
-            self.n_ambiguous_aas += len(gene.ambiguous_aas) # add to GeneSet count of imprecise amino acids
+            self.n_unexpected_aas += len(gene.unexpected_aas) # add to GeneSet count of imprecise amino acids
 
             # if percentage of amion acids in current gene is over threshold, skip the gene
-            if len(gene.ambiguous_aas)/len(gene.aa) <= threshold_ambiguous:
+            if len(gene.unexpected_aas)/len(gene.aa) <= threshold_unexpected:
                 for key, val in gene.aa_dict.items():
                     self.aa_dict[key] += val
             else:
-                self.skipped_ambiguous_peptides.append(gene)
+                self.skipped_unexpected_peptides.append(gene)
 
     def amino_acid_frequency(
-        self, threshold_ambiguous: float = 0.0
+        self, threshold_unexpected: float = 0.0
     ) -> None:
         """Calculate the frequency of each unique amino acid across all CDS genes in a GeneSet.
 
         Args:
-            threshold_ambiguous (float): Percentage of ambiguous (not in AA_LIST) amino acids tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
+            threshold_unexpected (float): Percentage of unexpected (not in AA_LIST) amino acids tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
         Populates the following class attributes:
             self.aa_frq (str: float): Frequency of each unique amino acid across all CDS genes in the GeneSet.
         If not populated previously by running amino_acid_counts():
             self.aa_dict (str: int): Counts of each unique amino acid across all CDS genes in the GeneSet.
-            self.n_ambiguous_aas (int): Total number of ambiguous amino acids found in the GeneSet.
-            self.skipped_ambiguous_peptides (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_ambiguous amino acids.
+            self.n_unexpected_aas (int): Total number of unexpected amino acids found in the GeneSet.
+            self.skipped_unexpected_peptides (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_unexpected amino acids.
         """
         self.aa_frq: dict[str, float] = {}
 
         if not hasattr(self, "aa_dict"):
             # If aggregate amino acid counts have not already been calculated, runs amino_acid_counts()
             self.amino_acid_counts(
-                threshold_ambiguous=threshold_ambiguous
+                threshold_unexpected=threshold_unexpected
             )
 
         if hasattr(self, "aa_dict"):
