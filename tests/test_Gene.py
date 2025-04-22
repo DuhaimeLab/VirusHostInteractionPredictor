@@ -122,6 +122,7 @@ def test_CDSGene_calculate_codon_counts():
         "TGC": 0,
         "TGT": 0,
         "TGA": 0,
+        "sTGA": 0,
         "TGG": 0,
     }
     assert len(test_gene.imprecise_codons) == 1
@@ -130,6 +131,24 @@ def test_CDSGene_calculate_codon_counts():
     test_gene_2 = CDSGene({"type": "cds", "id": "2", "gene": "test_gene_2", "product": "test_gene_product_2", "nt": "ATGCCGATTTAG", "aa": "MPI"})
     test_gene_2.calculate_codon_counts()
     assert len(test_gene_2.imprecise_codons) == 0
+
+    # Test 3: CDS gene with a selenocysteine-encoding codon and no TGA stop codon
+    test_gene3 = CDSGene({"type": "cds", "id": "3", "gene": "test_gene_3", "product": "test_gene_product_3", "nt": "ATGTGATAA", "aa": "MU"})
+    test_gene3.calculate_codon_counts()
+    assert test_gene3.codon_dict["TGA"] == 0
+    assert test_gene3.codon_dict["sTGA"] == 1
+
+    # Test 4: CDS gene with a selenocysteine-encoding codon and a TGA stop codon
+    test_gene4 = CDSGene({"type": "cds", "id": "4", "gene": "test_gene_4", "product": "test_gene_product_4", "nt": "ATGTGATGA", "aa": "MU"})
+    test_gene4.calculate_codon_counts()
+    assert test_gene4.codon_dict["TGA"] == 1
+    assert test_gene4.codon_dict["sTGA"] == 1
+
+    # Test 5: CDS gene with a TGA stop codon but no selenocysteine-encoding codon
+    test_gene5 = CDSGene({"type": "cds", "id": "5", "gene": "test_gene_5", "product": "test_gene_product_5", "nt": "ATGTGA", "aa": "M"})
+    test_gene5.calculate_codon_counts()
+    assert test_gene5.codon_dict["TGA"] == 1
+    assert test_gene5.codon_dict["sTGA"] == 0
 
 
 def test_CDSGene_calculate_aa_counts():
@@ -158,6 +177,7 @@ def test_CDSGene_calculate_aa_counts():
         "G": 0,
         "T": 0,
         "P": 1,
+        "U": 0,
     }
 
     # Test 2: CDS gene with unexpected amino acids in input dict
@@ -184,6 +204,7 @@ def test_CDSGene_calculate_aa_counts():
         "G": 0,
         "T": 0,
         "P": 1,
+        "U": 0,
     }
     assert test_gene_2.unexpected_aas == ["B"]
 
@@ -194,3 +215,6 @@ def test_CDSGene_calculate_GCn():
     assert test_gene.GC1 == 0.5
     assert test_gene.GC2 == 0.5
     assert test_gene.GC3 == 0.25
+
+def test_tRNAGene_init():
+    """Test code to create tRNAGene object and initialize class attributes."""
