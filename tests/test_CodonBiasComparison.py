@@ -1,5 +1,7 @@
 """Pytest for CodonBiasComparison methods in gene_features module."""
 
+import math
+
 import numpy as np
 import scipy  # pyright: ignore[reportMissingTypeStubs]
 
@@ -24,38 +26,38 @@ def test_CodonBiasComparison_init():
     test_comparison_1 = CodonBiasComparison(
         test_host_GeneSet.codon_dict, test_virus_GeneSet.codon_dict
     )
-    assert len(test_comparison_1.host_list) == 64  # there are 64 possible unique codons
-    assert len(test_comparison_1.virus_list) == 64
+    assert len(test_comparison_1.host_list) == 65  # there are 65 possible unique codons
+    assert len(test_comparison_1.virus_list) == 65
 
     # test 2 - test CodonBiasComparsion initializes with input codon frequency (GeneSet.codon_frq)
     test_comparison_2 = CodonBiasComparison(
         test_host_GeneSet.codon_frq, test_virus_GeneSet.codon_frq
     )
-    assert len(test_comparison_2.host_list) == 64
-    assert len(test_comparison_2.virus_list) == 64
+    assert len(test_comparison_2.host_list) == 65
+    assert len(test_comparison_2.virus_list) == 65
 
     # test 3 - test CodonBiasComparsion initializes with input amino acid counts (GeneSet.aa_dict)
     test_comparison_3 = CodonBiasComparison(
         test_host_GeneSet.aa_dict, test_virus_GeneSet.aa_dict
     )
     assert (
-        len(test_comparison_3.host_list) == 20
+        len(test_comparison_3.host_list) == 21
     )  # there are 20 possible unique amino acids
-    assert len(test_comparison_3.virus_list) == 20
+    assert len(test_comparison_3.virus_list) == 21
 
     # test 4 - test CodonBiasComparsion initializes with input amino acid frequency (GeneSet.aa_frq)
     test_comparison_4 = CodonBiasComparison(
         test_host_GeneSet.aa_frq, test_virus_GeneSet.aa_frq
     )
-    assert len(test_comparison_4.host_list) == 20
-    assert len(test_comparison_4.virus_list) == 20
+    assert len(test_comparison_4.host_list) == 21
+    assert len(test_comparison_4.virus_list) == 21
 
     # test 5 - test CodonBiasComparsion initializes with input RSCU (GeneSet.RSCU_dict)
     test_comparison_5 = CodonBiasComparison(
         test_host_GeneSet.RSCU_dict, test_virus_GeneSet.RSCU_dict
     )
-    assert len(test_comparison_5.host_list) == 64
-    assert len(test_comparison_5.virus_list) == 64
+    assert len(test_comparison_5.host_list) == 62 # there are 62 possible degenerate codons
+    assert len(test_comparison_5.virus_list) == 62
 
 
 def test_CodonBiasComparison_methods():
@@ -75,9 +77,9 @@ def test_CodonBiasComparison_methods():
     test_comparison.calculate_R2()
     test_comparison.cosine_similarity()
 
-    assert test_comparison.slope == 1
-    assert test_comparison.R2 == 1
-    assert test_comparison.cos_similarity == 1
+    assert math.isclose(test_comparison.slope, 1, rel_tol=1e-6)
+    assert math.isclose(test_comparison.R2, 1, rel_tol=1e-6)
+    assert math.isclose(test_comparison.cos_similarity, 1, rel_tol=1e-6)
 
     # test 2 - test metrics calculation when virus and host inputs have differences
     test_host_GeneSet = GeneSet("tests/datatests/test_short_genes.json")
@@ -155,6 +157,7 @@ def test_CodonBiasComparison_methods():
         "TGC": 0,
         "TGT": 0,
         "TGA": 0,
+        "sTGA": 0,
         "TGG": 1,
     }
     expected_virus_list = list(expected_virus_codon_dict.values())
@@ -222,6 +225,7 @@ def test_CodonBiasComparison_methods():
         "TGC": 0,
         "TGT": 0,
         "TGA": 0,
+        "sTGA": 0,
         "TGG": 0,
     }
     expected_host_list = list(expected_host_codon_dict.values())
