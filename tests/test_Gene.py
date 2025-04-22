@@ -2,7 +2,7 @@
 
 import pytest
 
-from vhip.mlmodel.gene_features import CDSGene, Gene
+from vhip.mlmodel.gene_features import Gene, CDSGene, tRNAGene
 
 
 def test_Gene_init():
@@ -218,3 +218,44 @@ def test_CDSGene_calculate_GCn():
 
 def test_tRNAGene_init():
     """Test code to create tRNAGene object and initialize class attributes."""
+    # Test 1: tRNA gene with all expected inputs
+    test_gene = tRNAGene({"type": "tRNA", "id": "1", "gene": "test_gene_1", "product": "tRNA-Thr(cgt)", "score": 85.1, "nt": "GCCGATATAGCTCAGTTGGTAGAGCAGCGCATTCGTAATGCGAAGGTCGTAGGTTCGACTCCTATTATCGGCACCA", "amino_acid": "Thr", "anti_codon": "cgt"})
+    assert test_gene.input_error is False
+    assert test_gene.type == "tRNA"
+    assert test_gene.id == "1"
+    assert test_gene.no_score is False
+    assert test_gene.pseudogene is False
+    assert test_gene.no_aa is False
+    assert test_gene.no_anticodon is False
+    assert not hasattr(test_gene, "unexpected_aa")
+    assert not hasattr(test_gene, "unexpected_anticodon")
+    assert test_gene.score == 85.1
+    assert test_gene.amino_acid == "Thr"
+    assert test_gene.anti_codon == "CGT"
+
+    # Test 2: tRNA gene with missing score
+    test_gene_2 = tRNAGene({"type": "tRNA", "id": "2", "gene": "test_gene_2", "product": "tRNA-Thr(cgt)", "nt": "GCCGATATAGCTCAGTTGGTAGAGCAGCGCATTCGTAATGCGAAGGTCGTAGGTTCGACTCCTATTATCGGCACCA", "amino_acid": "Thr", "anti_codon": "cgt"})
+    assert test_gene_2.input_error is False
+    assert test_gene_2.type == "tRNA"
+    assert test_gene_2.id == "2"
+    assert test_gene_2.no_score is True
+
+    # Test 3: tRNA gene that is a pseudogene
+    test_gene_3 = tRNAGene({"type": "tRNA", "id": "3", "gene": "test_gene_3", "product": "tRNA-Xxx", "score": 21, "pseudogene": True, "nt": "GCCGATATAGCTCAGTTGGTAGAGCAGCGCATTCGTAATGCGAAGGTCGTAGGTTCGACTCCTATTATCGGCACCA"})
+    assert test_gene_3.input_error is False
+    assert test_gene_3.type == "tRNA"
+    assert test_gene_3.id == "3"
+    assert test_gene_3.no_score is False
+    assert test_gene_3.pseudogene is True
+
+    # Test 4: tRNA gene with unexpected amino acid and anticodon
+    test_gene_4 = tRNAGene({"type": "tRNA", "id": "4", "gene": "test_gene_4", "product": "tRNA-Xxx", "score": 21, "nt": "GCCGATATAGCTCAGTTGGTAGAGCAGCGCATTCGTAATGCGAAGGTCGTAGGTTCGACTCCTATTATCGGCACCA", "amino_acid": "Xxx", "anti_codon": "nnn"})
+    assert test_gene_4.input_error is False
+    assert test_gene_4.type == "tRNA"
+    assert test_gene_4.id == "4"
+    assert test_gene_4.no_score is False
+    assert test_gene_4.unexpected_aa == "Xxx"
+    assert test_gene_4.unexpected_anti_codon == "nnn"
+    assert not hasattr(test_gene_4, "amino_acid")
+    assert not hasattr(test_gene_4, "anti_codon")
+
