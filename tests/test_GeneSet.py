@@ -378,7 +378,6 @@ def test_GeneSet_RSCU():
         "ATA": 0.0,
         "ATC": 0.0,
         "ATT": 0.0,
-        "ATG": 1 / (1 / 1),
         "ACA": 0.0,
         "ACC": 0.0,
         "ACG": 0.0,
@@ -438,8 +437,6 @@ def test_GeneSet_RSCU():
         "TGC": 0.0,
         "TGT": 0.0,
         "TGA": 0.0,
-        "sTGA": 0.0,
-        "TGG": 0.0,
     }
 
 
