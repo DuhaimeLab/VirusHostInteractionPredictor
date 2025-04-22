@@ -123,6 +123,7 @@ def test_GeneSet_codon_counts():
         "TGC": 0,
         "TGT": 0,
         "TGA": 0,
+        "sTGA": 0,
         "TGG": 0,
     }
 
@@ -194,6 +195,7 @@ def test_GeneSet_codon_counts():
         "TGC": 0,
         "TGT": 0,
         "TGA": 0,
+        "sTGA": 0,
         "TGG": 0,
     }
 
@@ -269,6 +271,7 @@ def test_GeneSet_codon_frequency():
         "TGC": 0.0,
         "TGT": 0.0,
         "TGA": 0.0,
+        "sTGA": 0.0,
         "TGG": 0.0,
     }
 
@@ -301,6 +304,7 @@ def test_GeneSet_amino_acid_counts():
         "Y": 0,
         "C": 0,
         "W": 0,
+        "U": 0
     }
 
     # test 2 - test low threshold_unexpected (default, 0)
@@ -328,6 +332,7 @@ def test_GeneSet_amino_acid_counts():
         "Y": 0,
         "C": 0,
         "W": 0,
+        "U": 0
     }
 
 def test_GeneSet_amino_acid_frequency():
@@ -358,6 +363,7 @@ def test_GeneSet_amino_acid_frequency():
         "Y": 0.0,
         "C": 0.0,
         "W": 0.0,
+        "U": 0.0
     }
 
 
@@ -432,6 +438,7 @@ def test_GeneSet_RSCU():
         "TGC": 0.0,
         "TGT": 0.0,
         "TGA": 0.0,
+        "sTGA": 0.0,
         "TGG": 0.0,
     }
 
