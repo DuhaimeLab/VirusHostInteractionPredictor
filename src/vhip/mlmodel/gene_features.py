@@ -8,7 +8,7 @@ This module provides:
 
 import os
 import re
-from typing import List, Union
+from typing import List, Union, Any
 
 import numpy as np
 import scipy  # pyright: ignore[reportMissingTypeStubs]
@@ -145,7 +145,7 @@ class Gene:
     """
     def __init__(
         self,
-        json_dict: dict[str, str]
+        json_dict: dict[str, Any]
     ) -> None:
         """Initialize class variables."""
         self.input_error: bool = False # to flag any missing generic keys from json input dict
@@ -301,8 +301,8 @@ class tRNAGene(Gene):
         self.pseudogene (bool): True if the tRNA gene is a pseudogene (output listed as tRNA-Xxx with no amino_acid and anti_codon keys).
         self.no_aa (bool): True if the amino acid is not provided for a non-pseudogene, wherein method will exit (expect False).
         self.no_anticodon (bool): True if the anticodon is not provided for a non-pseudogene, wherein method will exit (expect False).
-        self.unexpected_aa (List['str']): True if provided amino_acid value is not in AA_CONVERSIONS, wherein method will exit.
-        self.unexpected_anti_codon (List['str']): True if anticodon value does not only contain 'a','t','g','c' substrings, wherein method will exit.
+        self.unexpected_aa (str): Populated with amino acid string if provided amino_acid value is not in AA_CONVERSIONS, wherein method will exit.
+        self.unexpected_anti_codon (str): Populated with anticodon string if anticodon value does not only contain 'a','t','g','c' substrings, wherein method will exit.
         self.type (str),
         self.id (str),
         self.gene (str),
@@ -311,14 +311,12 @@ class tRNAGene(Gene):
         self.amino_acid (str),
         self.anti_codon (str)
     """
-    def __init__(self, json_dict: dict[str, str]) -> None:
+    def __init__(self, json_dict: dict[str, str | float]) -> None:
         """Initialize class variables."""
         self.no_score: bool = False # will flag if score not provided in json input dict
         self.pseudogene: bool = False # will flag if tRNA gene is a pseudogene
         self.no_aa: bool = False # will flag if amino acid value not provided for non-pseudogene
         self.no_anticodon: bool = False # will flag if anticodon value not provided for non-pseudogene
-        self.unexpected_aa: bool = False # will flag if amino acid value is not in AA_CONVERSIONS
-        self.unexpected_anti_codon: bool = False # will flag if anticodon value does not only contain 'a','t','g','c' substrings
 
         # Initialize superclass Gene attributes
         super().__init__(json_dict)
@@ -339,29 +337,26 @@ class tRNAGene(Gene):
         if "pseudogene" in json_dict.keys(): # flag pseudogenes
             self.pseudogene = True
             print(f"{json_dict["id"]}: tRNA gene is a pseudogene.")
-        elif "pseudogene" not in json_dict.keys(): # populate tRNA gene attributes appropriate for non-pseudogenes, flagging unexpected inputs
+            return
+        elif "pseudogene" not in json_dict.keys(): # populate tRNA gene attributes available for non-pseudogenes, flagging unexpected inputs
             # Amino acid attributes:
             if "amino_acid" not in json_dict.keys():
                 self.no_aa = True
                 print(f"{json_dict["id"]}: Input dictionary does not contain 'amino_acid' key for tRNA gene.")
-                return
             elif json_dict["amino_acid"] not in AA_CONVERSIONS.keys():
-                self.unexpected_aa = True
+                self.unexpected_aa: str = str(json_dict["amino_acid"])
                 print(f"{json_dict["id"]}: Unexpected amino acid provided for tRNA gene.")
-                return
             else:
                 self.amino_acid = json_dict["amino_acid"]
             # Anticodon attributes:
             if "anti_codon" not in json_dict.keys():
                 self.no_anticodon = True
                 print(f"{json_dict["id"]}: Input dictionary does not contain 'anti_codon' key for tRNA gene.")
-                return
-            elif not all(base in "atgc" for base in json_dict["anti_codon"].lower()):
-                self.unexpected_anti_codon = True
+            elif not all(base in "atgc" for base in str(json_dict["anti_codon"]).lower()):
+                self.unexpected_anti_codon = str(json_dict["anti_codon"])
                 print(f"{json_dict["id"]}: Unexpected anticodon provided for tRNA gene.")
-                return
             else:
-                self.anti_codon = json_dict["anti_codon"].upper()
+                self.anti_codon = str(json_dict["anti_codon"]).upper()
 
 # Define GeneSet class
 class GeneSet:
