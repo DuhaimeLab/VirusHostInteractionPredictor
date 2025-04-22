@@ -88,11 +88,16 @@ CODON_TABLE = {
 CODON_LIST = list(CODON_TABLE.keys())
 AA_LIST = [aa for aa in CODON_TABLE.values() if aa != "_"]
 stop_codons = [codon for codon, aa in CODON_TABLE.items() if aa == "_"]
-non_degenerate_codons = [
-    codon
+non_degenerate_codons = {
+    codon: aa
     for codon, aa in CODON_TABLE.items()
     if list(CODON_TABLE.values()).count(aa) == 1
-]
+}
+degenerate_codons = {
+    codon: aa
+    for codon, aa in CODON_TABLE.items()
+    if codon not in non_degenerate_codons.keys()
+}
 
 # Amino acid abbreviations conversions
 AA_CONVERSIONS = {
@@ -582,7 +587,7 @@ class GeneSet:
     def RSCU(
         self, threshold_imprecise: float = 0.0
     ) -> None:
-        """Calculate the relative synonymous codon usage (RSCU) of each codon across CDS Genes of an entire GeneSet.
+        """Calculate the relative synonymous codon usage (RSCU) of each degenerate codon across CDS Genes of an entire GeneSet.
 
         Args:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single CDS gene (default 0.0 or 0%)
@@ -596,7 +601,7 @@ class GeneSet:
             self.imprecise_codons (list(str)): list of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_imprecise codons.
         """
-        self.RSCU_dict: dict[str, float] = dict.fromkeys(CODON_LIST, 0.0)
+        self.RSCU_dict: dict[str, float] = {codon: 0.0 for codon in degenerate_codons.keys()}
 
         if not hasattr(self, "codon_dict"):
             # If aggregate codon counts have not already been calculated, runs codon_counts()
@@ -606,17 +611,19 @@ class GeneSet:
 
         if hasattr(self, "codon_dict"):
             # create dictionary of the sum of synonymous codon counts for each aminon acid
-            expected_counts: dict[str, float] = dict.fromkeys(CODON_LIST, 0)
-            for aa in CODON_TABLE.values():
-                synonymous_codons = [key for key, value in CODON_TABLE.items() if value == aa]  # list of other codons encoding the same aa
+            expected_counts: dict[str, float] = {codon: 0 for codon in degenerate_codons.keys()}
+            for aa in degenerate_codons.values():
+                synonymous_codons = [key for key, value in degenerate_codons.items() if value == aa]  # list of other codons encoding the same aa
                 synonymous_total_count= sum([self.codon_dict[syn_codon] for syn_codon in synonymous_codons])  # total number of synonymous codons present in GeneSet
                 expected_counts[aa] = synonymous_total_count / len(synonymous_codons) # expected frequency of codon family members given assumption that all synonymous codons are equally likely to encode the aa
 
             # calculate the RSCU for each codon
-            for codon, count in self.codon_dict.items():
-                if count > 0:
-                    aa = CODON_TABLE[codon]  # aa encoded by current codon iteration
+            for codon in degenerate_codons.keys():
+                aa = degenerate_codons[codon]  # aa encoded by current codon iteration
+                if expected_counts[aa] > 0:
                     self.RSCU_dict[codon] = self.codon_dict[codon] / expected_counts[aa]
+                else:
+                    self.RSCU_dict[codon] = 0.0
 
     def tRNA_counts(self) -> None:
         """Calculate the copy numbers of individual tRNA genes by their associated amino acids and (anti)codons.
