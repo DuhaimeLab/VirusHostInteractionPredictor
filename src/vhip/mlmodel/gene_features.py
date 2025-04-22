@@ -80,6 +80,7 @@ CODON_TABLE = {
     "TGC": "C",
     "TGT": "C",
     "TGA": "_",
+    "sTGA": "U",
     "TGG": "W",
 }
 
@@ -115,6 +116,7 @@ AA_CONVERSIONS = {
     "Trp": "W",
     "Tyr": "Y",
     "Val": "V",
+    "SeC": "U"
 }
 
 
@@ -223,7 +225,10 @@ class CDSGene(Gene):
             for i in range(0, len(self.nt), self.codon_length):
                 codon = self.nt[i : i + self.codon_length]
                 if codon in self.codon_dict.keys():
-                    self.codon_dict[codon] += 1
+                    if codon == "TGA" and i != len(self.nt) - self.codon_length: # distinguish Selenocysteine-encoding TGA codons from TGA stop codons
+                        self.codon_dict["sTGA"] += 1
+                    else:
+                        self.codon_dict[codon] += 1
                 else:
                     self.imprecise_codons.append(codon)
 
