@@ -60,6 +60,15 @@
                 "score": 77.5,
                 "nt": "ATCG",
                 "id": "tRNA_4_Arg-cct"
+            },
+            {
+                "type": "tRNA",
+                "gene": "tRNA_pseudogene",
+                "product": "tRNA-Xxx",
+                "score": 20.1,
+                "pseudogene": true,
+                "nt": "ATCG",
+                "id": "tRNA_pseudogene"
             }
         ]
     }
