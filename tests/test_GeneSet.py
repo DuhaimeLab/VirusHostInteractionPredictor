@@ -17,7 +17,7 @@ def test_GeneSet_init():
     with pytest.raises(Exception):
         GeneSet("tests/datatests/test_empty_file.json")
 
-    # test 3 - test Excpetion is raised if non-json file is provided
+    # test 3 - test Exception is raised if non-json file is provided
     with pytest.raises(Exception):
         GeneSet("tests/datatests/test_annotated_genes.ffn")
 
@@ -46,9 +46,15 @@ def test_GeneSet_init():
     assert len(test_GeneSet.cds_nt_input_errors) == 1
     assert len(test_GeneSet.cds_len_errors) == 1
     assert len(test_GeneSet.cds_aa_input_errors) == 1
-    assert len(test_GeneSet.tRNA_input_errors) == 1
+    assert len(test_GeneSet.tRNA_general_input_errors) == 1
+    assert len(test_GeneSet.tRNA_no_score) == 1
+    assert len(test_GeneSet.tRNA_pseudogenes) == 1
+    assert len(test_GeneSet.tRNA_no_aa) == 1
+    assert len(test_GeneSet.tRNA_no_anticodon) == 1
+    assert len(test_GeneSet.tRNA_unexpected_aa) == 1
+    assert len(test_GeneSet.tRNA_unexpected_anti_codon) == 1
     assert test_GeneSet.skipped_cds_genes == 4/5
-    assert test_GeneSet.skipped_tRNA_genes == 1/2
+    assert test_GeneSet.skipped_tRNA_genes == 7/8
 
 
 def test_GeneSet_codon_counts():
