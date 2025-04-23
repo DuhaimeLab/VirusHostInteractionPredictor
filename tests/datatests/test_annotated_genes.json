@@ -237,7 +237,66 @@
             ],
             "id": "tRNA_INPUT_ERROR",
             "locus": "KDKONE_00051"
-        }
+        },
+        {
+            "type": "tRNA",
+            "gene": "tRNA_no_score",
+            "product": "tRNA-fMet(cat)",
+            "amino_acid": "fMet",
+            "anti_codon": "cat",
+            "no_score": "na",
+            "nt": "ATCG",
+            "id": "tRNA_no_score"
+        },
+        {
+            "type": "tRNA",
+            "gene": "tRNA_pseudogene",
+            "product": "tRNA-Xxx",
+            "score": 20.1,
+            "pseudogene": true,
+            "nt": "ATCG",
+            "id": "tRNA_pseudogene"
+        },        
+        {
+            "type": "tRNA",
+            "gene": "tRNA_no_aa",
+            "product": "tRNA-fMet(cat)",
+            "no_amino_acid": "na",
+            "anti_codon": "cat",
+            "score": 77.5,
+            "nt": "ATCG",
+            "id": "tRNA_no_aa"
+        },
+        {
+            "type": "tRNA",
+            "gene": "tRNA_no_anticodon",
+            "product": "tRNA-fMet(cat)",
+            "amino_acid": "fMet",
+            "no_anti_codon": "na",
+            "score": 77.5,
+            "nt": "ATCG",
+            "id": "tRNA_no_anticodon"
+        },
+        {
+            "type": "tRNA",
+            "gene": "tRNA_unexpected_aa",
+            "product": "tRNA-fMet(cat)",
+            "amino_acid": "Unx",
+            "anti_codon": "cat",
+            "score": 77.5,
+            "nt": "ATCG",
+            "id": "tRNA_unexpected_aa"
+        },
+        {
+            "type": "tRNA",
+            "gene": "tRNA_unexpected_anticodon",
+            "product": "tRNA-fMet(cat)",
+            "amino_acid": "fMet",
+            "anti_codon": "unx",
+            "score": 77.5,
+            "nt": "ATCG",
+            "id": "tRNA_unexpected_anticodon"
+        } 
     ],
     "sequences": [
         {
