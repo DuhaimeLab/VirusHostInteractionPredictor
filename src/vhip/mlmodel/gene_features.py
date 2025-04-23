@@ -7,9 +7,9 @@ This module provides:
 """
 
 import os
-import re
-from typing import List, Union, Any
+from typing import Any, List, Union
 
+from matplotlib.pylab import f
 import numpy as np
 import scipy  # pyright: ignore[reportMissingTypeStubs]
 
@@ -121,9 +121,10 @@ AA_CONVERSIONS = {
     "Trp": "W",
     "Tyr": "Y",
     "Val": "V",
-    "SeC": "U"
+    "SeC": "U",
+    "fMet": "M",
+    "Ile2": "I",
 }
-
 
 # Define Gene class
 class Gene:
@@ -347,7 +348,7 @@ class tRNAGene(Gene):
                 self.unexpected_aa: str = str(json_dict["amino_acid"])
                 print(f"{json_dict["id"]}: Unexpected amino acid provided for tRNA gene.")
             else:
-                self.amino_acid = json_dict["amino_acid"]
+                self.amino_acid: str = str(json_dict["amino_acid"])
             # Anticodon attributes:
             if "anti_codon" not in json_dict.keys():
                 self.no_anticodon = True
@@ -356,7 +357,7 @@ class tRNAGene(Gene):
                 self.unexpected_anti_codon = str(json_dict["anti_codon"])
                 print(f"{json_dict["id"]}: Unexpected anticodon provided for tRNA gene.")
             else:
-                self.anti_codon = str(json_dict["anti_codon"]).upper()
+                self.anti_codon: str = str(json_dict["anti_codon"])
 
 # Define GeneSet class
 class GeneSet:
@@ -412,7 +413,7 @@ class GeneSet:
             if current_gene.input_error is True:
                 self.tRNA_input_errors.append(current_gene)
             else:
-                self.tRNA_genes.append(Gene(gene))
+                self.tRNA_genes.append(tRNAGene(gene))
 
         # Report skipped genes as a fraction of GeneSet (if no input genes, skip attributes will not reflect this...)
         if len(self.all_input_cds_genes) > 0:
@@ -626,36 +627,33 @@ class GeneSet:
         Populates the following class attributes:
             self.tRNA_dict_aa (str: int): Counts of tRNA genes by amino acid across all genes in the GeneSet.
             self.tRNA_dict_tcc (str: int): Counts of tRNA genes by their 'tcc' (tRNA complementary codons) across all genes in the GeneSet.
-            self.total_tRNA (int): Total number of tRNA genes (not unique) in the GeneSet.
         """
         # Initialize tRNA count dictionaries, skipping stop codons
-        self.tRNA_dict_aa: dict[str, int] = {aa: 0 for aa in AA_LIST}
+        self.tRNA_dict_aa: dict[str, int] = {aa: 0 for aa in AA_CONVERSIONS.keys()}
         self.tRNA_dict_tcc: dict[str, int] = {
             tcc: 0 for tcc in CODON_LIST if tcc not in stop_codons
         }
 
-        # Define RegEx pattern for BAKTA-output tRNA gene products
-        gene_product_pattern = re.compile(r"tRNA-\w{3}\(\w{3}\)")
-
         # Populate tRNA count dictionaries by looping through all gene products in GeneSet
-        has_tRNAs = False
-        for gene in self.genes:
-            if gene_product_pattern.match(gene.gene_product):
-                has_tRNAs = True
-                aa_3 = gene.gene_product.split("-")[1].split("(")[0]
-                if aa_3 in AA_CONVERSIONS.keys():
-                    aa_1 = AA_CONVERSIONS[aa_3] #new (SeC)
-                    self.tRNA_dict_aa[aa_1] += 1
-                    anticodon = gene.gene_product.split("(")[1].split(")")[0]
-                    tcc = reverse_complement(anticodon)
-                    if tcc in self.tRNA_dict_tcc.keys(): #new (UGG)
-                        self.tRNA_dict_tcc[tcc] += 1
+        if len(self.tRNA_genes) == 0:
+            print(f"No Valid tRNA genes in {self.id} to count.")
+            return
+        elif len(self.tRNA_genes) >= 1:
+            for tRNA in self.tRNA_genes:
+                if isinstance(tRNA, tRNAGene) and not (tRNA.input_error or tRNA.no_score or tRNA.pseudogene or tRNA.no_aa or tRNA.no_anticodon) and not hasattr(tRNA, "unexpected_aa") and not hasattr(tRNA, "unexpected_anti_codon"):
+                    print(f"Counting tRNA gene {tRNA.id} in {self.id}.")
+                    print(f"amino_acid: {tRNA.amino_acid}, anti_codon: {tRNA.anti_codon}, tcc: {reverse_complement(tRNA.anti_codon)}")
+                    # Count tRNA genes by amino acid
+                    self.tRNA_dict_aa[tRNA.amino_acid] += 1
 
-        # Calculate total tRNA count
-        self.total_tRNA: int = sum(self.tRNA_dict_tcc.values())
+                    # Count tRNA genes by their 'tcc' (tRNA complementary codons)
+                    if tRNA.anti_codon == "tca" and tRNA.amino_acid == "SeC": # distinguish SeC tcc to correctly match codon_dict from codon_counts method
+                        tcc = "sTGA"
+                    else:
+                        tcc = reverse_complement(tRNA.anti_codon)
+                    print(f"tcc: {tcc}")
+                    self.tRNA_dict_tcc[tcc] += 1 if tcc in self.tRNA_dict_tcc.keys() else 0
 
-        if not has_tRNAs:
-            print("No tRNA genes found in the GeneSet.")
 
     def tRNA_frequency(self) -> None:
         """Calculate the frequency of individual tRNA genes (by their associated amino acids and (anti)codons) out of all tRNA genes in the GeneSet.
