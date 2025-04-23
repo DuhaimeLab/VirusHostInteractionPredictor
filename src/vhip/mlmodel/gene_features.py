@@ -9,7 +9,6 @@ This module provides:
 import os
 from typing import Any, List, Union
 
-from matplotlib.pylab import f
 import numpy as np
 import scipy  # pyright: ignore[reportMissingTypeStubs]
 
@@ -378,24 +377,22 @@ class GeneSet:
             raise Exception(
                 "Gene file is not in .json format. Please provide a valid gene file."
             )
+        else: # Read in the file
+            all_input_genes = read_annotated_genes(gene_file)
+
         # Initialize class attributes
         self.id = os.path.splitext(os.path.basename(gene_file))[0]
         self.cds_genes: List[CDSGene] = []
-        self.tRNA_genes: List[Gene] = []
-        self.skipped_cds_genes: float = 0
-        self.skipped_tRNA_genes: float = 0
+        self.tRNA_genes: List[tRNAGene] = []
 
-        # Initialize Quality control attributes
-        self.cds_general_input_errors: List[Gene] = []
-        self.cds_nt_input_errors: List[Gene] = []
-        self.cds_len_errors: List[Gene] = []
-        self.cds_aa_input_errors: List[Gene] = []
-        self.tRNA_input_errors: List[Gene] = []
+        # Initialize CDS Quality control attributes
+        self.cds_general_input_errors: List[CDSGene] = []
+        self.cds_nt_input_errors: List[CDSGene] = []
+        self.cds_len_errors: List[CDSGene] = []
+        self.cds_aa_input_errors: List[CDSGene] = []
 
-        # Store tRNA/CDS genes, filtering out genes with unexpected or missing inputs
-        all_input_genes = read_annotated_genes(gene_file)
+        # Store CDS genes, filtering out genes with unexpected or missing inputs
         self.all_input_cds_genes = [gene for gene in all_input_genes if gene["type"] == "cds"]
-        self.all_input_tRNA_genes = [gene for gene in all_input_genes if gene["type"] == "tRNA"]
         for gene in self.all_input_cds_genes:
             current_gene = CDSGene(gene)
             if current_gene.input_error is True:
@@ -407,24 +404,49 @@ class GeneSet:
             elif current_gene.aa_input_error is True:
                 self.cds_aa_input_errors.append(current_gene)
             else:
-                self.cds_genes.append(CDSGene(gene))
-        for gene in self.all_input_tRNA_genes:
-            current_gene = Gene(gene)
-            if current_gene.input_error is True:
-                self.tRNA_input_errors.append(current_gene)
-            else:
-                self.tRNA_genes.append(tRNAGene(gene))
+                self.cds_genes.append(current_gene)
 
-        # Report skipped genes as a fraction of GeneSet (if no input genes, skip attributes will not reflect this...)
+        # Initialize tRNA Quality control attributes
+        self.tRNA_general_input_errors: List[tRNAGene] = []
+        self.tRNA_no_score: List[tRNAGene] = []
+        self.tRNA_pseudogenes: List[tRNAGene] = []
+        self.tRNA_no_aa: List[tRNAGene] = []
+        self.tRNA_no_anticodon: List[tRNAGene] = []
+        self.tRNA_unexpected_aa: List[tRNAGene] = []
+        self.tRNA_unexpected_anti_codon: List[tRNAGene] = []
+
+        # Store tRNA genes, filtering out genes with unexpected or missing inputs
+        self.all_input_tRNA_genes = [gene for gene in all_input_genes if gene["type"] == "tRNA"]
+        for gene in self.all_input_tRNA_genes:
+            current_gene = tRNAGene(gene)
+            if current_gene.input_error is True:
+                self.tRNA_general_input_errors.append(current_gene)
+            elif current_gene.no_score is True:
+                self.tRNA_no_score.append(current_gene)
+            elif current_gene.pseudogene is True:
+                self.tRNA_pseudogenes.append(current_gene)
+            elif current_gene.no_aa is True:
+                self.tRNA_no_aa.append(current_gene)
+            elif current_gene.no_anticodon is True:
+                self.tRNA_no_anticodon.append(current_gene)
+            elif hasattr(current_gene, "unexpected_aa"):
+                self.tRNA_unexpected_aa.append(current_gene)
+            elif hasattr(current_gene, "unexpected_anti_codon"):
+                self.tRNA_unexpected_anti_codon.append(current_gene)
+            else:
+                self.tRNA_genes.append(current_gene)
+
+        # Report skipped genes as a fraction of GeneSet
         if len(self.all_input_cds_genes) > 0:
             n_skipped_cds_genes = len(self.cds_general_input_errors) + len(self.cds_nt_input_errors)+ len(self.cds_len_errors) + len(self.cds_aa_input_errors)
-            self.skipped_cds_genes = n_skipped_cds_genes / len(self.all_input_cds_genes)
+            self.skipped_cds_genes: float = n_skipped_cds_genes / len(self.all_input_cds_genes)
             print(f"{self.skipped_cds_genes * 100}% of CDS genes in {self.id} skipped due to missing info and/or lack of divisibility by codon length.")
         else:
             print(f"No input CDS genes in {self.id}.")
         if len(self.all_input_tRNA_genes) > 0:
-            self.skipped_tRNA_genes = len(self.tRNA_input_errors) / len(self.all_input_tRNA_genes)
-            print(f"{self.skipped_tRNA_genes * 100}% of tRNA genes in {self.id} skipped due to missing info.")
+            n_skipped_tRNA_genes = len(self.tRNA_general_input_errors) + len(self.tRNA_no_score) + len(self.tRNA_pseudogenes) + len(self.tRNA_no_aa) + len(self.tRNA_no_anticodon) + len(self.tRNA_unexpected_aa) + len(self.tRNA_unexpected_anti_codon)
+            self.skipped_tRNA_genes: float = n_skipped_tRNA_genes / len(self.all_input_tRNA_genes)
+            print(f"{self.skipped_tRNA_genes * 100}% of tRNA genes in {self.id} skipped due to missing info or unknown associated amino acids/anticodons.")
         else:
             print(f"No input tRNA genes in {self.id}.")
 
@@ -640,19 +662,16 @@ class GeneSet:
             return
         elif len(self.tRNA_genes) >= 1:
             for tRNA in self.tRNA_genes:
-                if isinstance(tRNA, tRNAGene) and not (tRNA.input_error or tRNA.no_score or tRNA.pseudogene or tRNA.no_aa or tRNA.no_anticodon) and not hasattr(tRNA, "unexpected_aa") and not hasattr(tRNA, "unexpected_anti_codon"):
-                    print(f"Counting tRNA gene {tRNA.id} in {self.id}.")
-                    print(f"amino_acid: {tRNA.amino_acid}, anti_codon: {tRNA.anti_codon}, tcc: {reverse_complement(tRNA.anti_codon)}")
-                    # Count tRNA genes by amino acid
-                    self.tRNA_dict_aa[tRNA.amino_acid] += 1
+                # Count tRNA genes by amino acid
+                self.tRNA_dict_aa[tRNA.amino_acid] += 1
 
-                    # Count tRNA genes by their 'tcc' (tRNA complementary codons)
-                    if tRNA.anti_codon == "tca" and tRNA.amino_acid == "SeC": # distinguish SeC tcc to correctly match codon_dict from codon_counts method
-                        tcc = "sTGA"
-                    else:
-                        tcc = reverse_complement(tRNA.anti_codon)
-                    print(f"tcc: {tcc}")
-                    self.tRNA_dict_tcc[tcc] += 1 if tcc in self.tRNA_dict_tcc.keys() else 0
+                # Count tRNA genes by their 'tcc' (tRNA complementary codons)
+                if tRNA.anti_codon == "tca" and tRNA.amino_acid == "SeC": # distinguish SeC tcc to correctly match codon_dict from codon_counts method
+                    tcc = "sTGA"
+                else:
+                    tcc = reverse_complement(tRNA.anti_codon)
+
+                self.tRNA_dict_tcc[tcc] += 1 if tcc in self.tRNA_dict_tcc.keys() else 0
 
 
     def tRNA_frequency(self) -> None:
@@ -662,11 +681,14 @@ class GeneSet:
             self.tRNA_frq_aa (str: int): Frequencies of tRNA genes by amino acid out of all tRNA genes in the GeneSet.
             self.tRNA_frq_tcc (str: int): Frequencies of tRNA genes by their 'tcc' (tRNA complementary codons) out of all tRNA genes in the GeneSet.
         """
+        if len(self.tRNA_genes) == 0:
+            print(f"No Valid tRNA genes in {self.id} to calculate frequencies.")
+            return
+
         # If tRNA gene counts have not already been calculated, runs tRNA_counts()
         if (
             not hasattr(self, "tRNA_dict_aa")
             or not hasattr(self, "tRNA_dict_tcc")
-            or not hasattr(self, "total_tRNA")
         ):
             self.tRNA_counts()
 
@@ -678,14 +700,13 @@ class GeneSet:
             self.tRNA_dict_tcc.keys(), 0.0
         )
 
-        # Calculate frequency of tRNA genes out of total tRNA counts for the GeneSet
-        if self.total_tRNA > 0:
-            self.tRNA_frq_aa = {
-                k: (v / self.total_tRNA) for k, v in self.tRNA_dict_aa.items()
-            }
-            self.tRNA_frq_tcc = {
-                k: (v / self.total_tRNA) for k, v in self.tRNA_dict_tcc.items()
-            }
+        # Calculate frequency of tRNA genes out of total (valid, not skipped) tRNA counts for the GeneSet
+        self.tRNA_frq_aa = {
+            k: (v / len(self.tRNA_genes)) for k, v in self.tRNA_dict_aa.items()
+        }
+        self.tRNA_frq_tcc = {
+            k: (v / len(self.tRNA_genes)) for k, v in self.tRNA_dict_tcc.items()
+        }
 
 
 class CodonBiasComparison:
