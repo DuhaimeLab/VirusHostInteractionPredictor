@@ -1,0 +1,65 @@
+{
+    "genome": {
+            "info": "info"
+        },
+        "features": [
+            {
+                "type": "cds",
+                "gene": "gene_1",
+                "product": "product_1",
+                "nt": "ATGTCATCCGAA",
+                "aa": "MSSEZ",
+                "id": "gene_1"
+            },
+            {
+                "type": "tRNA",
+                "gene": "trnfM",
+                "product": "tRNA-fMet(cat)",
+                "amino_acid": "fMet",
+                "anti_codon": "cat",
+                "score": 77.5,
+                "nt": "ATCG",
+                "id": "tRNA_1_fMet"
+            },
+            {
+                "type": "tRNA",
+                "gene": "trnU",
+                "product": "tRNA-SeC(tca)",
+                "amino_acid": "SeC",
+                "anti_codon": "tca",
+                "score": 77.5,
+                "nt": "ATCG",
+                "id": "tRNA_2_SeC"
+            },
+            {
+                "type": "tRNA",
+                "gene": "trnI",
+                "product": "tRNA-Ile2(cat)",
+                "amino_acid": "Ile2",
+                "anti_codon": "cat",
+                "score": 77.5,
+                "nt": "ATCG",
+                "id": "tRNA_3_Ile2"
+            },
+            {
+                "type": "tRNA",
+                "gene": "trnR",
+                "product": "tRNA-Arg(acg)",
+                "amino_acid": "Arg",
+                "anti_codon": "acg",
+                "score": 77.5,
+                "nt": "ATCG",
+                "id": "tRNA_4_Arg-acg"
+            },
+            {
+                "type": "tRNA",
+                "gene": "trnR",
+                "product": "tRNA-Arg(cct)",
+                "amino_acid": "Arg",
+                "anti_codon": "cct",
+                "score": 77.5,
+                "nt": "ATCG",
+                "id": "tRNA_4_Arg-cct"
+            }
+        ]
+    }
