@@ -353,7 +353,7 @@ class tRNAGene(Gene):
             if "anti_codon" not in json_dict.keys():
                 self.no_anticodon = True
                 print(f"{json_dict["id"]}: Input dictionary does not contain 'anti_codon' key for tRNA gene.")
-            elif not all(base in "atgc" for base in str(json_dict["anti_codon"]).lower()):
+            elif reverse_complement(str(json_dict["anti_codon"])) not in [codon for codon in CODON_LIST if codon not in ["TAA","TAG"]]: # TGA as not a stop codon - special case SeC
                 self.unexpected_anti_codon = str(json_dict["anti_codon"])
                 print(f"{json_dict["id"]}: Unexpected anticodon provided for tRNA gene.")
             else:
