@@ -231,7 +231,7 @@ def test_tRNAGene_init():
     assert not hasattr(test_gene, "unexpected_anticodon")
     assert test_gene.score == 85.1
     assert test_gene.amino_acid == "Thr"
-    assert test_gene.anti_codon == "CGT"
+    assert test_gene.anti_codon == "cgt"
 
     # Test 2: tRNA gene with missing score
     test_gene_2 = tRNAGene({"type": "tRNA", "id": "2", "gene": "test_gene_2", "product": "tRNA-Thr(cgt)", "nt": "GCCGATATAGCTCAGTTGGTAGAGCAGCGCATTCGTAATGCGAAGGTCGTAGGTTCGACTCCTATTATCGGCACCA", "amino_acid": "Thr", "anti_codon": "cgt"})
