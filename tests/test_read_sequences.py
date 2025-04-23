@@ -77,19 +77,35 @@ def test_read_sequence_many_contigs():
 
 
 def test_read_annotated_genes():
-    """Test to read gene sequences, ids, and products from an annotated fasta gene file."""
-    sequences = [gene1_seq, gene2_seq, gene3_seq]
-    ids = ["ABDEAL_00005", "ABDEAL_00010", "ABDEAL_00015"]
-    products = [
-        "Chromosomal replication initiator protein DnaA",
-        "Beta sliding clamp",
-        "S4 domain-containing protein YaaA",
+    """Test to successfully read in an annotated genes .json file from BAKTA."""
+    filename = "tests/datatests/test_short_genes.json"
+    res = read_annotated_genes(filename)
+    assert res == [
+        {
+            "type": "cds",
+            "gene": "gene_1",
+            "product": "product_1",
+            "nt": "ATGTCATCCGAA",
+            "aa": "MSSEZ",
+            "id": "gene_1"
+        },
+        {
+            "type": "cds",
+            "gene": "gene_2_cds_len_error",
+            "product": "product_2",
+            "nt": "ATGGAATT",
+            "aa": "M",
+            "id": "gene_2_cds_len_error"
+        },
+        {
+            "type": "cds",
+            "gene": "gene_3_imprecise",
+            "product": "product_3",
+            "nt": "TTGTCAGAR",
+            "aa": "LSE",
+            "id": "gene_3_imprecise"
+        }
     ]
-
-    filename = "tests/datatests/test_annotated_genes.ffn"
-    res = read_annotated_genes(filename)  # type: ignore
-    assert res == [sequences, ids, products]
-
 
 def test_reverse_complement():
     """Test to get reverse complement of a sequence."""
