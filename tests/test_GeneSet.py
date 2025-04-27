@@ -481,6 +481,31 @@ def test_GeneSet_tRNA_counts():
         "fMet": 1,
         "Ile2": 1,
     }
+
+    assert test_GeneSet.tRNA_dict_aa_1_letter == {
+        "A": 0,
+        "R": 2,
+        "N": 0,
+        "D": 0,
+        "C": 0,
+        "Q": 0,
+        "E": 0,
+        "G": 0,
+        "H": 0,
+        "I": 1,
+        "L": 0,
+        "K": 0,
+        "M": 1,
+        "F": 0,
+        "P": 0,
+        "S": 0,
+        "T": 0,
+        "W": 0,
+        "Y": 0,
+        "V": 0,
+        "U": 1,
+    }
+
     assert test_GeneSet.tRNA_dict_tcc == {
     "ATA": 0,
     "ATC": 0,
@@ -576,6 +601,31 @@ def test_GeneSet_tRNA_frequency():
         "fMet": 1 / 5,
         "Ile2": 1 / 5,
     }
+
+    assert test_GeneSet.tRNA_frq_aa_1_letter == {
+        "A": 0.0,
+        "R": 2 / 5,
+        "N": 0.0,
+        "D": 0.0,
+        "C": 0.0,
+        "Q": 0.0,
+        "E": 0.0,
+        "G": 0.0,
+        "H": 0.0,
+        "I": 1 / 5,
+        "L": 0.0,
+        "K": 0.0,
+        "M": 1 / 5,
+        "F": 0.0,
+        "P": 0.0,
+        "S": 0.0,
+        "T": 0.0,
+        "W": 0.0,
+        "Y": 0.0,
+        "V": 0.0,
+        "U": 1 / 5,
+    }
+
     assert test_GeneSet.tRNA_frq_tcc == {
         "ATA": 0.0,
         "ATC": 0.0,
