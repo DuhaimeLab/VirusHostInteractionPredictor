@@ -697,6 +697,7 @@ class GeneSet:
 
         Populates the following class attributes:
             self.tRNA_frq_aa (str: int): Frequencies of tRNA genes by amino acid out of all tRNA genes in the GeneSet.
+            self.tRNA_frq_aa_1_letter (str: int): Frequencies of tRNA genes by 1-letter amino acid out of all tRNA genes in the GeneSet.
             self.tRNA_frq_tcc (str: int): Frequencies of tRNA genes by their 'tcc' (tRNA complementary codons) out of all tRNA genes in the GeneSet.
         """
         if len(self.tRNA_genes) == 0:
@@ -713,6 +714,9 @@ class GeneSet:
         # Initialize tRNA frequency dictionaries
         self.tRNA_frq_aa: dict[str, float] = dict.fromkeys(
             self.tRNA_dict_aa.keys(), 0.0
+        )
+        self.tRNA_frq_aa_1_letter: dict[str, float] = dict.fromkeys(
+            self.tRNA_dict_aa_1_letter.keys(), 0.0
         )
         self.tRNA_frq_tcc: dict[str, float] = dict.fromkeys(
             self.tRNA_dict_tcc.keys(), 0.0
