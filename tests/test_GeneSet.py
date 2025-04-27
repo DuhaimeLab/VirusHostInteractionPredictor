@@ -132,6 +132,8 @@ def test_GeneSet_codon_counts():
         "sTGA": 0,
         "TGG": 0,
     }
+    expected_aa_encoding_keys = set(test_GeneSet.codon_dict.keys()) - {"TGA", "TAA", "TAG"}
+    assert set(test_GeneSet.codon_dict_aa_encoding.keys()) == expected_aa_encoding_keys
 
     # test 2 - test low threshold_imprecise (default, 0)
     test_GeneSet.codon_counts(threshold_imprecise = 0)
@@ -204,6 +206,8 @@ def test_GeneSet_codon_counts():
         "sTGA": 0,
         "TGG": 0,
     }
+    expected_aa_encoding_keys = set(test_GeneSet.codon_dict.keys()) - {"TGA", "TAA", "TAG"}
+    assert set(test_GeneSet.codon_dict_aa_encoding.keys()) == expected_aa_encoding_keys
 
 
 def test_GeneSet_codon_frequency():
@@ -280,6 +284,9 @@ def test_GeneSet_codon_frequency():
         "sTGA": 0.0,
         "TGG": 0.0,
     }
+    expected_aa_encoding_keys = set(test_GeneSet.codon_frq.keys()) - {"TGA", "TAA", "TAG"}
+    assert set(test_GeneSet.codon_frq_aa_encoding.keys()) == expected_aa_encoding_keys
+
 
 def test_GeneSet_amino_acid_counts():
     """Test code to calculate amino acid counts across all CDS genes in a GeneSet object."""
