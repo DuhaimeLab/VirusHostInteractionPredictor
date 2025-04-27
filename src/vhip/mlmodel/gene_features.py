@@ -800,61 +800,61 @@ class CodonBiasComparison:
 
 
 class tRNAMetrics:
-    """Class for calculating metrics involving tRNA availability.
+    """Class for calculating metrics involving tRNA availability."""
+    def __init__(self) -> None:
+        "Initialize tRNAMetrics class."
 
-    Args:
-        virus_GeneSet (GeneSet): GeneSet object representing the virus.
-        host_GeneSet (GeneSet): GeneSet object representing the host.
-    """
-
-    def __init__(self, virus_GeneSet: GeneSet, host_GeneSet: GeneSet) -> None:
-        """Initialize class variables."""
-        self.virus_GeneSet: GeneSet = virus_GeneSet
-        self.host_GeneSet: GeneSet = host_GeneSet
-        """Calculate tRNA counts, totals, and frequencies for both virus and host GeneSets."""
-        if not hasattr(self.virus_GeneSet, "tRNA_frq_aa"):
-            self.virus_GeneSet.tRNA_frequency()
-        if not hasattr(self.host_GeneSet, "tRNA_frq_aa"):
-            self.host_GeneSet.tRNA_frequency()
-
-    def virus_TAAI(self, include_virus_tRNA: bool = True) -> None:
+    def virus_TAAI(self, virus_aa_frq: dict[str, float], host_tRNA_dict_aa: dict[str, int], virus_tRNA_dict_aa: dict[str, int] = {}) -> None:
         """Calculate accordance index between virus amino acid frequency and corresponding tRNA availability. Note that all amino acids are included in the correlation.
 
         Args:
-            include_virus_tRNA (bool): Whether to additionally calculate an accordance metric that accounts for tRNA gene counts from virus, in addition to that of host (default is True).
+            virus_aa_frq (dict[str, float]): Dictionary of amino acid frequencies in the virus GeneSet.
+            host_tRNA_dict_aa (dict[str, float]): Dictionary of tRNA COUNTS (by amino acid) in the host GeneSet.
+            virus_tRNA_dict_aa (dict[str, float]): Optional (default is empty dictionary). Dictionary of tRNA COUNTS in the virus GeneSet. If provided, method will additionally calculate an accordance metric that accounts for tRNA gene counts from virus in addition to that of host.
+            Note: all dictionaries must have the same keys (1 -letter amino acids in AA_LIST) for the calculation to work.
 
         Populates the following class attributes:
             self.virusTAAI_hosttRNA (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral amino acid frequencies.
-            self.virusTAAI_totaltRNA (float): Attribute created and populated only if include_virus_tRNA argument is set to True. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral amino acid frequencies.
+            self.virusTAAI_totaltRNA (float): Attribute created and populated only if virus_tRNA_dict provided. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral amino acid frequencies.
         """
-        # Generate amino acid frequencies for virus GeneSet if not already existent
-        if not hasattr(self.virus_GeneSet, "aa_frq"):
-            self.virus_GeneSet.amino_acid_frequency()
+        # Check that keys are expected amino acids
+        if not all(key in set(AA_LIST) for key in virus_aa_frq.keys()):
+            print("Amion acid dictionary does not contain expected amino acid keys. Exiting method.")
+            return
+        if not all(key in set(AA_LIST) for key in host_tRNA_dict_aa.keys()):
+            print("host tRNA dictionary does not contain expected amino acid keys. Exiting method.")
+            return
 
         # Perform Spearman Rank correlation between virus amino acid frequency and host tRNA availability
-        sorted_keys = sorted(self.virus_GeneSet.aa_frq)
-        virus_aa_frq_values = [self.virus_GeneSet.aa_frq[key] for key in sorted_keys]
+        sorted_keys = sorted(set(AA_LIST))
+        virus_aa_frq_values = [virus_aa_frq[key] for key in sorted_keys]
+        host_tRNA_frq_aa = {
+            k: (v / sum(host_tRNA_dict_aa.values())) for k, v in host_tRNA_dict_aa.items()}
         host_tRNA_frq_aa_values = [
-            self.host_GeneSet.tRNA_frq_aa[key] for key in sorted_keys
+            host_tRNA_frq_aa[key] for key in sorted_keys
         ]
         res = scipy.stats.spearmanr(virus_aa_frq_values, host_tRNA_frq_aa_values)
         self.virusTAAI_hosttRNA: float = res.statistic
 
         # If specified, perform Spearman Rank correlation between virus amino acid frequency and total tRNA availability
-        if include_virus_tRNA is True:
-            total_tRNA_dict_aa = {
-                key: self.host_GeneSet.tRNA_dict_aa.get(key, 0)
-                + self.virus_GeneSet.tRNA_dict_aa.get(key, 0)
-                for key in set(self.host_GeneSet.tRNA_dict_aa)
-                | set(self.virus_GeneSet.tRNA_dict_aa)
-            }
-            total_virocell_tRNA = sum(total_tRNA_dict_aa.values())
-            total_tRNA_frq_aa = {
-                k: (v / total_virocell_tRNA) for k, v in total_tRNA_dict_aa.items()
-            }
-            total_tRNA_frq_aa_values = [total_tRNA_frq_aa[key] for key in sorted_keys]
-            res = scipy.stats.spearmanr(virus_aa_frq_values, total_tRNA_frq_aa_values)
-            self.virusTAAI_totaltRNA: float = res.statistic
+        if len(virus_tRNA_dict_aa) > 0:
+            if not all(key in set(AA_LIST) for key in virus_tRNA_dict_aa.keys()):
+                print("virus tRNA dictionary does not contain expected amino acid keys. Method will not calculate TAAI based on total virocell tRNA frequencies.")
+                return
+            else:
+                # Prepare tRNA dictionaries for total tRNA accordance metric
+                total_tRNA_dict_aa = {
+                    key: host_tRNA_dict_aa.get(key, 0)
+                    + virus_tRNA_dict_aa.get(key, 0)
+                    for key in sorted_keys
+                }
+                total_virocell_tRNA = sum(total_tRNA_dict_aa.values())
+                total_tRNA_frq_aa = {
+                    k: (v / total_virocell_tRNA) for k, v in total_tRNA_dict_aa.items()
+                }
+                total_tRNA_frq_aa_values = [total_tRNA_frq_aa[key] for key in sorted_keys]
+                res = scipy.stats.spearmanr(virus_aa_frq_values, total_tRNA_frq_aa_values)
+                self.virusTAAI_totaltRNA: float = res.statistic
 
     def virus_TCAI(
         self, skip_nondeg_codons: bool = True, include_virus_tRNA: bool = True
