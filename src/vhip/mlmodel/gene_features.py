@@ -236,6 +236,8 @@ class CDSGene(Gene):
                         self.codon_dict[codon] += 1
                 else:
                     self.imprecise_codons.append(codon)
+            # Create dictionary excluding stop codons
+            self.codon_dict_aa_encoding = {k: v for k, v in self.codon_dict.items() if k not in stop_codons}
 
     def calculate_aa_counts(self) -> None:
         """Calculate counts of each unique amino acid encoded by a cds gene.
@@ -459,6 +461,7 @@ class GeneSet:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
         Populates the following class attributes:
             self.codon_dict (str: int): Counts of each unique codon across all CDS genes in the GeneSet.
+            self.codon_dict_aa_encoding (str: int): Counts of each unique codon across all CDS genes in the GeneSet, excluding stop codons.
             self.imprecise_codons (List(str)): list of imprecise codons found in the GeneSet.
             self.skipped_imprecise_genes (List[Gene]): List of CDSGenes in the GeneSet that have more than threshold_imprecise codons.
         """
@@ -469,6 +472,9 @@ class GeneSet:
 
         # Initialize attributes
         self.codon_dict: dict[str, int] = dict.fromkeys(CODON_LIST, 0)
+        self.codon_dict_aa_encoding: dict[str, int] = {
+            codon: 0 for codon in CODON_LIST if codon not in stop_codons
+        }
         self.imprecise_codons: List[str] = []
         self.skipped_imprecise_genes: List[Gene] = []
 
@@ -486,6 +492,8 @@ class GeneSet:
             if len(gene.imprecise_codons)/gene.n_codons <= threshold_imprecise:
                 for key, val in gene.codon_dict.items():
                     self.codon_dict[key] += val
+                for key, val in gene.codon_dict_aa_encoding.items():
+                    self.codon_dict_aa_encoding[key] += val
             else:
                 self.skipped_imprecise_genes.append(gene)
 
@@ -510,18 +518,23 @@ class GeneSet:
 
         print(f"Calculating codon frequencies in {self.id}.")
         self.codon_frq: dict[str, float] = {}
+        self.codon_frq_aa_encoding: dict[str, float] = {}
 
-        if not hasattr(self, "codon_dict"):
+        if not hasattr(self, "codon_dict") or not hasattr(self, "codon_dict_aa_encoding"):
             # If aggregate codon counts have not already been calculated, runs codon_counts()
             self.codon_counts(
                 threshold_imprecise=threshold_imprecise
             )
 
-        if hasattr(self, "codon_dict") and len(self.skipped_imprecise_genes)/len(self.cds_genes) < 1:
+        if hasattr(self, "codon_dict") and hasattr(self, "codon_dict_aa_encoding") and len(self.skipped_imprecise_genes)/len(self.cds_genes) < 1:
             total = sum(self.codon_dict.values())
-            if total >= 1:
+            total_aa_encoding = sum(self.codon_dict_aa_encoding.values())
+            if total_aa_encoding >= 1:
                 self.codon_frq = {k: (v / total) for k, v in self.codon_dict.items()}
-            elif total < 1:
+                self.codon_frq_aa_encoding = {
+                    k: (v / total_aa_encoding) for k, v in self.codon_dict_aa_encoding.items()
+                }
+            else:
                 print(f"No valid codons in {self.id}. Cannot calculate frequencies.")
         else:
             print(f"No valid and precise CDS genes in {self.id} to calculate codon frequencies.")
