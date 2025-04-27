@@ -661,6 +661,7 @@ class GeneSet:
 
         Populates the following class attributes:
             self.tRNA_dict_aa (str: int): Counts of tRNA genes by amino acid across all genes in the GeneSet.
+            self.tRNA_dict_aa_1_letter (str: int): Counts of tRNA genes by 1-letter amino acid across all genes in the GeneSet.
             self.tRNA_dict_tcc (str: int): Counts of tRNA genes by their 'tcc' (tRNA complementary codons) across all genes in the GeneSet.
         """
         # Initialize tRNA count dictionaries, skipping stop codons
@@ -686,6 +687,10 @@ class GeneSet:
 
                 self.tRNA_dict_tcc[tcc] += 1 if tcc in self.tRNA_dict_tcc.keys() else 0
 
+        # Create dictionary with 1-letter amino acid keys
+        self.tRNA_dict_aa_1_letter = {
+            AA_CONVERSIONS[k]: v for k, v in self.tRNA_dict_aa.items()
+        }
 
     def tRNA_frequency(self) -> None:
         """Calculate the frequency of individual tRNA genes (by their associated amino acids and (anti)codons) out of all tRNA genes in the GeneSet.
@@ -719,6 +724,11 @@ class GeneSet:
         }
         self.tRNA_frq_tcc = {
             k: (v / len(self.tRNA_genes)) for k, v in self.tRNA_dict_tcc.items()
+        }
+
+        # Create dictionary with 1-letter amino acid keys
+        self.tRNA_frq_aa_1_letter = {
+            AA_CONVERSIONS[k]: v for k, v in self.tRNA_frq_aa.items()
         }
 
 
