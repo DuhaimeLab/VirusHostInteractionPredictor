@@ -813,13 +813,13 @@ class tRNAMetrics:
 
         Args:
             virus_aa_frq (dict[str, float]): Dictionary of amino acid frequencies in the virus GeneSet.
-            host_tRNA_dict_aa (dict[str, float]): Dictionary of tRNA COUNTS (by amino acid) in the host GeneSet.
-            virus_tRNA_dict_aa (dict[str, float]): Optional (default is empty dictionary). Dictionary of tRNA COUNTS in the virus GeneSet. If provided, method will additionally calculate an accordance metric that accounts for tRNA gene counts from virus in addition to that of host.
+            host_tRNA_dict_aa (dict[str, int]): Dictionary of tRNA COUNTS (by amino acid) in the host GeneSet.
+            virus_tRNA_dict_aa (dict[str, int]): Optional (default is empty dictionary). Dictionary of tRNA COUNTS (by amino acid) in the virus GeneSet. If provided, method will additionally calculate an accordance metric that accounts for tRNA gene counts from virus in addition to that of host.
             Note: all dictionaries must have the same keys (1 -letter amino acids in AA_LIST) for the calculation to work.
 
         Populates the following class attributes:
             self.virusTAAI_hosttRNA (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral amino acid frequencies.
-            self.virusTAAI_totaltRNA (float): Attribute created and populated only if virus_tRNA_dict provided. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral amino acid frequencies.
+            self.virusTAAI_totaltRNA (float): Attribute created and populated only if virus_tRNA_dict_aa provided. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral amino acid frequencies.
         """
         # Check that keys are expected amino acids
         if not all(key in set(AA_LIST) for key in virus_aa_frq.keys()):
