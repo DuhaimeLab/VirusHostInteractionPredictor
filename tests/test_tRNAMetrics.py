@@ -11,12 +11,17 @@ host_GS = GeneSet("tests/datatests/test_tRNA_genes.json")
 virus_GS = GeneSet("tests/datatests/test_short_genes.json")
 
 virus_GS.amino_acid_frequency()
+virus_GS.codon_frequency()
 virus_GS.tRNA_counts()
 host_GS.tRNA_counts()
 
 virus_aa_frq = virus_GS.aa_frq
 host_tRNA_dict_aa = host_GS.tRNA_dict_aa_1_letter
 virus_tRNA_dict_aa = virus_GS.tRNA_dict_aa_1_letter
+
+virus_codon_frq = virus_GS.codon_frq
+host_tRNA_dict_tcc = host_GS.tRNA_dict_tcc
+virus_tRNA_dict_tcc = virus_GS.tRNA_dict_tcc
 
 def test_tRNAMetrics_init():
     """Test code to create tRNAMetrics object and initialize class attributes."""
@@ -48,42 +53,62 @@ def test_tRNAMetrics_virus_TAAI():
     assert not hasattr(test4_tRNAMetrics, "virusTAAI_totaltRNA")
 
 
-
-
-
-
-
-
-
-
-
 def test_tRNAMetrics_virus_TCAI():
     """Test code to calculate virus codon accordance with tRNA availability."""
-    test_tRNAMetrics = tRNAMetrics(virus_geneset, host_geneset)
-    test_tRNAMetrics.virus_TCAI(skip_nondeg_codons=True)
-
-    # test 1: check that codon frequency has been calculated for virus GeneSet attribute
-    assert hasattr(test_tRNAMetrics.virus_GeneSet, "codon_frq")
-
-    # test 2: skip non-degenerate codons
-    assert math.isclose(
-        test_tRNAMetrics.virusTCAI_hosttRNA, 0.5719110045885629, rel_tol=1e-6
+    # Test 1: check correct correlation coefficient between virus codon frequency and host tRNA frequency, only including degenerate codons (default)
+    test_tRNAMetrics = tRNAMetrics()
+    test_tRNAMetrics.virus_TCAI(
+        virus_codon_frq=virus_codon_frq,
+        host_tRNA_dict_tcc=host_tRNA_dict_tcc,
+        virus_tRNA_dict_tcc=virus_tRNA_dict_tcc,
+        degenerate_codons_only=True,
     )
     assert math.isclose(
-        test_tRNAMetrics.virusTCAI_totaltRNA, 0.5722056927702744, rel_tol=1e-6
+        test_tRNAMetrics.virusTCAI_hosttRNA, -0.04335549847620599, rel_tol=1e-6
     )
 
-    # test 3: do not skip non-degenerate codons
-    test3_tRNAMetrics = tRNAMetrics(virus_geneset, host_geneset)
-    test3_tRNAMetrics.virus_TCAI(skip_nondeg_codons=False)
-    assert math.isclose(
-        test3_tRNAMetrics.virusTCAI_hosttRNA, 0.6676379024704918, rel_tol=1e-6
+    # Test 2: check correct correlation coefficient between virus codon frequency and host tRNA frequency, including all codons
+    test_tRNAMetrics = tRNAMetrics()
+    test_tRNAMetrics.virus_TCAI(
+        virus_codon_frq=virus_codon_frq,
+        host_tRNA_dict_tcc=host_tRNA_dict_tcc,
+        virus_tRNA_dict_tcc=virus_tRNA_dict_tcc,
+        degenerate_codons_only=False,
     )
     assert math.isclose(
-        test3_tRNAMetrics.virusTCAI_totaltRNA, 0.6679138744756812, rel_tol=1e-6
+        test_tRNAMetrics.virusTCAI_hosttRNA, 0.2111188508743548, rel_tol=1e-6
     )
 
-    # test 4: # test 5: check no total tRNA comparison metric is generated if parameter specified as false
-    test4_tRNAMetrics = tRNAMetrics(virus_geneset, host_geneset)
-    test4_tRNAMetrics.virus_TCAI(include_virus_tRNA=False)
-    assert not hasattr(test4_tRNAMetrics, "virusTCAI_totaltRNA")
+    # Test 3: check no total tRNA comparison metric is generated if no virus tRNA dict provided
+    test_tRNAMetrics = tRNAMetrics()
+    test_tRNAMetrics.virus_TCAI(
+        virus_codon_frq=virus_codon_frq,
+        host_tRNA_dict_tcc=host_tRNA_dict_tcc,
+        degenerate_codons_only=True,
+    )
+    assert not hasattr(test_tRNAMetrics, "virusTCAI_totaltRNA")
+
+    # Test 4: check correct correlation coefficient between virus codon frequency and TOTAL tRNA frequency, only including degenerate codons (default)
+    test_tRNAMetrics = tRNAMetrics()
+    test_tRNAMetrics.virus_TCAI(
+        virus_codon_frq=virus_codon_frq,
+        host_tRNA_dict_tcc=host_tRNA_dict_tcc,
+        virus_tRNA_dict_tcc=virus_tRNA_dict_tcc,
+        degenerate_codons_only=True,
+    )
+    assert math.isclose(
+        test_tRNAMetrics.virusTCAI_totaltRNA, -0.05357142857142857, rel_tol=1e-6
+    )
+
+    # Test 5: check correct correlation coefficient between virus codon frequency and TOTAL tRNA frequency, including all codons
+    test_tRNAMetrics = tRNAMetrics()
+    test_tRNAMetrics.virus_TCAI(
+        virus_codon_frq=virus_codon_frq,
+        host_tRNA_dict_tcc=host_tRNA_dict_tcc,
+        virus_tRNA_dict_tcc=virus_tRNA_dict_tcc,
+        degenerate_codons_only=False,
+    )
+    assert math.isclose(
+        test_tRNAMetrics.virusTCAI_totaltRNA, 0.17879104696511938, rel_tol=1e-6
+    )
+
