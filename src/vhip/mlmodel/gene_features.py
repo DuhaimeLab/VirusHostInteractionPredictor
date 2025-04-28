@@ -860,111 +860,65 @@ class tRNAMetrics:
                 res = scipy.stats.spearmanr(virus_aa_frq_values, total_tRNA_frq_aa_values)
                 self.virusTAAI_totaltRNA: float = res.statistic
 
-    def virus_TCAI(
-        self, skip_nondeg_codons: bool = True, include_virus_tRNA: bool = True
-    ) -> None:
+    def virus_TCAI(self, virus_codon_frq: dict[str, float], host_tRNA_dict_tcc: dict[str, int], virus_tRNA_dict_tcc: dict[str, int] = {}, degenerate_codons_only: bool = True) -> None:
         """Calculate accordance index between virus codon frequency and corresponding tRNA availability.
 
         Args:
-            skip_nondeg_codons (bool): Whether to omit non-degenerate codons (codons whose encoded amino acid is specific to one codon alone) from the accordance calculation (default is True). Note stop codons are inherently skipped because they have no associated tRNA.
-            include_virus_tRNA (bool): Whether to additionally calculate an accordance metric that accounts for tRNA gene counts from virus, in addition to that of host (default is True).
+            virus_codon_frq (dict[str, float]): Dictionary of codon frequencies in the virus GeneSet.
+            host_tRNA_dict_tcc (dict[str, int]): Dictionary of tRNA COUNTS (by tcc) in the host GeneSet.
+            virus_tRNA_dict_tcc (dict[str, int]): Optional (default is empty dictionary). Dictionary of tRNA COUNTS (by tcc) in the virus GeneSet. If provided, method will additionally calculate an accordance metric that accounts for tRNA gene counts from virus in addition to that of host.
+            degenerate_codons_only (bool): Whether to omit non-degenerate codons (codons whose encoded amino acid is specific to one codon alone) from the accordance calculation (default is True). Note stop codons are inherently skipped because they have no associated tRNA.
+            Note: all dictionaries must have the same keys (codons from CODON_LIST) for the calculation to work.
 
         Populates the following class attributes:
             self.virusTCAI_hosttRNA (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral codon frequencies.
-            self.virusTCAI_totaltRNA (float): Attribute created and populated only if include_virus_tRNA argument is set to True. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral codon frequencies.
+            self.virusTCAI_totaltRNA (float): Attribute created and populated only if virus_tRNA_dict_tcc provided. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral codon frequencies.
         """
-        # Generate codon frequencies for virus GeneSet if not already existent
-        if not hasattr(self.virus_GeneSet, "codon_frq"):
-            self.virus_GeneSet.codon_frequency()
+        # Define sorted keys based on degenerate tcc inclusion parameter
+        codons_to_skip = stop_codons
+        if degenerate_codons_only is True:
+            codons_to_skip = codons_to_skip + list(non_degenerate_codons.keys())
+        sorted_keys = sorted([key for key in CODON_LIST if key not in codons_to_skip])
 
-        # Define tRNA dictionaries, skipping non-degenerate codons and including virus tRNAs as specified
-        if skip_nondeg_codons is True:
-            # Sort and remove non-degenerate and stop codon keys
-            irrelevant_codons = non_degenerate_codons + stop_codons
-            sorted_keys = [
-                key
-                for key in sorted(self.virus_GeneSet.codon_frq)
-                if key not in irrelevant_codons
-            ]
-            # Prepare codon and tRNA lists for spearman rank
-            virus_codon_frq_values = [
-                self.virus_GeneSet.codon_frq[key] for key in sorted_keys
-            ]
-            host_tRNA_frq_tcc_values = [
-                self.host_GeneSet.tRNA_frq_tcc[key] for key in sorted_keys
-            ]
-            # Prepare tRNA dictionaries for total tRNA accordance metric if specified
-            virus_tRNA_dict_tcc = (
-                {
-                    k: v
-                    for k, v in self.virus_GeneSet.tRNA_dict_tcc.items()
-                    if k not in irrelevant_codons
-                }
-                if include_virus_tRNA
-                else None
-            )
-            host_tRNA_dict_tcc = (
-                {
-                    k: v
-                    for k, v in self.host_GeneSet.tRNA_dict_tcc.items()
-                    if k not in irrelevant_codons
-                }
-                if include_virus_tRNA
-                else None
-            )
+        # Check that input dictionaries contain necessary keys
+        if not all(key in virus_codon_frq.keys() for key in sorted_keys):
+            print("Codon frequency dictionary does not contain expected codon keys. Exiting method.")
+            return
+        elif not all(key in host_tRNA_dict_tcc.keys() for key in sorted_keys):
+            print("Host tRNA dictionary does not contain expected codon keys. Exiting method.")
+            return
         else:
-            # Sort and remove stop codon keys only
-            sorted_keys = [
-                key
-                for key in sorted(self.virus_GeneSet.codon_frq)
-                if key not in stop_codons
-            ]
-            # Prepare codon and tRNA lists for spearman rank
+            # Prepare codon and host tRNA lists for spearman rank, sorting keys and filtering out non-degenerate codons if specified
             virus_codon_frq_values = [
-                self.virus_GeneSet.codon_frq[key] for key in sorted_keys
+                virus_codon_frq[key] for key in sorted_keys
             ]
             host_tRNA_frq_tcc_values = [
-                self.host_GeneSet.tRNA_frq_tcc[key] for key in sorted_keys
+                host_tRNA_dict_tcc[key]/sum(host_tRNA_dict_tcc.values()) for key in sorted_keys
             ]
-            # Prepare tRNA dictionaries for total tRNA accordance metric if specified
-            virus_tRNA_dict_tcc = (
-                {
-                    k: v
-                    for k, v in self.virus_GeneSet.tRNA_dict_tcc.items()
-                    if k not in stop_codons
-                }
-                if include_virus_tRNA
-                else None
-            )
-            host_tRNA_dict_tcc = (
-                {
-                    k: v
-                    for k, v in self.host_GeneSet.tRNA_dict_tcc.items()
-                    if k not in stop_codons
-                }
-                if include_virus_tRNA
-                else None
-            )
+            # Perform Spearman Rank correlation between virus codon frequency and host tRNA availability
+            res = scipy.stats.spearmanr(virus_codon_frq_values, host_tRNA_frq_tcc_values)
+            self.virusTCAI_hosttRNA: float = res.statistic
 
-        # Perform Spearman Rank correlation between virus codon frequency and host tRNA availability
-        res = scipy.stats.spearmanr(virus_codon_frq_values, host_tRNA_frq_tcc_values)
-        self.virusTCAI_hosttRNA: float = res.statistic
-
-        # If specified, perform Spearman Rank correlation between virus codon frequency and total tRNA availability
-        if (
-            include_virus_tRNA is True
-            and host_tRNA_dict_tcc is not None
-            and virus_tRNA_dict_tcc is not None
-        ):
-            total_tRNA_dict_tcc = {
-                key: host_tRNA_dict_tcc.get(key, 0) + virus_tRNA_dict_tcc.get(key, 0)
-                for key in set(host_tRNA_dict_tcc) | set(virus_tRNA_dict_tcc)
-            }
-            total_virocell_tRNA = sum(total_tRNA_dict_tcc.values())
-            total_tRNA_frq_tcc_values = [
-                total_tRNA_dict_tcc[key] / total_virocell_tRNA for key in sorted_keys
-            ]
-            res = scipy.stats.spearmanr(
-                virus_codon_frq_values, total_tRNA_frq_tcc_values
-            )
-            self.virusTCAI_totaltRNA: float = res.statistic
+            # If specified, perform Spearman Rank correlation between virus codon frequency and total tRNA availability
+            if len(virus_tRNA_dict_tcc) > 0:
+                # Check that input dictionaries contain necessary keys
+                if not all(key in virus_tRNA_dict_tcc.keys() for key in sorted_keys):
+                    print("Virus tRNA dictionary does not contain expected codon keys. Method will not calculate TCAI based on total virocell tRNA frequencies.")
+                    return
+                else:
+                    # Prepare total tRNA list for spearman rank, sorting keys and filtering out non-degenerate codons if specified
+                    total_tRNA_dict_tcc = {
+                        key: host_tRNA_dict_tcc.get(key, 0)
+                        + virus_tRNA_dict_tcc.get(key, 0)
+                        for key in sorted_keys
+                    }
+                    total_virocell_tRNA = sum(total_tRNA_dict_tcc.values())
+                    total_tRNA_frq_tcc_values = [
+                        total_tRNA_dict_tcc[key] / total_virocell_tRNA
+                        for key in sorted_keys
+                    ]
+                    # Perform Spearman Rank
+                    res = scipy.stats.spearmanr(
+                        virus_codon_frq_values, total_tRNA_frq_tcc_values
+                    )
+                    self.virusTCAI_totaltRNA: float = res.statistic
