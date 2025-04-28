@@ -516,6 +516,7 @@ class GeneSet:
             print(f"No Valid CDS genes in {self.id}. Skipping codon frequency calculation.")
             return
 
+        # Initialize attributes
         print(f"Calculating codon frequencies in {self.id}.")
         self.codon_frq: dict[str, float] = {}
         self.codon_frq_aa_encoding: dict[str, float] = {}
@@ -597,6 +598,7 @@ class GeneSet:
             print(f"No Valid CDS genes in {self.id}. Skipping amino acid frequency calculation.")
             return
 
+        # Initialize attributes
         print(f"Calculating amino acid frequencies in {self.id}.")
         self.aa_frq: dict[str, float] = {}
 
@@ -665,6 +667,7 @@ class GeneSet:
             self.tRNA_dict_tcc (str: int): Counts of tRNA genes by their 'tcc' (tRNA complementary codons) across all genes in the GeneSet.
         """
         # Initialize tRNA count dictionaries, skipping stop codons
+        print(f"Counting tRNA genes in {self.id}.")
         self.tRNA_dict_aa: dict[str, int] = {aa: 0 for aa in AA_CONVERSIONS.keys()}
         self.tRNA_dict_tcc: dict[str, int] = {
             tcc: 0 for tcc in CODON_LIST if tcc not in stop_codons
@@ -712,6 +715,7 @@ class GeneSet:
             self.tRNA_counts()
 
         # Initialize tRNA frequency dictionaries
+        print(f"Calculating tRNA gene frequency in {self.id}.")
         self.tRNA_frq_aa: dict[str, float] = dict.fromkeys(
             self.tRNA_dict_aa.keys(), 0.0
         )
