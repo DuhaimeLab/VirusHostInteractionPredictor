@@ -506,6 +506,7 @@ class GeneSet:
             threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
         Populates the following class attributes:
             self.codon_frq (str: float): Frequency of each unique codon across all CDS genes in the GeneSet.
+            self.codon_frq_aa_encoding (str: int): Frequences of each unique codon across all CDS genes in the GeneSet, excluding stop codons.
         If not populated previously by running codon_counts():
             self.codon_dict (str: int): Counts of each unique codon across all CDS genes in the GeneSet.
             self.imprecise_codons (List(str)): list of imprecise codons found in the GeneSet.
