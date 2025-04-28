@@ -104,6 +104,16 @@ def test_read_annotated_genes():
             "nt": "TTGTCAGAR",
             "aa": "LSE",
             "id": "gene_3_imprecise"
+        },
+        {
+            "type": "tRNA",
+            "gene": "trnS",
+            "product": "tRNA-Ser(gct)",
+            "amino_acid": "Ser",
+            "anti_codon": "gct",
+            "score": 77.5,
+            "nt": "ATGGCT",
+            "id": "tRNA_1_Ser"
         }
     ]
 
