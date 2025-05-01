@@ -412,18 +412,29 @@ class ComputeFeatures:
             )
             self.RSCU[id] = GS.RSCU_dict
 
-                threshold_skipped_genes=threshold_skipped_genes,
-            )
+    def generate_tRNA_profiles(self) -> None:
+        """Generate profile of the counts and frequencies of each tRNA gene (by its associated amino acid and tRNA complementary codon) in every virus and host GeneSet."""
+        if not hasattr(self, "virus_GeneSets") and not hasattr(self, "host_GeneSets"):
+            # If GeneSets have not already been created, runs generate_GeneSets()
+            self.generate_GeneSets()
 
-            self.RSCU[virus] = virus_GeneSet.RSCU_dict
+        self.tRNA_counts_aa: dict[str, dict[str, int]] = {gene: {} for gene in self.all_genes}
+        self.tRNA_counts_aa_1_letter: dict[str, dict[str, int]] = {gene: {} for gene in self.all_genes}
+        self.tRNA_counts_tcc: dict[str, dict[str, int]] = {gene: {} for gene in self.all_genes}
 
-        for host, host_GeneSet in self.host_GeneSets.items():
-            host_GeneSet.RSCU(
-                threshold_imprecise=threshold_imprecise,
-                threshold_skipped_genes=threshold_skipped_genes,
-            )
+        self.tRNA_frqs_aa: dict[str, dict[str, float]] = {gene: {} for gene in self.all_genes}
+        self.tRNA_frqs_aa_1_letter: dict[str, dict[str, float]] = {gene: {} for gene in self.all_genes}
+        self.tRNA_frqs_tcc: dict[str, dict[str, float]] = {gene: {} for gene in self.all_genes}
 
-            self.RSCU[host] = host_GeneSet.RSCU_dict
+        for id, GS in self.all_GeneSets.items():
+            GS.tRNA_counts()
+            GS.tRNA_frequency()
+            self.tRNA_counts_aa[id] = GS.tRNA_dict_aa
+            self.tRNA_counts_aa_1_letter[id] = GS.tRNA_dict_aa_1_letter
+            self.tRNA_counts_tcc[id] = GS.tRNA_dict_tcc
+            self.tRNA_frqs_aa[id] = GS.tRNA_frq_aa
+            self.tRNA_frqs_aa_1_letter[id] = GS.tRNA_frq_aa_1_letter
+            self.tRNA_frqs_tcc[id] = GS.tRNA_frq_tcc
 
     def run_parallel(self, num_procs: int = 6):
         """Run multiple process of the compute_feature method.
