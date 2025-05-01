@@ -135,12 +135,17 @@ class ComputeFeatures:
             for f in os.listdir(self.virus_genome_dir)
             if f.endswith("." + self.genome_ext)
         ]
+        self.virus_genomes = [f.replace("." + self.genome_ext, "") for f in self.virus_genome_filenames]
+
         self.host_genome_filenames = [
             f
             for f in os.listdir(self.host_genome_dir)
             if f.endswith("." + self.genome_ext)
         ]
+        self.host_genomes = [f.replace("." + self.genome_ext, "") for f in self.host_genome_filenames]
+
         self.all_genome_files = self.virus_genome_filenames + self.host_genome_filenames
+        self.all_genomes = self.virus_genomes + self.host_genomes
 
     def list_gene_files(self):
         """List all gene fasta file in the virus and host annotated gene file directories."""
@@ -149,10 +154,15 @@ class ComputeFeatures:
             for f in os.listdir(self.virus_gene_dir)
             if f.endswith("." + self.gene_ext)
         ]
+        self.virus_genes = [f.replace("." + self.gene_ext, "") for f in self.virus_gene_filenames]
+
         self.host_gene_filenames = [
             f for f in os.listdir(self.host_gene_dir) if f.endswith("." + self.gene_ext)
         ]
+        self.host_genes = [f.replace("." + self.gene_ext, "") for f in self.host_gene_filenames]
+
         self.all_gene_files = self.virus_gene_filenames + self.host_gene_filenames
+        self.all_genes = self.host_genes + self.virus_genes
 
     def determine_pairs(self):
         """Determine all possible virus-host pairs.
