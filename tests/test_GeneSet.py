@@ -324,7 +324,7 @@ def test_GeneSet_amino_acid_counts():
     test_GeneSet.amino_acid_counts(threshold_unexpected = 0)
     assert len(test_GeneSet.unexpected_aas) == 1
     assert len(test_GeneSet.skipped_unexpected_peptides) == 1
-    assert test_GeneSet.aa_dict =={
+    assert test_GeneSet.aa_dict == {
         "I": 0,
         "M": 0,
         "T": 0,
