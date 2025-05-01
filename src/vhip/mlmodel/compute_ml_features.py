@@ -497,10 +497,13 @@ class ComputeFeatures:
             comparison.cosine_similarity()
 
         # calculate tRNA-based metrics for the pair
-        pair.tRNAMetrics = tRNAMetrics(virus_GeneSet=self.virus_GeneSets[virus], host_GeneSet=self.host_GeneSets[host])
-        pair.tRNAMetrics.virus_TAAI() # defaults
-        pair.tRNAMetrics.virus_TCAI() # defaults
-
+        pair.tRNAMetrics = tRNAMetrics()
+        pair.tRNAMetrics.virus_TAAI(virus_aa_frq=self.aa_frqs[pair.virus],
+                                    host_tRNA_dict_aa=self.tRNA_counts_aa_1_letter[pair.host],
+                                    virus_tRNA_dict_aa=self.tRNA_counts_aa_1_letter[pair.virus])
+        pair.tRNAMetrics.virus_TCAI(virus_codon_frq=self.codon_frqs_aa_encoding[pair.virus],
+                                    host_tRNA_dict_tcc=self.tRNA_counts_tcc[pair.host],
+                                    virus_tRNA_dict_tcc=self.tRNA_counts_tcc[pair.virus]) # default: skip non-degenerate_codons
 
         return pair
 
