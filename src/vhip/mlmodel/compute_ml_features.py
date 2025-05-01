@@ -88,14 +88,14 @@ class ComputeFeatures:
         self.spacer_path = spacer_path
 
     def do_setup(
-        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+        self, threshold_imprecise: float = 0.0
     ):
         """Calls other methods to setup.
 
         The setup process includes determining all possible virus-host pairs, get fasta headers, read and process blastn_output, compute GC content and k-mer profiles, and generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
 
         Args:
-            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
         print("SETUP - ...indexing genome fasta filenames for viruses and hosts...")
@@ -124,9 +124,10 @@ class ComputeFeatures:
         self.generate_kmer_profiles()
 
         print("SETUP - ...calculate codon and amino acid profiles...")
-        self.generate_codon_frq(threshold_imprecise, threshold_skipped_genes)
-        self.generate_aa_frq(threshold_imprecise, threshold_skipped_genes)
-        self.generate_RSCU(threshold_imprecise, threshold_skipped_genes)
+        self.generate_codon_profiles(threshold_imprecise)
+        self.generate_aa_profiles(threshold_imprecise)
+        self.generate_RSCU(threshold_imprecise)
+        self.generate_tRNA_profiles()
 
     def list_genome_files(self):
         """List all genome fasta file in the virus and host genome directories."""
