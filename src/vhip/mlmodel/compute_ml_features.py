@@ -180,7 +180,7 @@ class ComputeFeatures:
         virus_inter: List[str] = list(
             itertools.chain.from_iterable(
                 itertools.repeat(x, len(self.host_genomes))
-                for x in self.virus_genome_filenames
+                for x in self.virus_genomes
             )
         )
         host_inter = self.host_genomes * len(self.virus_genomes)
