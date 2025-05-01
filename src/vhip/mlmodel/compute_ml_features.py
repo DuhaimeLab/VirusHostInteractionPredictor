@@ -391,27 +391,27 @@ class ComputeFeatures:
             self.aa_frqs[id] = GS.aa_frq
 
     def generate_RSCU(
-        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+        self, threshold_imprecise: float = 0.0,
     ) -> None:
         """Generate profile of the relative synonymous codon usage (RSCU) of each codon in every virus and host GeneSet.
 
-        This will be compiled from all genes in each .ffn file in the virus and host genes files directories.
+        This will be compiled from all genes in each .json file in the virus and host genes files directories.
 
         Args:
-            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
-            threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
         """
-        self.RSCU: dict[str, dict[str, float]] = {
-            key: {} for key in self.all_gene_files
-        }
+        if not hasattr(self, "virus_GeneSets") and not hasattr(self, "host_GeneSets"):
+            # If GeneSets have not already been created, runs generate_GeneSets()
+            self.generate_GeneSets()
 
-        if not hasattr(self, "codon_counts"):
-            # If aggregate codon counts have not already been calculated for the GeneSets, runs generate_codon_aa_counts()
-            self.generate_codon_aa_counts(threshold_imprecise, threshold_skipped_genes)
+        self.RSCU: dict[str, dict[str, float]] = {gene: {} for gene in self.all_genes}
 
-        for virus, virus_GeneSet in self.virus_GeneSets.items():
-            virus_GeneSet.RSCU(
-                threshold_imprecise=threshold_imprecise,
+        for id, GS in self.all_GeneSets.items():
+            GS.RSCU(
+                threshold_imprecise=threshold_imprecise
+            )
+            self.RSCU[id] = GS.RSCU_dict
+
                 threshold_skipped_genes=threshold_skipped_genes,
             )
 
