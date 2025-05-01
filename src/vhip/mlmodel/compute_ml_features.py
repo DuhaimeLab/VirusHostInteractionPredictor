@@ -342,32 +342,32 @@ class ComputeFeatures:
         }
         self.all_GeneSets = {**self.virus_GeneSets, **self.host_GeneSets}
 
-    def generate_codon_aa_counts(
-        self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
+    def generate_codon_profiles(
+        self, threshold_imprecise: float = 0.0
     ) -> None:
         """Generate profile of the counts of each unique codon in every virus and host GeneSet.
 
-        This will be compiled from all genes in each .ffn file in the virus and host genes files directories.
+        This will be compiled from all genes in each .json file in the virus and host genes files directories.
 
         Args:
-            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single gene (default 0.0 or 0% - see paper methods for threshold default determination)
+            threshold_imprecise (float): Percentage of imprecise (non-ATGC) codons tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
             threshold_skipped_genes (float): Tolerated percentage of valid (codon length divisible) genes in GeneSet that have more than threshold_imprecise codons (default 0.5 or 50% - see paper methods for threshold default determination)
         """
         if not hasattr(self, "virus_GeneSets") and not hasattr(self, "host_GeneSets"):
             # If GeneSets have not already been created, runs generate_GeneSets()
             self.generate_GeneSets()
 
-        self.codon_counts = dict.fromkeys(self.all_gene_files)
-        self.aa_counts = dict.fromkeys(self.all_gene_files)
+        self.codon_counts: dict[str, dict[str, int]] = {gene: {} for gene in self.all_genes}
+        self.codon_counts_aa_encoding: dict[str, dict[str, int]] = {gene: {} for gene in self.all_genes}
+        self.codon_frqs: dict[str, dict[str, float]] = {gene: {} for gene in self.all_genes}
+        self.codon_frqs_aa_encoding: dict[str, dict[str, float]] = {gene: {} for gene in self.all_genes}
 
-        for virus, virus_GeneSet in self.virus_GeneSets.items():
-            virus_GeneSet.amino_acid_counts(
-                threshold_imprecise, threshold_skipped_genes
-            )
-            self.codon_counts[virus] = virus_GeneSet.codon_dict
-            self.aa_counts[virus] = virus_GeneSet.aa_dict
-
-        for host, host_GeneSet in self.host_GeneSets.items():
+        for id, GS in self.all_GeneSets.items():
+            GS.codon_frequency(threshold_imprecise)
+            self.codon_counts[id] = GS.codon_dict
+            self.codon_counts_aa_encoding[id] = GS.codon_dict_aa_encoding
+            self.codon_frqs[id] = GS.codon_frq
+            self.codon_frqs_aa_encoding[id] = GS.codon_frq_aa_encoding
             host_GeneSet.amino_acid_counts(threshold_imprecise, threshold_skipped_genes)
             self.codon_counts[host] = host_GeneSet.codon_dict
             self.aa_counts[host] = host_GeneSet.aa_dict
