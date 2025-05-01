@@ -165,7 +165,7 @@ class ComputeFeatures:
         self.all_genes = self.host_genes + self.virus_genes
 
     def determine_pairs(self):
-        """Determine all possible virus-host pairs.
+        """Determine all possible virus-host pairs, based on available genome fasta files. (For gene-level features, ideally each genome .fasta file would have an associated annotated genes .json file).
 
         This assume that each virus should be tested against each host.
         """
@@ -179,11 +179,11 @@ class ComputeFeatures:
         # determine all virus-host pair possible (every host is going to be considered for every virus of interest)
         virus_inter: List[str] = list(
             itertools.chain.from_iterable(
-                itertools.repeat(x, len(self.host_genome_filenames))
+                itertools.repeat(x, len(self.host_genomes))
                 for x in self.virus_genome_filenames
             )
         )
-        host_inter = self.host_genome_filenames * len(self.virus_genome_filenames)
+        host_inter = self.host_genomes * len(self.virus_genomes)
 
         # create list of Pairs
         self.pairs = []
@@ -193,7 +193,7 @@ class ComputeFeatures:
             self.pairs.append(Pairs(virus, host))
 
     def determine_custom_pairs(self, custom_pairs: str):
-        """Instead of computing all possible pairs, compute custom pairs. The input file needs to have a virus file first then a host file. Must be separated by commas (,). If interested in multiple pairs, separate by newline."""
+        """Instead of computing all possible pairs, compute custom pairs. The input file needs to have a virus name first then a host name. Must be separated by commas (,). If interested in multiple pairs, separate by newline."""
         self.pairs: List[Pairs] = []
         print("reading pairs file")
 
@@ -205,8 +205,8 @@ class ComputeFeatures:
                 host = split[1]
 
                 if (
-                    virus in self.virus_genome_filenames
-                    and host in self.host_genome_filenames
+                    virus in self.virus_genomes
+                    and host in self.host_genomes
                 ):
                     self.pairs.append(Pairs(virus, host))
                 else:
