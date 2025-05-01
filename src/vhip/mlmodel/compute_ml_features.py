@@ -469,23 +469,18 @@ class ComputeFeatures:
         pair.GCdifference = self.GCcontent[pair.virus] - self.GCcontent[pair.host]  # pyright: ignore
 
         # Create CodonBiasComparison objects for the pair
-        virus = pair.virus.replace(
-            self.genome_ext, self.gene_ext
-        )  # first get the correct key based on genes file name (virus)
-        host = pair.host.replace(
-            self.genome_ext, self.gene_ext
-        )  # first get the correct key based on genes file name (host)
+
         pair.codons_comparison = CodonBiasComparison(
-            host_dict=self.codon_frqs[host],
-            virus_dict=self.codon_frqs[virus],
+            host_dict=self.codon_frqs[pair.host],
+            virus_dict=self.codon_frqs[pair.virus],
         )
         pair.aa_comparison = CodonBiasComparison(
-            host_dict=self.aa_frqs[host],
-            virus_dict=self.aa_frqs[virus],
+            host_dict=self.aa_frqs[pair.host],
+            virus_dict=self.aa_frqs[pair.virus],
         )
         pair.RSCU_comparison = CodonBiasComparison(
-            host_dict=self.RSCU[host],
-            virus_dict=self.RSCU[virus],
+            host_dict=self.RSCU[pair.host],
+            virus_dict=self.RSCU[pair.virus],
         )
         # for each of the above CodonBiasComparison objects, compute all comparisons (R2, slope, cosine similarity)
         for comparison in [
