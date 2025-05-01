@@ -333,13 +333,14 @@ class ComputeFeatures:
     def generate_GeneSets(self) -> None:
         """Set up GeneSet objects for each virus and host gene files."""
         self.virus_GeneSets = {
-            virus: GeneSet(os.path.join(self.virus_gene_dir, virus))
-            for virus in self.virus_gene_filenames
+            virus: GeneSet(os.path.join(self.virus_gene_dir, virus + "." + self.gene_ext))
+            for virus in self.virus_genes
         }
         self.host_GeneSets = {
-            host: GeneSet(os.path.join(self.host_gene_dir, host))
-            for host in self.host_gene_filenames
+            host: GeneSet(os.path.join(self.host_gene_dir, host + "." + self.gene_ext))
+            for host in self.host_genes
         }
+        self.all_GeneSets = {**self.virus_GeneSets, **self.host_GeneSets}
 
     def generate_codon_aa_counts(
         self, threshold_imprecise: float = 0.0, threshold_skipped_genes: float = 0.5
