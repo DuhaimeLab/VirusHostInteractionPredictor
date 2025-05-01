@@ -1,0 +1,1695 @@
+{
+    "genome": {
+        "genus": null,
+        "species": null,
+        "strain": null,
+        "taxon": null,
+        "complete": false,
+        "gram": "?",
+        "translation_table": 11
+    },
+    "stats": {
+        "size": 31617,
+        "gc": 0.4594363791631085,
+        "n_ratio": 0.0,
+        "n50": 31617,
+        "n90": 31617,
+        "coding_ratio": 0.9404750608849669
+    },
+    "features": [
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 267,
+            "stop": 872,
+            "strand": "-",
+            "frame": 2,
+            "gene": null,
+            "product": "Peptidase S24/S26A/S26B",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A2I7RBT4"
+            ],
+            "nt": "GTGGGGATTTCATATAGTACCTTGCACAACTATCTATCAGGGGTTAGCTCTCCAACGCTTGACAACCTAATAGCCCTTTCAAATAAAGCGAATGTTTCCATTGAGTGGCTTGCGACAGGAAAAGATGACATGGTTCGAGAAGAACCTGCCACTTATAGGTCGGATGAAACCGCTAACAAGTTTGAGGAGTTTGCACTTATACCTGGTTACCGCATTCAAGTATCAGCGGGGCACGGCTCTTTAAATCCAGACCAGCTTGAGCCAACAAGGCATTTAGCATTTAGGCGTAAGTGGTTGAAGTATAGGGGCTTTAAAGAAAAAGATTTAGCGATAGTGTGGGCAAAAGGTGACAGTATGGAACCAACGATTCACAATAACGATACGCTTGTAGTAAACATGGAAAGGAAGAAGCCTTCAGATGGGCACATATACATCTTTAGAAACGGCGATGAGTTGTTCGTGAAGCGCTACCAAAGCGTTCTAGGCGCATGGAGGTTGATTAGCGACAACCCACTATACGACAATCAAGACATACCTAAAGATGAACAGCATCAGTTTGAAGTGATAGGGCAAGTCATTCACATTGCAAAGGACTTAGGCGATTAG",
+            "aa": "MGISYSTLHNYLSGVSSPTLDNLIALSNKANVSIEWLATGKDDMVREEPATYRSDETANKFEEFALIPGYRIQVSAGHGSLNPDQLEPTRHLAFRRKWLKYRGFKEKDLAIVWAKGDSMEPTIHNNDTLVVNMERKKPSDGHIYIFRNGDELFVKRYQSVLGAWRLISDNPLYDNQDIPKDEQHQFEVIGQVIHIAKDLGD",
+            "aa_hexdigest": "641e6a12b19bf317916b84224bdc9ae0",
+            "start_type": "GTG",
+            "rbs_motif": "3Base/5BMM",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A2I7RBT4",
+                "query_cov": 0.9950248756218906,
+                "subject_cov": 0.8064516129032258,
+                "identity": 0.625,
+                "score": 270.0,
+                "evalue": 1.06e-90,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A2I7RBT4"
+                ],
+                "product": "Peptidase S24/S26A/S26B"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_2",
+            "locus": "PBNNBC_001"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 1184,
+            "stop": 1408,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "Ner winged helix-turn-helix DNA-binding domain-containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A0J8VTC1"
+            ],
+            "nt": "ATGGAACGCACAGATTTACATCGAGCAGACATCATTGCTGCACTAAAAAAGAAAGGCATTTCGATGAGCAGGTTAAGTCGTGAAAACGGTCTAGCGTCGACAACTCTTGCAAATGCCCTTGATCGCCCTTGGCCTAAAGGTGAAAAAATTATAGCTAAGGCTCTAGATTTAAACCCTAGCGAAATATGGCCTAGTCGCTATGCAGAATTAAGAAATGCGGGGTAA",
+            "aa": "MERTDLHRADIIAALKKKGISMSRLSRENGLASTTLANALDRPWPKGEKIIAKALDLNPSEIWPSRYAELRNAG",
+            "aa_hexdigest": "90960e01d101e62d8c384ce3169edeb1",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A0J8VTC1",
+                "query_cov": 0.9594594594594594,
+                "subject_cov": 0.8160919540229885,
+                "identity": 0.634,
+                "score": 90.1,
+                "evalue": 9.67e-24,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A0J8VTC1"
+                ],
+                "product": "Ner winged helix-turn-helix DNA-binding domain-containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_3",
+            "locus": "PBNNBC_002"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 1440,
+            "stop": 3407,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "DDE endonuclease",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A2Z4PMA6"
+            ],
+            "nt": "ATGGGATTTTCTGGGTTACCAACAACAGAGCGTGGAATTCGAAAATTAGTTGAAAACTTAGCTATCACGTCTGGAGTAGAACGAAGAAAGCGACAAGGAACGAAGGCATTTGAATATCCAATAAGCATTCTTAGTAGCGCTCACCAGGTCTTACTTTTAAAAAAACAAGGCAAAGTTCAAGTTGGGGATCAGGTTCTTGAGTTGCCGAAAAAGAAAAGCGAGCAGTCGTATTGCCGTGAAGCGCTTTGGGCTCGTTGGAGTAAGAACAACAACGCTGCCAAAGAGAAAGCACAGCAAGCATTGCGCACCGTTCAAGCTGTCTTTGCACTTAAGAATAACGGCATCAAGTTGATGGACGCTTATCAATCGGTCTCTGAAGAATATGGCGTGGCACTTTCTACTTTGCGCCGCAGCTGCGCGAAGGTGAAAGGAATAGACGAATGTGATTGGGCTCCAGCTCTGCTGCCTAAAAACTTTGAATCATCCCAAACTCAAAAGCCGAATCAGTTTGCCTACATCACACCTGAAGCGTGGGAGTTTTTCAAAGCTGACTACTTGAGCCTAGAGCAACCTGCAATGTCGGTTTGTTATGAGCGCCTTATTGATACGGCTCCATCTAAAGGTTGGAAAGTACCAAGCCTAAAAAGTTTAGGACGCCGCCTTGAACATGAAGTGCCAGTACAACAACGCATCATGCTTCGTGAAGGTGAACACGCACTGCACCAAATGTTCCCACCGCAAGAACGTACCGTTGAAGGGCTTCACGCTCTGGAATGGATCAACGGCGATGGCTATCAACACAACGTGTTTGTGAAGTGGTTTAACGGTGAAATTCTTCGTCCTAAAACGTGGTTTTGGCAAGACATCTACAGCCGCAAAATTGTTGGCTGGCGTTGTGACATTAGTGAAAACACAGACAGCATTCGCCTTTCATTAATGGACGTTTGTGAAAAGTTCGGTGTGCCTAAAGAGCTGACTTTGGATAACACCAGGGCAGCTGCAAACAAATGGATGACGGGCGGCGTTCCTAACCGTTACCGCTTCAAAGTAAAAGCAGACGATCCCCTTGGAATCATCCCAATGATGAATATCAAGTTGCACTGGTCGAGCGTGATATTAGGCAAAGGTCACGGCCAAGCCAAACCGATAGAACGTGCGTTTGGTGTGGGTGGCCTTGAAGAGTACATCGATAAACATCCACTTTGCCGTGGCGCTTATACAGGCCCGAACCCAATGGCAAAACCAGACAACTACGGAAGCAAGGCGATCGACGCGGAAGACTTTCTACAAGCCATCGCTAAAGGCGTGGAAATGTACAACGCGAAAGAGAACCGAAACACCGAAGTGTGCAAAGGGTTTATGAGCTTTAACCAAGCGTTCAATGCCAGTTATGAAACGGCAGCAATACGCAAGGCAACCACCGACCAATTGCAAATGATGATGCTACAAGCCGAGGCAGTAAGAGTGTCTAAACACGGCACCATTTCACTGGATGCTGGCGGCAGTTTGAAAGGTCGTAAGAACCGCTATTACAGCGAGTCGATGATGAACCATGTTGGCCAAAAACTCGTGGCACGTTTCGACCCATTAAAGCTGCATGAATCTATCGAGGTTTACACCTTGAATGGCGTTCGAATTTGTACCGCTGAATGTCTCGATAAGACTGGATTTGGCGATACGCAAGCGGCAAGAGAGCACAAACGCAAGCGCACACAATTTACCAAAGCGAACAAGATTGCTGCGCAAGCTCAAACAGAAATGGATGCACTGGAAGTGGCCGCAATGATGAAGCCGCTTGAAGAAGAAGTGCTACCTGAAAGCAAAGTGGTTGAACCATTCAGACCCGTATCGATTGGCAACACGGCGGCTAAGGCCATAGCGCTAGAAGATGAAGACGAAGATTACGAACAGAACTTCAGCCAAAGCGTTTCAAACCTGTTTGAACAGAAATTCAAAAACAAGCTTTAA",
+            "aa": "MGFSGLPTTERGIRKLVENLAITSGVERRKRQGTKAFEYPISILSSAHQVLLLKKQGKVQVGDQVLELPKKKSEQSYCREALWARWSKNNNAAKEKAQQALRTVQAVFALKNNGIKLMDAYQSVSEEYGVALSTLRRSCAKVKGIDECDWAPALLPKNFESSQTQKPNQFAYITPEAWEFFKADYLSLEQPAMSVCYERLIDTAPSKGWKVPSLKSLGRRLEHEVPVQQRIMLREGEHALHQMFPPQERTVEGLHALEWINGDGYQHNVFVKWFNGEILRPKTWFWQDIYSRKIVGWRCDISENTDSIRLSLMDVCEKFGVPKELTLDNTRAAANKWMTGGVPNRYRFKVKADDPLGIIPMMNIKLHWSSVILGKGHGQAKPIERAFGVGGLEEYIDKHPLCRGAYTGPNPMAKPDNYGSKAIDAEDFLQAIAKGVEMYNAKENRNTEVCKGFMSFNQAFNASYETAAIRKATTDQLQMMMLQAEAVRVSKHGTISLDAGGSLKGRKNRYYSESMMNHVGQKLVARFDPLKLHESIEVYTLNGVRICTAECLDKTGFGDTQAAREHKRKRTQFTKANKIAAQAQTEMDALEVAAMMKPLEEEVLPESKVVEPFRPVSIGNTAAKAIALEDEDEDYEQNFSQSVSNLFEQKFKNKL",
+            "aa_hexdigest": "95e1349d2e085ca750499345c1f2b441",
+            "start_type": "ATG",
+            "rbs_motif": "GGA/GAG/AGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A2Z4PMA6",
+                "query_cov": 0.9480916030534351,
+                "subject_cov": 0.92,
+                "identity": 0.625,
+                "score": 792.0,
+                "evalue": 1.69e-282,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A2Z4PMA6"
+                ],
+                "product": "DDE endonuclease"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_4",
+            "locus": "PBNNBC_003"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 3442,
+            "stop": 4389,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "HTH cro/C1-type domain-containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_K1J461"
+            ],
+            "nt": "ATGAGTACAAACGTAGTTGAACTAGGCAATGCAGAGGCTAAGCAAACCGACACATTAATGCGCATTCGTGCATTAACAGAATCGAAGGCTGTTTCAGCGTCTCAGATTGCAAAAGAGATCAGCGTATCACCTGCCACGCTAAGCCAAATTTTGAACGGTTCATACAAAGCTGACCCAGCCAAGATGATTGAAAAACTGAACCAGTGGTTACGCATGAGAGAACAGCGTAATGCCACGCCAAGTAAAGACCCTGGCTTTGTGATGACACCAACGGCTAAGCAGCTGACCGACGACATGATGTATGCCCAAGTGACCGAATCCATCGTGGTTATTTTTGGGGCGTCTGGTGTGGGTAAATCAGAAGCGCTGCGCGAATACAAACGAAGCAACAATAACGTATGGATGATCACTTCAAGCCCAAGCCGTTCAAGCCTTACTGAGTGCCTATATGAGCTGGCTATGGAACTAGGCATGGACGATGCGCCACGCCGTAAAGGCCCACTGTCTCGCGTTATCCGAAACCGCCTGATTGGTAGCGAAGGTTTGGTGGTGATTGATGAAGCGGATCACCTTGACTACCCAACACTGGAAGAGCTGCGAATTCTGCAAGAAGAAACGGGCGTTGGCATGGTGCTCGTGGGTAACAACAAGGTTTACACACAGCTTACAGGTGGTCGCCGTAATGAAGATTTTGCGCGCTTGTTCTCTCGCATTGCGAAGAAGCGTGGCATCCACAAAACCAAGCAAGCAGACGTTCGTGCCATTGCTGATGCATGGAACGTAAACGGCGAGTCTGAACGCGGGTTAATGCTGCAAATCAGTGAGCGCCCAGGTGGCCTTAGATTGCTAAGCAAAACACTCAAACTGGCGGCGATGTTTGCCAAAGGCCAAACCATTAGTGAGCAAGTGCTACGCAAAGCGTTTGCTGAATTAGAAACCAACGATTGA",
+            "aa": "MSTNVVELGNAEAKQTDTLMRIRALTESKAVSASQIAKEISVSPATLSQILNGSYKADPAKMIEKLNQWLRMREQRNATPSKDPGFVMTPTAKQLTDDMMYAQVTESIVVIFGASGVGKSEALREYKRSNNNVWMITSSPSRSSLTECLYELAMELGMDDAPRRKGPLSRVIRNRLIGSEGLVVIDEADHLDYPTLEELRILQEETGVGMVLVGNNKVYTQLTGGRRNEDFARLFSRIAKKRGIHKTKQADVRAIADAWNVNGESERGLMLQISERPGGLRLLSKTLKLAAMFAKGQTISEQVLRKAFAELETND",
+            "aa_hexdigest": "5728a94f7765758e8db651002768ec28",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_K1J461",
+                "query_cov": 0.9968253968253968,
+                "subject_cov": 0.9048991354466859,
+                "identity": 0.841,
+                "score": 514.0,
+                "evalue": 2.11e-183,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_K1J461"
+                ],
+                "product": "HTH cro/C1-type domain-containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_5",
+            "locus": "PBNNBC_004"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 4398,
+            "stop": 4610,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "hypothetical protein",
+            "db_xrefs": [],
+            "nt": "ATGAAGCAATTTATTGAGTGGCTGAAATGGTCGGTATACAGAATCCAAGTAGCTAAAGAAATGCACATTCGATTTTCTGGAACTTGGTCATTTTACGAATGTTGGAGTTACGCAATTTGTTTTCAGTGTAGCTACGAAAGCATGGTTCAAGCAGGTGATAAGCCAATAGCTGTAGATGATGTTGAAGAAGAAATTTCATGTTGGAACGATTAA",
+            "aa": "MKQFIEWLKWSVYRIQVAKEMHIRFSGTWSFYECWSYAICFQCSYESMVQAGDKPIAVDDVEEEISCWND",
+            "aa_hexdigest": "fc1310f5a38794eb57076919329dcf6f",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "hypothetical": true,
+            "genes": [],
+            "seq_stats": {
+                "molecular_weight": 8443.511900000001,
+                "isoelectric_point": 4.63410587310791
+            },
+            "id": "PBNNBCEPDI_6",
+            "locus": "PBNNBC_005"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 4621,
+            "stop": 4947,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Coil containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A2I7RBX7"
+            ],
+            "nt": "ATGATGCATCTAAATGAAAAACGTCGTGCTGTGGCTAATGCCTTGTCTCGATTAGAAACGGCAGGAAGCTTGATCGTGAATGTAAGCACTGGCATTGCCATCCCTGTTATTACCATCGAGTTTCCACCTGTGTGGCTTGTTAGTAAATCAAACGAAGTGCGTGAACAGGCGGGTAAGACACTTAAAGTTTCACACATCGCAAAGCTTAGCGGTTGCCTAGTTCGTTGGGTGGAAAGTGAGACCGAAAATATTAACGCGAAGTACATGACTCAGTACTTAAACCCATACGCACCTGAGCTTATTGCGGTGCAACCTAAGAATTTTTAG",
+            "aa": "MMHLNEKRRAVANALSRLETAGSLIVNVSTGIAIPVITIEFPPVWLVSKSNEVREQAGKTLKVSHIAKLSGCLVRWVESETENINAKYMTQYLNPYAPELIAVQPKNF",
+            "aa_hexdigest": "b82b104424c3f73e52999dcb2e2c0077",
+            "start_type": "ATG",
+            "rbs_motif": "AGGA",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A2I7RBX7",
+                "query_cov": 1.0,
+                "subject_cov": 0.9642857142857143,
+                "identity": 0.972,
+                "score": 209.0,
+                "evalue": 4.51e-70,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A2I7RBX7"
+                ],
+                "product": "Coil containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_7",
+            "locus": "PBNNBC_006"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 5005,
+            "stop": 5622,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Sulfate transporter",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_Q8EJ25"
+            ],
+            "nt": "ATGACTAATCAAACCCAACCACAAGACGGTTTCCGCTTCAACAGCCAAGGCCACCAAGTACCCGTAAGCCAAATCAAAGACGTTGATTTACTGCGTGATGATGTTGTTGCTGACATCGTAAAAAAAGCGATTGCGACACAAGAAACCCTTGCGCTGTTTAAGAAAGAAGCCATGCAGAATGTCGCGGATTTTGTAGACCTAAGCTCTGCTGAATTTGATGTGAAATACGGTGGCACCAAAGGCAACGTTACGCTGCTTTCGTTTGATGGCAAATACAAGGTGCAACGCTCAATTGGAGAGCACCGTGTGTTCGATGAACGCATCCAAGCGGCTAAGGCAATAATTGACGAATGCATTAACCGTTGGAATGAAAATTCAAGCGATGAAATTAAAGCCCTGGTTGATTTATCTTTCCGCGTAAACAAGCAAGGTCACATCGATGTTAACCAAGTGCTTAGTCTTCGCCAGTTAAACATTACCGACCCTGATTGGTTAGAAGCGATGGACGCCATTGCCGACTCAATCAAGGTTATCGGTAAAACACCTTACCTACGTATTTATGAACGCCAAGGTGATGGTCAGTACAAACAAATCGCTCTTGATATCGCCAAGCTATAG",
+            "aa": "MTNQTQPQDGFRFNSQGHQVPVSQIKDVDLLRDDVVADIVKKAIATQETLALFKKEAMQNVADFVDLSSAEFDVKYGGTKGNVTLLSFDGKYKVQRSIGEHRVFDERIQAAKAIIDECINRWNENSSDEIKALVDLSFRVNKQGHIDVNQVLSLRQLNITDPDWLEAMDAIADSIKVIGKTPYLRIYERQGDGQYKQIALDIAKL",
+            "aa_hexdigest": "38727c00fcef3cc18aa578f7ceb5cde9",
+            "start_type": "ATG",
+            "rbs_motif": "AGGA",
+            "pscc": {
+                "uniref50_id": "UniRef50_Q8EJ25",
+                "query_cov": 0.9560975609756097,
+                "subject_cov": 0.9074074074074074,
+                "identity": 0.536,
+                "score": 219.0,
+                "evalue": 6.81e-71,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_Q8EJ25"
+                ],
+                "product": "Sulfate transporter"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_8",
+            "locus": "PBNNBC_007"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 5633,
+            "stop": 5908,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "Type II toxin-antitoxin system RelE/ParE family toxin",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A0K9UNY1"
+            ],
+            "nt": "ATGTTACTGATAAGTACCCGATATGGAGAGATAAACGTCAGTCGCCATGCTATCGAAAGATGGCGACAACGTACGGGTCGCAGCCTTCCACAACTTGTAGAGGCGGTGGCGAAAGCTAACCGCCCAAGCAAGAACAGACTGCGAAGAATAATGAAATGCGAATCAGGTTGGCAGCCAAAGCGAATTTTAGAAAGTGACTGCGCCTACTTCCTAATTCGAAACAACAACATTGTCACGGTGTACGACAAGAGAAAAGAGGGTTACTCCCATGCCTGA",
+            "aa": "MLLISTRYGEINVSRHAIERWRQRTGRSLPQLVEAVAKANRPSKNRLRRIMKCESGWQPKRILESDCAYFLIRNNNIVTVYDKRKEGYSHA",
+            "aa_hexdigest": "7899643cdd269614ce18bdc87345b1c8",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A0K9UNY1",
+                "query_cov": 0.967032967032967,
+                "subject_cov": 0.8148148148148148,
+                "identity": 0.67,
+                "score": 122.0,
+                "evalue": 3.98e-36,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A0K9UNY1"
+                ],
+                "product": "Type II toxin-antitoxin system RelE/ParE family toxin"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_9",
+            "locus": "PBNNBC_008"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 5901,
+            "stop": 6113,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "Coil containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A2I7RBW1"
+            ],
+            "nt": "ATGCCTGAATCTAGCTACTACATGAAGCTTGCTGAAAAGGCTTCTGAATCTGAACAACTTAGTGAGTTTGGCGTTGCTGCTGAACAGTGGTTTCAAGCGTCTGAGGTGGCGTTATCAAAAGATAATCGCTACTGGGCCATCTATAGAAACCAGTACTGCCAACAACAATTGGCTTCACTACTGAAAGAGGAATGTGAACATGACAATGCCTAA",
+            "aa": "MPESSYYMKLAEKASESEQLSEFGVAAEQWFQASEVALSKDNRYWAIYRNQYCQQQLASLLKEECEHDNA",
+            "aa_hexdigest": "f54f490ceed37c2d23e9f70ad817f11e",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A2I7RBW1",
+                "query_cov": 1.0,
+                "subject_cov": 0.813953488372093,
+                "identity": 0.929,
+                "score": 132.0,
+                "evalue": 1.92e-40,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A2I7RBW1"
+                ],
+                "product": "Coil containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_10",
+            "locus": "PBNNBC_009"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 6100,
+            "stop": 6348,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Coil containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A1E5F004"
+            ],
+            "nt": "ATGACAATGCCTAACCCACTGCAACGTTCTTTCACTACTGCCCACACTCGCAGAGTGGTTGATCTAGAAATTGAAATGGCTGAAGCCTTAATTGAAAAAGACGGCACTGCATTTCCAGATAGCACGTTTGAAGAAGGCTATATCGCAGCACTGAAGTTCATTTTAAATCAGTCCAGTTCGAACGTTCGTGAAGAGTACGAAGACATGATGGATGAACTCAATGGAAAAGACGAAAGCGAAGCGGCCTAA",
+            "aa": "MTMPNPLQRSFTTAHTRRVVDLEIEMAEALIEKDGTAFPDSTFEEGYIAALKFILNQSSSNVREEYEDMMDELNGKDESEAA",
+            "aa_hexdigest": "6eb80a22c0bbb31d13d7f764076da869",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A1E5F004",
+                "query_cov": 0.9512195121951219,
+                "subject_cov": 0.8571428571428571,
+                "identity": 0.9620000000000001,
+                "score": 145.0,
+                "evalue": 1.68e-45,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A1E5F004"
+                ],
+                "product": "Coil containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_11",
+            "locus": "PBNNBC_010"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 6320,
+            "stop": 6511,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "hypothetical protein",
+            "db_xrefs": [],
+            "nt": "ATGGAAAAGACGAAAGCGAAGCGGCCTAACCAGTTAATCAAATACATCATGAAGTTTCGCCGCTGCTCTCAAGTCGAAGCAGAACAATGGGCAGATAACCACTGCGGTGATTGGCGCAATACGCCACTGCCCAAAGCGAAGCGAGTGAAATCCATATCAAGCAATGAAAAGGAATACAAGTGGAAATACTAA",
+            "aa": "MEKTKAKRPNQLIKYIMKFRRCSQVEAEQWADNHCGDWRNTPLPKAKRVKSISSNEKEYKWKY",
+            "aa_hexdigest": "8d3f77f95a3b18d34befb827ba69cc05",
+            "start_type": "ATG",
+            "rbs_motif": "GGA/GAG/AGG",
+            "hypothetical": true,
+            "genes": [],
+            "seq_stats": {
+                "molecular_weight": 7673.797600000002,
+                "isoelectric_point": 9.898556327819822
+            },
+            "id": "PBNNBCEPDI_12",
+            "locus": "PBNNBC_011"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 6499,
+            "stop": 6708,
+            "strand": "+",
+            "frame": 1,
+            "gene": "secC",
+            "product": "Zinc chelation protein SecC",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A1E5EZ15"
+            ],
+            "nt": "GTGGAAATACTAAAACATCAAATCACCGAGCAAGAACAAAGAGTTGTTTATCGCATGGGTGAGCGTCCAGAAAATACTTTAAGAAAGTTATCAGAGGAAGGGTTTGTCTCTCAGGAGAAGTTTATAAATATCCGACCTAAACAGCGTTGTCCATGTGGTTCAAAGAAAAAGTTTAAGAAGTGCTGTGGAAGATTGTTAGAAGATAAATAA",
+            "aa": "MEILKHQITEQEQRVVYRMGERPENTLRKLSEEGFVSQEKFINIRPKQRCPCGSKKKFKKCCGRLLEDK",
+            "aa_hexdigest": "53776a7af02ab1ec824c4b19da9acf47",
+            "start_type": "GTG",
+            "rbs_motif": "AGGA",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A1E5EZ15",
+                "query_cov": 1.0,
+                "subject_cov": 1.0,
+                "identity": 1.0,
+                "score": 139.0,
+                "evalue": 1.42e-43,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A1E5EZ15"
+                ],
+                "product": "Zinc chelation protein SecC"
+            },
+            "genes": [
+                "secC"
+            ],
+            "id": "PBNNBCEPDI_13",
+            "locus": "PBNNBC_012"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 6725,
+            "stop": 6913,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "Coil containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A2I7RBX3"
+            ],
+            "nt": "ATGAAGATTGTAGATCCATTGGCGCAAGATGAGCTGGCTTTTGCGCGTGAAGCTCTTGATGGATTAGCAGAGTCAGCGTTGCAATGCGGGTTTCTGCTAAGGCCGGAAGTTATAGAAGTAATGCTGATTCTTACGAAGGGAAGCGATCGTATTTTGCCAGCGAGCATGGTGTCAGTTAAGGAGTTGTAA",
+            "aa": "MKIVDPLAQDELAFAREALDGLAESALQCGFLLRPEVIEVMLILTKGSDRILPASMVSVKEL",
+            "aa_hexdigest": "7615574e761b46f5528d9bc5a841a4ca",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A2I7RBX3",
+                "query_cov": 1.0,
+                "subject_cov": 1.0,
+                "identity": 1.0,
+                "score": 116.0,
+                "evalue": 1.26e-34,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A2I7RBX3"
+                ],
+                "product": "Coil containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_14",
+            "locus": "PBNNBC_013"
+        },
+        {
+            "type": "ncRNA",
+            "class": [
+                "ribozyme",
+                "SO:0000374"
+            ],
+            "sequence": "contig_1",
+            "start": 6912,
+            "stop": 6982,
+            "strand": "+",
+            "gene": "Hammerhead_II",
+            "product": "Hammerhead ribozyme (type II)",
+            "score": 55.6,
+            "evalue": 1.1e-06,
+            "db_xrefs": [
+                "RFAM:RF02276",
+                "SO:0000374"
+            ],
+            "nt": "AAGCGAAACAAGTAAGGTTCGCCTTGCTTGTCTGCCTAGCGTGGTTGCTAGGTACTGATGAGCAGCCAGTA",
+            "id": "PBNNBCEPDI_1",
+            "locus": "PBNNBC_014"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 7266,
+            "stop": 7418,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "hypothetical protein",
+            "db_xrefs": [],
+            "nt": "ATGAACGAAAGAGACCATGCACTTGAAGTGTTGAGAGATGCAATTCAAAACGCAGAGCAATTCGGTTTGGTTCGAACCGAAAATGGAAAAGTAATTACTGGTGCTGTGGATTCAGAACACGGTTTTGTTTTGGTTGAGGATGGGGAGGATTAG",
+            "aa": "MNERDHALEVLRDAIQNAEQFGLVRTENGKVITGAVDSEHGFVLVEDGED",
+            "aa_hexdigest": "8a07c8835e635b0598230a0e26f0bf9d",
+            "start_type": "ATG",
+            "rbs_motif": "GGA/GAG/AGG",
+            "hypothetical": true,
+            "genes": [],
+            "seq_stats": {
+                "molecular_weight": 5524.952900000001,
+                "isoelectric_point": 4.368838310241699
+            },
+            "id": "PBNNBCEPDI_15",
+            "locus": "PBNNBC_015"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 7422,
+            "stop": 7937,
+            "strand": "+",
+            "frame": 3,
+            "gene": "gemA",
+            "product": "Regulatory protein GemA",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A178J786"
+            ],
+            "nt": "ATGTCTAACTTACTCAAACTTGTCCAAATCGCTAAGCGTGATCTTGCCATGGAAGATGATTCTTATCGTGACGTTCTTGAGCAATGCACAGGTAAGCGAAGTGCAAAAGGCTTGAACGACATTCAACTAACCAAAGTGTTAGACAGAATGAAAGCGCTAGGCTTTAAACCAAAACGCAAGCCACAAGCAAGAGCGCCAGAAGTGGCAAAGATTCGCGCAATTTGGCGTACCATGCACAAACAAGGCTTTATCCGCAATGCGAACGACGTTGCCATTGATGCTTATGTAAAGCGCATGACTACTGCATCAAATGGACGTGGCATTGAAAAGGCGGTTTGGCTTAAGTCAGCTCAGGCCGCTGAAGTGTTAGAAGCTTTAAAGAAATGGCACTATCGATTAATGGCCGAGGTGATCACTAAAAGTGGTGGTCGCATTCCATCGAACAACGATTGCACAGGCCCAGCTGGTTACGAACTATTAGCTGAATACTATGAGAAAAATTTCTATGGAATATAA",
+            "aa": "MSNLLKLVQIAKRDLAMEDDSYRDVLEQCTGKRSAKGLNDIQLTKVLDRMKALGFKPKRKPQARAPEVAKIRAIWRTMHKQGFIRNANDVAIDAYVKRMTTASNGRGIEKAVWLKSAQAAEVLEALKKWHYRLMAEVITKSGGRIPSNNDCTGPAGYELLAEYYEKNFYGI",
+            "aa_hexdigest": "1ea6a76cdb3ebb9a26d14717b639c6e4",
+            "start_type": "ATG",
+            "rbs_motif": "GGAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A178J786",
+                "query_cov": 1.0350877192982457,
+                "subject_cov": 0.921875,
+                "identity": 0.621,
+                "score": 223.0,
+                "evalue": 2.57e-73,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A178J786"
+                ],
+                "product": "Regulatory protein GemA"
+            },
+            "genes": [
+                "gemA"
+            ],
+            "id": "PBNNBCEPDI_16",
+            "locus": "PBNNBC_016"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 7927,
+            "stop": 8109,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "hypothetical protein",
+            "db_xrefs": [],
+            "nt": "ATGGAATATAAACTAGTACTAAATGAAACAGACGCTAAGTATTCAAAAATGAACATTTCTCACAATCAACCTATCAATAAAGGCGATAACCTACTTGTTGATGGAAAGAAATATTTGGTCTTTAGCGTCATTCATAATCTTGATGGTAATGAATCGACAGTAATTGCTGATTTTATGGGGTAA",
+            "aa": "MEYKLVLNETDAKYSKMNISHNQPINKGDNLLVDGKKYLVFSVIHNLDGNESTVIADFMG",
+            "aa_hexdigest": "85d4275999a635bf9a53dd2dd83b1815",
+            "start_type": "ATG",
+            "rbs_motif": "GGA/GAG/AGG",
+            "hypothetical": true,
+            "genes": [],
+            "seq_stats": {
+                "molecular_weight": 6773.633500000002,
+                "isoelectric_point": 5.446391868591308
+            },
+            "id": "PBNNBCEPDI_17",
+            "locus": "PBNNBC_017"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 8224,
+            "stop": 8622,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Prophage MuSo2, positive regulator of late transcription, putative",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A3YA51"
+            ],
+            "nt": "ATGAGTGAAGAAAACCAAGACTTGTTTGGTTACAAGAATGTAAGCCTAGAAGAAGTTGAAAAACTAGCAGACGATGAAGAGCACCAACGATGGCCAGAAGCCATGCGCCAAATCTACTGCATATTTAAAGATGAACTCGTTAAGAACGAAACCGATCCAAAGCTTGCGGTGATTTTACTGCATCGTATTTGCAAAGAGTTTGGTGGTGTTCAGCTTTACCTTCCACGCGGCAGACAGCTTGAATCTGAAATCATGAACCTGTCTATCTGGCGTGAGTTCAATGGTGCGAATGTTGAAGAGCTGTCACGTAAATACGATAAAAGTATGCAGCATATCTATCGCGTAGTGGCTAAAATGCGCAAGATAGAAGTTGAGAACCGTCAACCGAATTTATTTTAA",
+            "aa": "MSEENQDLFGYKNVSLEEVEKLADDEEHQRWPEAMRQIYCIFKDELVKNETDPKLAVILLHRICKEFGGVQLYLPRGRQLESEIMNLSIWREFNGANVEELSRKYDKSMQHIYRVVAKMRKIEVENRQPNLF",
+            "aa_hexdigest": "435588512d225d1995606e9e8ef0e696",
+            "start_type": "ATG",
+            "rbs_motif": "GGAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A3YA51",
+                "query_cov": 1.0,
+                "subject_cov": 0.9428571428571428,
+                "identity": 0.985,
+                "score": 264.0,
+                "evalue": 4.72e-91,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A3YA51"
+                ],
+                "product": "Prophage MuSo2, positive regulator of late transcription, putative"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_18",
+            "locus": "PBNNBC_018"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 8633,
+            "stop": 9085,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "hypothetical protein",
+            "db_xrefs": [],
+            "nt": "GTGAAAAAATTATGTTTGATGCTTATGATGTTATCACCAACTGCGTTAGCTTCGACAGTTGATGAGTTAATTGAAAGCTTTGAAAACTCTAATATCTATAGTGCTGATTGGTATGAAAAAGGCTCTAGCAAAATTGCTGAATCATCGAATGACTATAGAGACATCAAGGTAAATTTAACTGACAAAAAAGGATCTATTATCATCACTCAACCTTTTGGGGCTGACTTTGATGATTTAGCGATTAGTCCATGCTACCGTTTAACCGCCTATATTGACTACGACAAGTCTGCTACTTGGGCTGACCCAAGCACAGATGGAGAATTGTTAATTAGTTCAGTTTTTAGCTCTAAGACCAAAATGGGACAATCGAATAAAGCAGAGTTAAACGGTTGGAATTTGAGCTTTAAGCGTTTACCATCTGGCTTTACATGTGAGGTTGTAAAGAGTAACTAA",
+            "aa": "MKKLCLMLMMLSPTALASTVDELIESFENSNIYSADWYEKGSSKIAESSNDYRDIKVNLTDKKGSIIITQPFGADFDDLAISPCYRLTAYIDYDKSATWADPSTDGELLISSVFSSKTKMGQSNKAELNGWNLSFKRLPSGFTCEVVKSN",
+            "aa_hexdigest": "142df7c2bb60392f6645426ba5bea627",
+            "start_type": "GTG",
+            "rbs_motif": "AGGA",
+            "hypothetical": true,
+            "genes": [],
+            "seq_stats": {
+                "molecular_weight": 16667.682599999993,
+                "isoelectric_point": 4.844410133361816
+            },
+            "id": "PBNNBCEPDI_19",
+            "locus": "PBNNBC_019"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 9172,
+            "stop": 9732,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Mu phage endolysin Lys",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_Q8EDS2"
+            ],
+            "nt": "ATGCTTTCTGAATCCTCTAAAAATTGGCCCTTCTCAACAAAAGGCTACACGCTCGAATTTTGTCACGCTGTTCATTTCATCTTGCAGGCAGAAGGCGGATTACGCGCCGATGGTGGTTATGTTAACGACCCTCTCGATGCTGGCGGTGAAACCAAGTTTGGCATTAGCAAACGAGCGTTTCCAAATGTCGATATTAAAAACCTCACGATTGATAAAGCCGTTCGTATTTATCATACCAACTATTGGAAAGCCGCTTATTGCCATGAATGGGCAGGCCCTATTGCATTGTTCCATATGGATAGCGCTGTACAACATGGCGCAAGGCAAGCAATCAAACTTCTTCAAGAAATTAGCGGCACAAAACCCGATGGTGCAATAGGCCCAGCTACTCGCGCTGCGGTTCATGGCCATGATGTGTCATACCTTACCGCTCGATACGGTTTACGTCGTGGTCGTTACTACGCAAGAATTCTTAAAAATAATGCTTCTCAAGGTCGCTTCATTGAAGGTTGGTATAACCGTTTAGTGCATTTGACTAATGCTGCTTGGGAGCTTTCTTAA",
+            "aa": "MLSESSKNWPFSTKGYTLEFCHAVHFILQAEGGLRADGGYVNDPLDAGGETKFGISKRAFPNVDIKNLTIDKAVRIYHTNYWKAAYCHEWAGPIALFHMDSAVQHGARQAIKLLQEISGTKPDGAIGPATRAAVHGHDVSYLTARYGLRRGRYYARILKNNASQGRFIEGWYNRLVHLTNAAWELS",
+            "aa_hexdigest": "96c715de8371794f4c7ad06f96a4f600",
+            "start_type": "ATG",
+            "rbs_motif": "GGA/GAG/AGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_Q8EDS2",
+                "query_cov": 0.989247311827957,
+                "subject_cov": 0.934010152284264,
+                "identity": 0.6579999999999999,
+                "score": 257.0,
+                "evalue": 1.58e-86,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_Q8EDS2"
+                ],
+                "product": "Mu phage endolysin Lys"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_20",
+            "locus": "PBNNBC_020"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 9732,
+            "stop": 9995,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "hypothetical protein",
+            "db_xrefs": [],
+            "nt": "ATGGGACGCAATTGGGAATTTGCCAAACAACGAGGGCGCGAACAGCGCCTCGATGCCGAGTTGAATGCATTTGAAAACGGTATTGAAGTCCCATTAAACCCGCCTTTATTTAGCCACGATGCCACCATGCAAAGTTACTTTTCGAAAGCGTGGAGCCGTGTCTCTCAAAATGAAATTGATCGCCACCTTGGTATTGCGAAAACGCCACAAGGGAATGACCTAGTTTCAAAAATCAGGAGCTTAAGAGAATGTCACTTTCAGTAA",
+            "aa": "MGRNWEFAKQRGREQRLDAELNAFENGIEVPLNPPLFSHDATMQSYFSKAWSRVSQNEIDRHLGIAKTPQGNDLVSKIRSLRECHFQ",
+            "aa_hexdigest": "64f8b134994851d6e0c6077a568281a0",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "hypothetical": true,
+            "genes": [],
+            "seq_stats": {
+                "molecular_weight": 10100.203499999992,
+                "isoelectric_point": 7.965471839904785
+            },
+            "id": "PBNNBCEPDI_21",
+            "locus": "PBNNBC_021"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 9980,
+            "stop": 10570,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "Coil containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A2N7L9Z1"
+            ],
+            "nt": "ATGTCACTTTCAGTAATCGCGGGGGTAGCTTCGCTTGCCATGGAATATGGCCCTGCTGCCATTCGCGGCATATCCAGTTTGTTTGGTGGTAGTGAAACGGCAGACAAAGTAGCCGAAGCGGTAGAGCAAGCCGATTCAATGTTTGGTGCTAACAAGGCACAGAAAGAGTTGGCCGTTACTCGCGCCCTGCAAAACTTGCCACCTGAATCTTTGGTTGAACTTGAGAAGATTAAGGTCGAGTTAGAAAAAGAAAAGACTCGCCGCCAAGAACTCACGCTTGGTGATAAACAAGCCGAACATCACGAAACCCAAGTGACGATTCGTGAAGGTGATAAGGCTGAAGATGAATACGTTCGTCACACTCGCCCTTGGGGTTGCCGTTTGAGTTTGTATTCTGCCATTGCTTATATCTTCCTGTTTGAACTGCTCGAAGCCTTTGATAAAGGAACAGGGGCAAATTGGGAAATTGCAGCGGGTTTGATGGCACCATTTCTTACTTATCTTGGTTGGCGCTCTGCTGATAAGCGTGGCATGACCAAAGGCACAGGCTCCATGGTTGGTGATGCACTTAAGGCGGTGAAAGTAAAATGA",
+            "aa": "MSLSVIAGVASLAMEYGPAAIRGISSLFGGSETADKVAEAVEQADSMFGANKAQKELAVTRALQNLPPESLVELEKIKVELEKEKTRRQELTLGDKQAEHHETQVTIREGDKAEDEYVRHTRPWGCRLSLYSAIAYIFLFELLEAFDKGTGANWEIAAGLMAPFLTYLGWRSADKRGMTKGTGSMVGDALKAVKVK",
+            "aa_hexdigest": "9713afde3615b763b917fd2ac3082331",
+            "start_type": "ATG",
+            "rbs_motif": "AGGAG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A2N7L9Z1",
+                "query_cov": 0.9897959183673469,
+                "subject_cov": 0.9107981220657277,
+                "identity": 0.9329999999999999,
+                "score": 345.0,
+                "evalue": 7.74e-121,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A2N7L9Z1"
+                ],
+                "product": "Coil containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_22",
+            "locus": "PBNNBC_022"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 10567,
+            "stop": 10785,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "hypothetical protein",
+            "db_xrefs": [],
+            "nt": "ATGACCGACCAGCTCGATAAGACTCAAGAGCTTGAGCAAACCTTCAGAGAAAAAGCCATTGCTCATCAACGTACACGCTGCATAGAACAGCCCGACGAAGATGAACACGGTAATCGCTATTGCTTAAGTTGTGGTGACACCATCCCAACCCAGCGATTAGAAGCGATGCCAAATGCGGTGCGCTGCGTCAGTTGTCAATCACATAAGGAGCCACATTAA",
+            "aa": "MTDQLDKTQELEQTFREKAIAHQRTRCIEQPDEDEHGNRYCLSCGDTIPTQRLEAMPNAVRCVSCQSHKEPH",
+            "aa_hexdigest": "ae1a255168772de00df27ad8f854d915",
+            "start_type": "ATG",
+            "rbs_motif": "3Base/5BMM",
+            "hypothetical": true,
+            "genes": [],
+            "seq_stats": {
+                "molecular_weight": 8355.211199999998,
+                "isoelectric_point": 5.447471809387206
+            },
+            "id": "PBNNBCEPDI_23",
+            "locus": "PBNNBC_023"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 10785,
+            "stop": 11087,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "DUF2730 domain-containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A084T6A1"
+            ],
+            "nt": "ATGGAGTTGTGGATCAAAACTTATTGGCCTATCGCATGGGCTGCGTTGAGCACGTTGGGGATGTTAGTCCTTGCCGTGCTTTCTAAAACGTACGCCAAGCGAGAAGACCTAGAAAAGGTAGGACGTAAAGTGGACGAACTACAAACGCAGATTGACAATCTACCCACTCAGCAACAAGTCACGCAGCTATTACTTGAAATGGCAAACACACGCGGTGAGATGAAAGAGCTACGGGCACAAATACAACCTGTAGAACACCTCGCTCAACTGCTATTAGAACAACGTTTAAAAGATGATAAATAG",
+            "aa": "MELWIKTYWPIAWAALSTLGMLVLAVLSKTYAKREDLEKVGRKVDELQTQIDNLPTQQQVTQLLLEMANTRGEMKELRAQIQPVEHLAQLLLEQRLKDDK",
+            "aa_hexdigest": "cd91e92ea06c6c544f0749825906ab8a",
+            "start_type": "ATG",
+            "rbs_motif": "AGGAG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A084T6A1",
+                "query_cov": 1.06,
+                "subject_cov": 0.9906542056074766,
+                "identity": 0.726,
+                "score": 147.0,
+                "evalue": 9.88e-46,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A084T6A1"
+                ],
+                "product": "DUF2730 family protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_24",
+            "locus": "PBNNBC_024"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 11096,
+            "stop": 11386,
+            "strand": "+",
+            "frame": 2,
+            "gene": "arsR",
+            "product": "ArsR family transcriptional regulator",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A7Y0XCK6"
+            ],
+            "nt": "ATGGGCTTTAAAGAGTTATTAAAAGAAGACCAGCGTCTTGTGATCTTGCGTTCACTTCATGACATGACAGGGTATGAAGCGAATGAATCTATCCTTGATTCTTGCCTTGATACTTACGGTCACAACATCAGCCGTGATGCAGTTCGTACGCATTTATCTTGGCTTGAAGAGCAAGGGCTAATTAGCATTCGTACTGTATTAGATTGCCAAGTCGCAAAACTTACAGGCCGTGGTGAAGATGTGGCAACAGGCCAAGCCATTGTGCCAGGCGTAAAACGTCCACGCGCTTAG",
+            "aa": "MGFKELLKEDQRLVILRSLHDMTGYEANESILDSCLDTYGHNISRDAVRTHLSWLEEQGLISIRTVLDCQVAKLTGRGEDVATGQAIVPGVKRPRA",
+            "aa_hexdigest": "051d3ef16481b7116d00fdf92b9e9a9b",
+            "start_type": "ATG",
+            "rbs_motif": "AGGA",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A7Y0XCK6",
+                "query_cov": 0.9791666666666666,
+                "subject_cov": 0.9791666666666666,
+                "identity": 0.5429999999999999,
+                "score": 106.0,
+                "evalue": 1.2e-29,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A7Y0XCK6"
+                ],
+                "product": "ArsR family transcriptional regulator"
+            },
+            "genes": [
+                "arsR"
+            ],
+            "id": "PBNNBCEPDI_25",
+            "locus": "PBNNBC_025"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 11396,
+            "stop": 11986,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "Mu-like prophage FluMu protein gp27",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A1N7MPH7"
+            ],
+            "nt": "ATGTCCATTGTTAACCGTTCAGCCAGTAATCGAAAGTCAAAGATAGATTTGCTGCCTGATGAAATTCGTCAAACTCTGAATGCGTTTATTCGCAGTGGGAACATGACACAGAAAGACATTCGCTTGGCCGTGAATGAAATGATTGATGATGCGGGACTTCCAGAAGATGTGAAAATCAGTCGTACTGGATTTAACCGATACGCCAAGCGCATGGAAGAAATGGGTCAGCGTTTGAAGCAGTCTCGCGAAGTGGCAGAAGTGTGGACAACCAAACTGGGTGAAGCGCCCACCTCTGATGTGGGAAAGCTGCTGCAAGAGTTTGTGCGTACCATGGCTTTTGAAACGTCCATGACCATGATGGAAAGCGCAGCTGAAGACGGTGAAGTGATTCCACCCAAAGCACTCGCGCAACTCGCTTTAGTTATTCAACGTATCGAGCAAGCCTCAATGGTGAGCCATAAGGTTGAGAAAGAAATACGCAAAGCTTTTGCTGAAGAGGTGGTCGAGAAGACTGAGCAGGTAGCGAAGAAAGCTGGCTTAACGTCAGACACAGTGAAGATGCTGAAAGCAGAGCTGCTAGGGATTGCCTAA",
+            "aa": "MSIVNRSASNRKSKIDLLPDEIRQTLNAFIRSGNMTQKDIRLAVNEMIDDAGLPEDVKISRTGFNRYAKRMEEMGQRLKQSREVAEVWTTKLGEAPTSDVGKLLQEFVRTMAFETSMTMMESAAEDGEVIPPKALAQLALVIQRIEQASMVSHKVEKEIRKAFAEEVVEKTEQVAKKAGLTSDTVKMLKAELLGIA",
+            "aa_hexdigest": "8ea9a60fb2fd222dcb78198e37fd3627",
+            "start_type": "ATG",
+            "rbs_motif": "AGGAG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A1N7MPH7",
+                "query_cov": 0.9744897959183674,
+                "subject_cov": 0.9052132701421801,
+                "identity": 0.5710000000000001,
+                "score": 206.0,
+                "evalue": 8.45e-66,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A1N7MPH7"
+                ],
+                "product": "Mu-like prophage FluMu protein gp27"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_26",
+            "locus": "PBNNBC_026"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 11986,
+            "stop": 13578,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Phage portal protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A6L7FDS0"
+            ],
+            "nt": "ATGACAGAATCACCAAACGTCAATTCGATTACTGAAAACATCCTTGTCAAGTTCGACAAGGATGAGCTTTTACTTGGATATCAGAAGCGTTGGATAGCCGATGACTCTGTGCTTAAGATTGCCGAGAAATCACGTCGTACTGGTTTGACGTTTGCTGAGGCGGCTGACTCTGCGCTTAGTGCTGGCACAGCTAAAGGTGAAGGCGGCAATAACGTGTTCTATGTTGGCTCGAACAAAGAGATGGCGCGAGAGTTCATTGATGCCGTTGCGCTGTGGGCCAAGATATTCGATAAAGCAGCTGGCGAAGTTCAAGAAGATATTCTCAATGATGAAGACAAAGACATTCTGACCTTCGTCATTTACTTTGAATCTGGCCTTAAGGTTCAAGCGTTATCGAGTAATCCTTCTAACCTGCGTGGTATGCAAGGCACGGTTATCATCGATGAGGCATCATTCCATGAACGCTTAGCCGAAGTGCTAAAAGCCGCACTCGCTTTGACTATGTGGGGTTCTAAAGTTCGCCTTATTTCTACCCACAATGGTATAGACAACCTATTCAATCAACTTATCCAAGATAGCCGTGCGGGGAAAAAGCGTTACTCGATCCACACCATTACACTGGATGATGCATGTTTGGAGGGGTTGTATCAGCGTATTTGCCAAGTGACTAAGCAAGAGTGGTCACAAGAAAAAGAAGATGAATGGAAAGCTAACCTTCTCAAAGATACAGCGACAGAAGAAGATGCGCTTGAAGAGTATTACTGTGTTCCGAAGAATGGCGGTGGTGCTTACATTAGCCGTGGCTTGCGTGAACGTGCTGCGCGGTTAGATGGCCCAGTATTAAGTTTTACTGGTTCTAAGGCGTTTAACGAAGCGAAAGAGCACATCCGTGAAGCTGAGATGAAAGAGTGGTTAGAAGAACACGTTCAGCCAGAGCTCGATAACCTCGATCCTAAACTGCGCCATTGCTTGGGTGAGGATTTTGCACGCTCTGGTGACTTAACCGTTTATGCACCCATGGCCGTTCAAAATGATGTGAAGCGCACGGTTCCTTTCTTATTAGAACTTGGCAATGTGCCATTCAAGCAGCAAGAGCAAGCGCTTTACTTTATCTGCGATCAACTCCCAAGGCGTGATGGTATTTATCTTGATGCGCGTGGTAATGGCCAGTACCTAGCCGAACAAGCCCGATACAAGTACGGCGAAGAAGTGGTTGAGGTAATGCTCTCTGTGGGTTACTACCGCGAGAACATGCCTTCATTTAAAGCTGCGTTTGAAGATGATGAAATACTGCTTCCAAAGCATGAGGACGTGATTACTGATTTGGGACAAATCCAAATTAAAGCAGGCGTTCCTAGTATTGATTCAACACGAACCAAAGGCGAGAACGGAAACAAACGACACGGCGATAGTGCTATTGCTATTTGGTTTGCTTACTTAGCTTCTAAGGCGGATTTAACGCGTTACGGCTTGCACACCATCAAGGCCAATGTCGATGAGAACCAACGCCGCTTTCATGGCTCTGCCGAAGAAAATAACCGATTTGATGATATGCCGAACCAAGACTTACGCGGCAAAGGAATTAGACTATGA",
+            "aa": "MTESPNVNSITENILVKFDKDELLLGYQKRWIADDSVLKIAEKSRRTGLTFAEAADSALSAGTAKGEGGNNVFYVGSNKEMAREFIDAVALWAKIFDKAAGEVQEDILNDEDKDILTFVIYFESGLKVQALSSNPSNLRGMQGTVIIDEASFHERLAEVLKAALALTMWGSKVRLISTHNGIDNLFNQLIQDSRAGKKRYSIHTITLDDACLEGLYQRICQVTKQEWSQEKEDEWKANLLKDTATEEDALEEYYCVPKNGGGAYISRGLRERAARLDGPVLSFTGSKAFNEAKEHIREAEMKEWLEEHVQPELDNLDPKLRHCLGEDFARSGDLTVYAPMAVQNDVKRTVPFLLELGNVPFKQQEQALYFICDQLPRRDGIYLDARGNGQYLAEQARYKYGEEVVEVMLSVGYYRENMPSFKAAFEDDEILLPKHEDVITDLGQIQIKAGVPSIDSTRTKGENGNKRHGDSAIAIWFAYLASKADLTRYGLHTIKANVDENQRRFHGSAEENNRFDDMPNQDLRGKGIRL",
+            "aa_hexdigest": "64bbe942a73d1f2afeb90f22ecc7e32a",
+            "start_type": "ATG",
+            "rbs_motif": "GGA/GAG/AGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A6L7FDS0",
+                "query_cov": 1.028301886792453,
+                "subject_cov": 0.9732142857142857,
+                "identity": 0.743,
+                "score": 802.0,
+                "evalue": 2.44e-290,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A6L7FDS0"
+                ],
+                "product": "Phage portal protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_27",
+            "locus": "PBNNBC_027"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 13575,
+            "stop": 15131,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "DUF935 domain-containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A7I6T8W1"
+            ],
+            "nt": "ATGACCCAAATTGTTGATGTAAACGGCCAGCCATTAAAAGCCGATAAGACACTACTGTCTGAAGACATTGCCAAAGCGTACACCACCAGTGTGCGAAACCCTCGACCTGCCAGTGTCGCCTCTACTTTAAACCCGCTTCGATTGGCGGGATTACTTCGCAGTGTGGTAGATGGAAACAACCCACAAGATTACATGACGCTTGCCGAAGAAATGGAAGAGCGCGATTTGCACTACGCGGCGCAGCTGCGCACCCGTAAGTTGGCGGTTGCTGCTATTGAGCCTACCGTTGAACCTGCCAGTGATGAGCAAGTTGATCTCGATATGGCTGATCGCGTTCGTGACATCATGGCCGAAGACCAAATACCAGAACTGTTTTTTGATTTGCTTGATGGCCTAGGTAAAGGGTTAGCCGTTGTACAAGTGCTTTGGGATACCAAACAAACACCATGGAAACCACAAGATTATAAATGGGTAGACCCTCGCTATCTTCGTGCCGACCAAGACACGCTTGAAGACATTCTATTGATTAGTGATTCTGCGCCAAGTGGCGAGCCGTTAGAGCCGTATAAGTTTATGGTGCATACGCCTCGATCTAAATCTGGCATTGTTTGGCGTAACGGTTTAGCCCGTTTGGTTGCCGTGATGTACATGCTTAAATCGTTCACGGTTCGTGATTGGTGGGCGTTTGCTGAAGTGTTTGGCATTCCTGTTCGTGTGGGTAAATACGGCCCGAACGCCAGTGCCGAAGATATCAACACACTAGTAAATGCCATTGGTCGCATTGCCAGTGATGCAGGTGCGGCGATTCCTGAATCCATGAAGCTAGAGCTTATCGAAACGGCCAAAGGCAATGGCGGTGAAACACTGTTTGAAAACATGGCCCGTTGGTGTGATGAGCAAACCAGTAAAGCGGTACTTGGCCAAACCATGACGGCTGATAACGGCAGTTCGCAATCTCAAGCCAATGTTCATAACGAAGTACGTATGGATATTGCTAAGTGGGATGCGCGCCAACTTGAAGCGTGTGTGAATGAGTACCTGGTTAAGCCCTATGTGATCCTGAACTGGGGGGTGCAAGAGCGTTACCCTAAAGTTCGCATTCGAGTGCCAGAGCCAGAAGACTTGAAGATGTTGGTCGATAGCTTGAAGCCAATGATTGAAAGTGGCATGCGCGTATCTGCAAGTGAAGTGCGTGAAAAGTTTGGGCTACGTGAACCAACCGACGATGAAGATGTGCTGATGCCAGCAAGCGCGGTACTTGCTCAAAATCGTCCTGCGACCAACCGAGATAAATCAAAGGTAGCGATTAACCGCATAAGCAAAACGGCTGAAGCGGAAATGAACGACTTAACCGATGAAGCCATGAGCGACTGGGAAGAAGTTGCGGAAGACTTCATTAACCCGATCATCGAACTGGCCAATGCGTCAGACAGTTATGAAACGTTCTTAGAAAAGCTGCCAGAGCTTCAAGAGACATTAGGCGCTGACGTGTTTGTTGAGCAGATGGCGCAATACATGTTCCAGATGCGCGGCTATGGAGACGCTAAAGATGTCTAA",
+            "aa": "MTQIVDVNGQPLKADKTLLSEDIAKAYTTSVRNPRPASVASTLNPLRLAGLLRSVVDGNNPQDYMTLAEEMEERDLHYAAQLRTRKLAVAAIEPTVEPASDEQVDLDMADRVRDIMAEDQIPELFFDLLDGLGKGLAVVQVLWDTKQTPWKPQDYKWVDPRYLRADQDTLEDILLISDSAPSGEPLEPYKFMVHTPRSKSGIVWRNGLARLVAVMYMLKSFTVRDWWAFAEVFGIPVRVGKYGPNASAEDINTLVNAIGRIASDAGAAIPESMKLELIETAKGNGGETLFENMARWCDEQTSKAVLGQTMTADNGSSQSQANVHNEVRMDIAKWDARQLEACVNEYLVKPYVILNWGVQERYPKVRIRVPEPEDLKMLVDSLKPMIESGMRVSASEVREKFGLREPTDDEDVLMPASAVLAQNRPATNRDKSKVAINRISKTAEAEMNDLTDEAMSDWEEVAEDFINPIIELANASDSYETFLEKLPELQETLGADVFVEQMAQYMFQMRGYGDAKDV",
+            "aa_hexdigest": "e85c99206ee9fcd07177e7b487a994ff",
+            "start_type": "ATG",
+            "rbs_motif": "AGGA",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A7I6T8W1",
+                "query_cov": 0.9942084942084942,
+                "subject_cov": 0.9590316573556797,
+                "identity": 0.614,
+                "score": 624.0,
+                "evalue": 1.11e-220,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A7I6T8W1"
+                ],
+                "product": "DUF935 domain-containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_28",
+            "locus": "PBNNBC_028"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 15124,
+            "stop": 15918,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Phage head morphogenesis domain-containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A5S9Q288"
+            ],
+            "nt": "ATGTCTAAAGCCCTTGCGTCTGAAAGTATTGTGCCTGTTGAATCACTAGAGTGGTTCAAGAGTAAAGGGATAGAACCTGGCTTTGACTATCGCGACGTATGGAAGCAAGAGCACAACAACGCATTCACTGTTGCAAAGATGCTGAATGCCGATCTTCTTGTGGATGTGAAAGCCATTGTTGAAGAGGCCATCGAGCAAGGTCAAACGTTCAAGCAGTTTCAAGATATCTTAAAGCCACTCTTGGTTAAGTCTGGTTGGTGGGGCATTCAAGAAATGGTTGACCCACTGAGCGGAGATTCAAAGCCCGTTCAATTAGGCAGTGAAGGCCGTGTAAAGACCATTTACAAAACCAACATGAGAACGGCACGTTCAGCTGGGCAATGGGAACGCATCGAGCGAACCAAACGCGCCATGCCTTATCTGCTTTATCAGCTTGGGCCATCCATGGAGCATCGAGTTGATCACGTTAAATGGAAAGATACGCTGCTTCCTGTTGGTGACTCGTGGTGGGATAACCACATGCCACCGAATGGTTGGGGCTGCAAATGTTGGATACGCCAAGTATCTAAGTTTGAAGCTGAGAAGCTGATTGCCGATGATAAGGTATCAACCGACTCACCAGAGGGTGGCACTAAGCAGTGGTTAAACAAGCGAACGGGTGAGGTGGAAGTGTTACCAGAAGGCATTGAACCAGGATGGAATTACAACCCTGGTAAATCACGCCAAGAAGCGATGCAAGAAGACCTATTACAAAAAGAAACAAGAATGCGTGAGACGCTCTCTAATGGCTCTTAG",
+            "aa": "MSKALASESIVPVESLEWFKSKGIEPGFDYRDVWKQEHNNAFTVAKMLNADLLVDVKAIVEEAIEQGQTFKQFQDILKPLLVKSGWWGIQEMVDPLSGDSKPVQLGSEGRVKTIYKTNMRTARSAGQWERIERTKRAMPYLLYQLGPSMEHRVDHVKWKDTLLPVGDSWWDNHMPPNGWGCKCWIRQVSKFEAEKLIADDKVSTDSPEGGTKQWLNKRTGEVEVLPEGIEPGWNYNPGKSRQEAMQEDLLQKETRMRETLSNGS",
+            "aa_hexdigest": "45551986688775db9adf1965d70091ff",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A5S9Q288",
+                "query_cov": 1.0151515151515151,
+                "subject_cov": 0.8844884488448845,
+                "identity": 0.563,
+                "score": 322.0,
+                "evalue": 4.74e-109,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A5S9Q288"
+                ],
+                "product": "Phage head morphogenesis domain-containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_29",
+            "locus": "PBNNBC_029"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 16231,
+            "stop": 17202,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Mu phage protease GpI",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_Q8EDQ9"
+            ],
+            "nt": "ATGAAGAAAACCCATTTAGCCGTGTGCTTTAACCTTTCCCAAGCCGTTATCGATGGTTTGGGTACAGAGAAAGACCCCACGGTTTGGATACCGATGATCCCAAAAGGTAAAGCCAAAGGTCGCGATGGTCGCATGTGGTTAAACAGTAACCCTGACGCCATTGTGAGCGCTTTTGATGCCAAACTGCCATTCGATTTAGAACATGCCACCGAAATCAAAGCACCTAAAGGTGAAGTCGCTGAAGCCTACGGTTGGATTCTAGCGCTTGAAAACCGTGATGGTGAGATTTGGGCGCAGGTGGAATGGAATCACCATGGCCGCTGGTTTATTGAAGAGAAGCGTTACCTCTATTATTCCCCTGCTTTAAACTATGACCAGCACGGCGTCATTACTGCGATGAGCAGCGCTGGCTTAACCAACAAACCTAACTTTTATGTACCTGCCCTTAATCGACAAGAGGAAACCGACATGCCGCTTTCACAACTGATTGCAGCCGCGCTTGGCCTAGCCGCAGGCGCGACCGAAGAGCAAGGTGTTACCGCAATTAATTCACTTAAGTCTGAGAAAGACATTGCGCTAAACCGTGCCGCTACGCCGGACTTAACTAAGTTCATCCCAATTGAAACACACACCGTTGCACTGAACCGCGCCGCGAAAGCTGAAGCTCAGTTAAAAGAAATTGACGATCAGAAAATCGATGACTTGGTTCAGGCTGCGATTGATGACGGCAAGGTTGCCCCTGCGAACAAAGAGATGTTTGTTGGTATGTGTCGTGCTGACGGTGGCATTGCTCAGTTCGAAGCGTTCGTTGAAACCGCACCATCTATCGCAACCAATTCACAGCACAAGACGCCTAAAGAAAAACAAGGTGGCGTAAAGCTTGAAGAGCATGAAATTGCGATGTGCCGAAAAATGAATGTGTCTCAAGCAGACTTCCTGAAACAAAAACAAAAGCAAGGCAAAGGAGAGTAA",
+            "aa": "MKKTHLAVCFNLSQAVIDGLGTEKDPTVWIPMIPKGKAKGRDGRMWLNSNPDAIVSAFDAKLPFDLEHATEIKAPKGEVAEAYGWILALENRDGEIWAQVEWNHHGRWFIEEKRYLYYSPALNYDQHGVITAMSSAGLTNKPNFYVPALNRQEETDMPLSQLIAAALGLAAGATEEQGVTAINSLKSEKDIALNRAATPDLTKFIPIETHTVALNRAAKAEAQLKEIDDQKIDDLVQAAIDDGKVAPANKEMFVGMCRADGGIAQFEAFVETAPSIATNSQHKTPKEKQGGVKLEEHEIAMCRKMNVSQADFLKQKQKQGKGE",
+            "aa_hexdigest": "6bf675b2d56243193386e86150006620",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_Q8EDQ9",
+                "query_cov": 0.9969040247678018,
+                "subject_cov": 0.9640718562874252,
+                "identity": 0.7979999999999999,
+                "score": 513.0,
+                "evalue": 5.17e-183,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_Q8EDQ9"
+                ],
+                "product": "Mu phage protease GpI"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_30",
+            "locus": "PBNNBC_030"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 17206,
+            "stop": 18102,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Mu-like prophage major head subunit gpT",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A1M5F9L2"
+            ],
+            "nt": "ATGGCTACTGAAGCTCAAATTTTAGAGGCGTTGTTTGTCACAATGTCCACCGCCTACACCAAAGGCGTAGATGCTGCAAAACCGCAATGGAGCATGGTTGCCACTGAAGTACCAAGCTCAGGTGCGGCAAACTATTACGGTTGGCTAAAAGACTTACCAGGTATTGCCGAGTGGGTTGGTGATCGCCAACTGGTTGATATTGGTAAGCATGGTTATTCGATCGAAAACAAAACGTGGGAAAGCTCAATTTCCGTTAAACGTGAAGACGTTGAAGATGACCAGATTGGTATGTATTCCGTCATCGCTCAAAAATACGGTGAAGACGTTGCTTACTTTCCAGACACTTTAACGTACAAGCTTTTGTCTGATGGCTTTACAACATTGTGTTACGACGGCCAAAACTACTTTGATAGTGATCACCCGTTAGAAACCACACCTGCGTCAACGTTCTCGAACGTGGTGGGTGACCCGTCAACTGACACTGGTGAAGCGTGGTTCTTGCTTGATACATCCAAAGTGATTAAGCCTATTGTCTTCCAAAACCGTCGCCCGTTCGTGTTCAAGAACATGAACCCAAGCGAAGAATACACCTGGTTTAATAACAAGCTTGCAGCGGGTGTTGATGGTCGTTGTAACGTTGGTTTCTCTTTCCCTCAAATCGCGATTGGTTCTAAAGACACGCTAAACGAAGCGAACTATGCATTGGCGAAGAAGCAGCTGCTAGAGATGAAACGTGCAAACGGCACTCGCCTTGGCACTCGCGCTACCACGCTTGTGGTTGGTCCTGCGAACGAAGCTGCTGCTAAGAAGCTTATTAGCCGCATGTTGATTGAAGGTGGTGATTCCAACATCTACTACAACGACGTTGAAATTGTTGTTAGTACCGAAGTCGAGTAA",
+            "aa": "MATEAQILEALFVTMSTAYTKGVDAAKPQWSMVATEVPSSGAANYYGWLKDLPGIAEWVGDRQLVDIGKHGYSIENKTWESSISVKREDVEDDQIGMYSVIAQKYGEDVAYFPDTLTYKLLSDGFTTLCYDGQNYFDSDHPLETTPASTFSNVVGDPSTDTGEAWFLLDTSKVIKPIVFQNRRPFVFKNMNPSEEYTWFNNKLAAGVDGRCNVGFSFPQIAIGSKDTLNEANYALAKKQLLEMKRANGTRLGTRATTLVVGPANEAAAKKLISRMLIEGGDSNIYYNDVEIVVSTEVE",
+            "aa_hexdigest": "08a06b03d5d79de93ca2825118827973",
+            "start_type": "ATG",
+            "rbs_motif": "AGGAG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A1M5F9L2",
+                "query_cov": 0.9798657718120806,
+                "subject_cov": 0.9765886287625418,
+                "identity": 0.596,
+                "score": 370.0,
+                "evalue": 7.71e-128,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A1M5F9L2"
+                ],
+                "product": "Mu-like prophage major head subunit gpT"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_31",
+            "locus": "PBNNBC_031"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 18188,
+            "stop": 18436,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "Coil containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A2I7RBV4"
+            ],
+            "nt": "ATGACTACTCGAATAGAAATCAATTCTGATGATTGGACGCTTGTCTCTAGTGCAGCTGCTGGCTACATGGAAAATGAAGGTGGAAGTGTCGCTAAGTTCAGAGTGGAAGATGTAAAGCCTGACGCTGCTGAGAAATGGGGGCATAGCATTGGTTTATATGATGCTAAGGGTTGGTCTCGCGCTGTTGCTAAACCTATTTATGCACGCAGTGTTACCGCTAAAACGCACCTCATTGTTACCGAGGGTTAA",
+            "aa": "MTTRIEINSDDWTLVSSAAAGYMENEGGSVAKFRVEDVKPDAAEKWGHSIGLYDAKGWSRAVAKPIYARSVTAKTHLIVTEG",
+            "aa_hexdigest": "351e39acdf1e890d074e7a9c950baf12",
+            "start_type": "ATG",
+            "rbs_motif": "AGGAG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A2I7RBV4",
+                "query_cov": 1.0,
+                "subject_cov": 1.0,
+                "identity": 1.0,
+                "score": 168.0,
+                "evalue": 8.96e-55,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A2I7RBV4"
+                ],
+                "product": "Coil containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_32",
+            "locus": "PBNNBC_032"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 18439,
+            "stop": 18996,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Phage tail protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A178J825"
+            ],
+            "nt": "ATGTTTTTTGAAAACTCACCACTGATAAGCCAAAGCGCACCGCCAGCACCTGAATCTGTTTTGCTTATGCGTGCCAGTTATGTCACGCCAGATGCGAACGATTTAAAACAAACGCTCGCGGCAGACAATACACCGGAAACGATTCTATTCAACGATGTGCCTTTGGCCTCTCCTGATATAGACGTTGACCTGGTGACTGGCGAATCAACCGCTTTAAAAGACTTTAGCGGCATGGTGAGTATCAATGCTTTGGTACTGCGTGAGAGTTCACCTTTTGCAGCCAGTGATTGGGGCATGTTTGCTGAGGTGTTTGATGGTAGCAATTGGGCTCCTGTTTCAGGTAGCCACCGACCGCTAACCCTTGGCTTTCAATTCGATAATGAAAAACGCCCGAATGACTTCACTGTTTCCATCTCTTTGCTTGCTGGCGACAAGTTCCGTTGGCGTCACTATACAACGGATGCAAGCAGCCAAGTGTCATTGGTTTCATTTGGCGCAGCTAATGGGTTGCCCTCTTCAGCGGGTGTGATCATGAGTTTCTGGGGCATTAAACCGTAA",
+            "aa": "MFFENSPLISQSAPPAPESVLLMRASYVTPDANDLKQTLAADNTPETILFNDVPLASPDIDVDLVTGESTALKDFSGMVSINALVLRESSPFAASDWGMFAEVFDGSNWAPVSGSHRPLTLGFQFDNEKRPNDFTVSISLLAGDKFRWRHYTTDASSQVSLVSFGAANGLPSSAGVIMSFWGIKP",
+            "aa_hexdigest": "dd2ce9ddd935de4f443eb402905cc981",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A178J825",
+                "query_cov": 1.0108108108108107,
+                "subject_cov": 1.0,
+                "identity": 0.733,
+                "score": 270.0,
+                "evalue": 1.03e-91,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A178J825"
+                ],
+                "product": "Phage tail protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_33",
+            "locus": "PBNNBC_033"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 19035,
+            "stop": 19622,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "Coil containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_M4M9M3"
+            ],
+            "nt": "GTGAGTGGAACTAAAAAATCAACAACTGGAAAAGTTGGAAAAGTGGAAGGAAATCCCTCCACCGCTAAAGCGGAAGCCGAACAGAAAGCACTCGACAACTTCGATGCTGATTTAAATGACGAAGCTAAAGCTAGGGCTGAATTAGAAGCCGAAGCCAAGGCGGGAGCTGAAGCTAAAGCAAAATTAGAAGCCGAAGCTAAGGCGGAAGCTGAAGCTAAAGCGAAATTAGAAGCCGACAAAAGCAAAGGTGATCAAATTGTACAAGTGGATTCAAAGAAAGATGATGTGGTTCATCCTGGGGATGGCGTTGACGCTATCGGTATTCTTGGCGCTTTCAAAGTATGCGCTAAATCAGATGCTGGGTTTTGGCGCTCAGGCGTTCAGTTCCATCGTCTCCAAGAAAAGCTGGTGCTTGTGGTGGAGCAAGAGCCGGATGCGTCTGCGCGAGTTCATGCGAAAGATCATGAACCAGAGTGCGTGGTGTTCCTCTCTCCTGAAAAGGCGAAGCGCGTACACGACGAGCCGCACCTGACGGTTGAAGTTGTTGAGCTTGAAGACGTACTCGATCTTCAAGACATGCAGCAATAA",
+            "aa": "MSGTKKSTTGKVGKVEGNPSTAKAEAEQKALDNFDADLNDEAKARAELEAEAKAGAEAKAKLEAEAKAEAEAKAKLEADKSKGDQIVQVDSKKDDVVHPGDGVDAIGILGAFKVCAKSDAGFWRSGVQFHRLQEKLVLVVEQEPDASARVHAKDHEPECVVFLSPEKAKRVHDEPHLTVEVVELEDVLDLQDMQQ",
+            "aa_hexdigest": "aa08e269641cf345140f4052f7a8fdbf",
+            "start_type": "GTG",
+            "rbs_motif": "AGGAG",
+            "pscc": {
+                "uniref50_id": "UniRef50_M4M9M3",
+                "query_cov": 1.0974358974358975,
+                "subject_cov": 1.0,
+                "identity": 0.743,
+                "score": 241.0,
+                "evalue": 9.64e-80,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_M4M9M3"
+                ],
+                "product": "Coil containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_34",
+            "locus": "PBNNBC_034"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 19647,
+            "stop": 20081,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "DUF1320 domain-containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_Q8EDQ4"
+            ],
+            "nt": "ATGGCAACTTACGCAACCAAGCAAGACCTACTTGATCGTGATGAGCAGATGCTGTGGAACTTTGCGGTAGACCGCACCACTGGCGAGCTCAACGATGTTTGGATTAACCAGGCATTAGACCAAGCCGATGAAGAGATTAACTCTTTCTTAGGTCGTCGTTATGTTCTGCCACTGCCGACTGTGCCAGGCATGTTGAATAAGGTTGCCATCACTATTGCGTTCTACTGGTTAGCCGACCGTGACCAACAGGCTACGAACCTATTAGAAGAACGCTACAAGATGCAGCTTGAAACTCTGCGTGAAATTGCCAATGGCAAGCGCGAACTTGGTTTGCCAACCATCGAAGCCCCAAGCGAAAGCAGCGTGGGCAAGGTTGAGCTGATTCAAGAGAACGAGCGCCAGTTCACCCGCAACAGTTTGAGAGGCGTCTTGTAA",
+            "aa": "MATYATKQDLLDRDEQMLWNFAVDRTTGELNDVWINQALDQADEEINSFLGRRYVLPLPTVPGMLNKVAITIAFYWLADRDQQATNLLEERYKMQLETLREIANGKRELGLPTIEAPSESSVGKVELIQENERQFTRNSLRGVL",
+            "aa_hexdigest": "21705230d4f198cf332e0fb68f2ef61d",
+            "start_type": "ATG",
+            "rbs_motif": "GGA/GAG/AGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_Q8EDQ4",
+                "query_cov": 0.9791666666666666,
+                "subject_cov": 0.9463087248322147,
+                "identity": 0.993,
+                "score": 275.0,
+                "evalue": 5.63e-95,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_Q8EDQ4"
+                ],
+                "product": "DUF1320 domain-containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_35",
+            "locus": "PBNNBC_035"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 20081,
+            "stop": 20626,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "Phage virion morphogenesis protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_I2BC04"
+            ],
+            "nt": "ATGTCGATTGGTGTTCAAGTTACGGGAACGCAAGAGCTTGAGCGCTATCAACAGCTGCTTGAAACCCTAAGCGACCCAAAGCACAAAGTTGAACTGCTTGATTCGTTAGGTGGAATTGTAGAGAGCCAAACCAGAAGAAGAATCGCCGATGAGAAAACGTCACCTGATGGTCAGCGTTGGGATGATTGGTCTAGCAGTTATGCGAAGACTCGACATGGAAACCAATCCCTTTTGCAGTCCGAAGGCGATTTGTTGGACTCCATCCAGTACCAGGTGCAGCGCAACCAAGTTCGAATTGGATCGCCGCTGGCCTACGCTGGCGTTCATCAAGATGGCTTTTCTGGTCCGGTTCAAGTGTCTGCTCATACGCGCCTTATAACACAAGCCTTTGGTAAAGCGTTGGCATTTCCGGTCTATCAGTCTGTAGGGGCGTTCACTCGCATGATGAACATTCCACAGCGCGAATACTTAGGGCTAAGTACCGACAACCAAACTGAAGTGTATGCGGTTATCGGTGACTTCTGGAAGGAGTTAATGAATGTCTAG",
+            "aa": "MSIGVQVTGTQELERYQQLLETLSDPKHKVELLDSLGGIVESQTRRRIADEKTSPDGQRWDDWSSSYAKTRHGNQSLLQSEGDLLDSIQYQVQRNQVRIGSPLAYAGVHQDGFSGPVQVSAHTRLITQAFGKALAFPVYQSVGAFTRMMNIPQREYLGLSTDNQTEVYAVIGDFWKELMNV",
+            "aa_hexdigest": "4b8013902e85cf41ceaa8b710565a430",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_I2BC04",
+                "query_cov": 0.994475138121547,
+                "subject_cov": 0.972972972972973,
+                "identity": 0.722,
+                "score": 263.0,
+                "evalue": 3.17e-89,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_I2BC04"
+                ],
+                "product": "Phage virion morphogenesis protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_36",
+            "locus": "PBNNBC_036"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 20619,
+            "stop": 21209,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "Phage protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A5Q0TGR1"
+            ],
+            "nt": "ATGTCTAGACCCGACTTTACCACCAGTGGTTCTACCGTTTGGGCCGTGAATGAAATCGTTCAGTACCTTAAGCCAAAGCTTGAAGGTGGTGTGCGTGAAATAGAAAAGATCCAAACCGTTGAGCGCCACATTGGCCGTTTTGATAAAGCGGATGATATTAAGCGCTGGATGTCGAACCGTGACGGTGGCGTTCGTGTTGCTGCCCTACGTGTTCCGCAATATGAAACTGTGGGTAATCGCTTAATTGGTAACGTTAACCTGGTGGCCTATGTGTTTACCACTGACCAGTTCGGTTACGAAAAAGACCTACGTGCCGAAGTGGTCGCAGGAAAGTTAGTGCGTGAATTGATGGATAGAAGCGCACTGCCAACATCCTATGGTCGCGTTGAAAACGTACGCAGTGACAATTTATACAGCGGTGAAATTGACAAGCTTGGTATTGCTATCTGGTCTGTCACTTGGTCGCAGCAATGGTACTTAGATGAAGAGATTGATCTCAGTACGTTAGATGACTTCATTACCTTTGGTCTGAAAGGTGAAATCGCAGATGGCGCACCCACCATTGATGGTGAAGTGAAGCTGCCTCAATAA",
+            "aa": "MSRPDFTTSGSTVWAVNEIVQYLKPKLEGGVREIEKIQTVERHIGRFDKADDIKRWMSNRDGGVRVAALRVPQYETVGNRLIGNVNLVAYVFTTDQFGYEKDLRAEVVAGKLVRELMDRSALPTSYGRVENVRSDNLYSGEIDKLGIAIWSVTWSQQWYLDEEIDLSTLDDFITFGLKGEIADGAPTIDGEVKLPQ",
+            "aa_hexdigest": "5e9861dd52029f557d2b6c955d5eb473",
+            "start_type": "ATG",
+            "rbs_motif": "AGGAG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A5Q0TGR1",
+                "query_cov": 1.0408163265306123,
+                "subject_cov": 0.9855072463768116,
+                "identity": 0.5589999999999999,
+                "score": 207.0,
+                "evalue": 2.61e-66,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A5Q0TGR1"
+                ],
+                "product": "Phage protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_37",
+            "locus": "PBNNBC_037"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 21225,
+            "stop": 21434,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "DUF2635 domain-containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A2I7RBW4"
+            ],
+            "nt": "ATGATTTTAAAACCGAGCAATAAAGAGATTCCCGTTCGCAACCCTGAAGGGGGCTTCCTTTCAGATGAAGGCGAAAAGGTTAAACGAAATTCATATTGGCTGCGACGCATTGCAGATGGTGATGTTGTTGAAGTGAAAGCGACTGCTGACGCACCGGCTAAAACGAAATCCACTAACGCATCGGCTAAGCAAGCCACTAAAGGAGAATAA",
+            "aa": "MILKPSNKEIPVRNPEGGFLSDEGEKVKRNSYWLRRIADGDVVEVKATADAPAKTKSTNASAKQATKGE",
+            "aa_hexdigest": "0fe2f191402152396d69d4c3dbd3f7a8",
+            "start_type": "ATG",
+            "rbs_motif": "GGA/GAG/AGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A2I7RBW4",
+                "query_cov": 1.0,
+                "subject_cov": 1.0,
+                "identity": 1.0,
+                "score": 135.0,
+                "evalue": 6.79e-42,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A2I7RBW4"
+                ],
+                "product": "DUF2635 domain-containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_38",
+            "locus": "PBNNBC_038"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 21437,
+            "stop": 22915,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "GpL, tail sheath protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A5E5PFI1"
+            ],
+            "nt": "ATGTCATTGGGCTCTATTCCTAACGATATTCGAGTACCACTCGTTTATATCGAGATCGACAACAGCGAAGCGAATTCAGGCACACCCGCTTTGGCTCAGAAAGTATTAGTACTTGGCCAACAGCTGGCAACGGGCACTGCTGATGCACTTACACTGAATCGCATTACGACAAGTGAAAGCCAAATTGATGACCTTTACGGTAAAGGTTCAATGCTTTCTCGTTCGCTTAAGAAGTTCCGCAAAACCAATGAATATACAGACGTGTATGCATTGGGTGTGGCTGACTTAGCAGCAAGTGCGGCTAAGGGTGAGATTGCCGTTACGGCAACCACGGTTAAAGCAGGTGTGATCGCGTTATTGATTGCTGGCGAAAGCGTGCAGGTAACGGTGAAAGATACGGACGATGCTGATTCTATTGCGATGGCCATCATTGCTAAGGTGAATGCTGATACCAACCTGCCTGTTACTGCTGCTTTGAAAACAGCTGAGACAGATATTGTAGAGCTGACGTGTAAATGGACAGGTATTACGGGCGACGATATCGATATCCGTTACAACTACTACGACGGTGAGTTCTTGCCTAGTGGTGTGACTATTGCGATTACTGCCATGACAGGCGGCGCAGGAACGCCAGACATGAGCGCTGTTATCGCGGCTATTCCGAACGAATGGTACAACCATATCGTGATGCCATTTAACGATACCCAATCAATGAATGACCTACGTGACGAGCTGGTTAATCGTTGGGGCCCACTCAAGATGATTGAAGGCATTGCTTACACCGCGTTCCGTGGAACCTTTGCTGAGACGGGTGCGTTTGGCTCTGCGCGTAATGACTTCTTATTTACGTGTATGGGTACGAACAGTTCGCCAAACTCGCCTTGGGAATTTGCTGCGGCTTACGCAGGCCGAGCGTCTTACTCACTGGGTATTGACCCTGCTCGCCCTCTTCAAACGTTAGTGCTAACCAGTTTGCTGCCACCGGCTAAAACCGCTCAGTGGGACATGACCGAACGCAATCTACTTTTGCACGATGGCATTGCAACCTATTCCGTTACGCCAGGTAATGAAATTGCGATTGAGCGTGAAGTGTCAATGTACCGTGAGAACGTATATGGCGATCCAGACCCAAGTTACCTCGATATCACTACGCCAGCGACATTGGGTTACTTACGTTATTCACTTCGAACCATGGTAACTAACCGATTCCCTCGCCATAAGTTGGCAGGTGATGATGTACTTGATCGCCTTGACCCTGGTCAGCCTGTGGTGACACCAAAGATTATGCGCAATGCCGTGTTAGAGCTTGCCAATAATGATTGGGTGCCAAGTGCGTTGATGGAAGACTTCGATGGTTTCAAAGAGACATTGGAATTGTATCGAGATACGAGTGATCAGAACCGTTTGAACTGTGTGTTTAAGCCAGACATTGTGAATCAGTTCCGTATCTTCGCCGCACTAATGCAGTTCAAACTTTAA",
+            "aa": "MSLGSIPNDIRVPLVYIEIDNSEANSGTPALAQKVLVLGQQLATGTADALTLNRITTSESQIDDLYGKGSMLSRSLKKFRKTNEYTDVYALGVADLAASAAKGEIAVTATTVKAGVIALLIAGESVQVTVKDTDDADSIAMAIIAKVNADTNLPVTAALKTAETDIVELTCKWTGITGDDIDIRYNYYDGEFLPSGVTIAITAMTGGAGTPDMSAVIAAIPNEWYNHIVMPFNDTQSMNDLRDELVNRWGPLKMIEGIAYTAFRGTFAETGAFGSARNDFLFTCMGTNSSPNSPWEFAAAYAGRASYSLGIDPARPLQTLVLTSLLPPAKTAQWDMTERNLLLHDGIATYSVTPGNEIAIEREVSMYRENVYGDPDPSYLDITTPATLGYLRYSLRTMVTNRFPRHKLAGDDVLDRLDPGQPVVTPKIMRNAVLELANNDWVPSALMEDFDGFKETLELYRDTSDQNRLNCVFKPDIVNQFRIFAALMQFKL",
+            "aa_hexdigest": "fe78fd57f3bfcf0944bf603dcfaacf66",
+            "start_type": "ATG",
+            "rbs_motif": "AGGAG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A5E5PFI1",
+                "query_cov": 0.9308943089430894,
+                "subject_cov": 0.9215291750503019,
+                "identity": 0.5720000000000001,
+                "score": 521.0,
+                "evalue": 3.3e-181,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A5E5PFI1"
+                ],
+                "product": "GpL, tail sheath protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_39",
+            "locus": "PBNNBC_039"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 22931,
+            "stop": 23284,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "Phage tail tube protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_K1J411"
+            ],
+            "nt": "ATGGGACAAATCCTTGGTCAAGTTGTTGTTCGTGCTAACAGCAAACAGCTTAAAACAAAGAAGGGTTCTACTTTGAACCCAGGTGGTTACAACCATGTATCTCACCCTGGTCCAAACCGTATTTGGGGTAAGTCGAAAGAGTTCGTTGCCGCGACAGTAGCGGTAGTGATTGCGGCGGATGAAGATGTCGATGTGGTGGAAATCAATAACATCACAGACGCAACGCTAACATGGGAAGGCGACAACGGTGTTGACTACATGATTACAGGTGCATCACCACAAGCCCCTTTCCAGTTAAGTGACTCTGGTGATATTACGGGCACGTTCGAAGGCAACCCAGCGGAGAGAATCTAA",
+            "aa": "MGQILGQVVVRANSKQLKTKKGSTLNPGGYNHVSHPGPNRIWGKSKEFVAATVAVVIAADEDVDVVEINNITDATLTWEGDNGVDYMITGASPQAPFQLSDSGDITGTFEGNPAERI",
+            "aa_hexdigest": "b4bc3b01925e6a14095765f820420c17",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_K1J411",
+                "query_cov": 0.9743589743589743,
+                "subject_cov": 0.957983193277311,
+                "identity": 0.588,
+                "score": 137.0,
+                "evalue": 1.8e-41,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_K1J411"
+                ],
+                "product": "Phage tail tube protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_40",
+            "locus": "PBNNBC_040"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 23284,
+            "stop": 23655,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "hypothetical protein",
+            "db_xrefs": [],
+            "nt": "ATGGCCGTTCTCACTTTTGATCTTAAAGATGGACTTAAGTCTGGAGAAACTACTGGGTTTGAAGTGGGCCTTCGAGAGCTTACCCCTAGAGACGTTTTTGACGCTCAATTAGCTTCTGAAAAGCTTGGGCTGATTGAGGGGCGTCCATACGCTTATACCAGTAATGTTCAAATGGGGATGGAGTTACTTTGTCGCCAAGTGGAATTTATTGGAAAGGTTCAAGGGCCATTCTCCGCAAAAGAGTTGCTCAAGTTATCACAAGATGATTTTAACCTTATTCAATTAAAAGCTTCTGAACTGGATGCTGTAATGGTTCCAGAAGAAGTGACGGAGGCTCTCGAATCGCGGGGGCGATCTGAAGTCGCTGACTAA",
+            "aa": "MAVLTFDLKDGLKSGETTGFEVGLRELTPRDVFDAQLASEKLGLIEGRPYAYTSNVQMGMELLCRQVEFIGKVQGPFSAKELLKLSQDDFNLIQLKASELDAVMVPEEVTEALESRGRSEVAD",
+            "aa_hexdigest": "3e052144881a9a431798aafa2dfaafd9",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "hypothetical": true,
+            "genes": [],
+            "seq_stats": {
+                "molecular_weight": 13571.30599999999,
+                "isoelectric_point": 4.5179838180542
+            },
+            "id": "PBNNBCEPDI_41",
+            "locus": "PBNNBC_041"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 23772,
+            "stop": 25400,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "Tape measure protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A2I7RBW2"
+            ],
+            "nt": "ATGGCTAAAAAACTTGAAACCGATATTGTTCTTAATTTACAAGGCAACCTAGCTTCTAAGGCGAGTAAATATTCACAGTCAATATCCACACTTGGTAAAAAAAGCCAAAGTGCATTCAATATGATGGAACAGTCCGCTAAATCTGCAAGTAAAGGTATAGACACTTTTGGTAACCGTACCATTGTTGGCGCGGGCGCGGTGGCTTTTGCCTTTGAAAGAACCTTTATTAAAACGGCCGCGGAGTTTGAGCGTTACCAAGTGATGCTTAATAAGCTGCAAGGCTCAGAGGAAGGCGGAGCGAAAGCTCTAGAGTGGATTGAGGACTTTACTCAAAATACCCCTTATGCAGTAAATGAAGTCACTCAATCGTTTGTGAAGCTTAAGGCTTTCGGTCTCGATCCTATGGATGGAACGATGCAAGCTATCGCTGACCAAGCCTCAATGATGGGTGGGACTGCTGAATCTGTAGATGGAATTGCTACAGCTCTTGGCCAAGCCTGGACTAAAGGAAAACTGCAAGGTGAAGAAGCGCTTCAGTTGCTAGAGCGTGGCGTTCCAGTTTGGGACTACTTAAACAAGGTTTCTAAAGAACTTGGTCATAACAATGGCTTAGGTCTAACAGCTGCTCAACTTCAAGACATGGCGTCTAAGGGTGAGTTAGGTCGTGACACTATCAAGCGCTTGATCGAGGAGATGGGTAAAGCGTCTGAAGGCTCTGCGAAGAAGCAAATGGAGACGTGGAACGGCATGGTCTCCAATATGGGCGATCATTGGTCTGTTTTCCAAAAAGACGTAATGGAAAGCGGTGCGTTTGATGTGTTGAAAGATGAGCTTGGCACTTTCTTATCGATGCTCGATGAAATGAAAGAAACAGGTGCGTATGACGAGCTTGTTCAAACGGTAGGAACAGACTTAGTTGACGCTTTCAGAGCTGCTGCTGATTTTGCTGGTGCAGTAAAAGATGTCGGGCAAGAGCTACTTCCAGTATTGCGTGCTATCGGTAATGGAGCGTCAGCAATCAGTGAGGCCGTTGGTGGTTATGGGAATTTGGCTAAGATTTTAGCTTCAGTTTATGCCTTGAATAAAGCGATCAGAATTGGAGCTCCATTGTTGAAAGGTGCAGCTGGGCTTATTGGTAAAAGTTCTGGAGGAAAAGCTGGGAAAGTTGCTGAGAAGTTAGGTGCAATGCCTGTTTATGTCATAAATATGCCAAGTGGCGGCATGGGTGGTTTAGGCGGTGACATTGAAGCTTCTGGTGGTAAAGGCGGTAAAGGTTCAAAAACCAAATCGAGCATTAAGAAAGTAGGTAGCGCAGCTATGGCATTAAGCCCGTTGGCTGTTATGACACTATTAGGTAGCGCGAAAGATTATGATCCTAAAAACCCTATGTTTCCTTCATTGGATTTTGCTCAAGAAAGTAATAATAAAACACCACCGCCAAACGTTACCGATGCAACCGCTCGATTCAATGAAGCATTTAAGAGACCTCAGTCAGCTTTTGAATTGGCAGGGCAGGCGCCTACTGGCAATGTTAATTTAAAAATCGAGGTGTCAGATGAACGCATTAAGGTTACGCCAACTTATGCGGCTCCTGGTATTACTATCGACCCAGATACGGGCGCAAATTAA",
+            "aa": "MAKKLETDIVLNLQGNLASKASKYSQSISTLGKKSQSAFNMMEQSAKSASKGIDTFGNRTIVGAGAVAFAFERTFIKTAAEFERYQVMLNKLQGSEEGGAKALEWIEDFTQNTPYAVNEVTQSFVKLKAFGLDPMDGTMQAIADQASMMGGTAESVDGIATALGQAWTKGKLQGEEALQLLERGVPVWDYLNKVSKELGHNNGLGLTAAQLQDMASKGELGRDTIKRLIEEMGKASEGSAKKQMETWNGMVSNMGDHWSVFQKDVMESGAFDVLKDELGTFLSMLDEMKETGAYDELVQTVGTDLVDAFRAAADFAGAVKDVGQELLPVLRAIGNGASAISEAVGGYGNLAKILASVYALNKAIRIGAPLLKGAAGLIGKSSGGKAGKVAEKLGAMPVYVINMPSGGMGGLGGDIEASGGKGGKGSKTKSSIKKVGSAAMALSPLAVMTLLGSAKDYDPKNPMFPSLDFAQESNNKTPPPNVTDATARFNEAFKRPQSAFELAGQAPTGNVNLKIEVSDERIKVTPTYAAPGITIDPDTGAN",
+            "aa_hexdigest": "70ea54d46f5ea1a7665dbcdeec4f1f72",
+            "start_type": "ATG",
+            "rbs_motif": "AGGA",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A2I7RBW2",
+                "query_cov": 1.051660516605166,
+                "subject_cov": 1.0,
+                "identity": 0.621,
+                "score": 631.0,
+                "evalue": 2.29e-222,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A2I7RBW2"
+                ],
+                "product": "Tape measure protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_42",
+            "locus": "PBNNBC_042"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 25412,
+            "stop": 26731,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "hypothetical protein",
+            "db_xrefs": [],
+            "nt": "ATGGCATTTGAAGATCGTTTAACCGCCTCTATTCGTGGTGTTGAATTTTTCCTTGATGATGCAAGTGGTGACTTTGGTCGCCGTGCTATTCCTCATGCTTACCCTAAGCGTGAACAAGGCTATACCGAAGATAACGGTAAAGTGCTTCAACAAGAAATGATTAATGGCCGCACTGTGGGTGATGGCTACTTTGAGAAACTACAGCAAATCATTGAAGCGATTAATACACCAGGGCCGTGTGAACTTATTCACCCTTGGTTTGGCGTTCGTAAGGTTCAGGTTGGTAAAGGCAGCTTTAAGTTAGTCAATAAAACAGACGGCTTAGCCACGTTTAGCTTTGAGGTGTTTGAGCAAGGTGAAAACCTATTCCCGAATTCAAAGCGCGATACCGCAAGCCAGGTGCAAGGTGAATCAACCAAGTCACAAGATGCAGCTAATGATGCCTTTGAGAAAGAATTTGATGAGACGGCCACGGAAGGTGTGGGCGATATGGTTGATCAGTTCTTAGATGACTTAGATGAATTCACCCGTGGTTTACCATCACTACCTAGTGAGCTGCGTGAGTGGACAGATCGCCTTATGCGCACCAAAGATTCCATTGGAAACCTCTTGGCCTACCCTGGTGAGCTAGCGCGTGAAACCATGGGCCTATTGGAAGACGTGAAAGGCGTGGTGACTGACCCTATTCGCGCCCTCGATGTTTACCAGAACGTGCAAAACCGTTGGGATGGTATGCGTGCTGAACTGGCTGTTACTGGTGGTTTAAGTCGTAACATCGATAGTGCTGATGGCTTCGTAAGTTCGGTGCCTAGCGTGGCTAACCCTGTGAAGCAACAAGCCGTGCTAAACAATGCCGATGCGTACAAGCGTTTGATTATGAATTCCGCGACGGTTTCTAAGGCTTCAGCAATGGGTGACGCCGATATTGGCGTTGATTTGATTGATACCGATGAGTCGATTAATAGCCTTTCAGGTGCTGACCGTAAAGCCGTATTAACGGGTGAGCAGTACAAGAAGATTGGGTATGACATTGCCAATGAGTTAGCGGAGCTTTCTGCGAACGCCGTTGAGCTTGGTGACTCTGCGGTGTGGCGTCAGTTTCGTGTGCTGCGTCAAGCGGTGTTGGCGGATACTAGAGCAAGAGCCGAGCTGTTGCCACAGTTAAGTATTTACACGCCCACCAGTACGGTGCCTGTTTCTTTGGTGGCATGGCAAGAGAACGGCGACACTGAAACGCGCCAGAGCATAGTGCGTCGTAATGGCCTGTCTAATCCATCTTTTATCTTGCCTTCAGATTCCATTGAGGTGATTAGCTCATGA",
+            "aa": "MAFEDRLTASIRGVEFFLDDASGDFGRRAIPHAYPKREQGYTEDNGKVLQQEMINGRTVGDGYFEKLQQIIEAINTPGPCELIHPWFGVRKVQVGKGSFKLVNKTDGLATFSFEVFEQGENLFPNSKRDTASQVQGESTKSQDAANDAFEKEFDETATEGVGDMVDQFLDDLDEFTRGLPSLPSELREWTDRLMRTKDSIGNLLAYPGELARETMGLLEDVKGVVTDPIRALDVYQNVQNRWDGMRAELAVTGGLSRNIDSADGFVSSVPSVANPVKQQAVLNNADAYKRLIMNSATVSKASAMGDADIGVDLIDTDESINSLSGADRKAVLTGEQYKKIGYDIANELAELSANAVELGDSAVWRQFRVLRQAVLADTRARAELLPQLSIYTPTSTVPVSLVAWQENGDTETRQSIVRRNGLSNPSFILPSDSIEVISS",
+            "aa_hexdigest": "197be1334e32430b8253f0a28aecfac1",
+            "start_type": "ATG",
+            "rbs_motif": "GGA/GAG/AGG",
+            "hypothetical": true,
+            "genes": [],
+            "seq_stats": {
+                "molecular_weight": 48206.15990000011,
+                "isoelectric_point": 4.6054590225219725
+            },
+            "id": "PBNNBCEPDI_43",
+            "locus": "PBNNBC_043"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 26728,
+            "stop": 27837,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Tail protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A084T6C0"
+            ],
+            "nt": "ATGACAACGCAGTTAGATGAAATTGTATTGAAAGCTGGCGGTAATGTTTACGGGGGCTGGACTAAGGTCAGCGTGACTCGCTCAATCAATGCGATGTCTGGTTCATTTGATTTAGAACTGACTTGGAAGTGGCAAGGCTCTGATGATAAATACAAAGCCTTCATGGAGCCGATTCAGCAAGGTCAGCCTTGTGTGATTGAAATTGGTGGTGAGCGCGTGATTACGGGCTATGTGGATGATTGGGTGCCTAGCTACGATGCAAACCAGGTGATGATATCGGTCAGTGGTCGAGACAAAACCGCTGACCTAGTGGATTGCTCGATTGACTACCCTTCAGGCCAGTTCAACAACCAAACGTTAACTCAGATTGCTAACGTGGTGTGCAAGCCTTTCGGTATCAAAGTGATCGTGAATACCGATGTGGGCGCGGCGTTCCCTCGCATTCAAATCGAGCAAGGTGAAACACCGCATGAGCTGCTTACTCGTCTAGCCCGTCAACGTGGTGTGCTGCTAACCAGTGACACGTTTGGCAATCTTGTTATTGTGCGTAGAAGTGCAGAGCGTGCGGGTGTGTCTTTAATCCTTGGTGAGAATGTGAAAGCTGCGCGTGGTCGCTTCAGCTGGCGTGAGCGTTTTAGCTATTACAAAATAAAAGCCGTCGGCCCAGCATTTGGTGGCTTTGATTCAGATGATGCTATTTCGGTAGGTGGTATTGAGGCGAATGTTAGCGATGCAGATATTACCCGTTATCGCCCGATGATTATTGTTAATGAAGAAGTGACTACTGCCGAAGGTGCAGCCAAGCGCGGCCAATGGGAACGCCAGCGCAGCATTGCTATATCCAATGGTGCCGAGTACACGGTGACAGGGTGGCGAATTCCTCAAACGGGCAAGCTATGGAACTTCAATACGGTAGTGCCAGTTCAAGATGAGATTGTGGGTTTGGATGAAGAGATGCTGATTGCCTCGATCATGTTTAGCGAAGATGCTTCAGGTCGTATTGCTGTGATTAGTGTGGTTAAGCCTGAGTCTTTTGATATACCCGCGGAAGCTGCAAAGAATACCTCTTTAAAATACTCTTGGAAGAAAGCTCAAGGACAAGCCGAATGA",
+            "aa": "MTTQLDEIVLKAGGNVYGGWTKVSVTRSINAMSGSFDLELTWKWQGSDDKYKAFMEPIQQGQPCVIEIGGERVITGYVDDWVPSYDANQVMISVSGRDKTADLVDCSIDYPSGQFNNQTLTQIANVVCKPFGIKVIVNTDVGAAFPRIQIEQGETPHELLTRLARQRGVLLTSDTFGNLVIVRRSAERAGVSLILGENVKAARGRFSWRERFSYYKIKAVGPAFGGFDSDDAISVGGIEANVSDADITRYRPMIIVNEEVTTAEGAAKRGQWERQRSIAISNGAEYTVTGWRIPQTGKLWNFNTVVPVQDEIVGLDEEMLIASIMFSEDASGRIAVISVVKPESFDIPAEAAKNTSLKYSWKKAQGQAE",
+            "aa_hexdigest": "82e486a2f9f4dd23dabdf6f13e0a0cc1",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A084T6C0",
+                "query_cov": 1.0,
+                "subject_cov": 1.0,
+                "identity": 1.0,
+                "score": 733.0,
+                "evalue": 8.46e-269,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A084T6C0"
+                ],
+                "product": "Tail protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_44",
+            "locus": "PBNNBC_044"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 27834,
+            "stop": 28439,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "Baseplate assembly protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A084T6C1"
+            ],
+            "nt": "ATGATTACAATGAGACATGTCGAGAAGTTACTTTCACCAATCAAACGCCGTATCACTGGCATGGTTACCCGTGCGTTAGTTTCTGGAGTTGTGGAAGACTTACAGCGTCAGAATATTCAGGTACAGCTTCATTCTGATGAATCTGCGGATGACATCGAGCGCTTTCAAAACTACGGTTGCAGTTCGTTCCCACCTATAGGCTCTGAAGCCATTCTTGCGGCTATCGGTGGCAATCTAGGTAACTTGGTTGCTGTGGCTGTCGAAGATAAAAAATATCGTCCAAAGGGTGAAAGCGGTGACGTTTTCCTCTACCATTTGGAAGGTCATAAAATCCGCTTAACCAAAGATGGCAAGGTGGTTGTTACAGCAACCGACGTTATTTTTGAAGCCGCTAATTCCTTCACTATTATTTCCCCTGAAACATTGATTCAAGGCCCTTTGCATGTGACAGGTGGGATATCTACAGACCTTGGTATTTTTGCTACTGGCGGCATTACTTCTGCCAGTGTTGTTAGCGGTTCAGATTTAACCGCAGGCGGCTTTAGCTACCTTGGCCACTTCCACAAAGATGCAGAGAACAGGAATACTTCAGCACCAGTGGGTTAA",
+            "aa": "MITMRHVEKLLSPIKRRITGMVTRALVSGVVEDLQRQNIQVQLHSDESADDIERFQNYGCSSFPPIGSEAILAAIGGNLGNLVAVAVEDKKYRPKGESGDVFLYHLEGHKIRLTKDGKVVVTATDVIFEAANSFTIISPETLIQGPLHVTGGISTDLGIFATGGITSASVVSGSDLTAGGFSYLGHFHKDAENRNTSAPVG",
+            "aa_hexdigest": "e87f6d6b7c35de57443f9ba08e21d8e6",
+            "start_type": "ATG",
+            "rbs_motif": "AGGA",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A084T6C1",
+                "query_cov": 1.0398009950248757,
+                "subject_cov": 0.9587155963302753,
+                "identity": 0.56,
+                "score": 211.0,
+                "evalue": 6.76e-68,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A084T6C1"
+                ],
+                "product": "Baseplate assembly protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_45",
+            "locus": "PBNNBC_045"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 28466,
+            "stop": 28912,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "Phage GP46 family protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A178J7J9"
+            ],
+            "nt": "ATGATGAAAAACACAGGAATCAGCGTATCGATTAATGGAAGTGAGGGCGGAAGTGTCGCAGATGACACAGTTTCAGCCCTCGTTTTGATCTCGTTGTTTACCGATGCACGCGCCGATACTTCAGACCGCTTACCCGACGATTCAAACGACTTTAGAGGCTGGCCTGGTGACACGTTTTACGATGCACCATGGGGCTCTAAACTTTGGCTGCTTTACCGTGAAAAACTGACTACCGATGTGCGCAATCGTGCTGTGAAATACGCAGAGGATGCACTGGCTTGGATGTTGGTTGATAACGGTGATGGCCAGATGGCAAAAAGCGTGTCTGTGGTTGGCTCTATTCCTCGTTTTCAAACCCTTGCCTTGTCTATCAATATCACCAAACCAGACAACGAAGTCATCTCACTGACCGTTATGAAACGATGGGAGGCGCAACGTGCCGTTTAA",
+            "aa": "MMKNTGISVSINGSEGGSVADDTVSALVLISLFTDARADTSDRLPDDSNDFRGWPGDTFYDAPWGSKLWLLYREKLTTDVRNRAVKYAEDALAWMLVDNGDGQMAKSVSVVGSIPRFQTLALSINITKPDNEVISLTVMKRWEAQRAV",
+            "aa_hexdigest": "7c29c144fd956f70e88d5916e7b17e61",
+            "start_type": "ATG",
+            "rbs_motif": "3Base/5BMM",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A178J7J9",
+                "query_cov": 1.0,
+                "subject_cov": 0.9487179487179487,
+                "identity": 1.0,
+                "score": 294.0,
+                "evalue": 2.84e-102,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A178J7J9"
+                ],
+                "product": "Phage GP46 family protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_46",
+            "locus": "PBNNBC_046"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 28902,
+            "stop": 29969,
+            "strand": "+",
+            "frame": 3,
+            "gene": null,
+            "product": "Baseplate protein J-like domain-containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_Q3ZL16"
+            ],
+            "nt": "GTGCCGTTTAACGTTCCTACGCTACGCCAGCTTATTGAAAGCGGTTTAATCGATATTGAAGCCTCGTTAGATGAGGTTTTACCTAAGTTTGGCATTGAGCAAGCGCTTAACTCTTCTGTGAGTAGCAGCGTTCGTGATCTTTACGATTACCAATCTTGGATCGTTCGTCAAATCATCCCTTCCACTGAATCTGAAGACCAGACCATCATCGATGCAGCACGCTATGAAGGCGTGATTCAAAAGCTTGCAACGAATGCTGCTGGCCCCGTTACTTTTACAGGTAGTGTGCCTATTCCCGTTGGTACTGTGATGACGCATTCTGATGGCCGCTTGTATCGAGTGACGCTATCTAATGCGCCAGACAGTGGCAGCGTTTTGGTGGAAGTAGAAGCGGAAGAATCAGGCGTTGCGGGTAATCTCGCGGCAGGTGAAACGCTGACGTTAGTGTCTACCGTGCCAGGTATTCAACCTAATGGTGTGACGGGTGAAATTTCAGGTGGTGCGGAAATAGAATCCGTTGCTGAAGTGCTTGAACGTTTGTTGTTTCGTAAGCGTAATCCACCTATGGGCGGTGCGGTGCATGACTACGTGGCATGGTGCCGTGAAGTGGCTGGTGTCACGCGTGCATGGGCTATCGATGCCTATCAAGGCGGCTCGACGGTTGGCTATGCATTTGTCTTTGATGGCCGTACCGACATTTTGCCCAATATCACCGACCAACAAGCGATGTCTGATTACATTTATCGCCATAAAGACCCAGCAACAGGCAGTGACGTTGGTCGCCCTGCTGGCATCGAGCCAGTGCCTATTCCGTTAACGCTGAAAGTGACGGATTTAGACATCAATATCACGCCAGATAACACAGAGCTTCGTGCCATTGTGCAGACTAGTATCAACAGCTATTTTAAAACGTTAAGCCCTGCTAGTACGCTGCTTGTAAGTGCAGTGCGCACCGCTATTGGTACAGTGCCAGGTGTTGAAGACTATTCGCTAGATCTGAATGCTGACGTTCCTGCTGCATCGAATGAGTTACATGAGCTTGGAGTGATTACATGGGCCACTCTGTAG",
+            "aa": "MPFNVPTLRQLIESGLIDIEASLDEVLPKFGIEQALNSSVSSSVRDLYDYQSWIVRQIIPSTESEDQTIIDAARYEGVIQKLATNAAGPVTFTGSVPIPVGTVMTHSDGRLYRVTLSNAPDSGSVLVEVEAEESGVAGNLAAGETLTLVSTVPGIQPNGVTGEISGGAEIESVAEVLERLLFRKRNPPMGGAVHDYVAWCREVAGVTRAWAIDAYQGGSTVGYAFVFDGRTDILPNITDQQAMSDYIYRHKDPATGSDVGRPAGIEPVPIPLTLKVTDLDINITPDNTELRAIVQTSINSYFKTLSPASTLLVSAVRTAIGTVPGVEDYSLDLNADVPAASNELHELGVITWATL",
+            "aa_hexdigest": "5df8d58bbbe89ca38ad3b63b55557c22",
+            "start_type": "GTG",
+            "rbs_motif": "GGAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_Q3ZL16",
+                "query_cov": 1.0056338028169014,
+                "subject_cov": 0.9444444444444444,
+                "identity": 0.501,
+                "score": 339.0,
+                "evalue": 2.49e-113,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_Q3ZL16"
+                ],
+                "product": "Baseplate protein J-like domain-containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_47",
+            "locus": "PBNNBC_047"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 29954,
+            "stop": 30541,
+            "strand": "+",
+            "frame": 2,
+            "gene": null,
+            "product": "DUF2313 domain-containing protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A6S5WXM5"
+            ],
+            "nt": "ATGGGCCACTCTGTAGAGCAATGGACTAACTCAATAATGGCGCAAATGCCACGAGGTATCTTGTGGCAGCGTTCAGCATCTCTAGACCTTTATAAATACGCGGCAGGCTATGCACCAAGGCTAGAGGCAGTAGAGGTGAGCGCAGACAGTTTATTGTTAGAAATGCGCCCTGAAAACACTCAGCAACTACTAGACGAATGGGAAGAGTATTTAGGGCTTCCAGAGTGTCAAGTTCAGAACCAAACGTTTGAATCACGCCGTGCGGCTGTGGTTGAAAAGTATCACCGTAAAGGTGGCTTGCAAGCATGGAACATCGACAAGCTAGGCGCTGACTTAGGCTTTGAGATTGAGGTAGAAGAAATCTTCCCTCACCACTGTTTACGTGGTTGTACTTATCCACTCTATGAAGAGAAGTACCGCCACTTATTACGTATTCACGTCAGAGGCATTACACAAGCTTATGCAACGTGCCTAGACGATTGTTTAACCCCGTTAGTATCTCAAACCGCCGCTATTCTGGAATGTACGCTAAACCAGTTTAAGTTAGGCGGTAAGTACTATGAATTCATCTATGAGGAGAGCGTGTAA",
+            "aa": "MGHSVEQWTNSIMAQMPRGILWQRSASLDLYKYAAGYAPRLEAVEVSADSLLLEMRPENTQQLLDEWEEYLGLPECQVQNQTFESRRAAVVEKYHRKGGLQAWNIDKLGADLGFEIEVEEIFPHHCLRGCTYPLYEEKYRHLLRIHVRGITQAYATCLDDCLTPLVSQTAAILECTLNQFKLGGKYYEFIYEESV",
+            "aa_hexdigest": "7bb4061713705b05f3801feade5da637",
+            "start_type": "ATG",
+            "rbs_motif": "GGAG/GAGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A6S5WXM5",
+                "query_cov": 0.9948717948717949,
+                "subject_cov": 0.919431279620853,
+                "identity": 0.691,
+                "score": 289.0,
+                "evalue": 1.2e-98,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A6S5WXM5"
+                ],
+                "product": "DUF2313 domain-containing protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_48",
+            "locus": "PBNNBC_048"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 30541,
+            "stop": 31089,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "hypothetical protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A2I7RC00"
+            ],
+            "nt": "ATGCACTATCTCAATAATGGCTCTCAGGTCGAGAGCGTCCCACCACTCAAGCCAAGAGTCGGTACACGTGGATACTTCACGGAGAGCAACGATGAAGGCTCACCAAGCTATCCAGGGCAAGATTGGTTTAATGCGGTGATTCGTGAGTTTCAGACGGCGCTTTCTGATAATGGTATTTCGTTTGATCCTGATAAATATGATCACCTATCAAAAATGACTATTCCATTAGATGTCAGCATTCAAACAGTCCCCGCATTAATTGCCAATGCAGGCAGCGTAACTTTCATCAAGAGGGGCTTTGTTGTTACTGCATATCTTTTTACAAACACAGTAGCAAATCAAAGTAATGGTACTTCTTTGTGTACCATTCCATCTGGTTTTCTCCCTTCACCGAAATACCAAGCTGGTACGGGGGTTTTTGAGTTTGCTGTTCCGAGTAGTGCTTCTAGTTCTTCACGCTGTCAGCTTCAATCTTCCCAGATTTTAGCTTTTGATTGGTCATCAACAGCCATTTACCGTGGTTCTTGCTCATACATTACGGAAGAATAG",
+            "aa": "MHYLNNGSQVESVPPLKPRVGTRGYFTESNDEGSPSYPGQDWFNAVIREFQTALSDNGISFDPDKYDHLSKMTIPLDVSIQTVPALIANAGSVTFIKRGFVVTAYLFTNTVANQSNGTSLCTIPSGFLPSPKYQAGTGVFEFAVPSSASSSSRCQLQSSQILAFDWSSTAIYRGSCSYITEE",
+            "aa_hexdigest": "6823e76e9f99b2d313d36bb22087aa4c",
+            "start_type": "ATG",
+            "rbs_motif": "AGGAG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A2I7RC00",
+                "query_cov": 1.0,
+                "subject_cov": 1.0,
+                "identity": 1.0,
+                "score": 364.0,
+                "evalue": 3.5e-129,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A2I7RC00"
+                ]
+            },
+            "hypothetical": true,
+            "genes": [],
+            "seq_stats": {
+                "molecular_weight": 19748.720999999983,
+                "isoelectric_point": 5.099560356140136
+            },
+            "id": "PBNNBCEPDI_49",
+            "locus": "PBNNBC_049"
+        },
+        {
+            "type": "cds",
+            "sequence": "contig_1",
+            "start": 31093,
+            "stop": 31485,
+            "strand": "+",
+            "frame": 1,
+            "gene": null,
+            "product": "Head-closure protein",
+            "db_xrefs": [
+                "SO:0001217",
+                "UniRef:UniRef50_A0A2I7RC02"
+            ],
+            "nt": "ATGAAATTATATTACCTGCCAGCGACTCACGAATGCGTCACATCAGCTCAAGCAAACACTGTTGAGCTAACCGAAGATGATACGGCCCTTTGGATTGGTGAAACCCTCCCTAAAGGTAAAATCTTGAAATCAGGAGCTTACCCCTTTGTTTTAGTTGACGACCCATCTATTAATCTTCAAGAGCACCTATGGGTTGTTGAAGAGCTTAAATATGCAAACGTACAAGTTACGTACCATGAGGATAATAGCACTCGTCCAGATGGTTCTTCCCGCGCTACCTCTTCAGAGGCCGAATGGAGAAGATACCGCGTACTATTGCAAAATTACACATCACAGACTGACGATGGTTTGATTATTGTGAATGGTAAACAGCGCCCCTCTAGACCAGTGTAG",
+            "aa": "MKLYYLPATHECVTSAQANTVELTEDDTALWIGETLPKGKILKSGAYPFVLVDDPSINLQEHLWVVEELKYANVQVTYHEDNSTRPDGSSRATSSEAEWRRYRVLLQNYTSQTDDGLIIVNGKQRPSRPV",
+            "aa_hexdigest": "e20a19922a5a2808ad56df8d46a619d1",
+            "start_type": "ATG",
+            "rbs_motif": "GGA/GAG/AGG",
+            "pscc": {
+                "uniref50_id": "UniRef50_A0A2I7RC02",
+                "query_cov": 1.0,
+                "subject_cov": 1.0,
+                "identity": 1.0,
+                "score": 266.0,
+                "evalue": 7.62e-92,
+                "db_xrefs": [
+                    "SO:0001217",
+                    "UniRef:UniRef50_A0A2I7RC02"
+                ],
+                "product": "Head-closure protein"
+            },
+            "genes": [],
+            "id": "PBNNBCEPDI_50",
+            "locus": "PBNNBC_050"
+        }
+    ],
+    "sequences": [
+        {
+            "id": "contig_1",
+            "description": "[gcode=11] [topology=linear]",
+            "nt": "TGTATAGAGACTAATGATATGAACAATAAGTGAGGGTTAGGGATCTAACGGACCTTTGAGGGATCAAGTGGGATAAAATTAGGCTTGAAGCTAGATACAGTGCGGGGTTTGAGATTTTAGGTCTTGAGCCCCGCTTGAGTTTTTGGCTGTTGAGCAATTTTAGCTGATTTGAGCAATCCTTTCTAATTTATGTGATTTAGACTATCAAAGTGAGCACTGGCTGTTTTTGTTTGTTCGCTGTTTAAATTGAGTTTAAACATTTAAATCTAATCGCCTAAGTCCTTTGCAATGTGAATGACTTGCCCTATCACTTCAAACTGATGCTGTTCATCTTTAGGTATGTCTTGATTGTCGTATAGTGGGTTGTCGCTAATCAACCTCCATGCGCCTAGAACGCTTTGGTAGCGCTTCACGAACAACTCATCGCCGTTTCTAAAGATGTATATGTGCCCATCTGAAGGCTTCTTCCTTTCCATGTTTACTACAAGCGTATCGTTATTGTGAATCGTTGGTTCCATACTGTCACCTTTTGCCCACACTATCGCTAAATCTTTTTCTTTAAAGCCCCTATACTTCAACCACTTACGCCTAAATGCTAAATGCCTTGTTGGCTCAAGCTGGTCTGGATTTAAAGAGCCGTGCCCCGCTGATACTTGAATGCGGTAACCAGGTATAAGTGCAAACTCCTCAAACTTGTTAGCGGTTTCATCCGACCTATAAGTGGCAGGTTCTTCTCGAACCATGTCATCTTTTCCTGTCGCAAGCCACTCAATGGAAACATTCGCTTTATTTGAAAGGGCTATTAGGTTGTCAAGCGTTGGAGAGCTAACCCCTGATAGATAGTTGTGCAAGGTACTATATGAAATCCCCACCTCTTTCGAGAATGCTCTTCCACTTTTGTTTCCTAAAACTTTGTTCAACCTCTCAGAAAATGATGTTCCTTTTTCTTGATCACTAAAAGGAACTGAGTTCCTTTTTCTATTTTCCTGTTCCTTTTTATTATAAGTCATTGTTTTTATACCTGTTACAAGTATTCCTAATAAGGAAATATAATTTTAATATAGGAACAGAAATAAGTTGACTTGTTCCTATTGTTGATCAAAACTGTTCCTAAATTAACTAAGTTAGTTAGCTTAGTGAGTTAACTAACTGTCAATCATTGCAGAAAAAGTGAGGAATGGGAATGGAACGCACAGATTTACATCGAGCAGACATCATTGCTGCACTAAAAAAGAAAGGCATTTCGATGAGCAGGTTAAGTCGTGAAAACGGTCTAGCGTCGACAACTCTTGCAAATGCCCTTGATCGCCCTTGGCCTAAAGGTGAAAAAATTATAGCTAAGGCTCTAGATTTAAACCCTAGCGAAATATGGCCTAGTCGCTATGCAGAATTAAGAAATGCGGGGTAACCACATGGAATGGTTCGTCGTAAGAGATCTCATGGGATTTTCTGGGTTACCAACAACAGAGCGTGGAATTCGAAAATTAGTTGAAAACTTAGCTATCACGTCTGGAGTAGAACGAAGAAAGCGACAAGGAACGAAGGCATTTGAATATCCAATAAGCATTCTTAGTAGCGCTCACCAGGTCTTACTTTTAAAAAAACAAGGCAAAGTTCAAGTTGGGGATCAGGTTCTTGAGTTGCCGAAAAAGAAAAGCGAGCAGTCGTATTGCCGTGAAGCGCTTTGGGCTCGTTGGAGTAAGAACAACAACGCTGCCAAAGAGAAAGCACAGCAAGCATTGCGCACCGTTCAAGCTGTCTTTGCACTTAAGAATAACGGCATCAAGTTGATGGACGCTTATCAATCGGTCTCTGAAGAATATGGCGTGGCACTTTCTACTTTGCGCCGCAGCTGCGCGAAGGTGAAAGGAATAGACGAATGTGATTGGGCTCCAGCTCTGCTGCCTAAAAACTTTGAATCATCCCAAACTCAAAAGCCGAATCAGTTTGCCTACATCACACCTGAAGCGTGGGAGTTTTTCAAAGCTGACTACTTGAGCCTAGAGCAACCTGCAATGTCGGTTTGTTATGAGCGCCTTATTGATACGGCTCCATCTAAAGGTTGGAAAGTACCAAGCCTAAAAAGTTTAGGACGCCGCCTTGAACATGAAGTGCCAGTACAACAACGCATCATGCTTCGTGAAGGTGAACACGCACTGCACCAAATGTTCCCACCGCAAGAACGTACCGTTGAAGGGCTTCACGCTCTGGAATGGATCAACGGCGATGGCTATCAACACAACGTGTTTGTGAAGTGGTTTAACGGTGAAATTCTTCGTCCTAAAACGTGGTTTTGGCAAGACATCTACAGCCGCAAAATTGTTGGCTGGCGTTGTGACATTAGTGAAAACACAGACAGCATTCGCCTTTCATTAATGGACGTTTGTGAAAAGTTCGGTGTGCCTAAAGAGCTGACTTTGGATAACACCAGGGCAGCTGCAAACAAATGGATGACGGGCGGCGTTCCTAACCGTTACCGCTTCAAAGTAAAAGCAGACGATCCCCTTGGAATCATCCCAATGATGAATATCAAGTTGCACTGGTCGAGCGTGATATTAGGCAAAGGTCACGGCCAAGCCAAACCGATAGAACGTGCGTTTGGTGTGGGTGGCCTTGAAGAGTACATCGATAAACATCCACTTTGCCGTGGCGCTTATACAGGCCCGAACCCAATGGCAAAACCAGACAACTACGGAAGCAAGGCGATCGACGCGGAAGACTTTCTACAAGCCATCGCTAAAGGCGTGGAAATGTACAACGCGAAAGAGAACCGAAACACCGAAGTGTGCAAAGGGTTTATGAGCTTTAACCAAGCGTTCAATGCCAGTTATGAAACGGCAGCAATACGCAAGGCAACCACCGACCAATTGCAAATGATGATGCTACAAGCCGAGGCAGTAAGAGTGTCTAAACACGGCACCATTTCACTGGATGCTGGCGGCAGTTTGAAAGGTCGTAAGAACCGCTATTACAGCGAGTCGATGATGAACCATGTTGGCCAAAAACTCGTGGCACGTTTCGACCCATTAAAGCTGCATGAATCTATCGAGGTTTACACCTTGAATGGCGTTCGAATTTGTACCGCTGAATGTCTCGATAAGACTGGATTTGGCGATACGCAAGCGGCAAGAGAGCACAAACGCAAGCGCACACAATTTACCAAAGCGAACAAGATTGCTGCGCAAGCTCAAACAGAAATGGATGCACTGGAAGTGGCCGCAATGATGAAGCCGCTTGAAGAAGAAGTGCTACCTGAAAGCAAAGTGGTTGAACCATTCAGACCCGTATCGATTGGCAACACGGCGGCTAAGGCCATAGCGCTAGAAGATGAAGACGAAGATTACGAACAGAACTTCAGCCAAAGCGTTTCAAACCTGTTTGAACAGAAATTCAAAAACAAGCTTTAAACCCTATTTAAACCTTCCATAAATGGAGATTGATATGAGTACAAACGTAGTTGAACTAGGCAATGCAGAGGCTAAGCAAACCGACACATTAATGCGCATTCGTGCATTAACAGAATCGAAGGCTGTTTCAGCGTCTCAGATTGCAAAAGAGATCAGCGTATCACCTGCCACGCTAAGCCAAATTTTGAACGGTTCATACAAAGCTGACCCAGCCAAGATGATTGAAAAACTGAACCAGTGGTTACGCATGAGAGAACAGCGTAATGCCACGCCAAGTAAAGACCCTGGCTTTGTGATGACACCAACGGCTAAGCAGCTGACCGACGACATGATGTATGCCCAAGTGACCGAATCCATCGTGGTTATTTTTGGGGCGTCTGGTGTGGGTAAATCAGAAGCGCTGCGCGAATACAAACGAAGCAACAATAACGTATGGATGATCACTTCAAGCCCAAGCCGTTCAAGCCTTACTGAGTGCCTATATGAGCTGGCTATGGAACTAGGCATGGACGATGCGCCACGCCGTAAAGGCCCACTGTCTCGCGTTATCCGAAACCGCCTGATTGGTAGCGAAGGTTTGGTGGTGATTGATGAAGCGGATCACCTTGACTACCCAACACTGGAAGAGCTGCGAATTCTGCAAGAAGAAACGGGCGTTGGCATGGTGCTCGTGGGTAACAACAAGGTTTACACACAGCTTACAGGTGGTCGCCGTAATGAAGATTTTGCGCGCTTGTTCTCTCGCATTGCGAAGAAGCGTGGCATCCACAAAACCAAGCAAGCAGACGTTCGTGCCATTGCTGATGCATGGAACGTAAACGGCGAGTCTGAACGCGGGTTAATGCTGCAAATCAGTGAGCGCCCAGGTGGCCTTAGATTGCTAAGCAAAACACTCAAACTGGCGGCGATGTTTGCCAAAGGCCAAACCATTAGTGAGCAAGTGCTACGCAAAGCGTTTGCTGAATTAGAAACCAACGATTGAGGTGAAATATGAAGCAATTTATTGAGTGGCTGAAATGGTCGGTATACAGAATCCAAGTAGCTAAAGAAATGCACATTCGATTTTCTGGAACTTGGTCATTTTACGAATGTTGGAGTTACGCAATTTGTTTTCAGTGTAGCTACGAAAGCATGGTTCAAGCAGGTGATAAGCCAATAGCTGTAGATGATGTTGAAGAAGAAATTTCATGTTGGAACGATTAAGGAAATACCAATGATGCATCTAAATGAAAAACGTCGTGCTGTGGCTAATGCCTTGTCTCGATTAGAAACGGCAGGAAGCTTGATCGTGAATGTAAGCACTGGCATTGCCATCCCTGTTATTACCATCGAGTTTCCACCTGTGTGGCTTGTTAGTAAATCAAACGAAGTGCGTGAACAGGCGGGTAAGACACTTAAAGTTTCACACATCGCAAAGCTTAGCGGTTGCCTAGTTCGTTGGGTGGAAAGTGAGACCGAAAATATTAACGCGAAGTACATGACTCAGTACTTAAACCCATACGCACCTGAGCTTATTGCGGTGCAACCTAAGAATTTTTAGAAGGAATTAACCAATGCCTAAGTTAACCAAAGAAAACAACGAATAGGATTTAAAACAATGACTAATCAAACCCAACCACAAGACGGTTTCCGCTTCAACAGCCAAGGCCACCAAGTACCCGTAAGCCAAATCAAAGACGTTGATTTACTGCGTGATGATGTTGTTGCTGACATCGTAAAAAAAGCGATTGCGACACAAGAAACCCTTGCGCTGTTTAAGAAAGAAGCCATGCAGAATGTCGCGGATTTTGTAGACCTAAGCTCTGCTGAATTTGATGTGAAATACGGTGGCACCAAAGGCAACGTTACGCTGCTTTCGTTTGATGGCAAATACAAGGTGCAACGCTCAATTGGAGAGCACCGTGTGTTCGATGAACGCATCCAAGCGGCTAAGGCAATAATTGACGAATGCATTAACCGTTGGAATGAAAATTCAAGCGATGAAATTAAAGCCCTGGTTGATTTATCTTTCCGCGTAAACAAGCAAGGTCACATCGATGTTAACCAAGTGCTTAGTCTTCGCCAGTTAAACATTACCGACCCTGATTGGTTAGAAGCGATGGACGCCATTGCCGACTCAATCAAGGTTATCGGTAAAACACCTTACCTACGTATTTATGAACGCCAAGGTGATGGTCAGTACAAACAAATCGCTCTTGATATCGCCAAGCTATAGCGAGGTGTGAATGTTACTGATAAGTACCCGATATGGAGAGATAAACGTCAGTCGCCATGCTATCGAAAGATGGCGACAACGTACGGGTCGCAGCCTTCCACAACTTGTAGAGGCGGTGGCGAAAGCTAACCGCCCAAGCAAGAACAGACTGCGAAGAATAATGAAATGCGAATCAGGTTGGCAGCCAAAGCGAATTTTAGAAAGTGACTGCGCCTACTTCCTAATTCGAAACAACAACATTGTCACGGTGTACGACAAGAGAAAAGAGGGTTACTCCCATGCCTGAATCTAGCTACTACATGAAGCTTGCTGAAAAGGCTTCTGAATCTGAACAACTTAGTGAGTTTGGCGTTGCTGCTGAACAGTGGTTTCAAGCGTCTGAGGTGGCGTTATCAAAAGATAATCGCTACTGGGCCATCTATAGAAACCAGTACTGCCAACAACAATTGGCTTCACTACTGAAAGAGGAATGTGAACATGACAATGCCTAACCCACTGCAACGTTCTTTCACTACTGCCCACACTCGCAGAGTGGTTGATCTAGAAATTGAAATGGCTGAAGCCTTAATTGAAAAAGACGGCACTGCATTTCCAGATAGCACGTTTGAAGAAGGCTATATCGCAGCACTGAAGTTCATTTTAAATCAGTCCAGTTCGAACGTTCGTGAAGAGTACGAAGACATGATGGATGAACTCAATGGAAAAGACGAAAGCGAAGCGGCCTAACCAGTTAATCAAATACATCATGAAGTTTCGCCGCTGCTCTCAAGTCGAAGCAGAACAATGGGCAGATAACCACTGCGGTGATTGGCGCAATACGCCACTGCCCAAAGCGAAGCGAGTGAAATCCATATCAAGCAATGAAAAGGAATACAAGTGGAAATACTAAAACATCAAATCACCGAGCAAGAACAAAGAGTTGTTTATCGCATGGGTGAGCGTCCAGAAAATACTTTAAGAAAGTTATCAGAGGAAGGGTTTGTCTCTCAGGAGAAGTTTATAAATATCCGACCTAAACAGCGTTGTCCATGTGGTTCAAAGAAAAAGTTTAAGAAGTGCTGTGGAAGATTGTTAGAAGATAAATAAGCAAGAGAGGTTGAGTATGAAGATTGTAGATCCATTGGCGCAAGATGAGCTGGCTTTTGCGCGTGAAGCTCTTGATGGATTAGCAGAGTCAGCGTTGCAATGCGGGTTTCTGCTAAGGCCGGAAGTTATAGAAGTAATGCTGATTCTTACGAAGGGAAGCGATCGTATTTTGCCAGCGAGCATGGTGTCAGTTAAGGAGTTGTAAGCGAAACAAGTAAGGTTCGCCTTGCTTGTCTGCCTAGCGTGGTTGCTAGGTACTGATGAGCAGCCAGTACAACACAAAGCTATAGGAGGTTTTTATTATGTTTGGTGAATACACACCACTAATGAAATCAGGTTTATTACAACGCCGCTTAGCGAATGGTAAAGCCATACTCGATGCTGAACTAGGCTTGCAGAAATGGTGCCCGCACTGCCAAGAGTATTGGCCGCAAGACACCTTGTTCTGGTCGCCGTGCAGAAGAAACCCTGATGGGTTGCAGAGTTGGTGCAAAGCTTGTCAGTTGGAATGCAAGAACGCAAACGTAAAGCGGCTTAACTAAAAGGTGGACAGTACAATGAACGAAAGAGACCATGCACTTGAAGTGTTGAGAGATGCAATTCAAAACGCAGAGCAATTCGGTTTGGTTCGAACCGAAAATGGAAAAGTAATTACTGGTGCTGTGGATTCAGAACACGGTTTTGTTTTGGTTGAGGATGGGGAGGATTAGCCAATGTCTAACTTACTCAAACTTGTCCAAATCGCTAAGCGTGATCTTGCCATGGAAGATGATTCTTATCGTGACGTTCTTGAGCAATGCACAGGTAAGCGAAGTGCAAAAGGCTTGAACGACATTCAACTAACCAAAGTGTTAGACAGAATGAAAGCGCTAGGCTTTAAACCAAAACGCAAGCCACAAGCAAGAGCGCCAGAAGTGGCAAAGATTCGCGCAATTTGGCGTACCATGCACAAACAAGGCTTTATCCGCAATGCGAACGACGTTGCCATTGATGCTTATGTAAAGCGCATGACTACTGCATCAAATGGACGTGGCATTGAAAAGGCGGTTTGGCTTAAGTCAGCTCAGGCCGCTGAAGTGTTAGAAGCTTTAAAGAAATGGCACTATCGATTAATGGCCGAGGTGATCACTAAAAGTGGTGGTCGCATTCCATCGAACAACGATTGCACAGGCCCAGCTGGTTACGAACTATTAGCTGAATACTATGAGAAAAATTTCTATGGAATATAAACTAGTACTAAATGAAACAGACGCTAAGTATTCAAAAATGAACATTTCTCACAATCAACCTATCAATAAAGGCGATAACCTACTTGTTGATGGAAAGAAATATTTGGTCTTTAGCGTCATTCATAATCTTGATGGTAATGAATCGACAGTAATTGCTGATTTTATGGGGTAACCTGCTTAACGTGCCCCACCAGTAAACACTGCCATATACTACAAACACCTCGCCAAGCGGGGTGTTTTTGTATTTATACTATGTGAAGGTATGCCATGTGGATGGGAGGCAGTGATGAGTGAAGAAAACCAAGACTTGTTTGGTTACAAGAATGTAAGCCTAGAAGAAGTTGAAAAACTAGCAGACGATGAAGAGCACCAACGATGGCCAGAAGCCATGCGCCAAATCTACTGCATATTTAAAGATGAACTCGTTAAGAACGAAACCGATCCAAAGCTTGCGGTGATTTTACTGCATCGTATTTGCAAAGAGTTTGGTGGTGTTCAGCTTTACCTTCCACGCGGCAGACAGCTTGAATCTGAAATCATGAACCTGTCTATCTGGCGTGAGTTCAATGGTGCGAATGTTGAAGAGCTGTCACGTAAATACGATAAAAGTATGCAGCATATCTATCGCGTAGTGGCTAAAATGCGCAAGATAGAAGTTGAGAACCGTCAACCGAATTTATTTTAAGGAAGGGAAAGTGAAAAAATTATGTTTGATGCTTATGATGTTATCACCAACTGCGTTAGCTTCGACAGTTGATGAGTTAATTGAAAGCTTTGAAAACTCTAATATCTATAGTGCTGATTGGTATGAAAAAGGCTCTAGCAAAATTGCTGAATCATCGAATGACTATAGAGACATCAAGGTAAATTTAACTGACAAAAAAGGATCTATTATCATCACTCAACCTTTTGGGGCTGACTTTGATGATTTAGCGATTAGTCCATGCTACCGTTTAACCGCCTATATTGACTACGACAAGTCTGCTACTTGGGCTGACCCAAGCACAGATGGAGAATTGTTAATTAGTTCAGTTTTTAGCTCTAAGACCAAAATGGGACAATCGAATAAAGCAGAGTTAAACGGTTGGAATTTGAGCTTTAAGCGTTTACCATCTGGCTTTACATGTGAGGTTGTAAAGAGTAACTAATAAACAATTCATGTTGCTTAGCTCCGCACCATAATAAAAAGCACAATCAGAAATAACATCAATTGCTGTTATTAGGTTGTGCTTTTATGCTTTCTGAATCCTCTAAAAATTGGCCCTTCTCAACAAAAGGCTACACGCTCGAATTTTGTCACGCTGTTCATTTCATCTTGCAGGCAGAAGGCGGATTACGCGCCGATGGTGGTTATGTTAACGACCCTCTCGATGCTGGCGGTGAAACCAAGTTTGGCATTAGCAAACGAGCGTTTCCAAATGTCGATATTAAAAACCTCACGATTGATAAAGCCGTTCGTATTTATCATACCAACTATTGGAAAGCCGCTTATTGCCATGAATGGGCAGGCCCTATTGCATTGTTCCATATGGATAGCGCTGTACAACATGGCGCAAGGCAAGCAATCAAACTTCTTCAAGAAATTAGCGGCACAAAACCCGATGGTGCAATAGGCCCAGCTACTCGCGCTGCGGTTCATGGCCATGATGTGTCATACCTTACCGCTCGATACGGTTTACGTCGTGGTCGTTACTACGCAAGAATTCTTAAAAATAATGCTTCTCAAGGTCGCTTCATTGAAGGTTGGTATAACCGTTTAGTGCATTTGACTAATGCTGCTTGGGAGCTTTCTTAATGGGACGCAATTGGGAATTTGCCAAACAACGAGGGCGCGAACAGCGCCTCGATGCCGAGTTGAATGCATTTGAAAACGGTATTGAAGTCCCATTAAACCCGCCTTTATTTAGCCACGATGCCACCATGCAAAGTTACTTTTCGAAAGCGTGGAGCCGTGTCTCTCAAAATGAAATTGATCGCCACCTTGGTATTGCGAAAACGCCACAAGGGAATGACCTAGTTTCAAAAATCAGGAGCTTAAGAGAATGTCACTTTCAGTAATCGCGGGGGTAGCTTCGCTTGCCATGGAATATGGCCCTGCTGCCATTCGCGGCATATCCAGTTTGTTTGGTGGTAGTGAAACGGCAGACAAAGTAGCCGAAGCGGTAGAGCAAGCCGATTCAATGTTTGGTGCTAACAAGGCACAGAAAGAGTTGGCCGTTACTCGCGCCCTGCAAAACTTGCCACCTGAATCTTTGGTTGAACTTGAGAAGATTAAGGTCGAGTTAGAAAAAGAAAAGACTCGCCGCCAAGAACTCACGCTTGGTGATAAACAAGCCGAACATCACGAAACCCAAGTGACGATTCGTGAAGGTGATAAGGCTGAAGATGAATACGTTCGTCACACTCGCCCTTGGGGTTGCCGTTTGAGTTTGTATTCTGCCATTGCTTATATCTTCCTGTTTGAACTGCTCGAAGCCTTTGATAAAGGAACAGGGGCAAATTGGGAAATTGCAGCGGGTTTGATGGCACCATTTCTTACTTATCTTGGTTGGCGCTCTGCTGATAAGCGTGGCATGACCAAAGGCACAGGCTCCATGGTTGGTGATGCACTTAAGGCGGTGAAAGTAAAATGACCGACCAGCTCGATAAGACTCAAGAGCTTGAGCAAACCTTCAGAGAAAAAGCCATTGCTCATCAACGTACACGCTGCATAGAACAGCCCGACGAAGATGAACACGGTAATCGCTATTGCTTAAGTTGTGGTGACACCATCCCAACCCAGCGATTAGAAGCGATGCCAAATGCGGTGCGCTGCGTCAGTTGTCAATCACATAAGGAGCCACATTAATGGAGTTGTGGATCAAAACTTATTGGCCTATCGCATGGGCTGCGTTGAGCACGTTGGGGATGTTAGTCCTTGCCGTGCTTTCTAAAACGTACGCCAAGCGAGAAGACCTAGAAAAGGTAGGACGTAAAGTGGACGAACTACAAACGCAGATTGACAATCTACCCACTCAGCAACAAGTCACGCAGCTATTACTTGAAATGGCAAACACACGCGGTGAGATGAAAGAGCTACGGGCACAAATACAACCTGTAGAACACCTCGCTCAACTGCTATTAGAACAACGTTTAAAAGATGATAAATAGGAATTGTTATGGGCTTTAAAGAGTTATTAAAAGAAGACCAGCGTCTTGTGATCTTGCGTTCACTTCATGACATGACAGGGTATGAAGCGAATGAATCTATCCTTGATTCTTGCCTTGATACTTACGGTCACAACATCAGCCGTGATGCAGTTCGTACGCATTTATCTTGGCTTGAAGAGCAAGGGCTAATTAGCATTCGTACTGTATTAGATTGCCAAGTCGCAAAACTTACAGGCCGTGGTGAAGATGTGGCAACAGGCCAAGCCATTGTGCCAGGCGTAAAACGTCCACGCGCTTAGGAGTGTTGTATGTCCATTGTTAACCGTTCAGCCAGTAATCGAAAGTCAAAGATAGATTTGCTGCCTGATGAAATTCGTCAAACTCTGAATGCGTTTATTCGCAGTGGGAACATGACACAGAAAGACATTCGCTTGGCCGTGAATGAAATGATTGATGATGCGGGACTTCCAGAAGATGTGAAAATCAGTCGTACTGGATTTAACCGATACGCCAAGCGCATGGAAGAAATGGGTCAGCGTTTGAAGCAGTCTCGCGAAGTGGCAGAAGTGTGGACAACCAAACTGGGTGAAGCGCCCACCTCTGATGTGGGAAAGCTGCTGCAAGAGTTTGTGCGTACCATGGCTTTTGAAACGTCCATGACCATGATGGAAAGCGCAGCTGAAGACGGTGAAGTGATTCCACCCAAAGCACTCGCGCAACTCGCTTTAGTTATTCAACGTATCGAGCAAGCCTCAATGGTGAGCCATAAGGTTGAGAAAGAAATACGCAAAGCTTTTGCTGAAGAGGTGGTCGAGAAGACTGAGCAGGTAGCGAAGAAAGCTGGCTTAACGTCAGACACAGTGAAGATGCTGAAAGCAGAGCTGCTAGGGATTGCCTAATGACAGAATCACCAAACGTCAATTCGATTACTGAAAACATCCTTGTCAAGTTCGACAAGGATGAGCTTTTACTTGGATATCAGAAGCGTTGGATAGCCGATGACTCTGTGCTTAAGATTGCCGAGAAATCACGTCGTACTGGTTTGACGTTTGCTGAGGCGGCTGACTCTGCGCTTAGTGCTGGCACAGCTAAAGGTGAAGGCGGCAATAACGTGTTCTATGTTGGCTCGAACAAAGAGATGGCGCGAGAGTTCATTGATGCCGTTGCGCTGTGGGCCAAGATATTCGATAAAGCAGCTGGCGAAGTTCAAGAAGATATTCTCAATGATGAAGACAAAGACATTCTGACCTTCGTCATTTACTTTGAATCTGGCCTTAAGGTTCAAGCGTTATCGAGTAATCCTTCTAACCTGCGTGGTATGCAAGGCACGGTTATCATCGATGAGGCATCATTCCATGAACGCTTAGCCGAAGTGCTAAAAGCCGCACTCGCTTTGACTATGTGGGGTTCTAAAGTTCGCCTTATTTCTACCCACAATGGTATAGACAACCTATTCAATCAACTTATCCAAGATAGCCGTGCGGGGAAAAAGCGTTACTCGATCCACACCATTACACTGGATGATGCATGTTTGGAGGGGTTGTATCAGCGTATTTGCCAAGTGACTAAGCAAGAGTGGTCACAAGAAAAAGAAGATGAATGGAAAGCTAACCTTCTCAAAGATACAGCGACAGAAGAAGATGCGCTTGAAGAGTATTACTGTGTTCCGAAGAATGGCGGTGGTGCTTACATTAGCCGTGGCTTGCGTGAACGTGCTGCGCGGTTAGATGGCCCAGTATTAAGTTTTACTGGTTCTAAGGCGTTTAACGAAGCGAAAGAGCACATCCGTGAAGCTGAGATGAAAGAGTGGTTAGAAGAACACGTTCAGCCAGAGCTCGATAACCTCGATCCTAAACTGCGCCATTGCTTGGGTGAGGATTTTGCACGCTCTGGTGACTTAACCGTTTATGCACCCATGGCCGTTCAAAATGATGTGAAGCGCACGGTTCCTTTCTTATTAGAACTTGGCAATGTGCCATTCAAGCAGCAAGAGCAAGCGCTTTACTTTATCTGCGATCAACTCCCAAGGCGTGATGGTATTTATCTTGATGCGCGTGGTAATGGCCAGTACCTAGCCGAACAAGCCCGATACAAGTACGGCGAAGAAGTGGTTGAGGTAATGCTCTCTGTGGGTTACTACCGCGAGAACATGCCTTCATTTAAAGCTGCGTTTGAAGATGATGAAATACTGCTTCCAAAGCATGAGGACGTGATTACTGATTTGGGACAAATCCAAATTAAAGCAGGCGTTCCTAGTATTGATTCAACACGAACCAAAGGCGAGAACGGAAACAAACGACACGGCGATAGTGCTATTGCTATTTGGTTTGCTTACTTAGCTTCTAAGGCGGATTTAACGCGTTACGGCTTGCACACCATCAAGGCCAATGTCGATGAGAACCAACGCCGCTTTCATGGCTCTGCCGAAGAAAATAACCGATTTGATGATATGCCGAACCAAGACTTACGCGGCAAAGGAATTAGACTATGACCCAAATTGTTGATGTAAACGGCCAGCCATTAAAAGCCGATAAGACACTACTGTCTGAAGACATTGCCAAAGCGTACACCACCAGTGTGCGAAACCCTCGACCTGCCAGTGTCGCCTCTACTTTAAACCCGCTTCGATTGGCGGGATTACTTCGCAGTGTGGTAGATGGAAACAACCCACAAGATTACATGACGCTTGCCGAAGAAATGGAAGAGCGCGATTTGCACTACGCGGCGCAGCTGCGCACCCGTAAGTTGGCGGTTGCTGCTATTGAGCCTACCGTTGAACCTGCCAGTGATGAGCAAGTTGATCTCGATATGGCTGATCGCGTTCGTGACATCATGGCCGAAGACCAAATACCAGAACTGTTTTTTGATTTGCTTGATGGCCTAGGTAAAGGGTTAGCCGTTGTACAAGTGCTTTGGGATACCAAACAAACACCATGGAAACCACAAGATTATAAATGGGTAGACCCTCGCTATCTTCGTGCCGACCAAGACACGCTTGAAGACATTCTATTGATTAGTGATTCTGCGCCAAGTGGCGAGCCGTTAGAGCCGTATAAGTTTATGGTGCATACGCCTCGATCTAAATCTGGCATTGTTTGGCGTAACGGTTTAGCCCGTTTGGTTGCCGTGATGTACATGCTTAAATCGTTCACGGTTCGTGATTGGTGGGCGTTTGCTGAAGTGTTTGGCATTCCTGTTCGTGTGGGTAAATACGGCCCGAACGCCAGTGCCGAAGATATCAACACACTAGTAAATGCCATTGGTCGCATTGCCAGTGATGCAGGTGCGGCGATTCCTGAATCCATGAAGCTAGAGCTTATCGAAACGGCCAAAGGCAATGGCGGTGAAACACTGTTTGAAAACATGGCCCGTTGGTGTGATGAGCAAACCAGTAAAGCGGTACTTGGCCAAACCATGACGGCTGATAACGGCAGTTCGCAATCTCAAGCCAATGTTCATAACGAAGTACGTATGGATATTGCTAAGTGGGATGCGCGCCAACTTGAAGCGTGTGTGAATGAGTACCTGGTTAAGCCCTATGTGATCCTGAACTGGGGGGTGCAAGAGCGTTACCCTAAAGTTCGCATTCGAGTGCCAGAGCCAGAAGACTTGAAGATGTTGGTCGATAGCTTGAAGCCAATGATTGAAAGTGGCATGCGCGTATCTGCAAGTGAAGTGCGTGAAAAGTTTGGGCTACGTGAACCAACCGACGATGAAGATGTGCTGATGCCAGCAAGCGCGGTACTTGCTCAAAATCGTCCTGCGACCAACCGAGATAAATCAAAGGTAGCGATTAACCGCATAAGCAAAACGGCTGAAGCGGAAATGAACGACTTAACCGATGAAGCCATGAGCGACTGGGAAGAAGTTGCGGAAGACTTCATTAACCCGATCATCGAACTGGCCAATGCGTCAGACAGTTATGAAACGTTCTTAGAAAAGCTGCCAGAGCTTCAAGAGACATTAGGCGCTGACGTGTTTGTTGAGCAGATGGCGCAATACATGTTCCAGATGCGCGGCTATGGAGACGCTAAAGATGTCTAAAGCCCTTGCGTCTGAAAGTATTGTGCCTGTTGAATCACTAGAGTGGTTCAAGAGTAAAGGGATAGAACCTGGCTTTGACTATCGCGACGTATGGAAGCAAGAGCACAACAACGCATTCACTGTTGCAAAGATGCTGAATGCCGATCTTCTTGTGGATGTGAAAGCCATTGTTGAAGAGGCCATCGAGCAAGGTCAAACGTTCAAGCAGTTTCAAGATATCTTAAAGCCACTCTTGGTTAAGTCTGGTTGGTGGGGCATTCAAGAAATGGTTGACCCACTGAGCGGAGATTCAAAGCCCGTTCAATTAGGCAGTGAAGGCCGTGTAAAGACCATTTACAAAACCAACATGAGAACGGCACGTTCAGCTGGGCAATGGGAACGCATCGAGCGAACCAAACGCGCCATGCCTTATCTGCTTTATCAGCTTGGGCCATCCATGGAGCATCGAGTTGATCACGTTAAATGGAAAGATACGCTGCTTCCTGTTGGTGACTCGTGGTGGGATAACCACATGCCACCGAATGGTTGGGGCTGCAAATGTTGGATACGCCAAGTATCTAAGTTTGAAGCTGAGAAGCTGATTGCCGATGATAAGGTATCAACCGACTCACCAGAGGGTGGCACTAAGCAGTGGTTAAACAAGCGAACGGGTGAGGTGGAAGTGTTACCAGAAGGCATTGAACCAGGATGGAATTACAACCCTGGTAAATCACGCCAAGAAGCGATGCAAGAAGACCTATTACAAAAAGAAACAAGAATGCGTGAGACGCTCTCTAATGGCTCTTAGTTGTAAAATGGCTACAATGTGTCGTTTAAAAAAGTTCTAACAAATCTGAGTCGATTTAAACAGTGTTTAAACATGGTTCAGTAAGCTATTTTAGGTGAGATTGCACAAGTCAGCTTGATAAGCTGATTTTTTCGGGTAATCTTTAAGCCCTCAAGAAAAGTATTTCAATTCATCCTTTCCTCCAAAATAGAGCAACCGACGTTATTTCTCGTCGGTTGCTTTTTTTTTGCATTCTTAACTCCACGAAACGAGTTCATACCAACCAATCCAATGAGGAGGTTGTTATGTAAGTTCTGATTTATGGAGCGAGCAATGAAGAAAACCCATTTAGCCGTGTGCTTTAACCTTTCCCAAGCCGTTATCGATGGTTTGGGTACAGAGAAAGACCCCACGGTTTGGATACCGATGATCCCAAAAGGTAAAGCCAAAGGTCGCGATGGTCGCATGTGGTTAAACAGTAACCCTGACGCCATTGTGAGCGCTTTTGATGCCAAACTGCCATTCGATTTAGAACATGCCACCGAAATCAAAGCACCTAAAGGTGAAGTCGCTGAAGCCTACGGTTGGATTCTAGCGCTTGAAAACCGTGATGGTGAGATTTGGGCGCAGGTGGAATGGAATCACCATGGCCGCTGGTTTATTGAAGAGAAGCGTTACCTCTATTATTCCCCTGCTTTAAACTATGACCAGCACGGCGTCATTACTGCGATGAGCAGCGCTGGCTTAACCAACAAACCTAACTTTTATGTACCTGCCCTTAATCGACAAGAGGAAACCGACATGCCGCTTTCACAACTGATTGCAGCCGCGCTTGGCCTAGCCGCAGGCGCGACCGAAGAGCAAGGTGTTACCGCAATTAATTCACTTAAGTCTGAGAAAGACATTGCGCTAAACCGTGCCGCTACGCCGGACTTAACTAAGTTCATCCCAATTGAAACACACACCGTTGCACTGAACCGCGCCGCGAAAGCTGAAGCTCAGTTAAAAGAAATTGACGATCAGAAAATCGATGACTTGGTTCAGGCTGCGATTGATGACGGCAAGGTTGCCCCTGCGAACAAAGAGATGTTTGTTGGTATGTGTCGTGCTGACGGTGGCATTGCTCAGTTCGAAGCGTTCGTTGAAACCGCACCATCTATCGCAACCAATTCACAGCACAAGACGCCTAAAGAAAAACAAGGTGGCGTAAAGCTTGAAGAGCATGAAATTGCGATGTGCCGAAAAATGAATGTGTCTCAAGCAGACTTCCTGAAACAAAAACAAAAGCAAGGCAAAGGAGAGTAACCAATGGCTACTGAAGCTCAAATTTTAGAGGCGTTGTTTGTCACAATGTCCACCGCCTACACCAAAGGCGTAGATGCTGCAAAACCGCAATGGAGCATGGTTGCCACTGAAGTACCAAGCTCAGGTGCGGCAAACTATTACGGTTGGCTAAAAGACTTACCAGGTATTGCCGAGTGGGTTGGTGATCGCCAACTGGTTGATATTGGTAAGCATGGTTATTCGATCGAAAACAAAACGTGGGAAAGCTCAATTTCCGTTAAACGTGAAGACGTTGAAGATGACCAGATTGGTATGTATTCCGTCATCGCTCAAAAATACGGTGAAGACGTTGCTTACTTTCCAGACACTTTAACGTACAAGCTTTTGTCTGATGGCTTTACAACATTGTGTTACGACGGCCAAAACTACTTTGATAGTGATCACCCGTTAGAAACCACACCTGCGTCAACGTTCTCGAACGTGGTGGGTGACCCGTCAACTGACACTGGTGAAGCGTGGTTCTTGCTTGATACATCCAAAGTGATTAAGCCTATTGTCTTCCAAAACCGTCGCCCGTTCGTGTTCAAGAACATGAACCCAAGCGAAGAATACACCTGGTTTAATAACAAGCTTGCAGCGGGTGTTGATGGTCGTTGTAACGTTGGTTTCTCTTTCCCTCAAATCGCGATTGGTTCTAAAGACACGCTAAACGAAGCGAACTATGCATTGGCGAAGAAGCAGCTGCTAGAGATGAAACGTGCAAACGGCACTCGCCTTGGCACTCGCGCTACCACGCTTGTGGTTGGTCCTGCGAACGAAGCTGCTGCTAAGAAGCTTATTAGCCGCATGTTGATTGAAGGTGGTGATTCCAACATCTACTACAACGACGTTGAAATTGTTGTTAGTACCGAAGTCGAGTAATCGATAACAGCGTAACCGCTTATCAGCCCTAGGGCGATGACGAGCTGGCGGTGTTCAATCACCGCCACGCTATCAAGGAGAATTCATGACTACTCGAATAGAAATCAATTCTGATGATTGGACGCTTGTCTCTAGTGCAGCTGCTGGCTACATGGAAAATGAAGGTGGAAGTGTCGCTAAGTTCAGAGTGGAAGATGTAAAGCCTGACGCTGCTGAGAAATGGGGGCATAGCATTGGTTTATATGATGCTAAGGGTTGGTCTCGCGCTGTTGCTAAACCTATTTATGCACGCAGTGTTACCGCTAAAACGCACCTCATTGTTACCGAGGGTTAAGTATGTTTTTTGAAAACTCACCACTGATAAGCCAAAGCGCACCGCCAGCACCTGAATCTGTTTTGCTTATGCGTGCCAGTTATGTCACGCCAGATGCGAACGATTTAAAACAAACGCTCGCGGCAGACAATACACCGGAAACGATTCTATTCAACGATGTGCCTTTGGCCTCTCCTGATATAGACGTTGACCTGGTGACTGGCGAATCAACCGCTTTAAAAGACTTTAGCGGCATGGTGAGTATCAATGCTTTGGTACTGCGTGAGAGTTCACCTTTTGCAGCCAGTGATTGGGGCATGTTTGCTGAGGTGTTTGATGGTAGCAATTGGGCTCCTGTTTCAGGTAGCCACCGACCGCTAACCCTTGGCTTTCAATTCGATAATGAAAAACGCCCGAATGACTTCACTGTTTCCATCTCTTTGCTTGCTGGCGACAAGTTCCGTTGGCGTCACTATACAACGGATGCAAGCAGCCAAGTGTCATTGGTTTCATTTGGCGCAGCTAATGGGTTGCCCTCTTCAGCGGGTGTGATCATGAGTTTCTGGGGCATTAAACCGTAATTTAATCGCCATTAAATATTCGTTTAAAGGAGTTCACAGTGAGTGGAACTAAAAAATCAACAACTGGAAAAGTTGGAAAAGTGGAAGGAAATCCCTCCACCGCTAAAGCGGAAGCCGAACAGAAAGCACTCGACAACTTCGATGCTGATTTAAATGACGAAGCTAAAGCTAGGGCTGAATTAGAAGCCGAAGCCAAGGCGGGAGCTGAAGCTAAAGCAAAATTAGAAGCCGAAGCTAAGGCGGAAGCTGAAGCTAAAGCGAAATTAGAAGCCGACAAAAGCAAAGGTGATCAAATTGTACAAGTGGATTCAAAGAAAGATGATGTGGTTCATCCTGGGGATGGCGTTGACGCTATCGGTATTCTTGGCGCTTTCAAAGTATGCGCTAAATCAGATGCTGGGTTTTGGCGCTCAGGCGTTCAGTTCCATCGTCTCCAAGAAAAGCTGGTGCTTGTGGTGGAGCAAGAGCCGGATGCGTCTGCGCGAGTTCATGCGAAAGATCATGAACCAGAGTGCGTGGTGTTCCTCTCTCCTGAAAAGGCGAAGCGCGTACACGACGAGCCGCACCTGACGGTTGAAGTTGTTGAGCTTGAAGACGTACTCGATCTTCAAGACATGCAGCAATAACGTTTTTAAAAGGTAGTAAATACGATGGCAACTTACGCAACCAAGCAAGACCTACTTGATCGTGATGAGCAGATGCTGTGGAACTTTGCGGTAGACCGCACCACTGGCGAGCTCAACGATGTTTGGATTAACCAGGCATTAGACCAAGCCGATGAAGAGATTAACTCTTTCTTAGGTCGTCGTTATGTTCTGCCACTGCCGACTGTGCCAGGCATGTTGAATAAGGTTGCCATCACTATTGCGTTCTACTGGTTAGCCGACCGTGACCAACAGGCTACGAACCTATTAGAAGAACGCTACAAGATGCAGCTTGAAACTCTGCGTGAAATTGCCAATGGCAAGCGCGAACTTGGTTTGCCAACCATCGAAGCCCCAAGCGAAAGCAGCGTGGGCAAGGTTGAGCTGATTCAAGAGAACGAGCGCCAGTTCACCCGCAACAGTTTGAGAGGCGTCTTGTAATGTCGATTGGTGTTCAAGTTACGGGAACGCAAGAGCTTGAGCGCTATCAACAGCTGCTTGAAACCCTAAGCGACCCAAAGCACAAAGTTGAACTGCTTGATTCGTTAGGTGGAATTGTAGAGAGCCAAACCAGAAGAAGAATCGCCGATGAGAAAACGTCACCTGATGGTCAGCGTTGGGATGATTGGTCTAGCAGTTATGCGAAGACTCGACATGGAAACCAATCCCTTTTGCAGTCCGAAGGCGATTTGTTGGACTCCATCCAGTACCAGGTGCAGCGCAACCAAGTTCGAATTGGATCGCCGCTGGCCTACGCTGGCGTTCATCAAGATGGCTTTTCTGGTCCGGTTCAAGTGTCTGCTCATACGCGCCTTATAACACAAGCCTTTGGTAAAGCGTTGGCATTTCCGGTCTATCAGTCTGTAGGGGCGTTCACTCGCATGATGAACATTCCACAGCGCGAATACTTAGGGCTAAGTACCGACAACCAAACTGAAGTGTATGCGGTTATCGGTGACTTCTGGAAGGAGTTAATGAATGTCTAGACCCGACTTTACCACCAGTGGTTCTACCGTTTGGGCCGTGAATGAAATCGTTCAGTACCTTAAGCCAAAGCTTGAAGGTGGTGTGCGTGAAATAGAAAAGATCCAAACCGTTGAGCGCCACATTGGCCGTTTTGATAAAGCGGATGATATTAAGCGCTGGATGTCGAACCGTGACGGTGGCGTTCGTGTTGCTGCCCTACGTGTTCCGCAATATGAAACTGTGGGTAATCGCTTAATTGGTAACGTTAACCTGGTGGCCTATGTGTTTACCACTGACCAGTTCGGTTACGAAAAAGACCTACGTGCCGAAGTGGTCGCAGGAAAGTTAGTGCGTGAATTGATGGATAGAAGCGCACTGCCAACATCCTATGGTCGCGTTGAAAACGTACGCAGTGACAATTTATACAGCGGTGAAATTGACAAGCTTGGTATTGCTATCTGGTCTGTCACTTGGTCGCAGCAATGGTACTTAGATGAAGAGATTGATCTCAGTACGTTAGATGACTTCATTACCTTTGGTCTGAAAGGTGAAATCGCAGATGGCGCACCCACCATTGATGGTGAAGTGAAGCTGCCTCAATAAAGCAAGGGCATAACGATGATTTTAAAACCGAGCAATAAAGAGATTCCCGTTCGCAACCCTGAAGGGGGCTTCCTTTCAGATGAAGGCGAAAAGGTTAAACGAAATTCATATTGGCTGCGACGCATTGCAGATGGTGATGTTGTTGAAGTGAAAGCGACTGCTGACGCACCGGCTAAAACGAAATCCACTAACGCATCGGCTAAGCAAGCCACTAAAGGAGAATAAGCATGTCATTGGGCTCTATTCCTAACGATATTCGAGTACCACTCGTTTATATCGAGATCGACAACAGCGAAGCGAATTCAGGCACACCCGCTTTGGCTCAGAAAGTATTAGTACTTGGCCAACAGCTGGCAACGGGCACTGCTGATGCACTTACACTGAATCGCATTACGACAAGTGAAAGCCAAATTGATGACCTTTACGGTAAAGGTTCAATGCTTTCTCGTTCGCTTAAGAAGTTCCGCAAAACCAATGAATATACAGACGTGTATGCATTGGGTGTGGCTGACTTAGCAGCAAGTGCGGCTAAGGGTGAGATTGCCGTTACGGCAACCACGGTTAAAGCAGGTGTGATCGCGTTATTGATTGCTGGCGAAAGCGTGCAGGTAACGGTGAAAGATACGGACGATGCTGATTCTATTGCGATGGCCATCATTGCTAAGGTGAATGCTGATACCAACCTGCCTGTTACTGCTGCTTTGAAAACAGCTGAGACAGATATTGTAGAGCTGACGTGTAAATGGACAGGTATTACGGGCGACGATATCGATATCCGTTACAACTACTACGACGGTGAGTTCTTGCCTAGTGGTGTGACTATTGCGATTACTGCCATGACAGGCGGCGCAGGAACGCCAGACATGAGCGCTGTTATCGCGGCTATTCCGAACGAATGGTACAACCATATCGTGATGCCATTTAACGATACCCAATCAATGAATGACCTACGTGACGAGCTGGTTAATCGTTGGGGCCCACTCAAGATGATTGAAGGCATTGCTTACACCGCGTTCCGTGGAACCTTTGCTGAGACGGGTGCGTTTGGCTCTGCGCGTAATGACTTCTTATTTACGTGTATGGGTACGAACAGTTCGCCAAACTCGCCTTGGGAATTTGCTGCGGCTTACGCAGGCCGAGCGTCTTACTCACTGGGTATTGACCCTGCTCGCCCTCTTCAAACGTTAGTGCTAACCAGTTTGCTGCCACCGGCTAAAACCGCTCAGTGGGACATGACCGAACGCAATCTACTTTTGCACGATGGCATTGCAACCTATTCCGTTACGCCAGGTAATGAAATTGCGATTGAGCGTGAAGTGTCAATGTACCGTGAGAACGTATATGGCGATCCAGACCCAAGTTACCTCGATATCACTACGCCAGCGACATTGGGTTACTTACGTTATTCACTTCGAACCATGGTAACTAACCGATTCCCTCGCCATAAGTTGGCAGGTGATGATGTACTTGATCGCCTTGACCCTGGTCAGCCTGTGGTGACACCAAAGATTATGCGCAATGCCGTGTTAGAGCTTGCCAATAATGATTGGGTGCCAAGTGCGTTGATGGAAGACTTCGATGGTTTCAAAGAGACATTGGAATTGTATCGAGATACGAGTGATCAGAACCGTTTGAACTGTGTGTTTAAGCCAGACATTGTGAATCAGTTCCGTATCTTCGCCGCACTAATGCAGTTCAAACTTTAATAGGGAGTACACACCATGGGACAAATCCTTGGTCAAGTTGTTGTTCGTGCTAACAGCAAACAGCTTAAAACAAAGAAGGGTTCTACTTTGAACCCAGGTGGTTACAACCATGTATCTCACCCTGGTCCAAACCGTATTTGGGGTAAGTCGAAAGAGTTCGTTGCCGCGACAGTAGCGGTAGTGATTGCGGCGGATGAAGATGTCGATGTGGTGGAAATCAATAACATCACAGACGCAACGCTAACATGGGAAGGCGACAACGGTGTTGACTACATGATTACAGGTGCATCACCACAAGCCCCTTTCCAGTTAAGTGACTCTGGTGATATTACGGGCACGTTCGAAGGCAACCCAGCGGAGAGAATCTAATGGCCGTTCTCACTTTTGATCTTAAAGATGGACTTAAGTCTGGAGAAACTACTGGGTTTGAAGTGGGCCTTCGAGAGCTTACCCCTAGAGACGTTTTTGACGCTCAATTAGCTTCTGAAAAGCTTGGGCTGATTGAGGGGCGTCCATACGCTTATACCAGTAATGTTCAAATGGGGATGGAGTTACTTTGTCGCCAAGTGGAATTTATTGGAAAGGTTCAAGGGCCATTCTCCGCAAAAGAGTTGCTCAAGTTATCACAAGATGATTTTAACCTTATTCAATTAAAAGCTTCTGAACTGGATGCTGTAATGGTTCCAGAAGAAGTGACGGAGGCTCTCGAATCGCGGGGGCGATCTGAAGTCGCTGACTAAACCACTTAGAACCTTGCTCCTTAACATGGGGGCAAGGTATCCAGTCAGCGATTTAAAATCCCTTCCTATACGTCATATTTTTGAAATGCTACCGCCGCTTATTGAAGGAACAGAGCATGGCTAAAAAACTTGAAACCGATATTGTTCTTAATTTACAAGGCAACCTAGCTTCTAAGGCGAGTAAATATTCACAGTCAATATCCACACTTGGTAAAAAAAGCCAAAGTGCATTCAATATGATGGAACAGTCCGCTAAATCTGCAAGTAAAGGTATAGACACTTTTGGTAACCGTACCATTGTTGGCGCGGGCGCGGTGGCTTTTGCCTTTGAAAGAACCTTTATTAAAACGGCCGCGGAGTTTGAGCGTTACCAAGTGATGCTTAATAAGCTGCAAGGCTCAGAGGAAGGCGGAGCGAAAGCTCTAGAGTGGATTGAGGACTTTACTCAAAATACCCCTTATGCAGTAAATGAAGTCACTCAATCGTTTGTGAAGCTTAAGGCTTTCGGTCTCGATCCTATGGATGGAACGATGCAAGCTATCGCTGACCAAGCCTCAATGATGGGTGGGACTGCTGAATCTGTAGATGGAATTGCTACAGCTCTTGGCCAAGCCTGGACTAAAGGAAAACTGCAAGGTGAAGAAGCGCTTCAGTTGCTAGAGCGTGGCGTTCCAGTTTGGGACTACTTAAACAAGGTTTCTAAAGAACTTGGTCATAACAATGGCTTAGGTCTAACAGCTGCTCAACTTCAAGACATGGCGTCTAAGGGTGAGTTAGGTCGTGACACTATCAAGCGCTTGATCGAGGAGATGGGTAAAGCGTCTGAAGGCTCTGCGAAGAAGCAAATGGAGACGTGGAACGGCATGGTCTCCAATATGGGCGATCATTGGTCTGTTTTCCAAAAAGACGTAATGGAAAGCGGTGCGTTTGATGTGTTGAAAGATGAGCTTGGCACTTTCTTATCGATGCTCGATGAAATGAAAGAAACAGGTGCGTATGACGAGCTTGTTCAAACGGTAGGAACAGACTTAGTTGACGCTTTCAGAGCTGCTGCTGATTTTGCTGGTGCAGTAAAAGATGTCGGGCAAGAGCTACTTCCAGTATTGCGTGCTATCGGTAATGGAGCGTCAGCAATCAGTGAGGCCGTTGGTGGTTATGGGAATTTGGCTAAGATTTTAGCTTCAGTTTATGCCTTGAATAAAGCGATCAGAATTGGAGCTCCATTGTTGAAAGGTGCAGCTGGGCTTATTGGTAAAAGTTCTGGAGGAAAAGCTGGGAAAGTTGCTGAGAAGTTAGGTGCAATGCCTGTTTATGTCATAAATATGCCAAGTGGCGGCATGGGTGGTTTAGGCGGTGACATTGAAGCTTCTGGTGGTAAAGGCGGTAAAGGTTCAAAAACCAAATCGAGCATTAAGAAAGTAGGTAGCGCAGCTATGGCATTAAGCCCGTTGGCTGTTATGACACTATTAGGTAGCGCGAAAGATTATGATCCTAAAAACCCTATGTTTCCTTCATTGGATTTTGCTCAAGAAAGTAATAATAAAACACCACCGCCAAACGTTACCGATGCAACCGCTCGATTCAATGAAGCATTTAAGAGACCTCAGTCAGCTTTTGAATTGGCAGGGCAGGCGCCTACTGGCAATGTTAATTTAAAAATCGAGGTGTCAGATGAACGCATTAAGGTTACGCCAACTTATGCGGCTCCTGGTATTACTATCGACCCAGATACGGGCGCAAATTAAAGGGGCTTTAAATGGCATTTGAAGATCGTTTAACCGCCTCTATTCGTGGTGTTGAATTTTTCCTTGATGATGCAAGTGGTGACTTTGGTCGCCGTGCTATTCCTCATGCTTACCCTAAGCGTGAACAAGGCTATACCGAAGATAACGGTAAAGTGCTTCAACAAGAAATGATTAATGGCCGCACTGTGGGTGATGGCTACTTTGAGAAACTACAGCAAATCATTGAAGCGATTAATACACCAGGGCCGTGTGAACTTATTCACCCTTGGTTTGGCGTTCGTAAGGTTCAGGTTGGTAAAGGCAGCTTTAAGTTAGTCAATAAAACAGACGGCTTAGCCACGTTTAGCTTTGAGGTGTTTGAGCAAGGTGAAAACCTATTCCCGAATTCAAAGCGCGATACCGCAAGCCAGGTGCAAGGTGAATCAACCAAGTCACAAGATGCAGCTAATGATGCCTTTGAGAAAGAATTTGATGAGACGGCCACGGAAGGTGTGGGCGATATGGTTGATCAGTTCTTAGATGACTTAGATGAATTCACCCGTGGTTTACCATCACTACCTAGTGAGCTGCGTGAGTGGACAGATCGCCTTATGCGCACCAAAGATTCCATTGGAAACCTCTTGGCCTACCCTGGTGAGCTAGCGCGTGAAACCATGGGCCTATTGGAAGACGTGAAAGGCGTGGTGACTGACCCTATTCGCGCCCTCGATGTTTACCAGAACGTGCAAAACCGTTGGGATGGTATGCGTGCTGAACTGGCTGTTACTGGTGGTTTAAGTCGTAACATCGATAGTGCTGATGGCTTCGTAAGTTCGGTGCCTAGCGTGGCTAACCCTGTGAAGCAACAAGCCGTGCTAAACAATGCCGATGCGTACAAGCGTTTGATTATGAATTCCGCGACGGTTTCTAAGGCTTCAGCAATGGGTGACGCCGATATTGGCGTTGATTTGATTGATACCGATGAGTCGATTAATAGCCTTTCAGGTGCTGACCGTAAAGCCGTATTAACGGGTGAGCAGTACAAGAAGATTGGGTATGACATTGCCAATGAGTTAGCGGAGCTTTCTGCGAACGCCGTTGAGCTTGGTGACTCTGCGGTGTGGCGTCAGTTTCGTGTGCTGCGTCAAGCGGTGTTGGCGGATACTAGAGCAAGAGCCGAGCTGTTGCCACAGTTAAGTATTTACACGCCCACCAGTACGGTGCCTGTTTCTTTGGTGGCATGGCAAGAGAACGGCGACACTGAAACGCGCCAGAGCATAGTGCGTCGTAATGGCCTGTCTAATCCATCTTTTATCTTGCCTTCAGATTCCATTGAGGTGATTAGCTCATGACAACGCAGTTAGATGAAATTGTATTGAAAGCTGGCGGTAATGTTTACGGGGGCTGGACTAAGGTCAGCGTGACTCGCTCAATCAATGCGATGTCTGGTTCATTTGATTTAGAACTGACTTGGAAGTGGCAAGGCTCTGATGATAAATACAAAGCCTTCATGGAGCCGATTCAGCAAGGTCAGCCTTGTGTGATTGAAATTGGTGGTGAGCGCGTGATTACGGGCTATGTGGATGATTGGGTGCCTAGCTACGATGCAAACCAGGTGATGATATCGGTCAGTGGTCGAGACAAAACCGCTGACCTAGTGGATTGCTCGATTGACTACCCTTCAGGCCAGTTCAACAACCAAACGTTAACTCAGATTGCTAACGTGGTGTGCAAGCCTTTCGGTATCAAAGTGATCGTGAATACCGATGTGGGCGCGGCGTTCCCTCGCATTCAAATCGAGCAAGGTGAAACACCGCATGAGCTGCTTACTCGTCTAGCCCGTCAACGTGGTGTGCTGCTAACCAGTGACACGTTTGGCAATCTTGTTATTGTGCGTAGAAGTGCAGAGCGTGCGGGTGTGTCTTTAATCCTTGGTGAGAATGTGAAAGCTGCGCGTGGTCGCTTCAGCTGGCGTGAGCGTTTTAGCTATTACAAAATAAAAGCCGTCGGCCCAGCATTTGGTGGCTTTGATTCAGATGATGCTATTTCGGTAGGTGGTATTGAGGCGAATGTTAGCGATGCAGATATTACCCGTTATCGCCCGATGATTATTGTTAATGAAGAAGTGACTACTGCCGAAGGTGCAGCCAAGCGCGGCCAATGGGAACGCCAGCGCAGCATTGCTATATCCAATGGTGCCGAGTACACGGTGACAGGGTGGCGAATTCCTCAAACGGGCAAGCTATGGAACTTCAATACGGTAGTGCCAGTTCAAGATGAGATTGTGGGTTTGGATGAAGAGATGCTGATTGCCTCGATCATGTTTAGCGAAGATGCTTCAGGTCGTATTGCTGTGATTAGTGTGGTTAAGCCTGAGTCTTTTGATATACCCGCGGAAGCTGCAAAGAATACCTCTTTAAAATACTCTTGGAAGAAAGCTCAAGGACAAGCCGAATGATTACAATGAGACATGTCGAGAAGTTACTTTCACCAATCAAACGCCGTATCACTGGCATGGTTACCCGTGCGTTAGTTTCTGGAGTTGTGGAAGACTTACAGCGTCAGAATATTCAGGTACAGCTTCATTCTGATGAATCTGCGGATGACATCGAGCGCTTTCAAAACTACGGTTGCAGTTCGTTCCCACCTATAGGCTCTGAAGCCATTCTTGCGGCTATCGGTGGCAATCTAGGTAACTTGGTTGCTGTGGCTGTCGAAGATAAAAAATATCGTCCAAAGGGTGAAAGCGGTGACGTTTTCCTCTACCATTTGGAAGGTCATAAAATCCGCTTAACCAAAGATGGCAAGGTGGTTGTTACAGCAACCGACGTTATTTTTGAAGCCGCTAATTCCTTCACTATTATTTCCCCTGAAACATTGATTCAAGGCCCTTTGCATGTGACAGGTGGGATATCTACAGACCTTGGTATTTTTGCTACTGGCGGCATTACTTCTGCCAGTGTTGTTAGCGGTTCAGATTTAACCGCAGGCGGCTTTAGCTACCTTGGCCACTTCCACAAAGATGCAGAGAACAGGAATACTTCAGCACCAGTGGGTTAACTATGAGCGTGAGCATCGTGTTCGACATGATGAAAAACACAGGAATCAGCGTATCGATTAATGGAAGTGAGGGCGGAAGTGTCGCAGATGACACAGTTTCAGCCCTCGTTTTGATCTCGTTGTTTACCGATGCACGCGCCGATACTTCAGACCGCTTACCCGACGATTCAAACGACTTTAGAGGCTGGCCTGGTGACACGTTTTACGATGCACCATGGGGCTCTAAACTTTGGCTGCTTTACCGTGAAAAACTGACTACCGATGTGCGCAATCGTGCTGTGAAATACGCAGAGGATGCACTGGCTTGGATGTTGGTTGATAACGGTGATGGCCAGATGGCAAAAAGCGTGTCTGTGGTTGGCTCTATTCCTCGTTTTCAAACCCTTGCCTTGTCTATCAATATCACCAAACCAGACAACGAAGTCATCTCACTGACCGTTATGAAACGATGGGAGGCGCAACGTGCCGTTTAACGTTCCTACGCTACGCCAGCTTATTGAAAGCGGTTTAATCGATATTGAAGCCTCGTTAGATGAGGTTTTACCTAAGTTTGGCATTGAGCAAGCGCTTAACTCTTCTGTGAGTAGCAGCGTTCGTGATCTTTACGATTACCAATCTTGGATCGTTCGTCAAATCATCCCTTCCACTGAATCTGAAGACCAGACCATCATCGATGCAGCACGCTATGAAGGCGTGATTCAAAAGCTTGCAACGAATGCTGCTGGCCCCGTTACTTTTACAGGTAGTGTGCCTATTCCCGTTGGTACTGTGATGACGCATTCTGATGGCCGCTTGTATCGAGTGACGCTATCTAATGCGCCAGACAGTGGCAGCGTTTTGGTGGAAGTAGAAGCGGAAGAATCAGGCGTTGCGGGTAATCTCGCGGCAGGTGAAACGCTGACGTTAGTGTCTACCGTGCCAGGTATTCAACCTAATGGTGTGACGGGTGAAATTTCAGGTGGTGCGGAAATAGAATCCGTTGCTGAAGTGCTTGAACGTTTGTTGTTTCGTAAGCGTAATCCACCTATGGGCGGTGCGGTGCATGACTACGTGGCATGGTGCCGTGAAGTGGCTGGTGTCACGCGTGCATGGGCTATCGATGCCTATCAAGGCGGCTCGACGGTTGGCTATGCATTTGTCTTTGATGGCCGTACCGACATTTTGCCCAATATCACCGACCAACAAGCGATGTCTGATTACATTTATCGCCATAAAGACCCAGCAACAGGCAGTGACGTTGGTCGCCCTGCTGGCATCGAGCCAGTGCCTATTCCGTTAACGCTGAAAGTGACGGATTTAGACATCAATATCACGCCAGATAACACAGAGCTTCGTGCCATTGTGCAGACTAGTATCAACAGCTATTTTAAAACGTTAAGCCCTGCTAGTACGCTGCTTGTAAGTGCAGTGCGCACCGCTATTGGTACAGTGCCAGGTGTTGAAGACTATTCGCTAGATCTGAATGCTGACGTTCCTGCTGCATCGAATGAGTTACATGAGCTTGGAGTGATTACATGGGCCACTCTGTAGAGCAATGGACTAACTCAATAATGGCGCAAATGCCACGAGGTATCTTGTGGCAGCGTTCAGCATCTCTAGACCTTTATAAATACGCGGCAGGCTATGCACCAAGGCTAGAGGCAGTAGAGGTGAGCGCAGACAGTTTATTGTTAGAAATGCGCCCTGAAAACACTCAGCAACTACTAGACGAATGGGAAGAGTATTTAGGGCTTCCAGAGTGTCAAGTTCAGAACCAAACGTTTGAATCACGCCGTGCGGCTGTGGTTGAAAAGTATCACCGTAAAGGTGGCTTGCAAGCATGGAACATCGACAAGCTAGGCGCTGACTTAGGCTTTGAGATTGAGGTAGAAGAAATCTTCCCTCACCACTGTTTACGTGGTTGTACTTATCCACTCTATGAAGAGAAGTACCGCCACTTATTACGTATTCACGTCAGAGGCATTACACAAGCTTATGCAACGTGCCTAGACGATTGTTTAACCCCGTTAGTATCTCAAACCGCCGCTATTCTGGAATGTACGCTAAACCAGTTTAAGTTAGGCGGTAAGTACTATGAATTCATCTATGAGGAGAGCGTGTAATGCACTATCTCAATAATGGCTCTCAGGTCGAGAGCGTCCCACCACTCAAGCCAAGAGTCGGTACACGTGGATACTTCACGGAGAGCAACGATGAAGGCTCACCAAGCTATCCAGGGCAAGATTGGTTTAATGCGGTGATTCGTGAGTTTCAGACGGCGCTTTCTGATAATGGTATTTCGTTTGATCCTGATAAATATGATCACCTATCAAAAATGACTATTCCATTAGATGTCAGCATTCAAACAGTCCCCGCATTAATTGCCAATGCAGGCAGCGTAACTTTCATCAAGAGGGGCTTTGTTGTTACTGCATATCTTTTTACAAACACAGTAGCAAATCAAAGTAATGGTACTTCTTTGTGTACCATTCCATCTGGTTTTCTCCCTTCACCGAAATACCAAGCTGGTACGGGGGTTTTTGAGTTTGCTGTTCCGAGTAGTGCTTCTAGTTCTTCACGCTGTCAGCTTCAATCTTCCCAGATTTTAGCTTTTGATTGGTCATCAACAGCCATTTACCGTGGTTCTTGCTCATACATTACGGAAGAATAGTTCATGAAATTATATTACCTGCCAGCGACTCACGAATGCGTCACATCAGCTCAAGCAAACACTGTTGAGCTAACCGAAGATGATACGGCCCTTTGGATTGGTGAAACCCTCCCTAAAGGTAAAATCTTGAAATCAGGAGCTTACCCCTTTGTTTTAGTTGACGACCCATCTATTAATCTTCAAGAGCACCTATGGGTTGTTGAAGAGCTTAAATATGCAAACGTACAAGTTACGTACCATGAGGATAATAGCACTCGTCCAGATGGTTCTTCCCGCGCTACCTCTTCAGAGGCCGAATGGAGAAGATACCGCGTACTATTGCAAAATTACACATCACAGACTGACGATGGTTTGATTATTGTGAATGGTAAACAGCGCCCCTCTAGACCAGTGTAGACTGACTCCATTTTTACAATTATCTGATCTAAGATTAGCCACAATTCAAGTTTGTTTTGCCTACCGTTTTGAGCACCGATTGATTTGCTCATATTGGTAGGTCTCACTGTTCATTCGACGCGACGCGCTACA",
+            "length": 31617,
+            "complete": false,
+            "type": "contig",
+            "topology": "linear",
+            "simple_id": "contig_1",
+            "orig_id": "MG592670.1",
+            "orig_description": "Vibrio phage 2.159.B._10N.261.46.F12, partial genome"
+        }
+    ],
+    "run": {
+        "start": "2025-03-07 10:45:13",
+        "end": "2025-03-07 10:45:23",
+        "duration": "0.17 min"
+    },
+    "version": {
+        "bakta": "1.10.4",
+        "db": {
+            "version": "5.1",
+            "type": "light"
+        }
+    }
+}
