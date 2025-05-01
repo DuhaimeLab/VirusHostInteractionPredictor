@@ -544,7 +544,7 @@ class GeneSet:
     def amino_acid_counts(
         self, threshold_unexpected: float = 0.0
     ) -> None:
-        """Aggregate the counts for each unique amion acid and unexpected amino acid across all CDS genes in a GeneSet.
+        """Aggregate the counts for each unique aminoacid and unexpected amino acid across all CDS genes in a GeneSet.
 
         Args:
             threshold_unexpected (float): Percentage of unexpected (not in AA_LIST) amino acids tolerated in a single CDS gene included in the GeneSet (default 0.0 or 0%)
@@ -573,7 +573,7 @@ class GeneSet:
             gene.calculate_aa_counts() # calculate amino acid counts for the current gene
             self.unexpected_aas.extend(gene.unexpected_aas)  # add all elements of gene.imprecise_codons to GeneSet imprecise codons
 
-            # if percentage of amion acids in current gene is over threshold, skip the gene
+            # if percentage of aminoacids in current gene is over threshold, skip the gene
             if len(gene.unexpected_aas)/len(gene.aa) <= threshold_unexpected:
                 for key, val in gene.aa_dict.items():
                     self.aa_dict[key] += val
@@ -644,6 +644,7 @@ class GeneSet:
             )
 
         if hasattr(self, "codon_dict"):
+            print(f"Calculating RSCU for {self.id}.")
             # create dictionary of the sum of synonymous codon counts for each aminon acid
             expected_counts: dict[str, float] = {codon: 0 for codon in degenerate_codons.keys()}
             for aa in degenerate_codons.values():
@@ -822,16 +823,16 @@ class tRNAMetrics:
             self.virusTAAI_hosttRNA (float): Spearman rank correlation coefficient between host tRNA gene copy frequencies and corresponding viral amino acid frequencies.
             self.virusTAAI_totaltRNA (float): Attribute created and populated only if virus_tRNA_dict_aa provided. Spearman rank correlation coefficient between total tRNA gene copy frequencies (virus and host) and corresponding viral amino acid frequencies.
         """
-        # Check that keys are expected amino acids
-        if not all(key in set(AA_LIST) for key in virus_aa_frq.keys()):
-            print("Amion acid dictionary does not contain expected amino acid keys. Exiting method.")
+        # Check that all required keys in input aa_frq dict
+        sorted_keys = sorted(set(AA_LIST))
+        if not all(key in virus_aa_frq.keys() for key in sorted_keys):
+            print("Amino acid dictionary does not contain all expected amino acid keys. Exiting method.")
             return
-        if not all(key in set(AA_LIST) for key in host_tRNA_dict_aa.keys()):
-            print("host tRNA dictionary does not contain expected amino acid keys. Exiting method.")
+        if not all(key in host_tRNA_dict_aa.keys() for key in sorted_keys):
+            print("host tRNA dictionary does not contain all expected amino acid keys. Exiting method.")
             return
 
         # Perform Spearman Rank correlation between virus amino acid frequency and host tRNA availability
-        sorted_keys = sorted(set(AA_LIST))
         virus_aa_frq_values = [virus_aa_frq[key] for key in sorted_keys]
         host_tRNA_frq_aa = {
             k: (v / sum(host_tRNA_dict_aa.values())) for k, v in host_tRNA_dict_aa.items()}
