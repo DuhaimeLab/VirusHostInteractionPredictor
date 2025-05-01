@@ -19,8 +19,8 @@ class Pairs:
     """Class to store coevolution signal values for a virus-host pair.
 
     Args:
-        virus (str): filename of virus of interest
-        host (str): filename of host of interest
+        virus (str): name of virus of interest
+        host (str): name of host of interest
     """
 
     def __init__(self, virus: str, host: str) -> None:
@@ -52,7 +52,7 @@ class ComputeFeatures:
         virus_gene_dir (str): Path to the directory containing viruses gene fasta files. Each file should contain annotated genes for a unique virus.
         host_gene_dir (str): Path to the directory containing host gene fasta files.  Each file should contain annotated genes for a unique host species/OTUs.
         genome_ext (str): Extension used for genome fasta files. Default is "fasta".
-        gene_ext (str): Extension used for gene fasta files. Default is "ffn".
+        gene_ext (str): Extension used for gene fasta files. Default is "json".
         pairs_of_interest (str): Optional. File path to custom pairs, instead of computing all possible pairs. The input file needs to have a virus file first then a host file. Must be separated by commas (,). If interested in multiple pairs, separate by newline.
     """
 
@@ -63,7 +63,7 @@ class ComputeFeatures:
         virus_gene_dir: str,
         host_gene_dir: str,
         genome_ext: str = "fasta",
-        gene_ext: str = "ffn",
+        gene_ext: str = "json",
         pairs_of_interest: Optional[str] = None,
     ) -> None:
         """Initialize class variables."""
