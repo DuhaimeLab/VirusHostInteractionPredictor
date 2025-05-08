@@ -169,11 +169,11 @@ class ComputeFeatures:
 
         This assume that each virus should be tested against each host.
         """
-        total_interactions = len(self.virus_genome_filenames) * len(
-            self.host_genome_filenames
+        total_interactions = len(self.virus_genomes) * len(
+            self.host_genomes
         )
-        print(f"-------> There are {len(self.virus_genome_filenames)} viral sequences")
-        print(f"-------> There are {len(self.host_genome_filenames)} host sequences")
+        print(f"-------> There are {len(self.virus_genomes)} viral sequences")
+        print(f"-------> There are {len(self.host_genomes)} host sequences")
         print(f"-------> Total number of interactions: {total_interactions}")
 
         # determine all virus-host pair possible (every host is going to be considered for every virus of interest)
@@ -294,12 +294,12 @@ class ComputeFeatures:
 
         This will be done for each fasta files in the virus and host directories.
         """
-        self.GCcontent = dict.fromkeys(self.all_genome_files)
-        self.k3profiles = dict.fromkeys(self.all_genome_files)
-        self.k6profiles = dict.fromkeys(self.all_genome_files)
+        self.GCcontent = dict.fromkeys(self.all_genomes)
+        self.k3profiles = dict.fromkeys(self.all_genomes)
+        self.k6profiles = dict.fromkeys(self.all_genomes)
 
-        for virus in self.virus_genome_filenames:
-            path = self.virus_genome_dir + virus
+        for virus in self.virus_genomes:
+            path = os.path.join(self.virus_genome_dir, virus + "." + self.genome_ext)
             seq = read_sequence(path)
 
             seq_profile = KmerProfile(seq, k=1)
@@ -314,8 +314,8 @@ class ComputeFeatures:
             seq_profile.generate_profile()
             self.k6profiles[virus] = seq_profile
 
-        for host in self.host_genome_filenames:
-            path = self.host_genome_dir + host
+        for host in self.host_genomes:
+            path = os.path.join(self.host_genome_dir, host + "." + self.genome_ext)
             seq = read_sequence(path)
 
             seq_profile = KmerProfile(seq, k=1)
@@ -445,11 +445,11 @@ class ComputeFeatures:
             num_procs (int): Number of core to be used.
         """
         with Pool(num_procs) as pool:
-            results = pool.map(self.compute_feature, self.pairs)
+            results = pool.map(self.compute_features, self.pairs)
 
         self.computed_pairs = results
 
-    def compute_feature(self, pair: Pairs) -> Pairs:
+    def compute_features(self, pair: Pairs) -> Pairs:
         """Compute all virus-host coevolution signals (for one pair) needed to predict interaction.
 
         Args:
@@ -519,10 +519,10 @@ class ComputeFeatures:
         RSCU_Slope: List[float] = []
         RSCU_R2: List[float] = []
         RSCU_Cosine: List[float] = []
-        virus_TAAI_hosttRNA: List[float] = []
-        virus_TAAI_totaltRNA: List[float] = []
-        virus_TCAI_hosttRNA: List[float] = []
-        virus_TCAI_totaltRNA: List[float] = []
+        virusTAAI_hosttRNA: List[float] = []
+        virusTAAI_totaltRNA: List[float] = []
+        virusTCAI_hosttRNA: List[float] = []
+        virusTCAI_totaltRNA: List[float] = []
 
         for pair in self.computed_pairs:
             virus_host = str(pair.virus + ":" + pair.host)
@@ -541,14 +541,14 @@ class ComputeFeatures:
             RSCU_Slope.append(pair.RSCU_comparison.slope)
             RSCU_R2.append(pair.RSCU_comparison.R2)
             RSCU_Cosine.append(pair.RSCU_comparison.cos_similarity)
-            virus_TAAI_hosttRNA.append(pair.tRNAMetrics.virusTAAI_hosttRNA)
-            virus_TAAI_totaltRNA.append(pair.tRNAMetrics.virusTAAI_totaltRNA)
-            virus_TCAI_hosttRNA.append(pair.tRNAMetrics.virusTCAI_hosttRNA)
-            virus_TCAI_totaltRNA.append(pair.tRNAMetrics.virusTCAI_totaltRNA)
+            virusTAAI_hosttRNA.append(pair.tRNAMetrics.virusTAAI_hosttRNA)
+            virusTAAI_totaltRNA.append(pair.tRNAMetrics.virusTAAI_totaltRNA)
+            virusTCAI_hosttRNA.append(pair.tRNAMetrics.virusTCAI_hosttRNA)
+            virusTCAI_totaltRNA.append(pair.tRNAMetrics.virusTCAI_totaltRNA)
 
         self.features_df = pd.DataFrame(
-            list(zip(pairs, GCdiff, k3dist, k6dist, Homology, Codon_Frq_Slope, Codon_Frq_R2, Codon_Frq_Cosine, AA_Frq_Slope, AA_Frq_R2, AA_Frq_Cosine, RSCU_Slope, RSCU_R2, RSCU_Cosine, virus_TAAI_hosttRNA, virus_TAAI_totaltRNA, virus_TCAI_hosttRNA, virus_TCAI_totaltRNA)),
-            columns=["pairs", "GCdiff", "k3dist", "k6dist", "Homology", "Codon_Frq_Slope", "Codon_Frq_R2", "Codon_Frq_Cosine", "AA_Frq_Slope", "AA_Frq_R2", "AA_Frq_Cosine", "RSCU_Slope", "RSCU_R2", "RSCU_Cosine", "virus_TAAI_hosttRNA", "virus_TAAI_totaltRNA", "virus_TCAI_hosttRNA", "virus_TCAI_totaltRNA"],
+            list(zip(pairs, GCdiff, k3dist, k6dist, Homology, Codon_Frq_Slope, Codon_Frq_R2, Codon_Frq_Cosine, AA_Frq_Slope, AA_Frq_R2, AA_Frq_Cosine, RSCU_Slope, RSCU_R2, RSCU_Cosine, virusTAAI_hosttRNA, virusTAAI_totaltRNA, virusTCAI_hosttRNA, virusTCAI_totaltRNA)),
+            columns=["pairs", "GCdiff", "k3dist", "k6dist", "Homology", "Codon_Frq_Slope", "Codon_Frq_R2", "Codon_Frq_Cosine", "AA_Frq_Slope", "AA_Frq_R2", "AA_Frq_Cosine", "RSCU_Slope", "RSCU_R2", "RSCU_Cosine", "virusTAAI_hosttRNA", "virusTAAI_totaltRNA", "virusTCAI_hosttRNA", "virusTCAI_totaltRNA"],
         )
         self.features_df = self.features_df.set_index("pairs")  # pyright: ignore[reportUnknownMemberType]
 
