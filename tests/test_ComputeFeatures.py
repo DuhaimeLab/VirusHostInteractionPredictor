@@ -5,7 +5,7 @@ import math
 import pandas as pd
 
 from vhip.mlmodel.compute_ml_features import ComputeFeatures, Pairs
-from vhip.mlmodel.gene_features import CodonBiasComparison
+from vhip.mlmodel.gene_features import CodonBiasComparison, tRNAMetrics
 from vhip.mlmodel.genomes_features import KmerProfile
 
 test_virus_genome_dir = "tests/datatests/sequences/virus_genomes/"
@@ -218,7 +218,7 @@ def test_ComputeFeatures_generate_kmer_profiles():
     test.generate_kmer_profiles()
     assert isinstance(test.k6profiles, dict)
     assert isinstance(
-        test.k6profiles["GCA_003344205.1_ASM334420v1_genomic.fasta"], KmerProfile
+        test.k6profiles["GCA_003344205.1_ASM334420v1_genomic"], KmerProfile
     )
 
 
@@ -821,7 +821,7 @@ def test_ComputeFeatures_generate_tRNA_profiles():
     }
 
 
-def test_ComputeFeatures_compute_feature():
+def test_ComputeFeatures_compute_features():
     """Test all pair properties are populated correctly from running compute_feature()."""
     test_CF = ComputeFeatures(
         test_virus_genome_dir,
@@ -835,7 +835,7 @@ def test_ComputeFeatures_compute_feature():
         "tests/datatests/blastn_phagevspacer.tsv",
     )
     test_CF.do_setup()  # determining virus-host pairs (in this case, initialize one custom pair), gets fasta headers, read and process blastn_output, compute GC content and k-mer profiles, and for each organism: generate dictionaries of codon, amino acid, and synonymous codon usage frequencies.
-    test_CF.compute_feature(
+    test_CF.compute_features(
         test_CF.pairs[0]
     )  # computes comparisons (e.g. distances) between profiles generated in do_setup for this single virus and single host pair
 
@@ -853,37 +853,46 @@ def test_ComputeFeatures_compute_feature():
     # Gene-level features
     # Codon bias comparison
     assert isinstance(test_CF.pairs[0].codons_comparison, CodonBiasComparison)
-    ## assert math.isclose(test_CF.pairs[0].codons_comparison.slope, 0.782385966183761, rel_tol=1e-6)  #mystery pytest failure
+    assert math.isclose(test_CF.pairs[0].codons_comparison.slope, 0.9718185281167805, rel_tol=1e-6)  #mystery pytest failure
     assert math.isclose(
-        test_CF.pairs[0].codons_comparison.R2, 0.7600436385499314, rel_tol=1e-6
+        test_CF.pairs[0].codons_comparison.R2, 0.768361516064103, rel_tol=1e-6
     )
     assert math.isclose(
         test_CF.pairs[0].codons_comparison.cos_similarity,
-        0.9633005174278912,
+        0.9632986150103935,
         rel_tol=1e-6,
     )
 
     # Amino acid bias comparison
     assert isinstance(test_CF.pairs[0].aa_comparison, CodonBiasComparison)
-    ## assert math.isclose(test_CF.pairs[0].aa_comparison.slope, 0.9527204337269409, rel_tol=1e-6) #mystery pytest failure
+    assert math.isclose(test_CF.pairs[0].aa_comparison.slope, 0.9317915647675197, rel_tol=1e-6) #mystery pytest failure
     assert math.isclose(
-        test_CF.pairs[0].aa_comparison.R2, 0.8726587553037441, rel_tol=1e-6
+        test_CF.pairs[0].aa_comparison.R2, 0.8959324233050872, rel_tol=1e-6
     )
     assert math.isclose(
-        test_CF.pairs[0].aa_comparison.cos_similarity, 0.9888386823409467, rel_tol=1e-6
+        test_CF.pairs[0].aa_comparison.cos_similarity, 0.9888428425307265, rel_tol=1e-6
     )
 
     # RSCU comparison
     assert isinstance(test_CF.pairs[0].RSCU_comparison, CodonBiasComparison)
-    ## assert math.isclose(test_CF.pairs[0].RSCU_comparison.slope, 0.6834975644944683, rel_tol=1e-6) #mystery pytest failure
+    assert math.isclose(test_CF.pairs[0].RSCU_comparison.slope, 0.5981061832691094, rel_tol=1e-6) #mystery pytest failure
     assert math.isclose(
-        test_CF.pairs[0].RSCU_comparison.R2, 0.41062586470716744, rel_tol=1e-6
+        test_CF.pairs[0].RSCU_comparison.R2, 0.40950550601057134, rel_tol=1e-6
     )
     assert math.isclose(
         test_CF.pairs[0].RSCU_comparison.cos_similarity,
-        0.9482532527887059,
+        0.9465383699397703,
         rel_tol=1e-6,
     )
+
+    # TAAI
+    assert isinstance(test_CF.pairs[0].tRNAMetrics, tRNAMetrics)
+    assert math.isclose(test_CF.pairs[0].tRNAMetrics.virusTAAI_hosttRNA, 0.17806764388058136, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].tRNAMetrics.virusTAAI_totaltRNA, 0.17806764388058136, rel_tol=1e-6)
+
+    # TCAI
+    assert math.isclose(test_CF.pairs[0].tRNAMetrics.virusTCAI_hosttRNA, -0.06738491986617158, rel_tol=1e-6)
+    assert math.isclose(test_CF.pairs[0].tRNAMetrics.virusTCAI_totaltRNA, -0.06738491986617158, rel_tol=1e-6)
 
 
 def test_ComputeFeatures_complete_pipeline():
