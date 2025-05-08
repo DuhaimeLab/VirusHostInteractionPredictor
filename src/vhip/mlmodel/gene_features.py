@@ -671,6 +671,7 @@ class GeneSet:
         # Initialize tRNA count dictionaries, skipping stop codons
         print(f"Counting tRNA genes in {self.id}.")
         self.tRNA_dict_aa: dict[str, int] = {aa: 0 for aa in AA_CONVERSIONS.keys()}
+        self.tRNA_dict_aa_1_letter: dict[str, int] = {aa: 0 for aa in AA_CONVERSIONS.values()}
         self.tRNA_dict_tcc: dict[str, int] = {
             tcc: 0 for tcc in CODON_LIST if tcc not in stop_codons
         }
@@ -705,10 +706,6 @@ class GeneSet:
             self.tRNA_frq_aa_1_letter (str: int): Frequencies of tRNA genes by 1-letter amino acid out of all tRNA genes in the GeneSet.
             self.tRNA_frq_tcc (str: int): Frequencies of tRNA genes by their 'tcc' (tRNA complementary codons) out of all tRNA genes in the GeneSet.
         """
-        if len(self.tRNA_genes) == 0:
-            print(f"No Valid tRNA genes in {self.id} to calculate frequencies.")
-            return
-
         # If tRNA gene counts have not already been calculated, runs tRNA_counts()
         if (
             not hasattr(self, "tRNA_dict_aa")
@@ -727,6 +724,11 @@ class GeneSet:
         self.tRNA_frq_tcc: dict[str, float] = dict.fromkeys(
             self.tRNA_dict_tcc.keys(), 0.0
         )
+
+        # Check if GeneSet has any tRNA genes, aborts calculation (returning 0s) if not
+        if len(self.tRNA_genes) == 0:
+            print(f"No Valid tRNA genes in {self.id} to calculate frequencies.")
+            return
 
         # Calculate frequency of tRNA genes out of total (valid, not skipped) tRNA counts for the GeneSet
         self.tRNA_frq_aa = {
