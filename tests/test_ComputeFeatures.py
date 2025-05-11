@@ -895,6 +895,24 @@ def test_ComputeFeatures_compute_features():
     assert math.isclose(test_CF.pairs[0].tRNAMetrics.virusTCAI_totaltRNA, -0.06738491986617158, rel_tol=1e-6)
 
 
+
+def test_ComputeFeatures_complete_pipeline_NO_PARALLEL():
+    """Check the complete pipeline for ComputeFeatures is working as intended."""
+    test = ComputeFeatures(
+        test_virus_genome_dir,
+        test_host_genome_dir,
+        test_virus_gene_dir,
+        test_host_gene_dir,
+    )
+    test.add_blastn_files(
+        "tests/datatests/blastn_phagevhost.tsv",
+        "tests/datatests/blastn_phagevspacer.tsv",
+    )
+    test.do_setup()
+    for pair in test.pairs:
+        test.compute_features(pair)
+
+
 def test_ComputeFeatures_complete_pipeline():
     """Check the complete pipeline for ComputeFeatures is working as intended."""
     test = ComputeFeatures(
