@@ -16,7 +16,7 @@ class PredictInteractions(ComputeFeatures):
         virus_gene_dir (str): Pathway to the virus annotated gene files directory
         host_gene_dir (str): Pathway to the host annotated gene files directory
         genome_ext (str): Extension used for the fasta file. Default is fasta.
-        gene_ext (str): Extension used for the annotated gene file. Default is ffn.
+        gene_ext (str): Extension used for the annotated gene file. Default is json.
         model (str): Pathway to model to be loaded
     """
 
@@ -27,7 +27,7 @@ class PredictInteractions(ComputeFeatures):
         virus_gene_dir: str,
         host_gene_dir: str,
         genome_ext: str = "fasta",
-        gene_ext: str = "ffn",
+        gene_ext: str = "json",
     ) -> None:
         """Initialize class variables."""
         super().__init__(
