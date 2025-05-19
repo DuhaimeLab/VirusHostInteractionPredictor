@@ -38,7 +38,7 @@ class BuildModel:
         tmp = pd.concat([noninf_downsample, inf_messages])  # pyright: ignore
 
         # select relevant rows for machine learning model
-        self.ml_input = tmp[["GCdiff", "k3dist", "k6dist", "Homology"]]  # pyright: ignore
+        self.ml_input = tmp[["GCdiff", "k3dist", "k6dist", "Homology", "Codon_Frq_Slope", "Codon_Frq_R2", "Codon_Frq_Cosine", "AA_Frq_Slope", "AA_Frq_R2", "AA_Frq_Cosine", "RSCU_Slope", "RSCU_R2", "RSCU_Cosine", "virusTAAI_hosttRNA", "virusTAAI_totaltRNA", "virusTCAI_hosttRNA", "virusTCAI_totaltRNA"]]  # pyright: ignore
         print(
             "The dataframe is made of {} rows and {} columns!".format(
                 self.ml_input.shape[0],  # pyright: ignore[reportUnknownMemberType, reportUnknownArgumentType]
